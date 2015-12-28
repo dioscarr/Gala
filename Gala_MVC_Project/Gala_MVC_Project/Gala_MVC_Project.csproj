@@ -163,6 +163,8 @@
     <Compile Include="Areas\Admin\Controllers\AccountController.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Areas\Admin\Controllers\AdminAboutUSController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminMembersController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManageController.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -172,6 +174,7 @@
     <Compile Include="Areas\Admin\Models\BaseModel.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Areas\Admin\Models\CountryModel.cs" />
     <Compile Include="Areas\Admin\Models\IdentityModels.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -257,6 +260,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Views\AdminAboutUS\" />
+    <Folder Include="Areas\Admin\Views\AdminMembers\" />
+    <Folder Include="Areas\Admin\Views\CountryModel\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
