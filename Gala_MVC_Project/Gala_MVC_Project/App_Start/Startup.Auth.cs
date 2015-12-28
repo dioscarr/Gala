@@ -5,7 +5,7 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
-using Gala_MVC_Project.Models;
+using Gala_MVC_Project.Areas.Admin.Models;
 
 namespace Gala_MVC_Project
 {

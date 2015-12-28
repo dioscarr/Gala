@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="856b1e6a5875415c930372b6a201cfc5" Name="Diagram1">
+        <EntityTypeShape EntityType="GalaDBModel.CMFRelation" Width="1.5" PointX="4.25" PointY="4" />
+        <EntityTypeShape EntityType="GalaDBModel.Country" Width="1.5" PointX="4.25" PointY="0.625" />
+        <EntityTypeShape EntityType="GalaDBModel.Firm" Width="1.5" PointX="7.5" PointY="4.125" />
+        <EntityTypeShape EntityType="GalaDBModel.Slider" Width="1.5" PointX="11" PointY="0.625" />
+        <EntityTypeShape EntityType="GalaDBModel.Team" Width="1.5" PointX="1.5" PointY="4" />
+        <EntityTypeShape EntityType="GalaDBModel.Home" Width="1.5" PointX="13.125" PointY="0.625" />
+        <AssociationConnector Association="GalaDBModel.FK_CMFRelation_Country" />
+        <AssociationConnector Association="GalaDBModel.FK_CMFRelation_Firm" />
+        <AssociationConnector Association="GalaDBModel.FK_CMFRelation_Member" />
+        <AssociationConnector Association="GalaDBModel.FK_Member_Firm" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
