@@ -18,12 +18,12 @@ namespace Gala_MVC_Project.Areas.Admin.Controllers
 
      //public ActionResult UpdateFirm(FirmModel model)
      //   {
-     //       if (model.isNewPicture)
+     //       if (model.Firm.isNewPicture)
      //       {
-     //           model.FirmDetail.picture = ImageUloadFirm(model, "~/Images/advisory");
+     //           model.Firm.FirmDetail.picture = ImageUloadFirm(model, "~/Images/advisory");
      //       }
           
-     //       model.Update(model);
+     //       model.Firm.Update(model);
      //       return RedirectToAction("index");
      //   }
 
@@ -39,24 +39,24 @@ namespace Gala_MVC_Project.Areas.Admin.Controllers
      //           "image/png"
      //       };
 
-     //       if (model.ImageUpload == null || model.ImageUpload.ContentLength == 0)
+     //       if (model.Firm.ImageUpload == null || model.Firm.ImageUpload.ContentLength == 0)
      //       {
      //           ModelState.AddModelError("ImageUpload", "This field is required");
      //       }
-     //       else if (!validImageTypes.Contains(model.ImageUpload.ContentType))
+     //       else if (!validImageTypes.Contains(model.Firm.ImageUpload.ContentType))
      //       {
      //           ModelState.AddModelError("ImageUpload", "Please choose either a GIF, JPG or PNG image.");
      //       }
 
      //       if (ModelState.IsValid)
      //       {
-     //           if (model.ImageUpload != null && model.ImageUpload.ContentLength > 0)
+     //           if (model.Firm.ImageUpload != null && model.Firm.ImageUpload.ContentLength > 0)
      //           {
      //               var uploadDir = url;
-     //               var imagePath = Path.Combine(Server.MapPath(uploadDir), model.ImageUpload.FileName);
-     //               var imageUrl = Path.Combine(uploadDir, model.ImageUpload.FileName);
-     //               model.ImageUpload.SaveAs(imagePath);
-     //               return model.ImageUpload.FileName;
+     //               var imagePath = Path.Combine(Server.MapPath(uploadDir), model.Firm.ImageUpload.FileName);
+     //               var imageUrl = Path.Combine(uploadDir, model.Firm.ImageUpload.FileName);
+     //               model.Firm.ImageUpload.SaveAs(imagePath);
+     //               return model.Firm.ImageUpload.FileName;
      //           }
      //       } return "noimg.jpg";
      //   }

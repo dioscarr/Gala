@@ -46,8 +46,8 @@ intellisense.annotate(jQuery, {
     ///   <param name="handler(options, originalOptions, jqXHR)" type="Function">A handler to return the new transport object to use with the data type provided in the first argument.</param>
     /// </signature>
   },
-  'boxModel': function() {
-    /// <summary>Deprecated in jQuery 1.3 (see jQuery.support). States if the current page, in the user's browser, is being rendered using the W3C CSS Box Model.</summary>
+  'boxmodel.': function() {
+    /// <summary>Deprecated in jQuery 1.3 (see jQuery.support). States if the current page, in the user's browser, is being rendered using the W3C CSS Box model.</summary>
     /// <returns type="Boolean" />
   },
   'browser': function() {

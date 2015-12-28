@@ -5,9 +5,9 @@ using System.Web;
 using DAL.Models;
 using BLL;
 
-namespace Gala_MVC_Project.Areas.Admin.Models
+namespace Gala_MVC_Project.Areas.Admin.model
 {
-    public class BaseModel
+    public class Basemodel
     {
               //  public Contact ContantInfo = ManageContact.GetSingleContact();
 

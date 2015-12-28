@@ -165,6 +165,7 @@
     </Compile>
     <Compile Include="Areas\Admin\Controllers\AdminAboutUSController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminMembersController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CountryFirmController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManageController.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -175,6 +176,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Areas\Admin\Models\CountryModel.cs" />
+    <Compile Include="Areas\Admin\Models\FirmModel.cs" />
     <Compile Include="Areas\Admin\Models\IdentityModels.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -236,6 +238,9 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Areas\Admin\Views\CountryFirm\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\CountryFirm\Insert.cshtml" />
+    <Content Include="Areas\Admin\Views\CountryFirm\Index2.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
