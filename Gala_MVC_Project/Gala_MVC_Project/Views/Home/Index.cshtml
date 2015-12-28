@@ -2,30 +2,120 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<section class="content_slider">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-8">
+                <h2 class="title_slider text_uppercase">did you know</h2>
+                <div id="carousel-example-generic" class="carousel slide carousel-fade" data-ride="carousel" data-interval="3000">
+                    <!-- Wrapper for slides -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                    </ol>
+                    <div class="carousel-inner text_slider">
+                        <div class="item active">
+                            <p class="lead">
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+                                Bait-and-switch is legal in the United States, provided that ads state that there is a limited supply.
+                            </p>
+                        </div>
+                        <div class="item">
+                            <p class="lead">
+
+                                Brazilian Consumer Defense Code provides that informed consumers are essential to a fair and efficient market.
+
+                            </p>
+                        </div>
+                        <div class="item">
+                            <p class="lead">
+
+                                “Astroturfing” is a practice whereby marketers, or their representatives, post fake consumer reviews online to help promote their products or services.
+
+                            </p>
+                        </div>
+                        <div class="item">
+                            <p class="lead">
+
+                                Ukraine reduction of TV and radio advertising limits will make TV advertising during prime time more competitive.
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='col-xs-4 padding_form'>
+                <div class="left_form">
+                    <form class="form_action" action="index_submit" method="get" accept-charset="utf-8">
+                        <h1 class="member_title text_uppercase">find a member</h1>
+                        <div class="home_find_member dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">country<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">one</a></li>
+                                <li><a href="#">two</a></li>
+                                <li><a href="#">three</a></li>
+                            </ul>
+                        </div>
+                        <div class="home_find_member dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">low firm<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">one</a></li>
+                                <li><a href="#">two</a></li>
+                                <li><a href="#">three</a></li>
+                            </ul>
+                        </div>
+                        <div class="home_find_member dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">last name, first name<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">one</a></li>
+                                <li><a href="#">two</a></li>
+                                <li><a href="#">three</a></li>
+                            </ul>
+                        </div>
+                        <!-- <input type="text" name="" value="" placeholder="country"><br>
+                        <input type="text" name="" value="" placeholder="low firm"><br>
+                        <input type="text" name="" value="" placeholder="last name, first name"> -->
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+</section>
+
+<section class="bg_contact">
+    <div class="container content">
+        <div class="row content_text">
+            <div class="col-xs-8 content_home_global">
+                <h1 class="content_title_news text_uppercase">Global advertising lawyers alliance</h1>
+                <p class="home_content_title">GALA is an alliance of lawyers located throughout the world with expertise and experience in advertising, marketing and promotion law. GALA provides a worldwide resource to individuals and corporations interested in answers to questions and solutions to problems involving the complex legal issues affecting advertisers and marketers. </p>
+            </div>
+            <div class='col-xs-4 news_block'>
+                <div class="stuffing_news">
+                    <div class="home_member">
+                        <h1 class="member_title text_uppercase">gala in the news</h1>
+                        <div class="news_img_discr">
+                            <div class="home_news_image pull-left">
+                                <img src="images/news-1.jpg" alt="">
+                            </div>
+                            <div class="home_news_content pull-right">
+                                <p>Felix Hofer's (Italy) participation in AIPPI seminar on Ambush Marketing covered in Italia Oggi.</p>
+                                <span><a class="text_uppercase" href="#">read more ></a></span>
+                            </div>
+                        </div>
+                        <div class="news_img_discr">
+                            <div class="home_news_image pull-left">
+                                <img src="images/news-1.jpg" alt="">
+                            </div>
+                            <div class="home_news_content pull-right">
+                                <p>Felix Hofer's (Italy) participation in AIPPI seminar on Ambush Marketing covered in Italia Oggi.</p>
+                                <span><a class="text_uppercase" href="#">read more ></a></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+</section>
