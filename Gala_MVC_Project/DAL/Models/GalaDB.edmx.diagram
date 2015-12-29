@@ -10,11 +10,11 @@
         <EntityTypeShape EntityType="GalaDBModel.Firm" Width="1.5" PointX="7.5" PointY="4.125" />
         <EntityTypeShape EntityType="GalaDBModel.Slider" Width="1.5" PointX="11" PointY="0.625" />
         <EntityTypeShape EntityType="GalaDBModel.Team" Width="1.5" PointX="1.5" PointY="4" />
-        <EntityTypeShape EntityType="GalaDBModel.Home" Width="1.5" PointX="13.125" PointY="0.625" />
         <AssociationConnector Association="GalaDBModel.FK_CMFRelation_Country" />
         <AssociationConnector Association="GalaDBModel.FK_CMFRelation_Firm" />
         <AssociationConnector Association="GalaDBModel.FK_CMFRelation_Member" />
         <AssociationConnector Association="GalaDBModel.FK_Member_Firm" />
+        <EntityTypeShape EntityType="GalaDBModel.Home" Width="1.5" PointX="0.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

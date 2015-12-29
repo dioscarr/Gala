@@ -49,16 +49,11 @@
           <Property Name="Modified" Type="datetime2" Precision="7" Nullable="false" />
           <Property Name="isDeleted" Type="bit" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'GalaDB.dioscar.Home' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Home">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="Created" />
-            <PropertyRef Name="Modified" />
-            <PropertyRef Name="isDeleted" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Header" Type="nvarchar(max)" />
           <Property Name="Content" Type="nvarchar(max)" />
           <Property Name="Created" Type="datetime2" Precision="7" Nullable="false" />
@@ -147,18 +142,9 @@ warning 6002: The table/view 'GalaDB.dioscar.Home' does not have a primary key d
           <EntitySet Name="CMFRelation" EntityType="Self.CMFRelation" Schema="dioscar" store:Type="Tables" />
           <EntitySet Name="Country" EntityType="Self.Country" Schema="dioscar" store:Type="Tables" />
           <EntitySet Name="Firm" EntityType="Self.Firm" Schema="dioscar" store:Type="Tables" />
+          <EntitySet Name="Home" EntityType="Self.Home" Schema="dioscar" store:Type="Tables" />
           <EntitySet Name="Slider" EntityType="Self.Slider" Schema="dioscar" store:Type="Tables" />
           <EntitySet Name="Team" EntityType="Self.Team" Schema="dioscar" store:Type="Tables" />
-          <EntitySet Name="Home" EntityType="Self.Home" store:Type="Tables" store:Schema="dioscar">
-            <DefiningQuery>SELECT 
-    [Home].[Id] AS [Id], 
-    [Home].[Header] AS [Header], 
-    [Home].[Content] AS [Content], 
-    [Home].[Created] AS [Created], 
-    [Home].[Modified] AS [Modified], 
-    [Home].[isDeleted] AS [isDeleted]
-    FROM [dioscar].[Home] AS [Home]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK_CMFRelation_Country" Association="Self.FK_CMFRelation_Country">
             <End Role="Country" EntitySet="Country" />
             <End Role="CMFRelation" EntitySet="CMFRelation" />
@@ -186,7 +172,6 @@ warning 6002: The table/view 'GalaDB.dioscar.Home' does not have a primary key d
           <EntitySet Name="Firm" EntityType="GalaDBModel.Firm" />
           <EntitySet Name="Slider" EntityType="GalaDBModel.Slider" />
           <EntitySet Name="Team" EntityType="GalaDBModel.Team" />
-          <EntitySet Name="Home" EntityType="GalaDBModel.Home" />
           <AssociationSet Name="FK_CMFRelation_Country" Association="GalaDBModel.FK_CMFRelation_Country">
             <End Role="Country" EntitySet="Country" />
             <End Role="CMFRelation" EntitySet="CMFRelation" />
@@ -203,6 +188,7 @@ warning 6002: The table/view 'GalaDB.dioscar.Home' does not have a primary key d
             <End Role="Firm" EntitySet="Firm" />
             <End Role="Team" EntitySet="Team" />
           </AssociationSet>
+          <EntitySet Name="Home" EntityType="GalaDBModel.Home" />
         </EntityContainer>
         <EntityType Name="CMFRelation">
           <Key>
@@ -286,20 +272,6 @@ warning 6002: The table/view 'GalaDB.dioscar.Home' does not have a primary key d
           <NavigationProperty Name="CMFRelation" Relationship="GalaDBModel.FK_CMFRelation_Member" FromRole="Team" ToRole="CMFRelation" />
           <NavigationProperty Name="Firm" Relationship="GalaDBModel.FK_Member_Firm" FromRole="Team" ToRole="Firm" />
         </EntityType>
-        <EntityType Name="Home">
-          <Key>
-            <PropertyRef Name="Id" />
-            <PropertyRef Name="Created" />
-            <PropertyRef Name="Modified" />
-            <PropertyRef Name="isDeleted" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Header" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Created" Type="DateTime" Nullable="false" Precision="7" />
-          <Property Name="Modified" Type="DateTime" Nullable="false" Precision="7" />
-          <Property Name="isDeleted" Type="Boolean" Nullable="false" />
-        </EntityType>
         <Association Name="FK_CMFRelation_Country">
           <End Type="GalaDBModel.Country" Role="Country" Multiplicity="0..1" />
           <End Type="GalaDBModel.CMFRelation" Role="CMFRelation" Multiplicity="*" />
@@ -348,6 +320,17 @@ warning 6002: The table/view 'GalaDB.dioscar.Home' does not have a primary key d
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Home">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Header" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Modified" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="isDeleted" Type="Boolean" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

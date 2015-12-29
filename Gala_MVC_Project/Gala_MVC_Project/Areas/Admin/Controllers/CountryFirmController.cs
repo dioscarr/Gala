@@ -42,5 +42,11 @@ namespace Gala_MVC_Project.Areas.Admin.Controllers
             CM.Insert(model);
             return RedirectToAction("index");
         }
+
+        public ActionResult Firms()
+        {
+            
+            return View(new FirmModel());
+        }
     }
 }
