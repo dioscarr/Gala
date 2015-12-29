@@ -13,5 +13,9 @@ namespace Gala_MVC_Project.Controllers
         {
             return View();
         }
+        public ActionResult FindMember()
+        {
+            return View();
+        }
     }
 }
