@@ -233,6 +233,10 @@ img {
     z-index: 1;
 }
 /*end Slider for text*/
+.breadcrumb {
+    padding: 2% 0 0;
+    background-color: inherit;
+}
 .padding_form {
     padding-top: 1%;
     padding-bottom: 1%;
