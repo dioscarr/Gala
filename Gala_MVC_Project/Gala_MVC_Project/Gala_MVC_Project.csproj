@@ -242,7 +242,25 @@
     <Content Include="Areas\Admin\Views\CountryFirm\Index.cshtml" />
     <Content Include="Areas\Admin\Views\CountryFirm\Insert.cshtml" />
     <Content Include="Areas\Admin\Views\CountryFirm\Index2.cshtml" />
+    <Content Include="Images\Thumbs.db" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Images\bg-all.jpg" />
+    <Content Include="Images\bg.jpg" />
+    <Content Include="Images\company-logo-1.png" />
+    <Content Include="Images\icon1.jpg" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\member-arrow.jpg" />
+    <Content Include="Images\member-img-2.jpg" />
+    <Content Include="Images\member-img.jpg" />
+    <Content Include="Images\news-1.jpg" />
+    <Content Include="Images\print.png" />
+    <Content Include="Images\publication1.jpg" />
+    <Content Include="Images\share.png" />
+    <Content Include="Images\social-fb.png" />
+    <Content Include="Images\social-in.png" />
+    <Content Include="Images\social-tv.png" />
+    <Content Include="Images\social-yt.png" />
+    <Content Include="Images\user_icon.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -274,6 +292,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Members\Members.cshtml" />
+    <Content Include="Views\Members\FindMember.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
