@@ -217,6 +217,7 @@
     </Compile>
     <Compile Include="Areas\Admin\Models\CountryModel.cs" />
     <Compile Include="Areas\Admin\Models\FirmModel.cs" />
+    <Compile Include="Areas\Admin\Models\HomeModel.cs" />
     <Compile Include="Areas\Admin\Models\IdentityModels.cs">
       <SubType>Code</SubType>
     </Compile>
