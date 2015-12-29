@@ -11,7 +11,7 @@ using System.ComponentModel;
 
 namespace BLL
 {
-    public class CountryManageCountry 
+    public class ManageCountry 
     {
         #region Select Methods -- GetAllCountry, GetById
         [DataObjectMethod(DataObjectMethodType.Select)]

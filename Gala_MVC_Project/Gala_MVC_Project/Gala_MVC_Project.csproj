@@ -165,6 +165,7 @@
     </Compile>
     <Compile Include="Areas\Admin\Controllers\AdminAboutUSController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminMembersController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CountryFirmController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManageController.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -175,6 +176,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Areas\Admin\Models\CountryModel.cs" />
+    <Compile Include="Areas\Admin\Models\FirmModel.cs" />
     <Compile Include="Areas\Admin\Models\IdentityModels.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -237,33 +239,10 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Images\Thumbs.db" />
-    <Content Include="fonts\2FE2A8_0_0.eot" />
-    <Content Include="fonts\2FE2A8_0_0.ttf" />
-    <Content Include="fonts\2FE2A8_0_0.woff" />
-    <Content Include="fonts\2FE2A8_0_0.woff2" />
-    <Content Include="fonts\2FE2A8_1_0.eot" />
-    <Content Include="fonts\2FE2A8_1_0.ttf" />
-    <Content Include="fonts\2FE2A8_1_0.woff" />
-    <Content Include="fonts\2FE2A8_1_0.woff2" />
+    <Content Include="Areas\Admin\Views\CountryFirm\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\CountryFirm\Insert.cshtml" />
+    <Content Include="Areas\Admin\Views\CountryFirm\Index2.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Images\bg-all.jpg" />
-    <Content Include="Images\bg.jpg" />
-    <Content Include="Images\company-logo-1.png" />
-    <Content Include="Images\icon1.jpg" />
-    <Content Include="Images\logo.png" />
-    <Content Include="Images\member-arrow.jpg" />
-    <Content Include="Images\member-img-2.jpg" />
-    <Content Include="Images\member-img.jpg" />
-    <Content Include="Images\news-1.jpg" />
-    <Content Include="Images\print.png" />
-    <Content Include="Images\publication1.jpg" />
-    <Content Include="Images\share.png" />
-    <Content Include="Images\social-fb.png" />
-    <Content Include="Images\social-in.png" />
-    <Content Include="Images\social-tv.png" />
-    <Content Include="Images\social-yt.png" />
-    <Content Include="Images\user_icon.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -288,6 +267,8 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Shared\Lockout.cshtml" />
