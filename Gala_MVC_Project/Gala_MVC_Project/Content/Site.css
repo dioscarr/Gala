@@ -217,7 +217,7 @@ img {
     transition: opacity 0.5s ease-in-out;
     opacity:0;
 }
-.carousel.carousel-fade .active.item {
+.carousel.carousel-fade .active.item { 
     opacity:1;
 }
 .carousel.carousel-fade .active.left,
@@ -302,7 +302,7 @@ img {
     height: 16px;*/
 }
 .bg_contact {
-    background-color: 
+    /*background-color:;*/ 
 }
 .content_title_news {
     padding: 2% 0;
