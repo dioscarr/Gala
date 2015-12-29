@@ -780,3 +780,8 @@ table#t01 tr:hover {
         page-break-after: avoid;
     }
 }
+
+.form-group {
+padding-bottom: 40px;
+
+}
