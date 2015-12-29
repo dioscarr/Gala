@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewBag.Title = "FindMember";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="about_content_slider">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="about_title text_uppercase">Members</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg_contact">
+    <div class="container content">
+        <div class="row">
+            <div class="col-xs-12">
+                <ol class="breadcrumb">
+                    <li><a href="~/Home">Home</a></li>
+                    <li class="active">Members</li>
+                </ol>
+                <p class="findmember_main_title">GALA is an alliance of lawyers located throughout the world with expertise and experience in advertising, marketing, and promotion law, representing more than 80 countries.  Detailed information about each of our members is located below. </p>
+            </div>
+        </div>
+
+        <div class="row content_text">
+            <div class="col-xs-12 content_global">
+                <table id="t01" class="find_all_member" style="width:100%">
+                    <tr class="find_all_member_name">
+                        <th class="find_all_member_name_first">Contry</th>
+                        <th class="find_all_member_name_first">Firm</th>
+                        <th class="find_all_member_name_last">Name</th>
+                        <th>Description</th>
+                    </tr>
+                    @for (var i = 0; i < 5; i++)
+                    {
+
+                        <tr>
+                            <td><a href="#"><img src="~/Images/icon1.jpg"> Anguilla</a></td>
+                            <td><a href="#">FOGA DALEY</a></td>
+                            <td><a href="#">Damaso A. Pardo</a></td>
+                            <td class="member_more_info"><a href="#">More info <img src="~/Images/member-arrow.jpg"></a></td>
+                        </tr>
+                    }
+                    
+                   
+
+                </table>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 membership member_membership">
+                <div class="news_block">
+                    <div class="stuffing_news stuffing_findmember_news">
+                        <div class="home_member bottom_home_member">
+                            <div class="pull-left member_info bottom_home_info">
+                                <p>For information about joining GALA as a law firm member, see Membership.</p>
+                                <input class="text_uppercase" type="submit" value="MEMBERSHIP">
+                            </div>
+                            <div class="pull-right member_info bottom_home_info">
+                                <p>For information about joining GALA as a corporate member, see Associate Membership.</p>
+                                <input class="text_uppercase" type="submit" value="ASSOCIATE MEMBERSHIP">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+

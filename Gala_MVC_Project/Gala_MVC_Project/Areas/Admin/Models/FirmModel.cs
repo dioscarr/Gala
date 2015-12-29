@@ -4,10 +4,11 @@ using System.Linq;
 using System.Web;
 using DAL.Models;
 using BLL;
+using Gala_MVC_Project.Areas.Admin.Models;
 
 namespace Gala_MVC_Project.Areas.Admin.Models
 {
-    public class FirmModel
+    public class FirmModel:Basemodel
     {
         public Firm Firm { get; set; }
         public List<Firm> Firms { get; set; }

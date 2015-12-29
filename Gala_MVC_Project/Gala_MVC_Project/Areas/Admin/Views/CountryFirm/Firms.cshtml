@@ -1,5 +1,4 @@
 ﻿@model Gala_MVC_Project.Areas.Admin.Models.FirmModel
-
 @{
     ViewBag.Title = "Firms";
     Layout = "~/Areas/Admin/Views/Shared/Admin_Layout.cshtml";
@@ -17,7 +16,7 @@
                     <div class="form-group " style="  padding-bottom:0!important;">
 
                         <p>
-                            @Html.ActionLink("Create New", "Create")
+                            @Html.ActionLink("Create New", "Index")
                         </p>
                         <table class="table">
                             <tr>
@@ -37,7 +36,7 @@
                                     @Html.DisplayNameFor(model => model.Firms[0].Zip)
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.Firms[0].Tel)
+                                   @Html.DisplayNameFor(model => model.Firms[0].Tel)
                                 </th>
                                 <th>
                                     @Html.DisplayNameFor(model => model.Firms[0].Fax)
@@ -48,7 +47,7 @@
                                 <th>
                                     @Html.DisplayNameFor(model => model.Firms[0].AboutContent)
                                 </th>
-                                
+
                                 <th></th>
                             </tr>
 
@@ -80,9 +79,9 @@
                                         @Html.DisplayFor(modelItem => item.web)
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.AboutContent)
+                                        @Model.Truncate(@item.AboutContent.ToString(),130)
                                     </td>
-                                    
+
                                     <td>
                                         @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
                                         @Html.ActionLink("Details", "Details", new { id = item.Id }) |

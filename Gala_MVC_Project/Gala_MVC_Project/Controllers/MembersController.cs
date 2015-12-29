@@ -9,11 +9,16 @@ namespace Gala_MVC_Project.Controllers
     public class MembersController : Controller
     {
         // GET: Members
-        public ActionResult Members()
+        public ActionResult Firm()
         {
             return View();
         }
-        public ActionResult FindMember()
+        public ActionResult MemberList()
+        {
+            return View();
+        }
+
+        public ActionResult Member()
         {
             return View();
         }
