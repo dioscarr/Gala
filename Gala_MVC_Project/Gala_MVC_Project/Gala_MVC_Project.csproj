@@ -228,8 +228,10 @@
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Models\MemberModel.cs" />
     <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MembersController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -812,6 +814,10 @@
     <Content Include="Views\Members\Firm.cshtml" />
     <Content Include="Views\Members\Member.cshtml" />
     <Content Include="Views\Members\MemberList.cshtml" />
+    <Content Include="Views\Events\EventList.cshtml" />
+    <Content Include="Views\Events\EventArchive.cshtml" />
+    <Content Include="Views\News\NewList.cshtml" />
+    <Content Include="Views\News\NewArchive.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -305,15 +305,13 @@ img {
     /*background-color:;*/ 
 }
 .content_title_news {
-    padding: 2% 0;
+    padding: 1% 0;
     margin:0;
+    color: #1c75bb;
+    font-size: 2em;
 }
 .content {
     background-color: #ffffff;
-}
-.content_title_news {
-    color: #1c75bb;
-    font-size: 2em;
 }
 .content_home_global {
     padding: 3% 15px;
@@ -412,9 +410,10 @@ footer .footer_text_muted {
 }
 .about_title {
     color: white;
-    font-weight: bold;
-    padding: 1.5em 0;
-    font-size: 1.5em;
+    font-weight: 600;
+    padding: 1em 0;
+    margin: 0;
+    font-size: 2em;
 }
 .member_info {
     text-align: center;
