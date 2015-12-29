@@ -159,7 +159,7 @@ img {
 }
 .nav_bar_menu>li:last-child>a {
     padding-right:0;
-}
+} 
 .nav_bar_menu>li>a {
     text-transform: uppercase;
     color: #666666;
