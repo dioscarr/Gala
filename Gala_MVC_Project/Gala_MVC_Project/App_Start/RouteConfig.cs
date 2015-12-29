@@ -18,6 +18,13 @@ namespace Gala_MVC_Project
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }, namespaces: new string[] { "Gala_MVC_Project.Controllers" }
             );
+
+
+            routes.MapRoute(
+               name: "MembersDef",
+               url: "{controller}/{action}/{id}",
+               defaults: new { controller = "Members", action = "Members", id = UrlParameter.Optional }, namespaces: new string[] { "Gala_MVC_Project.Controllers" }
+           );
         }
     }
 }

@@ -151,11 +151,35 @@ img {
 .logo_and_search {
     padding: 0 0 3%;
 }
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    padding: 0;
+}
+.nav_bar_menu>li:first-child>a {
+    padding-left:0;
+}
+.nav_bar_menu>li:last-child>a {
+    padding-right:0;
+}
 .nav_bar_menu>li>a {
     text-transform: uppercase;
     color: #666666;
     font-size: 1.5em;
 }
+
+.menu {
+     position: relative; display: table;
+     width: 100%; height: 50px;
+}
+.menu li {
+    display: table-cell; position: relative;
+}
+.menu li a {
+    display: block; position: relative;
+    width: 100%; height: 100%;
+    text-align:center;
+    line-height: 50px;
+}
+
 .header_menu  {
     margin: 0;
 }
