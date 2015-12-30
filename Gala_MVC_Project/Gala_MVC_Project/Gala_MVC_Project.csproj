@@ -232,6 +232,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MembersController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\PublicationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -818,6 +819,9 @@
     <Content Include="Views\Events\EventArchive.cshtml" />
     <Content Include="Views\News\NewList.cshtml" />
     <Content Include="Views\News\NewArchive.cshtml" />
+    <Content Include="Views\Publication\Publication.cshtml" />
+    <Content Include="Views\Publication\GazetteArchive.cshtml" />
+    <Content Include="Views\Publication\GazetteArticle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
