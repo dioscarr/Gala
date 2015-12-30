@@ -20,41 +20,37 @@
                     </p>
                     <table class="table">
                         <tr>
+                            <th>
+
+                                @Html.DisplayName("Country")
+                            </th>
+                            <th>
+
+                                @Html.DisplayName("Firm")
+                            </th>
                            
                             <th>
-                                @Html.DisplayNameFor(model => model.Member.FName)
+                              
+                                @Html.DisplayName("Name")
                             </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Member.LName)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Member.MInitial)
-                            </th>
-                         
+                                                      
                            
-                            <th></th>
                         </tr>
 
-                        @foreach (var item in Model.Members)
+                        @foreach (var item in Model.MemberList)
                         {
                             <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Country)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Firm)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+
+                                </td>                                                               
                                
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.FName)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.LName)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.MInitial)
-                                </td>
-                                
-                               
-                                <td>
-                                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                                </td>
                             </tr>
                         }
 

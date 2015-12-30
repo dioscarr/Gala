@@ -14,16 +14,17 @@ namespace Gala_MVC_Project.Areas.Admin.Controllers
         // GET: Admin/Member
         public ActionResult MemberList()
         {
-           
-          
+
+            MemberModel MM = new MemberModel();
+          MM.LoadMemberList();
             
-            return View(new MemberModel());
+            return View(MM);
         }
         [HttpGet]
         public ActionResult AddNewMember()
         {
             CountryModel CM = new CountryModel();
-            ViewBag.Countries = CM.Countries.Select(c => new SelectListItem { Text = c.CountryName, Value = c.CountryName }).ToList();//get list of country
+            ViewBag.Countries = CM.Countries.Select(c => new SelectListItem { Text = c.CountryName, Value = c.Id.ToString() }).ToList();//get list of country
             ViewBag.Firms = ManageFirm.GetAllFirm().Select(c => new SelectListItem { Text = c.FirmName, Value = c.Id.ToString() }).ToList();// get list of firms 
             List<SelectListItem> type = new List<SelectListItem>();
             type.Add(new SelectListItem { Text = "Member", Value = "Member" });
@@ -42,11 +43,11 @@ namespace Gala_MVC_Project.Areas.Admin.Controllers
             try
             {
 
-
+                model.Member.FirmID = model.FID;
                 //insert member 
                 model.Insert(model);
                 model.InsertRelations(model.Member.Id, model.FID, model.CID);// insert relationship country id, member id, firm id 
-                return View();
+                return RedirectToAction("MemberList");
             }
             catch (Exception)
             {

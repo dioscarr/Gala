@@ -11,6 +11,7 @@ namespace DAL.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.Web.Mvc;
     
     public partial class Team
     {
@@ -25,6 +26,7 @@ namespace DAL.Models
         public string FName { get; set; }
         public string LName { get; set; }
         public string MInitial { get; set; }
+        [AllowHtml]
         public string BIO { get; set; }
         public string Title { get; set; }
         public string Email { get; set; }
