@@ -227,8 +227,13 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Models\MemberModel.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MembersController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\PublicationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -289,7 +294,25 @@
     <Content Include="Areas\Admin\Views\CountryFirm\Firms.cshtml" />
     <Content Include="Areas\Admin\Views\AdminMember\MemberList.cshtml" />
     <Content Include="Areas\Admin\Views\AdminMember\AddNewMember.cshtml" />
+    <Content Include="Images\Thumbs.db" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Images\bg-all.jpg" />
+    <Content Include="Images\bg.jpg" />
+    <Content Include="Images\company-logo-1.png" />
+    <Content Include="Images\icon1.jpg" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\member-arrow.jpg" />
+    <Content Include="Images\member-img-2.jpg" />
+    <Content Include="Images\member-img.jpg" />
+    <Content Include="Images\news-1.jpg" />
+    <Content Include="Images\print.png" />
+    <Content Include="Images\publication1.jpg" />
+    <Content Include="Images\share.png" />
+    <Content Include="Images\social-fb.png" />
+    <Content Include="Images\social-in.png" />
+    <Content Include="Images\social-tv.png" />
+    <Content Include="Images\social-yt.png" />
+    <Content Include="Images\user_icon.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\ckeditor\adapters\jquery.js" />
@@ -790,6 +813,15 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Members\Members.cshtml" />
+    <Content Include="Views\About\About.cshtml" />
+    <Content Include="Views\Contact\Contact.cshtml" />
+    <Content Include="Views\Events\EventArchive.cshtml" />
+    <Content Include="Views\Events\EventList.cshtml" />
+    <Content Include="Views\News\NewArchive.cshtml" />
+    <Content Include="Views\News\NewList.cshtml" />
+    <Content Include="Views\Publication\GazetteArchive.cshtml" />
+    <Content Include="Views\Publication\GazetteArticle.cshtml" />
+    <Content Include="Views\Publication\Publication.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
