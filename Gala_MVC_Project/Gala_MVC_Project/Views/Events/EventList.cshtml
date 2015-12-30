@@ -1,0 +1,96 @@
+﻿
+@{
+    ViewBag.Title = "EventList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="about_content_slider">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="about_title text_uppercase">Events</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg_contact">
+    <div class="container content">
+        <div class="row">
+            <div class="col-xs-12">
+                <ol class="breadcrumb">
+                    <li><a href="~/Home">Home</a></li>
+                    <li class="active">Events</li>
+                </ol>
+            </div>
+        </div>
+        <div class="row content_text">
+            <div class="col-xs-8 content_global">
+
+                <div class="bio_top_title">
+                    <div class="pull-left">
+                        <h1 class="content_title_news">GALA Events</h1>
+                    </div>
+                    <div class="pull-right print_share">
+                        <h4 class="events_archive text_uppercase"><a href="~/Events/Eventarchive">View Archive ></a></h4>
+                    </div>
+                </div>
+                <hr>
+                <div class="events_table">
+
+                    @for (var i = 0; i < 5; i++)
+                    {
+                        <p class="events_text_content">
+                            <span class="event_data pull-left">July 30, 2015</span><span class="events_content pull-right">The Marketing Site covers GALA news on restrictions on food advertising to children in Chile</span>
+                        </p>
+                    }
+
+                    <a href="#">Show more...</a>
+                </div>
+
+                <div class="bio_top_title">
+                    <div class="pull-left">
+                        <h1 class="content_title_news">Other Events</h1>
+                    </div>
+                    <div class="pull-right print_share">
+                        <h4 class="events_archive text_uppercase"><a href="~/Events/Eventarchive">View Archive ></a></h4>
+                    </div>
+                </div>
+                <hr>
+                <div class="events_table">
+                    <p class="events_text_content">
+                        <span class="event_data pull-left">July 30, 2015</span><span class="events_content pull-right"><b>New Regulations In Chile Restrict Food Advertising To Children</b><br>GALA to host webinar on July 30, 2015 to discuss developments in worldwide food advertising rules Press Release</span>
+                    </p>
+                    <p class="events_text_content">
+                        <span class="event_data pull-left">July 30, 2015</span><span class="events_content pull-right">Global Advertising Lawyers Alliance Releases Video Series On Advertising Law Compliance</span>
+                    </p>
+                    <p class="events_text_content">
+                        <span class="event_data pull-left">July 30, 2015</span><span class="events_content pull-right">Global Advertising Lawyers Alliance To Hold International Advertising Law Seminar In Santiago</span>
+                    </p>
+                    <p class="events_text_content">
+                        <span class="event_data pull-left">July 30, 2015</span><span class="events_content pull-right">Global Advertising Lawyers Alliance Adds New Member In Paraguay</span>
+                    </p>
+                    <p class="events_text_content">
+                        <span class="event_data pull-left">July 30, 2015</span><span class="events_content pull-right">China Enacts Its First Major Changes to Its Advertising Laws In Twenty Years</span>
+                    </p>
+                    <a href="#">Show more...</a>
+                </div>
+
+            </div>
+            <div class='col-xs-4 membership'>
+                <div class="news_block events_block">
+                    <div class="stuffing_news stuffing_events">
+                        <div class="home_member">
+                            <h1 class="member_title text_uppercase member_events_title">join the mailing list</h1>
+                            <div class="member_info member_events_info">
+                                <p>Would you like to receive the GALA News? Click the link below to subscribe.</p>
+                                <input class="text_uppercase" type="submit" value="SUBSCRIBE">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
