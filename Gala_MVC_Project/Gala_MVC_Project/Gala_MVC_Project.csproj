@@ -286,9 +286,9 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Areas\Admin\Views\CountryFirm\Index.cshtml" />
     <Content Include="Areas\Admin\Views\CountryFirm\Insert.cshtml" />
-    <Content Include="Areas\Admin\Views\CountryFirm\Index2.cshtml" />
     <Content Include="Areas\Admin\Views\CountryFirm\Firms.cshtml" />
     <Content Include="Areas\Admin\Views\AdminMember\MemberList.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminMember\AddNewMember.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -794,7 +794,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\AdminAboutUS\" />
-    <Folder Include="Areas\Admin\Views\Member\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

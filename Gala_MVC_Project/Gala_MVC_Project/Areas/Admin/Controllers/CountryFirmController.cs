@@ -14,14 +14,14 @@ namespace Gala_MVC_Project.Areas.Admin.Controllers
         public ActionResult Index()
         {
             CountryModel CM = new CountryModel();
-
-            ViewBag.Countries = CM.Countries.Select(c=> new SelectListItem{ Text =c.CountryName, Value=c.Id.ToString() }).ToList();
+            ViewBag.Countries = CM.Countries.Select(c => new SelectListItem { Text = c.CountryName, Value = c.CountryName }).ToList();
+        
+          
             return View(new FirmModel());
         }
         [HttpPost]
         public ActionResult Index(FirmModel model)
         {
-
             model.Insert(model);
             return RedirectToAction("index");
         }

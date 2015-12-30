@@ -5,16 +5,19 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="856b1e6a5875415c930372b6a201cfc5" Name="Diagram1">
-        <EntityTypeShape EntityType="GalaDBModel.CMFRelation" Width="1.5" PointX="4.25" PointY="4" />
-        <EntityTypeShape EntityType="GalaDBModel.Country" Width="1.5" PointX="4.25" PointY="0.625" />
-        <EntityTypeShape EntityType="GalaDBModel.Firm" Width="1.5" PointX="7.5" PointY="4.125" />
+        <EntityTypeShape EntityType="GalaDBModel.CMFRelation" Width="1.5" PointX="3.5" PointY="3.75" />
+        <EntityTypeShape EntityType="GalaDBModel.Country" Width="1.5" PointX="3.5" PointY="0.625" />
         <EntityTypeShape EntityType="GalaDBModel.Slider" Width="1.5" PointX="11" PointY="0.625" />
-        <EntityTypeShape EntityType="GalaDBModel.Team" Width="1.5" PointX="1.5" PointY="4" />
         <AssociationConnector Association="GalaDBModel.FK_CMFRelation_Country" />
-        <AssociationConnector Association="GalaDBModel.FK_CMFRelation_Firm" />
-        <AssociationConnector Association="GalaDBModel.FK_CMFRelation_Member" />
-        <AssociationConnector Association="GalaDBModel.FK_Member_Firm" />
         <EntityTypeShape EntityType="GalaDBModel.Home" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="GalaDBModel.Firm" Width="1.5" PointX="6.375" PointY="4.625" />
+        <AssociationConnector Association="GalaDBModel.FK_CMFRelation_Firm" />
+        <EntityTypeShape EntityType="GalaDBModel.Team" Width="1.5" PointX="8.625" PointY="3.625" />
+        <AssociationConnector Association="GalaDBModel.FK_CMFRelation_Member" ManuallyRouted="true" >
+          <ConnectorPoint PointX="8.625" PointY="4.15625" />
+          <ConnectorPoint PointX="5" PointY="4.15625" />
+        </AssociationConnector>
+        <AssociationConnector Association="GalaDBModel.FK_Member_Firm" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
