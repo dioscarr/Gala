@@ -142,6 +142,7 @@ img {
 }
 .search_block {
     margin-top: 5%;
+    padding-left: 0;
 }
 .search_block>.input-group>input[type="text"] {
     text-transform: uppercase;
