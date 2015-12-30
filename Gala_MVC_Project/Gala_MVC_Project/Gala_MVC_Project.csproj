@@ -228,6 +228,7 @@
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Models\MemberModel.cs" />
     <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MembersController.cs" />
@@ -822,6 +823,7 @@
     <Content Include="Views\Publication\Publication.cshtml" />
     <Content Include="Views\Publication\GazetteArchive.cshtml" />
     <Content Include="Views\Publication\GazetteArticle.cshtml" />
+    <Content Include="Views\Contact\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
