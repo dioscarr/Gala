@@ -82,7 +82,8 @@ namespace BLL
                 using (UnitOfWork uow = new UnitOfWork(_connectionString, _pwd))
                 {
                     uow.RepositoryFactory<R>().Add(entity);
-                    uow.Save();
+                   uow.Save();
+                   
                 }
 
                 return true;

@@ -11,7 +11,7 @@ namespace DAL.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
+    using System.Web.Mvc;
     
     public partial class Firm
     {
@@ -23,7 +23,6 @@ namespace DAL.Models
         }
     
         public int Id { get; set; }
-        [Display(Name = "Firm Name")]
         public string FirmName { get; set; }
         public string Address { get; set; }
         public string City { get; set; }
@@ -32,8 +31,9 @@ namespace DAL.Models
         public string Tel { get; set; }
         public string Fax { get; set; }
         public string web { get; set; }
-         [Display(Name = "About Content")]
+        [AllowHtml]
         public string AboutContent { get; set; }
+        public string Country { get; set; }
         public Nullable<int> NewsID { get; set; }
         public Nullable<int> PressID { get; set; }
         public Nullable<int> Publication { get; set; }

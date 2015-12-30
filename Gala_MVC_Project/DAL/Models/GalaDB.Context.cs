@@ -27,9 +27,9 @@ namespace DAL.Models
     
         public virtual DbSet<CMFRelation> CMFRelation { get; set; }
         public virtual DbSet<Country> Country { get; set; }
-        public virtual DbSet<Firm> Firm { get; set; }
         public virtual DbSet<Slider> Slider { get; set; }
-        public virtual DbSet<Team> Team { get; set; }
         public virtual DbSet<Home> Home { get; set; }
+        public virtual DbSet<Firm> Firm { get; set; }
+        public virtual DbSet<Team> Team { get; set; }
     }
 }
