@@ -207,7 +207,7 @@ img {
     color: white;
     font-size: 2.3em;
     text-shadow: 2px 2px grey;
-    padding: 0 0 1%;
+    padding: 0 0 2%;
     line-height: 1.2;
 }
 /*Slider for text*/
@@ -301,8 +301,16 @@ img {
     color: white;
 }
 .carousel-indicators>li, .carousel-indicators>.active {
-    /*width: 16px;
-    height: 16px;*/
+    width: 14px;
+    height: 14px;
+    margin: 2px
+}
+.carousel-indicators li {
+    background-color: white;
+}
+.carousel-indicators .active {
+    background-color: #004379;
+    border:none;
 }
 .bg_contact {
     /*background-color:;*/ 
