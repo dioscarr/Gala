@@ -156,6 +156,7 @@
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Owin">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
@@ -698,7 +699,6 @@
     <Content Include="Scripts\ckeditor\styles.js" />
     <Content Include="Scripts\ie10-viewport-bug-workaround.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-2.0.0.min.map" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -809,7 +809,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Members\Members.cshtml" />
