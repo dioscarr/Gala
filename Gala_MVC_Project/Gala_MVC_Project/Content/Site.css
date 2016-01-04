@@ -23,6 +23,11 @@
      font-style: normal;
 }
 
+
+
+.outline {
+outline:1px solid red;
+}
 html{
     width: 100%; 
 }
@@ -33,7 +38,7 @@ body,html {
     height: 100%;
 }
 #wrapper {
-    min-height: 100%;
+    /*min-height: 100%;*/
     position: relative;
     /*margin-bottom: -40px;*/
 }
@@ -321,11 +326,13 @@ img {
     border:none; 
 }
 .content_text{
-    margin-bottom: 40px;
+    margin-bottom: 40px; 
+    height:100%;
 }
 .bg_contact {
     /*background-color:;*/ 
     /*margin-bottom: 40px;*/
+    
 }
 .content_title_news {
     padding: 1% 0;
@@ -335,6 +342,9 @@ img {
 }
 .content {
     background-color: #ffffff;
+
+
+    height:auto;
 }
 .content_home_global {
     padding: 3% 15px;
@@ -566,6 +576,10 @@ footer .footer_text_muted {
 }
 .member_bio_contact_info {
     padding-top: 7%;
+
+}
+.about_member_person_img {
+    width: 35%;
 }
 /*bio end*/
 
