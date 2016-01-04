@@ -191,8 +191,9 @@ img {
 .header_menu  {
     margin: 0;
 }
-.content_slider {
+.content_slider { 
     background-image: url("../images/bg.jpg");
+    background-size: cover;
 }
 .title_slider {
     color: white;
