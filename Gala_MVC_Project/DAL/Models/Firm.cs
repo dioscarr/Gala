@@ -11,7 +11,6 @@ namespace DAL.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.Web.Mvc;
     
     public partial class Firm
     {
@@ -31,7 +30,6 @@ namespace DAL.Models
         public string Tel { get; set; }
         public string Fax { get; set; }
         public string web { get; set; }
-        [AllowHtml]
         public string AboutContent { get; set; }
         public string Country { get; set; }
         public Nullable<int> NewsID { get; set; }

@@ -12,7 +12,7 @@ namespace Gala_MVC_Project.Areas.Admin.Controllers
     public class AdminMemberController : Controller
     {
         // GET: Admin/Member
-        public ActionResult MemberList()
+        public ActionResult MemberList(int id)
         {
 
             MemberModel MM = new MemberModel();
