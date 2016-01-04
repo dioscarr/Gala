@@ -401,7 +401,7 @@ img {
     color: grey;
     font-weight: bold;
     font-size: .8em;
-}
+} 
 
 footer {
   position: absolute;
@@ -415,6 +415,7 @@ footer {
 footer>.container {
     position: relative;
     height: 40px;
+    padding: 0;
 }
 footer>.container>.footer_main_cont {
     position: absolute;
@@ -422,7 +423,7 @@ footer>.container>.footer_main_cont {
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-        width: 97%;
+        width: 100%;
 }
 footer .footer_text_muted {
     color: white;
@@ -440,8 +441,12 @@ footer .footer_text_muted {
 .footer_list_date>li>a:hover {
     color: #004399;
 }
-.social_images>img {
-    /*margin: 0 0 0 4%;*/
+.social_images  {
+    width: 15%;
+}
+.social_images>a>img {
+    margin: 0 0 0 4%;
+    float: right;
 }
 /*mail styles end*/
 
