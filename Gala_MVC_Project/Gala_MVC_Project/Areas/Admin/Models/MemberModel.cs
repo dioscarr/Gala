@@ -6,14 +6,22 @@ using DAL.Models;
 using BLL;
 using Gala_MVC_Project.Areas.Admin.Models;
 
+
 namespace Gala_MVC_Project.Areas.Admin.Models
 {
+    
     public class MemberModel:Basemodel
     {
+        GalaDBEntities db;
+
          public Team Member { get; set; }
         public List<Team> Members { get; set; }
         public int FID { get; set; }
         public int CID { get; set; }
+        public List<MemberList> MemberList { get; set; }
+        public List<CMFRelation> CMF { get; set; }
+
+
 
 
 
@@ -26,6 +34,21 @@ namespace Gala_MVC_Project.Areas.Admin.Models
             FID=0;
             CID=0;
         }
+
+        public void LoadMemberList() {
+            db = new GalaDBEntities();
+
+            MemberList = db.CMFRelation.Select(c => new MemberList
+            {
+               Country = c.Country.CountryName,
+               Firm = c.Firm.FirmName,
+               Name = c.Team.FName + " " + c.Team.MInitial + " " + c.Team.LName,
+               FID = c.Firm.Id,
+               MID = c.Team.Id
+           }).ToList();
+        
+        }
+
         public bool update(MemberModel model)
         {
             return ManageTeam.UpdateTeam(model.Member);
@@ -48,5 +71,14 @@ namespace Gala_MVC_Project.Areas.Admin.Models
             return ManageTeam.DeleteTeam(ManageTeam.GetById(id));
         }
         
+    }
+
+    public class MemberList
+    {
+        public int FID { get; set; }
+        public int MID { get; set; }
+        public string Country { get; set; }
+        public string Firm { get; set; }
+        public string Name { get; set; }
     }
 }

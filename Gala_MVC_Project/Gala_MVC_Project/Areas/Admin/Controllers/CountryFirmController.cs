@@ -23,7 +23,7 @@ namespace Gala_MVC_Project.Areas.Admin.Controllers
         public ActionResult Index(FirmModel model)
         {
             model.Insert(model);
-            return RedirectToAction("index");
+            return RedirectToAction("Firms");
         }
 
        
@@ -40,13 +40,21 @@ namespace Gala_MVC_Project.Areas.Admin.Controllers
             CountryModel CM = new CountryModel();
 
             CM.Insert(model);
-            return RedirectToAction("index");
+            return RedirectToAction("Firms");
         }
 
         public ActionResult Firms()
         {
             
             return View(new FirmModel());
+        }
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+
+            FirmModel Fm = new FirmModel();
+           Fm.Delete(id);
+            return RedirectToAction("Firms");
         }
     }
 }
