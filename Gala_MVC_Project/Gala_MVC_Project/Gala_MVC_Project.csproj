@@ -297,6 +297,7 @@
     <Content Include="Areas\Admin\Views\CountryFirm\Firms.cshtml" />
     <Content Include="Areas\Admin\Views\AdminMember\MemberList.cshtml" />
     <Content Include="Areas\Admin\Views\AdminMember\AddNewMember.cshtml" />
+    <Content Include="Images\about-arrow.png" />
     <Content Include="Images\Thumbs.db" />
     <Content Include="layout\gala_about_2.psd" />
     <Content Include="layout\gala_biomember_1.psd" />
