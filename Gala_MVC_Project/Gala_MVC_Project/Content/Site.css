@@ -30,7 +30,7 @@ outline:1px solid red;
 html{
     width: 100%; 
 }
-body,html {
+body,html { 
     margin:0;
     padding:0;
     overflow-x: hidden; 
@@ -580,8 +580,11 @@ footer .footer_text_muted {
     padding-top: 7%;
 
 }
-.about_member_person_img {
+.firm_member_person_img {
     width: 35%;
+}
+.firm_member_person_info {
+    width: 60%;
 }
 /*bio end*/
 
