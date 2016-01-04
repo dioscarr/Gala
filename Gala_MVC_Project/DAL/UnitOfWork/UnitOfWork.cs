@@ -43,7 +43,7 @@ namespace DAL.UnitOfWork
 
         public void Save()
         {
-            var id = _context.SaveChanges();
+           _context.SaveChanges();
         }
 
         private bool _disposed = false;

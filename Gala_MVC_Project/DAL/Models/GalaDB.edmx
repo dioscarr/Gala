@@ -169,20 +169,20 @@
     <edmx:ConceptualModels>
       <Schema Namespace="GalaDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="GalaDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Slider" EntityType="GalaDBModel.Slider" />
+          <EntitySet Name="Home" EntityType="GalaDBModel.Home" />
           <EntitySet Name="CMFRelation" EntityType="GalaDBModel.CMFRelation" />
           <EntitySet Name="Country" EntityType="GalaDBModel.Country" />
-          <EntitySet Name="Slider" EntityType="GalaDBModel.Slider" />
+          <EntitySet Name="Firm" EntityType="GalaDBModel.Firm" />
+          <EntitySet Name="Team" EntityType="GalaDBModel.Team" />
           <AssociationSet Name="FK_CMFRelation_Country" Association="GalaDBModel.FK_CMFRelation_Country">
             <End Role="Country" EntitySet="Country" />
             <End Role="CMFRelation" EntitySet="CMFRelation" />
           </AssociationSet>
-          <EntitySet Name="Home" EntityType="GalaDBModel.Home" />
-          <EntitySet Name="Firm" EntityType="GalaDBModel.Firm" />
           <AssociationSet Name="FK_CMFRelation_Firm" Association="GalaDBModel.FK_CMFRelation_Firm">
             <End Role="Firm" EntitySet="Firm" />
             <End Role="CMFRelation" EntitySet="CMFRelation" />
           </AssociationSet>
-          <EntitySet Name="Team" EntityType="GalaDBModel.Team" />
           <AssociationSet Name="FK_CMFRelation_Member" Association="GalaDBModel.FK_CMFRelation_Member">
             <End Role="Team" EntitySet="Team" />
             <End Role="CMFRelation" EntitySet="CMFRelation" />
@@ -191,7 +191,30 @@
             <End Role="Firm" EntitySet="Firm" />
             <End Role="Team" EntitySet="Team" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
+        <EntityType Name="Slider">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Header" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Picture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Modified" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="isDeleted" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Home">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Header" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Modified" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="isDeleted" Type="Boolean" Nullable="false" />
+        </EntityType>
         <EntityType Name="CMFRelation">
           <Key>
             <PropertyRef Name="Id" />
@@ -218,41 +241,6 @@
           <Property Name="isDeleted" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="CMFRelation" Relationship="GalaDBModel.FK_CMFRelation_Country" FromRole="Country" ToRole="CMFRelation" />
         </EntityType>
-        <EntityType Name="Slider">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Header" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Picture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Created" Type="DateTime" Nullable="false" Precision="7" />
-          <Property Name="Modified" Type="DateTime" Nullable="false" Precision="7" />
-          <Property Name="isDeleted" Type="Boolean" Nullable="false" />
-        </EntityType>
-        <Association Name="FK_CMFRelation_Country">
-          <End Type="GalaDBModel.Country" Role="Country" Multiplicity="0..1" />
-          <End Type="GalaDBModel.CMFRelation" Role="CMFRelation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Country">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="CMFRelation">
-              <PropertyRef Name="CID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="Home">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Header" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Created" Type="DateTime" Nullable="false" Precision="7" />
-          <Property Name="Modified" Type="DateTime" Nullable="false" Precision="7" />
-          <Property Name="isDeleted" Type="Boolean" Nullable="false" />
-        </EntityType>
         <EntityType Name="Firm">
           <Key>
             <PropertyRef Name="Id" />
@@ -278,18 +266,6 @@
           <NavigationProperty Name="CMFRelation" Relationship="GalaDBModel.FK_CMFRelation_Firm" FromRole="Firm" ToRole="CMFRelation" />
           <NavigationProperty Name="Team" Relationship="GalaDBModel.FK_Member_Firm" FromRole="Firm" ToRole="Team" />
         </EntityType>
-        <Association Name="FK_CMFRelation_Firm">
-          <End Type="GalaDBModel.Firm" Role="Firm" Multiplicity="0..1" />
-          <End Type="GalaDBModel.CMFRelation" Role="CMFRelation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Firm">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="CMFRelation">
-              <PropertyRef Name="FID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="Team">
           <Key>
             <PropertyRef Name="Id" />
@@ -311,6 +287,30 @@
           <NavigationProperty Name="CMFRelation" Relationship="GalaDBModel.FK_CMFRelation_Member" FromRole="Team" ToRole="CMFRelation" />
           <NavigationProperty Name="Firm" Relationship="GalaDBModel.FK_Member_Firm" FromRole="Team" ToRole="Firm" />
         </EntityType>
+        <Association Name="FK_CMFRelation_Country">
+          <End Type="GalaDBModel.Country" Role="Country" Multiplicity="0..1" />
+          <End Type="GalaDBModel.CMFRelation" Role="CMFRelation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CMFRelation">
+              <PropertyRef Name="CID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CMFRelation_Firm">
+          <End Type="GalaDBModel.Firm" Role="Firm" Multiplicity="0..1" />
+          <End Type="GalaDBModel.CMFRelation" Role="CMFRelation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Firm">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CMFRelation">
+              <PropertyRef Name="FID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_CMFRelation_Member">
           <End Type="GalaDBModel.Team" Role="Team" Multiplicity="0..1" />
           <End Type="GalaDBModel.CMFRelation" Role="CMFRelation" Multiplicity="*" />
@@ -335,36 +335,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="GalaDBModelStoreContainer" CdmEntityContainer="GalaDBEntities">
-          <EntitySetMapping Name="CMFRelation">
-            <EntityTypeMapping TypeName="GalaDBModel.CMFRelation">
-              <MappingFragment StoreEntitySet="CMFRelation">
-                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
-                <ScalarProperty Name="Modified" ColumnName="Modified" />
-                <ScalarProperty Name="Created" ColumnName="Created" />
-                <ScalarProperty Name="FID" ColumnName="FID" />
-                <ScalarProperty Name="MID" ColumnName="MID" />
-                <ScalarProperty Name="CID" ColumnName="CID" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Country">
-            <EntityTypeMapping TypeName="GalaDBModel.Country">
-              <MappingFragment StoreEntitySet="Country">
-                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
-                <ScalarProperty Name="Modified" ColumnName="Modified" />
-                <ScalarProperty Name="Created" ColumnName="Created" />
-                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Slider">
             <EntityTypeMapping TypeName="GalaDBModel.Slider">
               <MappingFragment StoreEntitySet="Slider">
@@ -386,6 +362,30 @@
                 <ScalarProperty Name="Created" ColumnName="Created" />
                 <ScalarProperty Name="Content" ColumnName="Content" />
                 <ScalarProperty Name="Header" ColumnName="Header" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CMFRelation">
+            <EntityTypeMapping TypeName="GalaDBModel.CMFRelation">
+              <MappingFragment StoreEntitySet="CMFRelation">
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="FID" ColumnName="FID" />
+                <ScalarProperty Name="MID" ColumnName="MID" />
+                <ScalarProperty Name="CID" ColumnName="CID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Country">
+            <EntityTypeMapping TypeName="GalaDBModel.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -434,7 +434,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

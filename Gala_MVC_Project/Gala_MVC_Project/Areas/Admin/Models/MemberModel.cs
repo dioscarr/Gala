@@ -38,14 +38,16 @@ namespace Gala_MVC_Project.Areas.Admin.Models
         public void LoadMemberList() {
             db = new GalaDBEntities();
 
-            MemberList = db.CMFRelation.Select(c => new MemberList
+            MemberList = db.CMFRelation.Where(c=>c.isDeleted==false).Select(c => new MemberList
             {
                Country = c.Country.CountryName,
                Firm = c.Firm.FirmName,
                Name = c.Team.FName + " " + c.Team.MInitial + " " + c.Team.LName,
                FID = c.Firm.Id,
-               MID = c.Team.Id
+               MID = c.Team.Id,
+               id= c.Id
            }).ToList();
+            db.Dispose();
         
         }
 
@@ -63,8 +65,13 @@ namespace Gala_MVC_Project.Areas.Admin.Models
             CMFRelation CM = new CMFRelation();
             CM.CID = CID;
             CM.FID = FID;
-            CM.MID = FID;
+            CM.MID = MID;
             return ManageCMFRelation.AddCMFRelation(CM);
+        }
+
+        public bool DeleteRef(int id)
+        {
+            return ManageCMFRelation.DeleteCMFRelation(ManageCMFRelation.GetById(id));
         }
         public bool Delete(int id)
         {
@@ -75,6 +82,7 @@ namespace Gala_MVC_Project.Areas.Admin.Models
 
     public class MemberList
     {
+        public int id { get; set; }
         public int FID { get; set; }
         public int MID { get; set; }
         public string Country { get; set; }

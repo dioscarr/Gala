@@ -57,7 +57,12 @@ namespace Gala_MVC_Project.Areas.Admin.Controllers
             
         }
 
-
+        public ActionResult DeleteRef(int id)
+        {
+            MemberModel MM = new MemberModel();
+            MM.DeleteRef(id);
+            return RedirectToAction("MemberList");
+        }
 
 
     }
