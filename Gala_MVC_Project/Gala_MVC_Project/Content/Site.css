@@ -193,8 +193,9 @@ img {
 }
 .title_slider {
     color: white;
-    font-size: 1em;
-    padding: 5% 0 2%;
+    font-size: 1.25em;
+    font-weight: bold;
+    padding: 5% 0 1%;
     text-shadow: 2px 2px grey;
 }
 .carousel-indicators {
@@ -208,7 +209,7 @@ img {
     font-size: 2.3em;
     text-shadow: 2px 2px grey;
     padding: 0 0 2%;
-    line-height: 1.2;
+    line-height: 1.5;
 }
 /*Slider for text*/
 .carousel-inner .item {
@@ -251,15 +252,18 @@ img {
     border: 1px solid #527fa4;
     padding: 4%;
     margin: 1%;
-}
+} 
 .form_action {
     
 }
 .member_title {
     color: #deaa1d;
-    font-size: 2.3em;
-    font-weight: bold;
+    font-size: 3.3em;
+    /*font-weight: bold;*/
     text-align: center;
+}
+.member_title_news {
+        font-size: 2.6em;
 }
 .form_action>input[type="text"] {
     width: 100%;
