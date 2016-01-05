@@ -453,6 +453,7 @@ footer .footer_text_muted {
 /*about*/
 .about_content_slider {
     background-image: url("../images/bg-all.jpg");
+    background-size: cover;
 }
 .about_title {
     color: white;
@@ -741,6 +742,9 @@ table#t01 tr:hover {
 }
 .about_member_block {
     overflow: hidden;
+}
+.publication_member_block>.about_member_block {
+    padding: 1%;
 }
 /*gazette end*/
 
