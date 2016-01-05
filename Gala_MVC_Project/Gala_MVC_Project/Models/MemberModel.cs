@@ -6,15 +6,13 @@ using DAL.Models;
 using BLL;
 using Gala_MVC_Project.Areas.Admin.Models;
 
-
-namespace Gala_MVC_Project.Areas.Admin.Models
+namespace Gala_MVC_Project.Models
 {
-    
-    public class MemberModel:Basemodel
+    public class MemberModel
     {
-        GalaDBEntities db;
+        GalaDBEntities db = new GalaDBEntities();
 
-         public Team Member { get; set; }
+        public Team Member { get; set; }
         public List<Team> Members { get; set; }
         public int FID { get; set; }
         public int CID { get; set; }
@@ -31,29 +29,36 @@ namespace Gala_MVC_Project.Areas.Admin.Models
         {
             Member = null;
             Members = ManageTeam.GetAllTeam().ToList();
-            FID=0;
-            CID=0;
+            FID = 0;
+            CID = 0;
         }
 
-        public void LoadMemberList() {
-            db = new GalaDBEntities();
+        public void LoadMemberList()
+        {
+            
 
-            MemberList = db.CMFRelation.Where(c=>c.isDeleted==false).Select(c => new MemberList
+            MemberList = db.CMFRelation.Where(c => c.isDeleted == false).Select(c => new MemberList
             {
-               Country = c.Country.CountryName,
-               Firm = c.Firm.FirmName,
-               Name = c.Team.FName + " " + c.Team.MInitial + " " + c.Team.LName,
-               FID = c.Firm.Id,
-               MID = c.Team.Id,
-               id= c.Id
-           }).ToList();
-            db.Dispose();
-        
+                Country = c.Country.CountryName,
+                Firm = c.Firm.FirmName,
+                Name = c.Team.FName + " " + c.Team.MInitial + " " + c.Team.LName,
+                FID = c.Firm.Id,
+                MID = c.Team.Id,
+                flag = c.Country.Flag,
+                id = c.Id
+            }).ToList();
+           
+
         }
 
-        public void loadMember(int id) {
-            Member = ManageTeam.GetById(id);
+
+        public void loadMember(int id)
+        {
+
+            
+            Member = db.Team.Where(c=>c.Id==id).FirstOrDefault();
         }
+
 
         public bool update(MemberModel model)
         {
@@ -81,10 +86,9 @@ namespace Gala_MVC_Project.Areas.Admin.Models
         {
             return ManageTeam.DeleteTeam(ManageTeam.GetById(id));
         }
-        
-    }
 
-    public class MemberList
+    }
+        public class MemberList
     {
         public int id { get; set; }
         public int FID { get; set; }
@@ -92,5 +96,8 @@ namespace Gala_MVC_Project.Areas.Admin.Models
         public string Country { get; set; }
         public string Firm { get; set; }
         public string Name { get; set; }
+        public string flag { get; set; }
     }
+
+
 }

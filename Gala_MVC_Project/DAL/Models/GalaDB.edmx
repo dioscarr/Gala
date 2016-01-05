@@ -22,6 +22,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Flag" Type="nvarchar(max)" />
           <Property Name="CountryName" Type="nvarchar(max)" />
           <Property Name="Created" Type="datetime2" Precision="7" Nullable="false" />
           <Property Name="Modified" Type="datetime2" Precision="7" Nullable="false" />
@@ -235,6 +236,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Flag" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="CountryName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Created" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="Modified" Type="DateTime" Nullable="false" Precision="7" />
@@ -386,6 +388,7 @@
                 <ScalarProperty Name="Modified" ColumnName="Modified" />
                 <ScalarProperty Name="Created" ColumnName="Created" />
                 <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

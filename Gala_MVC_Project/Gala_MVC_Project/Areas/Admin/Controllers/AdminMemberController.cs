@@ -12,7 +12,7 @@ namespace Gala_MVC_Project.Areas.Admin.Controllers
     public class AdminMemberController : Controller
     {
         // GET: Admin/Member
-        public ActionResult MemberList(int id)
+        public ActionResult MemberList()
         {
 
             MemberModel MM = new MemberModel();
@@ -25,13 +25,20 @@ namespace Gala_MVC_Project.Areas.Admin.Controllers
         {
             CountryModel CM = new CountryModel();
             ViewBag.Countries = CM.Countries.Select(c => new SelectListItem { Text = c.CountryName, Value = c.Id.ToString() }).ToList();//get list of country
-            ViewBag.Firms = ManageFirm.GetAllFirm().Select(c => new SelectListItem { Text = c.FirmName, Value = c.Id.ToString() }).ToList();// get list of firms 
+           
             List<SelectListItem> type = new List<SelectListItem>();
             type.Add(new SelectListItem { Text = "Member", Value = "Member" });
             type.Add(new SelectListItem { Text = "Executive", Value = "Executive" });
             ViewBag.type = type;//list of type 
             return View(new MemberModel());
         }
+
+        public JsonResult getFirm(string Country)
+        {
+            var Firms = ManageFirm.GetAllFirm().Where(c => c.Country == Country).Select(c => new SelectListItem { Text = c.FirmName, Value = c.Id.ToString() }).ToList();// get list of firms 
+            return new JsonResult() { Data = Firms, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+        }
+
         /// <summary>
         /// Add new Member
         /// </summary>

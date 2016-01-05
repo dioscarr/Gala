@@ -3,24 +3,34 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Gala_MVC_Project.Models;
 
 namespace Gala_MVC_Project.Controllers
 {
     public class MembersController : Controller
     {
         // GET: Members
-        public ActionResult Firm()
+        public ActionResult Firm(int id)
         {
-            return View();
+            FirmModel FM = new FirmModel();
+
+            FM.loadFirm(id);
+            return View(FM);
         }
         public ActionResult MemberList()
         {
-            return View();
+
+            MemberModel MM = new MemberModel();
+            MM.LoadMemberList();
+
+            return View(MM);
         }
 
-        public ActionResult Member()
+        public ActionResult Member(int id)
         {
-            return View();
+            MemberModel MM = new MemberModel();
+            MM.loadMember(id);
+            return View(MM);
         }
     }
 }
