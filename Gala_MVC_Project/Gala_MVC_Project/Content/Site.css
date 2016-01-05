@@ -415,7 +415,7 @@ footer {
 footer>.container {
     position: relative;
     height: 40px;
-    padding: 0;
+    /*padding: 0;*/
 }
 footer>.container>.footer_main_cont {
     position: absolute;
@@ -423,7 +423,7 @@ footer>.container>.footer_main_cont {
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-        width: 100%;
+        width: 97%;
 }
 footer .footer_text_muted {
     color: white;
@@ -626,7 +626,7 @@ footer .footer_text_muted {
 }
 .events_block>.stuffing_events {
     background-color: #abd8f8;
-    padding: 6%;
+    padding: 6% 8%;
 }
 .member_events_title {
     color: rgb(28, 117, 187);
