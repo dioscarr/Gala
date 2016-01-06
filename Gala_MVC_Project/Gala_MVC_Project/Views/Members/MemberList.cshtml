@@ -42,26 +42,26 @@
                     @foreach (var member in Model.MemberList)
                     {
                         Country = @member.Country;
-                        
 
-                        <tr class="@ViewBag.stripe">
-                            @if(Country == newcountry)
+
+                        <tr class="find_all_member_name @ViewBag.stripe">
+                            @if (Country == newcountry)
                             {
 
-                            <td></td>
-                            <td><a href="~/members/firm/@member.FID">@member.Firm</a></td>
-                            <td><a href="~/Members/member/@member.MID">@member.Name</a></td>
-                            <td class="member_more_info"><a href="~/Members/member/@member.MID">More info <img src="~/Images/member-arrow.jpg"></a></td>  
+                                <td></td>
+                                <td><a href="~/members/firm/@member.FID">@member.Firm</a></td>
+                                <td><a href="~/Members/member/@member.MID">@member.Name</a></td>
+                                <td class="member_more_info"><a href="~/Members/member/@member.MID">More info <img src="~/Images/member-arrow.jpg"></a></td>
                             }
                             else
                             {
 
-                            <td><a href="~/members/firm/@member.FID"><img src="~/Images/flags/@member.flag"> @member.Country</a></td>
-                            <td><a href="~/members/firm/@member.FID">@member.Firm</a></td>
-                            <td><a href="~/Members/member/@member.MID">@member.Name</a></td>
-                            <td class="member_more_info"><a href="~/Members/member/@member.MID">More info <img src="~/Images/member-arrow.jpg"></a></td>
+                                <td><a href="~/members/firm/@member.FID"><img src="~/Images/flags/@member.flag"> @member.Country</a></td>
+                                <td><a href="~/members/firm/@member.FID">@member.Firm</a></td>
+                                <td><a href="~/Members/member/@member.MID">@member.Name</a></td>
+                                <td class="member_more_info"><a href="~/Members/member/@member.MID">More info <img src="~/Images/member-arrow.jpg"></a></td>
 
-                            newcountry = Country;
+                                newcountry = Country;
                             }
                         </tr>
                     }

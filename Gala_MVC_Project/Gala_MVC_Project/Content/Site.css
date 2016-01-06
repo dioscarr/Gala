@@ -165,14 +165,14 @@ img {
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
     padding: 0; 
 }
-.nav_bar_menu>li:first-child>a {
+/*.nav_bar_menu>li:first-child>a {
     padding-left:0;
     text-align: left;
 }
 .nav_bar_menu>li:last-child>a {
     padding-right:0;
     text-align: right;
-} 
+}*/ 
 .nav_bar_menu>li>a { 
     text-transform: uppercase;
     color: #666666;
