@@ -36,13 +36,13 @@
         </div>
     </div>
 
-    <div class="form-group">
+    @*<div class="form-group">
         @Html.Label("Firm", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.DropDownListFor(model => model.FID, (IEnumerable<SelectListItem>)ViewBag.Firms, new { @class = "form-control ", id = "Countryid" })
             @Html.ValidationMessageFor(model => model.Member.Type, "", new { @class = "text-danger" })
         </div>
-    </div>
+    </div>*@
 
 
     <div class="form-group">
@@ -143,7 +143,12 @@
                     </div>
 
 
-
+                    <div>
+                        <select data-bind="options:Firms,
+                       optionsText: Text,
+                       optionsValue: value,
+                       optionsCaption: 'Choose...'"></select>
+                    </div>
                 </div>
             </div>
         </div>
@@ -151,27 +156,66 @@
 </div>
 
 
+
+
 @section Scripts{
 
     <link href="~/Content/prettify.css" rel="stylesheet" />
     <script src="~/Scripts/jquery-ui-1.11.4.min.js"></script>
-    <link href="~/Content/bootstrap-datetimepicker.min.css" rel="stylesheet" />
-    <script src="~/Scripts/bootstrap-datetimepicker.js"></script>
-    <script src="~/Scripts/ckeditor/ckeditor.js"></script>
-    <script src="~/Scripts/bootstrap-datetimepicker.fr.js"></script>
 
+
+<script src="~/Scripts/knockout-3.4.0.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function ()
         {
-            $('.form_datetime').datetimepicker({});//time picker 
-            $('#Countryid').change(function () {
-                alert();
-            });
+            //$('.form_datetime').datetimepicker({});//time picker 
+            //$('#Countryid').change(function () {
+            //    alert();
+            //});
+
+        });
+
+        $(function () {
+            var ViewModel = function () {
+                var self = this;
+                self.name = ko.observable("Dioscar");
+                self.Firms = ko.observableArray([new {Text:"Will", value:"1"}]);
 
 
+                self.Text = ko.observable(),
+                self.value = ko.observable()
 
+                $("#Countryid").change(function () {
+                    var Country = $("#Countryid option:selected").text();
+                    $.ajax({
+                        type:"GET",
+                        url:"/Admin/AdminMember/getFirm/",
+                        data: { Country: Country },
+                        dataType:"json",
+                        success: function (returnData) {
+                               
+                            for (var i = 0; i < returnData.length; i++)
+                            {
+                                self.Firms.push( {
+                                    Text: ko.observable( "THIS OSADOSN"),
+                                    value: ko.observable(returnData[0].Value)
+                                })
+                                
+                            }
 
+                            
+
+                          
+                    }
+
+                    });
+                });
+               
+                
+               
+            }
+            ko.applyBindings(new ViewModel());
         });
 
 

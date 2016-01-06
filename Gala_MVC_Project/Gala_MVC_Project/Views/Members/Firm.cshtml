@@ -1,4 +1,5 @@
-﻿
+﻿@model Gala_MVC_Project.Models.FirmModel
+
 @{
     ViewBag.Title = "Members";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -9,7 +10,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                <h2 class="about_title text_uppercase">Germany</h2>
+                <h2 class="about_title text_uppercase">@Model.Firm.Country</h2>
             </div>
         </div>
     </div>
@@ -22,8 +23,8 @@
                 <ol class="breadcrumb">
                     <li><a href="~/Home">Home</a></li>
                     <li><a href="~/Members/MemberList">Members</a></li>
-                    <li><a href="~/Members/Firm">Germany</a></li>
-                    <li class="active">Heuking Kühn Lüer Wojtek</li>
+                    <li><a href="~/Members/Firm/@Model.Firm.Id">@Model.Firm.Country</a></li>
+                    <li class="active">@Model.Firm.FirmName</li>
                 </ol>
             </div>
         </div>
@@ -31,7 +32,7 @@
             <div class="col-xs-9 content_global">
                 <div class="bio_top_title">
                     <div class="pull-left">
-                        <h1 class="content_title_news">Dr. Søren Pietzcker, LL.M.</h1>
+                        <h1 class="content_title_news">@Model.Firm.FirmName</h1>
                     </div>
                     <div class="pull-right print_share">
                         <a href="#">
@@ -43,16 +44,7 @@
                 <hr>
                 <div class="bio_member_content_info">
                     <h4 class="bio_contact_info_title">Office</h4>
-                    <p>FOGA DALEY was established in 2000 as a boutique Intellectual Property (IP) and Communications Law Firm, the first of its kind in the English-speaking Caribbean.</p><br />
-
-                    <p>Over the past decade FOGA DALEY has distinguished itself as a leading law firm which handles complex commercial matters involving IP, communications and information technology. The Firm is known for its innovative and timely service delivery and commitment to the development of indigenous businesses.</p><br />
-
-                    <p>In addition to intellectual property transactions, portfolio management, rights acquisition and maintenance and licensing in the areas of trademarks, copyright, designs and patents, the Firm's practice extends to allied areas such as entertainment and media law, advertising and mergers and acquisitions.</p><br />
-
-                    <p>The Firm offers specialist advice to clients in the creative industries and ICT sectors, and represents entertainers and other celebrities, businesses, statutory corporations and international and regional organizations.The Firm provides various services related to advertising and media law including legal advice on regulatory compliance, talent contracts, rights clearance, dispute resolution, comparative advertising, trademark-related issues, branding and marketing strategies, privacy, publicity and defamation in the context of cyberspace, sponsorship and endorsement contracts and merchandising.</p>
-
-                    <p>The Firm also provides litigation support services for IP infringement actions including anti-counterfeiting and anti-piracy actions and passing off.</p>
-
+                    @Html.Raw(@Model.Firm.AboutContent)
                     <hr>
 
                     <h4 class="bio_contact_info_title">Recent News & Press</h4>
@@ -115,14 +107,14 @@
                 </div>
             </div>
             <div class="col-xs-3">
-                <h4 class="bio_left_title text_uppercase">Heuking</h4>
+                <h4 class="bio_left_title text_uppercase">@Model.Firm.FirmName</h4>
                 <div class="bio_contact_info">
                     <h4 class="bio_contact_info_title">Office</h4>
-                    <p><span>Goetheplatz 5-7</span></p>
-                    <p><span>Frankfurt 60313, Germany</span></p>
-                    <p><span>Tel:     <a href="">+49.69.975 61-446</a></span></p>
-                    <p><span>Fax:    <a href="">+49.69.975 61-200</a></span></p>
-                    <p><span>Web:   <a href="">www.heuking.de</a></span></p>
+                    <p><span>@Model.Firm.Address</span></p>
+                    <p><span>@Model.Firm.City @Model.Firm.Zip, @Model.Firm.Country</span></p>
+                    <p><span>Tel:     <a href="">@Model.Firm.Tel</a></span></p>
+                    <p><span>Fax:    <a href="">@Model.Firm.Fax</a></span></p>
+                    <p><span>Web:   <a href="">@Model.Firm.web</a></span></p>
                 </div>
                 <div class="about_member_block firm_member_block">
                     <div class="about_member_person">

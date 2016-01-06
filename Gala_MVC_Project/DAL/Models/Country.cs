@@ -21,6 +21,7 @@ namespace DAL.Models
         }
     
         public int Id { get; set; }
+        public string Flag { get; set; }
         public string CountryName { get; set; }
         public System.DateTime Created { get; set; }
         public System.DateTime Modified { get; set; }
