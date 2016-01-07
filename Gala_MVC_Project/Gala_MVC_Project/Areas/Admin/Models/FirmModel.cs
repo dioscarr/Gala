@@ -35,5 +35,10 @@ namespace Gala_MVC_Project.Areas.Admin.Models
             return ManageFirm.DeleteFirm(ManageFirm.GetById(id));
         }
 
+
+        internal void loadFirmById(int id)
+        {
+            Firm = ManageFirm.GetById(id);
+        }
     }
 }

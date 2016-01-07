@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Gala_MVC_Project.Models.HomeModel
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -6,7 +7,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-8">
-                <h2 class="title_slider text_uppercase">did you know?</h2>
+                <h2 class="title_slider text_uppercase">DID YOU KNOW?</h2>
                 <div id="carousel-example-generic" class="carousel slide carousel-fade" data-ride="carousel" data-interval="10000">
                     <!-- Wrapper for slides -->
                     <ol class="carousel-indicators">
@@ -18,28 +19,28 @@
                     <div class="carousel-inner text_slider">
                         <div class="item active">
                             <p class="lead">
-
-                                Bait-and-switch is legal in the United States, provided that ads state that there is a limited supply.
+                             @Model.Sliders[0].Content
+                               
                             </p>
                         </div>
                         <div class="item">
                             <p class="lead">
-
-                                Brazilian Consumer Defense Code provides that informed consumers are essential to a fair and efficient market.
-
-                            </p>
-                        </div>
-                        <div class="item">
-                            <p class="lead">
-
-                                “Astroturfing” is a practice whereby marketers, or their representatives, post fake consumer reviews.
+                                @Model.Sliders[1].Content
+                               
 
                             </p>
                         </div>
                         <div class="item">
                             <p class="lead">
+                               @Model.Sliders[2].Content
+                              
 
-                                Ukraine reduction of TV and radio advertising limits will make TV advertising during prime time more competitive.
+                            </p>
+                        </div>
+                        <div class="item">
+                            <p class="lead">
+                               @Model.Sliders[3].Content
+                              
 
                             </p>
                         </div>
@@ -88,8 +89,8 @@
     <div class="container content">
         <div class="row content_text">
             <div class="col-xs-8 content_home_global">
-                <h1 class="content_title_news text_uppercase">Global advertising lawyers alliance</h1>
-                <p class="home_content_title">GALA is an alliance of lawyers located throughout the world with expertise and experience in advertising, marketing and promotion law. GALA provides a worldwide resource to individuals and corporations interested in answers to questions and solutions to problems involving the complex legal issues affecting advertisers and marketers. </p>
+                <h1 class="content_title_news text_uppercase">@Model.Home.Header</h1>
+                  @Html.Raw(@Model.Home.Content)
             </div>
             <div class='col-xs-4 news_block'>
                 <div class="stuffing_news">

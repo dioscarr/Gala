@@ -4,6 +4,8 @@
     Layout = "~/Areas/Admin/Views/Shared/Admin_Layout.cshtml";
 }
 
+
+
 <div class="container">
 
     <div class="row outer-Box" style=" margin-top:20px; padding-bottom:0!important;">
@@ -12,7 +14,7 @@
                 <div class="panel-heading">Step <span class="badge ">1</span> <span class="label label-primary"> Update Home Page Information </span> </div>
                 <div class="panel-body">
                     <div class="form-group " style="  padding-bottom:0!important;">
-                       @using (Html.BeginForm())
+                       @using (Html.BeginForm("UpdateHomePage","Home"))
                        {
                         @Html.AntiForgeryToken()
 
@@ -63,7 +65,7 @@
                 <div class="panel-heading">Step <span class="badge ">2</span> <span class="label label-primary"> Update Slider Content </span> </div>
                 <div class="panel-body">
                     <div class="form-group " style="  padding-bottom:0!important;">
-                        @using (Html.BeginForm())
+                        @using (Html.BeginForm("UpdateSliders","Home"))
                         {
                             @Html.AntiForgeryToken()
 

@@ -28,12 +28,11 @@
 
         <div class="row content_text">
             <div class="col-xs-12 content_global">
-                <table id="t01" class="find_all_member " style="width:100%">
+                <table id="t01" class="find_all_member table-striped " style="width:100%">
                     <tr class="find_all_member_name">
                         <th class="find_all_member_name_first">Country</th>
                         <th class="find_all_member_name_first">Firm</th>
                         <th class="find_all_member_name_last">Name</th>
-                        <th>Description</th>
                     </tr>
                     @{
                         var Country = "";
@@ -42,25 +41,18 @@
                     @foreach (var member in Model.MemberList)
                     {
                         Country = @member.Country;
-
-
-                        <tr class="find_all_member_name @ViewBag.stripe">
+                        <tr class="@ViewBag.stripe">
                             @if (Country == newcountry)
                             {
-
                                 <td></td>
-                                <td><a href="~/members/firm/@member.FID">@member.Firm</a></td>
+                                <td></td>
                                 <td><a href="~/Members/member/@member.MID">@member.Name</a></td>
-                                <td class="member_more_info"><a href="~/Members/member/@member.MID">More info <img src="~/Images/member-arrow.jpg"></a></td>
                             }
                             else
                             {
-
                                 <td><a href="~/members/firm/@member.FID"><img src="~/Images/flags/@member.flag"> @member.Country</a></td>
                                 <td><a href="~/members/firm/@member.FID">@member.Firm</a></td>
                                 <td><a href="~/Members/member/@member.MID">@member.Name</a></td>
-                                <td class="member_more_info"><a href="~/Members/member/@member.MID">More info <img src="~/Images/member-arrow.jpg"></a></td>
-
                                 newcountry = Country;
                             }
                         </tr>

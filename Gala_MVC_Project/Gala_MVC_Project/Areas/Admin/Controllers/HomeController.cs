@@ -17,12 +17,13 @@ namespace Gala_MVC_Project.Areas.Admin.Controllers
 
         public ActionResult UpdateHomePage(HomeModel model)
         {
-           
-            return View();
+            model.update(model);
+            return RedirectToAction("index");
         }
         public ActionResult UpdateSliders(HomeModel model)
         {
-            return View();
+            model.updateSlider(model);
+            return RedirectToAction("index");
         }
 
    

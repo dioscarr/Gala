@@ -5,6 +5,17 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="GalaDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Aboutus">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Header" Type="nvarchar(max)" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="Created" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Modified" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="isDeleted" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="CMFRelation">
           <Key>
             <PropertyRef Name="Id" />
@@ -83,6 +94,7 @@
           <Property Name="FName" Type="nvarchar(max)" />
           <Property Name="LName" Type="nvarchar(max)" />
           <Property Name="MInitial" Type="nvarchar" MaxLength="1" />
+          <Property Name="Picture" Type="nvarchar(max)" />
           <Property Name="BIO" Type="nvarchar(max)" />
           <Property Name="Title" Type="nvarchar(max)" />
           <Property Name="Email" Type="nvarchar(max)" />
@@ -142,6 +154,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="GalaDBModelStoreContainer">
+          <EntitySet Name="Aboutus" EntityType="Self.Aboutus" Schema="dioscar" store:Type="Tables" />
           <EntitySet Name="CMFRelation" EntityType="Self.CMFRelation" Schema="dioscar" store:Type="Tables" />
           <EntitySet Name="Country" EntityType="Self.Country" Schema="dioscar" store:Type="Tables" />
           <EntitySet Name="Firm" EntityType="Self.Firm" Schema="dioscar" store:Type="Tables" />
@@ -172,6 +185,7 @@
         <EntityContainer Name="GalaDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Slider" EntityType="GalaDBModel.Slider" />
           <EntitySet Name="Home" EntityType="GalaDBModel.Home" />
+          <EntitySet Name="Aboutus" EntityType="GalaDBModel.Aboutus" />
           <EntitySet Name="CMFRelation" EntityType="GalaDBModel.CMFRelation" />
           <EntitySet Name="Country" EntityType="GalaDBModel.Country" />
           <EntitySet Name="Firm" EntityType="GalaDBModel.Firm" />
@@ -210,6 +224,17 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Header" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Modified" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="isDeleted" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Aboutus">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Header" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Created" Type="DateTime" Nullable="false" Precision="7" />
@@ -277,6 +302,7 @@
           <Property Name="FName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="LName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="MInitial" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="Picture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="BIO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -368,6 +394,18 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Aboutus">
+            <EntityTypeMapping TypeName="GalaDBModel.Aboutus">
+              <MappingFragment StoreEntitySet="Aboutus">
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Header" ColumnName="Header" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="CMFRelation">
             <EntityTypeMapping TypeName="GalaDBModel.CMFRelation">
               <MappingFragment StoreEntitySet="CMFRelation">
@@ -429,6 +467,7 @@
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="BIO" ColumnName="BIO" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
                 <ScalarProperty Name="MInitial" ColumnName="MInitial" />
                 <ScalarProperty Name="LName" ColumnName="LName" />
                 <ScalarProperty Name="FName" ColumnName="FName" />

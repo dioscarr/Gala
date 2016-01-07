@@ -4,36 +4,36 @@ using System.Linq;
 using System.Web;
 using DAL.Models;
 using BLL;
-using DAL.Models;
+
 
 namespace Gala_MVC_Project.Areas.Admin.Models
 {
     public class AboutusModel
      {
-        //public   { get; set; }
-        //public List<Aboutus> Firms { get; set; }
+        public  Aboutus aboutus { get; set; }
+        public List<Team> Executives { get; set; }
 
 
 
 
-        //public FirmModel()
-        //{
-        //    Firm = null;
-        //    Firms = ManageFirm.GetAllFirm().ToList();
-        //}
-        //public bool update(FirmModel model)
-        //{
-        //    return ManageFirm.UpdateFirm(model.Firm);
-        //}
+        public AboutusModel()
+        {
+            aboutus = ManageAboutus.GetAllAboutus().FirstOrDefault();
+            Executives = ManageTeam.GetAllTeam().Where(c => c.Type == "Executive").ToList();
+        }
+        public bool update(AboutusModel model)
+        {
+            return ManageAboutus.UpdateAboutus(model.aboutus);
+        }
 
-        //public bool Insert(FirmModel model)
-        //{
-        //    return ManageFirm.AddFirm(model.Firm);
-        //}
-        //public bool Delete(int id)
-        //{
-        //    return ManageFirm.DeleteFirm(ManageFirm.GetById(id));
-        //}
+        public bool Insert(AboutusModel model)
+        {
+            return ManageAboutus.AddAboutus(model.aboutus);
+        }
+        public bool Delete(int id)
+        {
+            return ManageAboutus.DeleteAboutus(ManageAboutus.GetById(id));
+        }
 
     }
 }

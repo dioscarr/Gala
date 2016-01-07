@@ -20,6 +20,8 @@ namespace Gala_MVC_Project.Areas.Admin.Models
         public int CID { get; set; }
         public List<MemberList> MemberList { get; set; }
         public List<CMFRelation> CMF { get; set; }
+        public HttpPostedFileBase ImageUpload { get; set; }
+        public bool isNewPicture { get; set; }
 
 
 

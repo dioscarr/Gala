@@ -77,6 +77,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Aboutus.cs">
+      <DependentUpon>GalaDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\CMFRelation.cs">
       <DependentUpon>GalaDB.tt</DependentUpon>
     </Compile>
@@ -114,6 +117,7 @@
     <Compile Include="Repositories\CountryRepository.cs" />
     <Compile Include="Repositories\CMFRelationRepository.cs" />
     <Compile Include="Repositories\HomeRepository.cs" />
+    <Compile Include="Repositories\AboutusRepository.cs" />
     <Compile Include="Repositories\TeamRepository.cs" />
     <Compile Include="Repositories\FirmRepository.cs" />
     <Compile Include="Repositories\GenericRepository.cs" />
