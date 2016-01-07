@@ -165,14 +165,14 @@ img {
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
     padding: 0; 
 }
-.nav_bar_menu>li:first-child>a {
+/*.nav_bar_menu>li:first-child>a {
     padding-left:0;
     text-align: left;
 }
 .nav_bar_menu>li:last-child>a {
     padding-right:0;
     text-align: right;
-} 
+}*/ 
 .nav_bar_menu>li>a { 
     text-transform: uppercase;
     color: #666666;
@@ -270,7 +270,7 @@ img {
 .member_title {
     color: #deaa1d;
     font-size: 3.3em; 
-    /*font-weight: bold;*/
+    font-weight: 400;
     text-align: center;
 }
 .member_title_news {
@@ -581,6 +581,7 @@ footer .footer_text_muted {
 }
 .bio_member_content_info>p {
     font-size: 1.15em;
+    margin-bottom: 2%;
 }
 .member_bio_contact_info {
     padding-top: 7%;
