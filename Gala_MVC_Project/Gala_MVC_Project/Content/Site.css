@@ -606,7 +606,7 @@ footer .footer_text_muted {
 .events_archive {
     font-weight: bold;
 }
-.events_table {
+.events_table { 
     /*font-weight: bold;*/
     padding-bottom: 5%;
 }
