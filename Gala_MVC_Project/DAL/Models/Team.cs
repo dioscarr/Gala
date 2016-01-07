@@ -26,7 +26,8 @@ namespace DAL.Models
         public string FName { get; set; }
         public string LName { get; set; }
         public string MInitial { get; set; }
-         [AllowHtml]
+        public string Picture { get; set; }
+        [AllowHtml]
         public string BIO { get; set; }
         public string Title { get; set; }
         public string Email { get; set; }

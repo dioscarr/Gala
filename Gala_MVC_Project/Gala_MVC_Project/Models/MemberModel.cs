@@ -22,7 +22,28 @@ namespace Gala_MVC_Project.Models
 
 
 
+        public void FilterTeam(string Name)
+        {
 
+            MemberList = db.CMFRelation.Where(c => c.isDeleted == false)
+                .Where(c => c.Team.LName.Contains(Name) || c.Team.FName.Contains(Name))
+                .Select(c => new MemberList
+          {
+              Country = c.Country.CountryName,
+              Firm = c.Firm.FirmName,
+              Name = c.Team.FName + " " + c.Team.MInitial + " " + c.Team.LName,
+              FID = c.Firm.Id,
+              MID = c.Team.Id,
+              flag = c.Country.Flag,
+              id = c.Id
+          }).ToList();
+
+
+        }
+           
+
+
+                
 
 
         public MemberModel()

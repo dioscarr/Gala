@@ -46,6 +46,7 @@
     <Compile Include="ManageFirm.cs" />
     <Compile Include="CountryHome.cs" />
     <Compile Include="ManageHome.cs" />
+    <Compile Include="ManageAboutus.cs" />
     <Compile Include="ManageTeam.cs" />
     <Compile Include="ManageSlider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

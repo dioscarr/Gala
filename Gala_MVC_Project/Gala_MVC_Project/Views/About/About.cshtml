@@ -1,4 +1,4 @@
-﻿
+﻿@model Gala_MVC_Project.Models.AboutUsModel
 @{
     ViewBag.Title = "About";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -23,14 +23,17 @@
                     <li><a href="~/Home">Home</a></li>
                     <li class="active">About Us</li>
                 </ol>
-                <h1 class="content_title_news text_uppercase">About Gala</h1>
+                <h1 class="content_title_news text_uppercase">@Model.aboutus.Header</h1>
             </div>
         </div>
         <div class="row content_text">
             <div class="col-xs-8 content_global">
 
-                <p>The Global Advertising Lawyers Alliance ("GALA") is an alliance of lawyers located throughout the world with expertise and experience in advertising, marketing and promotion law. GALA provides a worldwide resource to individuals and corporations interested in answers to questions and solutions to problems involving the complex legal issues affecting advertisers and marketers. GALA, a network of independent law firms, is neither licensed nor authorized to render legal services. While GALA can coordinate the consultation an Associate Member or third party may receive from GALA members, each individual GALA member, and not GALA, is solely responsible for the advice they provide.</p><br>
-                <p>A worldwide resource to individuals and corporations interested in answers to questions and solutions to problems involving the complex legal issues affecting advertisers and marketers. GALA, a network of independent law firms, is neither licensed nor authorized to render legal services. While GALA can coordinate the consultation an Associate Member or third party may receive from GALA members, each individual GALA member, and not GALA, is solely responsible for the advice they provide.</p>
+                @*<p>The Global Advertising Lawyers Alliance ("GALA") is an alliance of lawyers located throughout the world with expertise and experience in advertising, marketing and promotion law. GALA provides a worldwide resource to individuals and corporations interested in answers to questions and solutions to problems involving the complex legal issues affecting advertisers and marketers. GALA, a network of independent law firms, is neither licensed nor authorized to render legal services. While GALA can coordinate the consultation an Associate Member or third party may receive from GALA members, each individual GALA member, and not GALA, is solely responsible for the advice they provide.</p><br>*@
+               @* <p>A worldwide resource to individuals and corporations interested in answers to questions and solutions to problems involving the complex legal issues affecting advertisers and marketers. GALA, a network of independent law firms, is neither licensed nor authorized to render legal services. While GALA can coordinate the consultation an Associate Member or third party may receive from GALA members, each individual GALA member, and not GALA, is solely responsible for the advice they provide.</p>*@
+                @Html.Raw(@Model.aboutus.Content)
+                
+                
                 <a class="about_view_member_list text_uppercase" href="~/members/MemberList">VIEW OUR MEMBER LISTING &nbsp;<img src="~/Images/about-arrow.png" /></a><br><br>
                 <a class="" href="#">GALA's Executive Committee</a><br>
                 <div class="col-xs-4 about_member_col">

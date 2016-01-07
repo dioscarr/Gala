@@ -56,5 +56,27 @@ namespace Gala_MVC_Project.Areas.Admin.Controllers
            Fm.Delete(id);
             return RedirectToAction("Firms");
         }
+
+        public ActionResult Details(int id)
+        {
+            FirmModel FM = new FirmModel();
+            FM.loadFirmById(id);
+            return View(FM);
+        }
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            CountryModel CM = new CountryModel();
+            ViewBag.Countries = CM.Countries.Select(c => new SelectListItem { Text = c.CountryName, Value = c.CountryName }).ToList();//get list of country
+            FirmModel FM = new FirmModel();
+            FM.loadFirmById(id);
+            return View(FM);
+        }
+        [HttpPost]
+        public ActionResult Edit(FirmModel model)
+        {
+            model.update(model);
+            return RedirectToAction("Firms");
+        }
     }
 }

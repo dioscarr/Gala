@@ -17,7 +17,7 @@ namespace DAL.Models
     {
         public int Id { get; set; }
         public string Header { get; set; }
-         [AllowHtml]
+        [AllowHtml]
         public string Content { get; set; }
         public System.DateTime Created { get; set; }
         public System.DateTime Modified { get; set; }
