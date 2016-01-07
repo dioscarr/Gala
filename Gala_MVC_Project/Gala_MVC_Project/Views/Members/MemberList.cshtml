@@ -41,7 +41,7 @@
                     @foreach (var member in Model.MemberList)
                     {
                         Country = @member.Country;
-                        <tr class="@ViewBag.stripe">
+                        <tr class="find_all_member_name @ViewBag.stripe">
                             @if (Country == newcountry)
                             {
                                 <td></td>
