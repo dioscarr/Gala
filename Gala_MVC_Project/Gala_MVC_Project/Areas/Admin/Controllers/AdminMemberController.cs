@@ -25,12 +25,15 @@ namespace Gala_MVC_Project.Areas.Admin.Controllers
         public ActionResult AddNewMember()
         {
             CountryModel CM = new CountryModel();
-            ViewBag.Countries = CM.Countries.Select(c => new SelectListItem { Text = c.CountryName, Value = c.Id.ToString() }).ToList();//get list of country
+            ViewBag.Countries = CM.Countries.Select(c => new SelectListItem { Text = c.CountryName, Value = c.Id.ToString() }).OrderBy(c=>c.Text).ToList();//get list of country
            
             List<SelectListItem> type = new List<SelectListItem>();
             type.Add(new SelectListItem { Text = "Member", Value = "Member" });
             type.Add(new SelectListItem { Text = "Executive", Value = "Executive" });
             ViewBag.type = type;//list of type 
+            FirmModel FM = new FirmModel();
+            ViewBag.Firm = FM.Firms.GroupBy(x => x.FirmName).Select(group => group.First()).Select(v => new SelectListItem { Text = v.FirmName, Value = v.Id.ToString() }).ToList(); 
+        
             return View(new MemberModel());
         }
         [HttpPost]
@@ -82,6 +85,8 @@ namespace Gala_MVC_Project.Areas.Admin.Controllers
             type.Add(new SelectListItem { Text = "Executive", Value = "Executive" });
             ViewBag.type = type;//list of type 
             MemberModel MM = new MemberModel();
+            FirmModel FM = new FirmModel();
+            ViewBag.Firm = FM.Firms.GroupBy(x => x.FirmName).Select(group => group.First()).Select(v=> new  SelectListItem { Text = v.FirmName, Value = v.Id.ToString() }).ToList(); 
             MM.loadMember(id);
             return View(MM);
         }

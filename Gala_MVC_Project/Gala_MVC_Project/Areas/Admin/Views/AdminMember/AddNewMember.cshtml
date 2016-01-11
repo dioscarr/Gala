@@ -53,13 +53,13 @@
         </div>
     </div>
 
-    @*<div class="form-group">
+    <div class="form-group">
         @Html.Label("Firm", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.DropDownListFor(model => model.FID, (IEnumerable<SelectListItem>)ViewBag.Firms, new { @class = "form-control ", id = "Countryid" })
+            @Html.DropDownListFor(model => model.FID, (IEnumerable<SelectListItem>)ViewBag.Firm, new { @class = "form-control ", id = "Countryid" })
             @Html.ValidationMessageFor(model => model.Member.Type, "", new { @class = "text-danger" })
         </div>
-    </div>*@
+    </div>
 
 
     <div class="form-group">
@@ -160,12 +160,7 @@
         </div>
 
 
-        <div>
-            <select data-bind="options:Firms,
-                       optionsText: Text,
-                       optionsValue: value,
-                       optionsCaption: 'Choose...'"></select>
-        </div>
+     
     </div>
             </div>
         </div>
