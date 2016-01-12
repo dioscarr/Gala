@@ -86,6 +86,9 @@
     <Compile Include="Models\Country.cs">
       <DependentUpon>GalaDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Events.cs">
+      <DependentUpon>GalaDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Firm.cs">
       <DependentUpon>GalaDB.tt</DependentUpon>
     </Compile>
@@ -118,6 +121,7 @@
     <Compile Include="Repositories\CMFRelationRepository.cs" />
     <Compile Include="Repositories\HomeRepository.cs" />
     <Compile Include="Repositories\AboutusRepository.cs" />
+    <Compile Include="Repositories\EventsRepository.cs" />
     <Compile Include="Repositories\TeamRepository.cs" />
     <Compile Include="Repositories\FirmRepository.cs" />
     <Compile Include="Repositories\GenericRepository.cs" />

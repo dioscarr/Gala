@@ -11,7 +11,6 @@ namespace DAL.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.Web.Mvc;
     
     public partial class Team
     {
@@ -19,6 +18,7 @@ namespace DAL.Models
         public Team()
         {
             this.CMFRelation = new HashSet<CMFRelation>();
+            this.Events = new HashSet<Events>();
         }
     
         public int Id { get; set; }
@@ -27,7 +27,6 @@ namespace DAL.Models
         public string LName { get; set; }
         public string MInitial { get; set; }
         public string Picture { get; set; }
-        [AllowHtml]
         public string BIO { get; set; }
         public string Title { get; set; }
         public string Email { get; set; }
@@ -40,6 +39,8 @@ namespace DAL.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CMFRelation> CMFRelation { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Events> Events { get; set; }
         public virtual Firm Firm { get; set; }
     }
 }

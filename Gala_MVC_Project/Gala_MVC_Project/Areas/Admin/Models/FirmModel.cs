@@ -12,6 +12,9 @@ namespace Gala_MVC_Project.Areas.Admin.Models
     {
         public Firm Firm { get; set; }
         public List<Firm> Firms { get; set; }
+        public int MID { get; set; }
+        public int FID { get; set; }
+        public string CID { get; set; }
 
 
 

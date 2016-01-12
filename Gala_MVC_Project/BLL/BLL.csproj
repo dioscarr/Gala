@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Manage.cs" />
     <Compile Include="ManageCMFRelation.cs" />
+    <Compile Include="ManageEvents.cs" />
     <Compile Include="ManageFirm.cs" />
     <Compile Include="CountryHome.cs" />
     <Compile Include="ManageHome.cs" />

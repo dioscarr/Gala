@@ -39,6 +39,21 @@
           <Property Name="Modified" Type="datetime2" Precision="7" Nullable="false" />
           <Property Name="isDeleted" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="Events">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Heading" Type="nvarchar(max)" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="Published" Type="datetime2" Precision="7" />
+          <Property Name="FirmID" Type="int" />
+          <Property Name="MemberID" Type="int" />
+          <Property Name="Created" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Modified" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="isDeleted" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="Firm">
           <Key>
             <PropertyRef Name="Id" />
@@ -141,6 +156,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Events_Firm">
+          <End Role="Team" Type="Self.Team" Multiplicity="0..1" />
+          <End Role="Events" Type="Self.Events" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Events">
+              <PropertyRef Name="FirmID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Events_Firm1">
+          <End Role="Firm" Type="Self.Firm" Multiplicity="0..1" />
+          <End Role="Events" Type="Self.Events" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Firm">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Events">
+              <PropertyRef Name="FirmID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Member_Firm">
           <End Role="Firm" Type="Self.Firm" Multiplicity="1" />
           <End Role="Team" Type="Self.Team" Multiplicity="*" />
@@ -157,6 +196,7 @@
           <EntitySet Name="Aboutus" EntityType="Self.Aboutus" Schema="dioscar" store:Type="Tables" />
           <EntitySet Name="CMFRelation" EntityType="Self.CMFRelation" Schema="dioscar" store:Type="Tables" />
           <EntitySet Name="Country" EntityType="Self.Country" Schema="dioscar" store:Type="Tables" />
+          <EntitySet Name="Events" EntityType="Self.Events" Schema="dioscar" store:Type="Tables" />
           <EntitySet Name="Firm" EntityType="Self.Firm" Schema="dioscar" store:Type="Tables" />
           <EntitySet Name="Home" EntityType="Self.Home" Schema="dioscar" store:Type="Tables" />
           <EntitySet Name="Slider" EntityType="Self.Slider" Schema="dioscar" store:Type="Tables" />
@@ -173,6 +213,14 @@
             <End Role="Team" EntitySet="Team" />
             <End Role="CMFRelation" EntitySet="CMFRelation" />
           </AssociationSet>
+          <AssociationSet Name="FK_Events_Firm" Association="Self.FK_Events_Firm">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="Events" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Events_Firm1" Association="Self.FK_Events_Firm1">
+            <End Role="Firm" EntitySet="Firm" />
+            <End Role="Events" EntitySet="Events" />
+          </AssociationSet>
           <AssociationSet Name="FK_Member_Firm" Association="Self.FK_Member_Firm">
             <End Role="Firm" EntitySet="Firm" />
             <End Role="Team" EntitySet="Team" />
@@ -188,19 +236,28 @@
           <EntitySet Name="Aboutus" EntityType="GalaDBModel.Aboutus" />
           <EntitySet Name="CMFRelation" EntityType="GalaDBModel.CMFRelation" />
           <EntitySet Name="Country" EntityType="GalaDBModel.Country" />
-          <EntitySet Name="Firm" EntityType="GalaDBModel.Firm" />
-          <EntitySet Name="Team" EntityType="GalaDBModel.Team" />
           <AssociationSet Name="FK_CMFRelation_Country" Association="GalaDBModel.FK_CMFRelation_Country">
             <End Role="Country" EntitySet="Country" />
             <End Role="CMFRelation" EntitySet="CMFRelation" />
           </AssociationSet>
+          <EntitySet Name="Team" EntityType="GalaDBModel.Team" />
+          <AssociationSet Name="FK_CMFRelation_Member" Association="GalaDBModel.FK_CMFRelation_Member">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="CMFRelation" EntitySet="CMFRelation" />
+          </AssociationSet>
+          <EntitySet Name="Events" EntityType="GalaDBModel.Events" />
+          <EntitySet Name="Firm" EntityType="GalaDBModel.Firm" />
           <AssociationSet Name="FK_CMFRelation_Firm" Association="GalaDBModel.FK_CMFRelation_Firm">
             <End Role="Firm" EntitySet="Firm" />
             <End Role="CMFRelation" EntitySet="CMFRelation" />
           </AssociationSet>
-          <AssociationSet Name="FK_CMFRelation_Member" Association="GalaDBModel.FK_CMFRelation_Member">
+          <AssociationSet Name="FK_Events_Firm" Association="GalaDBModel.FK_Events_Firm">
             <End Role="Team" EntitySet="Team" />
-            <End Role="CMFRelation" EntitySet="CMFRelation" />
+            <End Role="Events" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Events_Firm1" Association="GalaDBModel.FK_Events_Firm1">
+            <End Role="Firm" EntitySet="Firm" />
+            <End Role="Events" EntitySet="Events" />
           </AssociationSet>
           <AssociationSet Name="FK_Member_Firm" Association="GalaDBModel.FK_Member_Firm">
             <End Role="Firm" EntitySet="Firm" />
@@ -253,8 +310,8 @@
           <Property Name="Modified" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="isDeleted" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Country" Relationship="GalaDBModel.FK_CMFRelation_Country" FromRole="CMFRelation" ToRole="Country" />
-          <NavigationProperty Name="Firm" Relationship="GalaDBModel.FK_CMFRelation_Firm" FromRole="CMFRelation" ToRole="Firm" />
           <NavigationProperty Name="Team" Relationship="GalaDBModel.FK_CMFRelation_Member" FromRole="CMFRelation" ToRole="Team" />
+          <NavigationProperty Name="Firm" Relationship="GalaDBModel.FK_CMFRelation_Firm" FromRole="CMFRelation" ToRole="Firm" />
         </EntityType>
         <EntityType Name="Country">
           <Key>
@@ -267,6 +324,70 @@
           <Property Name="Modified" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="isDeleted" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="CMFRelation" Relationship="GalaDBModel.FK_CMFRelation_Country" FromRole="Country" ToRole="CMFRelation" />
+        </EntityType>
+        <Association Name="FK_CMFRelation_Country">
+          <End Type="GalaDBModel.Country" Role="Country" Multiplicity="0..1" />
+          <End Type="GalaDBModel.CMFRelation" Role="CMFRelation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CMFRelation">
+              <PropertyRef Name="CID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Team">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MInitial" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="Picture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BIO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Tel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Fax" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FirmID" Type="Int32" Nullable="false" />
+          <Property Name="Created" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Modified" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="isDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CMFRelation" Relationship="GalaDBModel.FK_CMFRelation_Member" FromRole="Team" ToRole="CMFRelation" />
+          <NavigationProperty Name="Events" Relationship="GalaDBModel.FK_Events_Firm" FromRole="Team" ToRole="Events" />
+          <NavigationProperty Name="Firm" Relationship="GalaDBModel.FK_Member_Firm" FromRole="Team" ToRole="Firm" />
+        </EntityType>
+        <Association Name="FK_CMFRelation_Member">
+          <End Type="GalaDBModel.Team" Role="Team" Multiplicity="0..1" />
+          <End Type="GalaDBModel.CMFRelation" Role="CMFRelation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CMFRelation">
+              <PropertyRef Name="MID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Events">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Heading" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Published" Type="DateTime" Precision="7" />
+          <Property Name="FirmID" Type="Int32" />
+          <Property Name="MemberID" Type="Int32" />
+          <Property Name="Created" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Modified" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="isDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Team" Relationship="GalaDBModel.FK_Events_Firm" FromRole="Events" ToRole="Team" />
+          <NavigationProperty Name="Firm" Relationship="GalaDBModel.FK_Events_Firm1" FromRole="Events" ToRole="Firm" />
         </EntityType>
         <EntityType Name="Firm">
           <Key>
@@ -291,42 +412,9 @@
           <Property Name="Modified" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="isDeleted" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="CMFRelation" Relationship="GalaDBModel.FK_CMFRelation_Firm" FromRole="Firm" ToRole="CMFRelation" />
+          <NavigationProperty Name="Events1" Relationship="GalaDBModel.FK_Events_Firm1" FromRole="Firm" ToRole="Events" />
           <NavigationProperty Name="Team" Relationship="GalaDBModel.FK_Member_Firm" FromRole="Firm" ToRole="Team" />
         </EntityType>
-        <EntityType Name="Team">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="FName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="LName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="MInitial" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
-          <Property Name="Picture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="BIO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Tel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Fax" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="FirmID" Type="Int32" Nullable="false" />
-          <Property Name="Created" Type="DateTime" Nullable="false" Precision="7" />
-          <Property Name="Modified" Type="DateTime" Nullable="false" Precision="7" />
-          <Property Name="isDeleted" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="CMFRelation" Relationship="GalaDBModel.FK_CMFRelation_Member" FromRole="Team" ToRole="CMFRelation" />
-          <NavigationProperty Name="Firm" Relationship="GalaDBModel.FK_Member_Firm" FromRole="Team" ToRole="Firm" />
-        </EntityType>
-        <Association Name="FK_CMFRelation_Country">
-          <End Type="GalaDBModel.Country" Role="Country" Multiplicity="0..1" />
-          <End Type="GalaDBModel.CMFRelation" Role="CMFRelation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Country">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="CMFRelation">
-              <PropertyRef Name="CID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_CMFRelation_Firm">
           <End Type="GalaDBModel.Firm" Role="Firm" Multiplicity="0..1" />
           <End Type="GalaDBModel.CMFRelation" Role="CMFRelation" Multiplicity="*" />
@@ -339,15 +427,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_CMFRelation_Member">
+        <Association Name="FK_Events_Firm">
           <End Type="GalaDBModel.Team" Role="Team" Multiplicity="0..1" />
-          <End Type="GalaDBModel.CMFRelation" Role="CMFRelation" Multiplicity="*" />
+          <End Type="GalaDBModel.Events" Role="Events" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Team">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="CMFRelation">
-              <PropertyRef Name="MID" />
+            <Dependent Role="Events">
+              <PropertyRef Name="FirmID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Events_Firm1">
+          <End Type="GalaDBModel.Firm" Role="Firm" Multiplicity="0..1" />
+          <End Type="GalaDBModel.Events" Role="Events" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Firm">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Events">
+              <PropertyRef Name="FirmID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -431,6 +531,43 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Team">
+            <EntityTypeMapping TypeName="GalaDBModel.Team">
+              <MappingFragment StoreEntitySet="Team">
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="FirmID" ColumnName="FirmID" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="BIO" ColumnName="BIO" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="MInitial" ColumnName="MInitial" />
+                <ScalarProperty Name="LName" ColumnName="LName" />
+                <ScalarProperty Name="FName" ColumnName="FName" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Events">
+            <EntityTypeMapping TypeName="GalaDBModel.Events">
+              <MappingFragment StoreEntitySet="Events">
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="FirmID" ColumnName="FirmID" />
+                <ScalarProperty Name="Published" ColumnName="Published" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Heading" ColumnName="Heading" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Firm">
             <EntityTypeMapping TypeName="GalaDBModel.Firm">
               <MappingFragment StoreEntitySet="Firm">
@@ -451,27 +588,6 @@
                 <ScalarProperty Name="City" ColumnName="City" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="FirmName" ColumnName="FirmName" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Team">
-            <EntityTypeMapping TypeName="GalaDBModel.Team">
-              <MappingFragment StoreEntitySet="Team">
-                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
-                <ScalarProperty Name="Modified" ColumnName="Modified" />
-                <ScalarProperty Name="Created" ColumnName="Created" />
-                <ScalarProperty Name="FirmID" ColumnName="FirmID" />
-                <ScalarProperty Name="Fax" ColumnName="Fax" />
-                <ScalarProperty Name="Tel" ColumnName="Tel" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="BIO" ColumnName="BIO" />
-                <ScalarProperty Name="Picture" ColumnName="Picture" />
-                <ScalarProperty Name="MInitial" ColumnName="MInitial" />
-                <ScalarProperty Name="LName" ColumnName="LName" />
-                <ScalarProperty Name="FName" ColumnName="FName" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
