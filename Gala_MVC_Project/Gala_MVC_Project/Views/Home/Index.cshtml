@@ -6,7 +6,7 @@
 <section class="content_slider">
     <div class="container">
         <div class="row">
-            <div class="col-xs-8">
+            <div class="col-xs-8 small_home_bg">
                 <h2 class="title_slider text_uppercase">DID YOU KNOW?</h2>
                 <div id="carousel-example-generic" class="carousel slide carousel-fade" data-ride="carousel" data-interval="10000">
                     <!-- Wrapper for slides -->
@@ -122,8 +122,12 @@
 </section>
 @section scripts{
     <script type="text/javascript">
-        $(document).ready(function () {
-            $('.content').css("height", ($(window).height() - $('#wrapper2').height()) + $('.content').height());
+        //$(document).ready(function () {
+        //    $('.content_text').css("height", ($(window).height() - $('#wrapper2').height()) + $('.content_text').height());
+        //});
+
+        $(window).resize(function () {
+            $('.content_text').css("height", ($(window).height() - $('#wrapper2').height()) + $('.content_text').height());
         });
     </script>
 }

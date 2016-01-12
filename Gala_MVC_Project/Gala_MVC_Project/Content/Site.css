@@ -769,13 +769,120 @@ table#t01 tr:hover {
    ========================================================================== */
 
 
+@media (max-width: 768px) {
+    .user_login>h2 {
+        font-size: 1em;
+    }
+    .user_icon, .user_login {
+        padding: 1% 3%;
+    }
+    .nav_bar_menu>li>a {
+        font-size: 1.3em;
+        color: white;
+        margin: 2% 0;
+        font-size: 1.5em;
+    }
+    .text_slider>.item>p {
+        font-size: 2em;
+        line-height: 1;
+    }
+    .carousel-indicators>li, .carousel-indicators>.active {
+        width: 10px;
+        height: 10px;
+    }
+    .member_title {
+        font-size: 1.9em;
+    }
+    .dropdown-menu > li > a {
+        font-size: .9em;
+        padding: 1% 10%;
+    }
+    .member_title_news  {
+        font-size: 1.5em;
+    }
+    .home_news_content {
+        font-size: .9em;
+    }
+    .header_menu  {
+        position: fixed;
+    }
+    .menu {
+        z-index: 999;
+        background-color: inherit;
+        border: none;
+    }
+    .menu li {
+        display: block;
+    }
+    .navbar-default .navbar-collapse, .navbar-default .navbar-form {
+        width: 100%;
+        margin: 13% 0 0 0;
+        background-color: rgb(51, 60, 86);
+        opacity: 0.8;
+    }
+}
+
+@media (max-width: 640px) {
+    .nav_bar_menu>li>a {
+        font-size: 1em;
+    }
+    .text_slider>.item>p {
+        font-size: 1.7em;
+        line-height: 1;
+    }
+    .member_title {
+        font-size: 1.6em;
+    }
+    .member_title_news  {
+        font-size: 1.3em;
+    }
+    .home_news_content {
+        font-size: .9em;
+    }
+
+}
+
+
 
 @media (max-width: 570px) {
     .carousel-control.left {
         left: 0;
     }
+    .title_slider {
+        font-size: 1em;
+    }
     .carousel-control.right {
         right: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .text_slider>.item>p {
+        line-height: 1.3;
+    }
+    .small_home_bg, .padding_form, .content_home_global, .news_block {
+        width: 100%;
+    }
+    .small_home_bg {
+        height: 25vh;
+    }
+    .news_block {
+        margin-bottom: 10%;
+    }
+    footer, footer>.container>.footer_main_cont {
+        position: relative;
+        height: 100px;
+    }
+    footer>.container>.footer_main_cont {
+        transform: inherit;
+        top: 0;
+        width: 100%;
+    }
+    .social_images {
+        width: 100%;
+    }
+    .footer_list_date>li>a:hover {
+        color: rgb(72, 210, 125);
     }
 }
 
