@@ -5,9 +5,6 @@
 }
 
 <div class="container">
-
-
-
     <div class="row outer-Box" style=" margin-top:20px; padding-bottom:0!important;">
         <div class="col-md-12">
             <div class="panel panel-primary">
@@ -23,61 +20,56 @@
                                 <th>
                                     Firm Name
                                 </th>
-                               
-                               
                                 <th>
                                     Country
                                 </th>
-                                
-                               
-
                                 <th></th>
                             </tr>
-@using (Html.BeginForm("Relationship", "CountryFirm", FormMethod.Post))
-                    {
-    @Html.AntiForgeryToken()
-
-                            foreach (var item in Model.Firms)
+                            @using (Html.BeginForm("Relationship", "CountryFirm", FormMethod.Post))
                             {
-                                <tr class="hitmeaddMember" >
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.FirmName)
-                                    </td>
+                                @Html.AntiForgeryToken()
 
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Country)
-                                    </td>
-
-
-
-
-                                    <td>
-                                        <a href="#" class="existingdropdown">Add Existing Member</a>|
-                                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                                    </td>
-                                </tr>
-                                <tr style="" class="addMember " >
-                                    <td  colspan="3">Select an existing members @Html.DropDownListFor(model => @model.MID, (IEnumerable<SelectListItem>)ViewBag.Members, new { @class = "form-control ", id = "Countryid" })
-                                    <br/>    
-                                    <button type="submit" class="btn btn-default pull-right col-lg-12" >Save</button>
-                                    </td>
-                                    
-                                    @Model.CID = @item.Country;
-                                    @Model.FID = @item.Id;
-
-
+                                foreach (var item in Model.Firms)
+                                {
                                    
-                                   
+                                    <tr class="hitmeaddMember">
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.FirmName)
+                                        </td>
 
-                                </tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Country)
+                                        </td>
+                                        <td>
+                                            <a href="#" class="existingdropdown">Add Existing Member</a>|
+                                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                                            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                                        </td>
+                                    </tr>
+                                    <tr style="" class="addMember ">
+                                        <td colspan="2">
+                                            Select an existing member @Html.DropDownListFor(model => @model.MID, (IEnumerable<SelectListItem>)ViewBag.Members,"Assing a member to this firm", new { @class = "form-control Countryid ", id = "Countryid" })
+                                           <br /> if the member is not on the list please @Html.ActionLink("Add New Member","AddNewMember","AdminMember") to the list.
+                                            <br />
+                                            <br />
+                                            <button type="button" class="btn btn-default pull-right col-lg-12" data-cid="@item.Country" data-fid="@item.Id">Save</button>
+                                        </td>
+                                        <td>
+                                                                                        @foreach (var CMF in @item.CMFRelation.Where(c => c.FID == @item.Id && c.isDeleted==false).ToList())
+                                                                                        {
+                                                                                            if (@CMF.Team != null )
+                                                                                            {
+                                                                                                <a href="/Admin/AdminMember/Edit/@CMF.Team.Id"> @CMF.Team.FName @CMF.Team.LName</a>   @Html.ActionLink("Remove", "RemoveTeamfromCountry", new { id = CMF.Id })
+                                                                                                <br />
+                                                                                            }
+
+                                            }
+                                        </td>
+                                    </tr>
+                                }
                             }
-}
-
                         </table>
-
-
                     </div>
                 </div>
             </div>
@@ -85,30 +77,49 @@
     </div>
 </div>
 
-                    
+
 @section scripts{
-    
     <script type="text/javascript">
         $(document).ready(function () {
+            //global
+            var MemberID = "";
+            var clicked = "";
             $('.hitmeaddMember').click(function () {
+                clicked = $(this);
                 $(this).next(".addMember").children().slideToggle()
                 $(this).next(".addMember").slideToggle("slow");
-              
             });
+            
+            $('.Countryid').change(function () {
+                MemberID= $(this).val();
+            });
+            $('.btn').click(function () {
+                if (MemberID != "")
+                {//ajax call to save the relationship between contry, member and firm
+                    var CID1 = $(this).attr("data-cid");
+                    var FID1 = $(this).attr("data-fid");
+                    $.ajax({
+                        type: "GET",
+                        url: "/Admin/CountryFirm/Relationship/",
+                        data: { CID: CID1, FID: FID1, MID: MemberID },
+                        datatype: "json",
+                        success: function (data) {
 
+                            alert("successfully Added!");
+                           
+                        }
 
-
-            $.ajax({
-                type: "post",
-                url: "/Admin/CountryFirm/Relationship/",
-                data: { CID: 1, FID: 2, MID: 3 },
-                datatype: "json",
-                success: function (data) {
-
+                    });
                 }
-
+                else
+                {
+                    alert("A member should be selected");
+                }
+                clicked.trigger("click");
+               
+               
             });
-           
-        })
+          
+        });
     </script>
-    }
+}

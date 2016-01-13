@@ -10,11 +10,13 @@ namespace Gala_MVC_Project.Areas.Admin.Models
 {
     public class FirmModel:Basemodel
     {
+        GalaDBEntities db = new GalaDBEntities();
         public Firm Firm { get; set; }
         public List<Firm> Firms { get; set; }
         public int MID { get; set; }
         public int FID { get; set; }
         public string CID { get; set; }
+        public List<Team> Members { get; set; }
 
 
 
@@ -22,7 +24,9 @@ namespace Gala_MVC_Project.Areas.Admin.Models
         public FirmModel()
         {
             Firm = null;
-            Firms = ManageFirm.GetAllFirm().ToList();
+            Firms = db.Firm.Where(c=>c.isDeleted == false).ToList();
+           
+           
         }
         public bool update(FirmModel model)
         {

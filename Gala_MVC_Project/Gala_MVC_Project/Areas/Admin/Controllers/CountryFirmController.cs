@@ -79,11 +79,26 @@ namespace Gala_MVC_Project.Areas.Admin.Controllers
             model.update(model);
             return RedirectToAction("Firms");
         }
-        [HttpPost]
+        [HttpGet]
         public ActionResult Relationship(FirmModel model)
         {
-            
-            return View();
+            CMFRelation cmr = new CMFRelation();
+            cmr.CID = ManageCountry.GetAllCountry().Where(c => c.CountryName == model.CID).FirstOrDefault().Id;
+            cmr.FID = model.FID;
+            cmr.MID = model.MID;
+
+           ManageCMFRelation.AddCMFRelation(cmr);
+
+            return RedirectToAction("Firms");
+        }
+        [HttpGet]
+        public ActionResult RemoveTeamfromCountry(int id)
+        {
+            CMFRelation CMF = new CMFRelation();
+            CMF = ManageCMFRelation.GetById(id);
+            ManageCMFRelation.DeleteCMFRelation(CMF);
+
+            return RedirectToAction("Firms");
         }
     }
 }
