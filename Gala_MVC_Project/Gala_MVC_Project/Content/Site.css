@@ -449,6 +449,9 @@ footer .footer_text_muted {
     margin: 0 0 0 4%;
     float: right;
 }
+.home_find_member:hover {
+    background-color: rgb(29, 101, 158);
+}
 /*mail styles end*/
 
 /*about*/
@@ -769,8 +772,14 @@ table#t01 tr:hover {
    Modify as content requires.
    ========================================================================== */
 
+@media (max-width: 991px) {
+    .nav_bar_menu>li>a {
+        padding: 12px 5px;
+        font-size: 1.2em;
+    }
+}
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .user_login>h2 {
         font-size: 1em;
     }
@@ -821,12 +830,23 @@ table#t01 tr:hover {
         background-color: rgb(51, 60, 86);
         opacity: 0.8;
     }
+    .input-group {
+        margin: 0% 3%;
+    }
 }
 
-@media (max-width: 655px) {
-    footer > .container > .footer_main_cont {
-        position: relative;
-        height: 100px;
+@media (max-width: 660px) {
+    footer {
+        height: 70px;
+    }
+    footer>.container {
+        height: 70px;
+    }
+    .social_images {
+        width: 100%;
+    }
+    .social_images>a>img {
+        margin: 3% 2%;
     }
 }
 
@@ -847,7 +867,6 @@ table#t01 tr:hover {
     .home_news_content {
         font-size: .9em;
     }
-
 }
 
 
@@ -863,9 +882,7 @@ table#t01 tr:hover {
         right: 0;
     }
 }
-.home_find_member:hover {
-    background-color: rgb(29, 101, 158);
-}
+
 @media (max-width: 480px) {
     .header {
         border: none;
@@ -889,14 +906,20 @@ table#t01 tr:hover {
         width: 100%;
     }
     .small_home_bg {
-        height: 170px;
+        height: 185px;
     }
     .news_block {
         margin-bottom: 10%;
     }
+    footer {
+        height: auto;
+    }
+    footer>.container {
+        height: auto;
+    }
     footer, footer>.container>.footer_main_cont {
         position: relative;
-        height: 100px;
+        height: auto;
     }
     footer>.container>.footer_main_cont {
         transform: inherit;
@@ -904,11 +927,12 @@ table#t01 tr:hover {
         width: 100%;
     }
     .social_images {
-        width: 100%;
+        /*width: 100%;*/
     }
     .footer_list_date>li>a:hover {
         color: rgb(72, 210, 125);
     }
+
 }
 
 

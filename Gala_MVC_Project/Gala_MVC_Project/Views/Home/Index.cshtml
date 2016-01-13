@@ -122,9 +122,9 @@
 </section>
 @section scripts{
     <script type="text/javascript">
-        //$(document).ready(function () {
-        //    $('.content_text').css("height", ($(window).height() - $('#wrapper2').height()) + $('.content_text').height());
-        //});
+        $(document).ready(function () {
+            $('.content_text').css("height", ($(window).height() - $('#wrapper2').height()) + $('.content_text').height());
+        });
 
         $(window).resize(function () {
             $('.content_text').css("height", ($(window).height() - $('#wrapper2').height()) + $('.content_text').height());
