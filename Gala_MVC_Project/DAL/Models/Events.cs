@@ -12,13 +12,20 @@ namespace DAL.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Aboutus
+    public partial class Events
     {
         public int id { get; set; }
-        public string Header { get; set; }
+        public string Type { get; set; }
+        public string Heading { get; set; }
         public string Content { get; set; }
+        public Nullable<System.DateTime> Published { get; set; }
+        public Nullable<int> FirmID { get; set; }
+        public Nullable<int> MemberID { get; set; }
         public System.DateTime Created { get; set; }
         public System.DateTime Modified { get; set; }
         public bool isDeleted { get; set; }
+    
+        public virtual Team Team { get; set; }
+        public virtual Firm Firm { get; set; }
     }
 }

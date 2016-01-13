@@ -26,7 +26,8 @@ namespace Gala_MVC_Project.Areas.Admin.Controllers
         {
             CountryModel CM = new CountryModel();
             ViewBag.Countries = CM.Countries.Select(c => new SelectListItem { Text = c.CountryName, Value = c.Id.ToString() }).ToList();//get list of country
-           
+            ViewBag.Firms = ManageFirm.GetAllFirm().GroupBy(x => x.FirmName).Select(c => new SelectListItem { Text = c.FirstOrDefault().FirmName, Value = c.FirstOrDefault().Id.ToString() }).ToList();// get list of firms
+          
             List<SelectListItem> type = new List<SelectListItem>();
             type.Add(new SelectListItem { Text = "Member", Value = "Member" });
             type.Add(new SelectListItem { Text = "Executive", Value = "Executive" });

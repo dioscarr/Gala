@@ -23,7 +23,7 @@ namespace DAL.Models
         public bool isDeleted { get; set; }
     
         public virtual Country Country { get; set; }
-        public virtual Firm Firm { get; set; }
         public virtual Team Team { get; set; }
+        public virtual Firm Firm { get; set; }
     }
 }

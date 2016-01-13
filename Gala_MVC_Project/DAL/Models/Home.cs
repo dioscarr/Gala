@@ -11,13 +11,11 @@ namespace DAL.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.Web.Mvc;
     
     public partial class Home
     {
         public int Id { get; set; }
         public string Header { get; set; }
-        [AllowHtml]
         public string Content { get; set; }
         public System.DateTime Created { get; set; }
         public System.DateTime Modified { get; set; }

@@ -998,3 +998,17 @@ table#t01 tr:hover {
 padding-bottom: 40px;
 
 }
+
+.addMember {
+display:none;
+ min-height:0px; 
+ height:150px; 
+ border:3px solid grey;
+
+}
+
+.addMember > td {
+display:none;
+
+
+}

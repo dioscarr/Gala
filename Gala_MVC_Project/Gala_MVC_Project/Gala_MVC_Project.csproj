@@ -209,6 +209,7 @@
     </Compile>
     <Compile Include="Areas\Admin\Controllers\AdminAboutUSController.cs" />
     <Compile Include="Areas\Admin\Controllers\CountryFirmController.cs" />
+    <Compile Include="Areas\Admin\Controllers\EventsController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManageController.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -231,6 +232,7 @@
     </Compile>
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Models\EventsModel.cs" />
     <Compile Include="Areas\Admin\Models\MemberModel.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
@@ -570,6 +572,8 @@
     <Content Include="Areas\Admin\Views\CountryFirm\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\AdminMember\Details.cshtml" />
     <Content Include="Areas\Admin\Views\AdminMember\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Events\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Events\Insert.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Images\bg-all.jpg" />
     <Content Include="Images\bg.jpg" />
@@ -972,7 +976,6 @@
     <Content Include="Scripts\ckeditor\skins\office2013\images\refresh.png" />
     <Content Include="Scripts\ckeditor\styles.js" />
     <Content Include="Scripts\ie10-viewport-bug-workaround.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-2.0.0.min.map" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />

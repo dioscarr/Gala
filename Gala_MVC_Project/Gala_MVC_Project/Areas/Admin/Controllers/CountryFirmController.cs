@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Gala_MVC_Project.Areas.Admin.Models;
 using DAL.Models;
+using BLL;
 
 namespace Gala_MVC_Project.Areas.Admin.Controllers
 {
@@ -45,7 +46,7 @@ namespace Gala_MVC_Project.Areas.Admin.Controllers
 
         public ActionResult Firms()
         {
-            
+            ViewBag.Members = ManageTeam.GetAllTeam().Select(c => new SelectListItem { Text = c.FName + " " + c.LName, Value = c.Id.ToString() }).ToList();
             return View(new FirmModel());
         }
         [HttpGet]
@@ -76,6 +77,27 @@ namespace Gala_MVC_Project.Areas.Admin.Controllers
         public ActionResult Edit(FirmModel model)
         {
             model.update(model);
+            return RedirectToAction("Firms");
+        }
+        [HttpGet]
+        public ActionResult Relationship(FirmModel model)
+        {
+            CMFRelation cmr = new CMFRelation();
+            cmr.CID = ManageCountry.GetAllCountry().Where(c => c.CountryName == model.CID).FirstOrDefault().Id;
+            cmr.FID = model.FID;
+            cmr.MID = model.MID;
+
+           ManageCMFRelation.AddCMFRelation(cmr);
+
+            return RedirectToAction("Firms");
+        }
+        [HttpGet]
+        public ActionResult RemoveTeamfromCountry(int id)
+        {
+            CMFRelation CMF = new CMFRelation();
+            CMF = ManageCMFRelation.GetById(id);
+            ManageCMFRelation.DeleteCMFRelation(CMF);
+
             return RedirectToAction("Firms");
         }
     }
