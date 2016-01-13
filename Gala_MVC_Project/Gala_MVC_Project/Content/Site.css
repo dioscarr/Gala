@@ -823,6 +823,13 @@ table#t01 tr:hover {
     }
 }
 
+@media (max-width: 655px) {
+    footer > .container > .footer_main_cont {
+        position: relative;
+        height: 100px;
+    }
+}
+
 @media (max-width: 640px) {
     .nav_bar_menu>li>a {
         font-size: 1em;
