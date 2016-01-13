@@ -452,6 +452,9 @@ footer .footer_text_muted {
 .home_find_member:hover {
     background-color: rgb(29, 101, 158);
 }
+.footer_list_date>li>a:hover {
+    color: rgb(72, 210, 125);
+}
 /*mail styles end*/
 
 /*about*/
@@ -780,11 +783,26 @@ table#t01 tr:hover {
 }
 
 @media (max-width: 767px) {
+    .header {
+        border: none;
+    }
+    .logo>a>img {
+        width: 60%;
+        margin: 5% 0;
+    }
+    .navbar-toggle {
+        background-color: rgb(101, 171, 202);
+    }
+    .navbar-default .navbar-toggle .icon-bar {
+        background-color: rgb(255, 255, 255);
+    }
     .user_login>h2 {
-        font-size: 1em;
+        font-size: .8em;
+        margin: 0;
+        padding: 8% 0 0;
     }
     .user_icon, .user_login {
-        padding: 0% 3%;
+        padding: 1% 2%;
     }
     .nav_bar_menu>li>a {
         font-size: 1.3em;
@@ -837,16 +855,16 @@ table#t01 tr:hover {
 
 @media (max-width: 660px) {
     footer {
-        height: 70px;
+        height: 80px;
     }
     footer>.container {
-        height: 70px;
+        height: 80px;
     }
     .social_images {
         width: 100%;
     }
     .social_images>a>img {
-        margin: 3% 2%;
+        margin: 1% 3% 2% 2%;
     }
 }
 
@@ -872,6 +890,9 @@ table#t01 tr:hover {
 
 
 @media (max-width: 570px) {
+    .logo>a>img {
+        width: 75%;
+    }
     .carousel-control.left {
         left: 0;
     }
@@ -884,17 +905,14 @@ table#t01 tr:hover {
 }
 
 @media (max-width: 480px) {
+    .logo>a>img {
+        width: 100%;
+    }
     .header {
         border: none;
     }
     .input-group {
         margin: 1% 3%;
-    }
-    .navbar-toggle {
-        background-color: rgb(101, 171, 202);
-    }
-    .navbar-default .navbar-toggle .icon-bar {
-        background-color: rgb(255, 255, 255);
     }
     .user_login>h2 {
         font-size: .7em;
@@ -926,15 +944,7 @@ table#t01 tr:hover {
         top: 0;
         width: 100%;
     }
-    .social_images {
-        /*width: 100%;*/
-    }
-    .footer_list_date>li>a:hover {
-        color: rgb(72, 210, 125);
-    }
-
 }
-
 
 
 @media only screen and (min-width: 35em) {
