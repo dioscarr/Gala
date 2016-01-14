@@ -811,6 +811,16 @@ table#t01 tr:hover {
 }
 
 @media (max-width: 767px) {
+    .social_images {
+        width: 100%;
+    }
+    .mobile_menu_social_icon {
+        text-align: center;
+        padding: 3%;
+    }
+    .mobile_menu_social_icon>a {
+        padding: 2%;
+    }
     .header {
         border: none;
     }
@@ -866,7 +876,7 @@ table#t01 tr:hover {
         position: fixed;
     }
     .menu {
-        z-index: 4;
+        z-index: 16;
         background-color: inherit;
         border: none;
     }
@@ -882,6 +892,9 @@ table#t01 tr:hover {
     .input-group {
         margin: 0% 3%;
     }
+    .content_text{
+        margin-bottom: 90px;
+    }
     /*About*/
     .membership .stuffing_news {
         margin: 1%;
@@ -889,14 +902,18 @@ table#t01 tr:hover {
     .news_block>.about_stuffing_news {
         padding: 3% 2%;
     }
+    /*Member*/
+    .content_text {
+        margin: 0;
+    }
 }
 
 @media (max-width: 660px) {
     footer {
-        height: 80px;
+        /*height: 80px;*/
     }
     footer>.container {
-        height: 80px;
+        /*height: 80px;*/
     }
     .social_images {
         width: 100%;
@@ -979,11 +996,16 @@ table#t01 tr:hover {
     footer, footer>.container>.footer_main_cont {
         position: relative;
         height: auto;
+        padding-top: 2%;
+        padding-bottom: 2%;
     }
     footer>.container>.footer_main_cont {
         transform: inherit;
         top: 0;
         width: 100%;
+    }
+    .content_text{
+        margin-bottom: 2%;
     }
     /*About*/
     .about_member_col {
