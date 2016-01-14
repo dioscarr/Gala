@@ -958,7 +958,11 @@ table#t01 tr:hover {
         right: 0;
     }
 }
-
+@media (min-width: 480px) {
+    .mobile_display_block {
+        display: none;
+    }
+}
 @media (max-width: 480px) {
     .user_icon, .user_login {
         padding: 1% 3%;
@@ -1010,6 +1014,50 @@ table#t01 tr:hover {
     /*About*/
     .about_member_col {
         width: 50%;
+    }
+    /*member*/
+    .member_list_content_global {
+        padding: 0;
+    }
+    .mobile_display_none {
+        display: none;
+    }
+    .mobile_display_block {
+        display: block;
+    }
+    .mobile_member_country {
+        overflow: hidden;
+    }
+    .mobile_member_info {
+        padding: 1% 7%;
+    }
+    .mobile_display_block .glyphicon {
+	    width: 30px;
+        color: grey;
+        transition: all 0.2s;
+    }
+    .mobile_display_block .glyphicon-menu-down {
+	    transform: rotate(-180deg);
+	    transform-origin: 23% 55%;
+    }
+    .mobile_display_block.mobile_country_errow .glyphicon-menu-down {
+	    transform: rotate(0);      
+    }
+    .find_all_member tr>td {
+        width: 385px;
+    }
+    .mobile_member_country>.pull-left {
+        font-weight: 600;
+    }
+    .findmember_main_title {
+        font-size: 1.1em;
+    }
+    .bottom_home_info {
+        width: 100%;
+    }
+    .bottom_home_info>input[type="submit"] {
+        font-size: .8em;
+        width: 60%;
     }
 }
 
