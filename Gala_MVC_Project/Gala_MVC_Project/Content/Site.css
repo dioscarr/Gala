@@ -970,6 +970,9 @@ table#t01 tr:hover {
     .mobile_display_none {
         display: none;
     }
+    .mobile_content_global {
+        width: 100%;
+    }
     .user_icon, .user_login {
         padding: 1% 3%;
     }
