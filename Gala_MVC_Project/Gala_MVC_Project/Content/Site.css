@@ -902,6 +902,9 @@ table#t01 tr:hover {
     .news_block>.about_stuffing_news {
         padding: 3% 2%;
     }
+    .about_member_col {
+        width: 50%;
+    }
     /*Member*/
     .content_text {
         margin: 0;
@@ -1016,7 +1019,10 @@ table#t01 tr:hover {
     }
     /*About*/
     .about_member_col {
-        width: 50%;
+        width: 100%;
+    }
+    .content_title_news {
+        margin-top: 3%;
     }
     /*member*/
     .member_list_content_global {
@@ -1067,10 +1073,28 @@ table#t01 tr:hover {
         width: 100%;
         margin-top:3%;
         padding: 0;
-        box-shadow: none;
     }
     .about_member_person_img>img {
         width: 65%;
+    }
+    .content_global {
+        box-shadow: none;
+    }
+    /*Member*/
+    .bio_top_title {
+        margin-top: 3%;
+    }
+    .member_content_global, .mobile_member_right_info, .bio_member, .bio_member_content_info {
+        width: 100%;
+    }
+    .bio_member>img {
+        width: 50%;
+    }
+    .bio_member, .bio_member_content_info {
+        padding: 0;
+    }
+    .member_bio_contact_info {
+        padding-top: 0%;
     }
 }
 
