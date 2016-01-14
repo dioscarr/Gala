@@ -1033,7 +1033,7 @@ table#t01 tr:hover {
     }
     .mobile_display_block .glyphicon {
 	    width: 30px;
-        color: grey;
+        color: grey; 
         transition: all 0.2s;
     }
     .mobile_display_block .glyphicon-menu-down {
