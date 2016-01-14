@@ -785,6 +785,9 @@ table#t01 tr:hover {
 
 
 /*publication*/
+.publication_member_person_photo {
+    width: 20%;
+}
 .publication_member_person_info {
     width: 78%;
 }
@@ -908,6 +911,10 @@ table#t01 tr:hover {
     /*Member*/
     .content_text {
         margin: 0;
+    }
+    /*Publication*/
+    .publication_member_block {
+        width: 100%;
     }
 }
 
@@ -1098,6 +1105,10 @@ table#t01 tr:hover {
     }
     .member_bio_contact_info {
         padding-top: 0%;
+    }
+    /*Publication*/
+    .publication_member_block {
+        /*width: 100%;*/
     }
 }
 
