@@ -346,9 +346,6 @@ img {
 }
 .content {
     background-color: #ffffff;
-
-
-    /*height:auto;*/
 }
 .content_home_global {
     padding: 3% 15px;
@@ -383,9 +380,6 @@ img {
     padding: 4%;
     margin: 1%;
     background-color: #faedca;
-}
-.home_member {
-    
 }
 .news_img_discr {
     overflow: hidden;
@@ -454,6 +448,42 @@ footer .footer_text_muted {
 }
 .footer_list_date>li>a:hover {
     color: rgb(72, 210, 125);
+}
+.navbar-toggle {
+  border: none;
+  background: transparent !important;
+  
+  &:hover {
+    background: transparent !important;
+  }
+
+  .icon-bar {
+    width: 22px;
+    transition: all 0.2s;
+  }
+  .top-bar {
+    transform: rotate(45deg);
+    transform-origin: 10% 10%;
+  }
+  .middle-bar {
+    opacity: 0;
+  }
+  .bottom-bar {
+    transform: rotate(-45deg);
+    transform-origin: 10% 90%;
+  }
+
+  &.collapsed {
+    .top-bar {
+      transform: rotate(0);      
+    }
+    .middle-bar {
+      opacity: 1;
+    }
+    .bottom-bar {
+      transform: rotate(0);
+    }
+  }
 }
 /*mail styles end*/
 
