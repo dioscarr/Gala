@@ -276,7 +276,7 @@ img {
     text-align: center;
 }
 .member_title_news {
-        font-size: 2.6em;
+    font-size: 2.6em;
 }
 .form_action>input[type="text"] {
     width: 100%;
@@ -350,6 +350,9 @@ img {
 .content_home_global {
     padding: 3% 15px;
 }
+.content_home_global>p {
+    font-size: 1.2em;
+}
 .content_global {
     /*padding: 3% 3%;*/
     padding-bottom: 3%;
@@ -367,6 +370,7 @@ img {
 }
 .content_global>p {
     line-height: 1.8;
+    font-size: 1.2em;
 }
 .print_share>a>img {
     padding-left: 1%;
@@ -391,6 +395,10 @@ img {
 .home_news_content {
     width: 75%;
     text-align: left;
+}
+.home_news_content>.home_news_content_p {
+    line-height: 1.1;
+    font-size: 1.2em;
 }
 .home_news_content>span>a {
     color: grey;
@@ -615,7 +623,7 @@ footer .footer_text_muted {
     font-weight: bold;
 }
 .bio_member_content_info>p {
-    font-size: 1.15em;
+    font-size: 1.2em;
     margin-bottom: 2%;
 }
 .member_bio_contact_info {
@@ -651,6 +659,7 @@ footer .footer_text_muted {
 }
 .events_content {
     width: 80%;
+    font-size: 1.2em;
 }
 .events_text_content {
     padding-bottom: 20px;
@@ -665,7 +674,7 @@ footer .footer_text_muted {
 }
 .member_events_title {
     color: rgb(28, 117, 187);
-    font-size: 1.3em;
+    font-size: 1.6em;
 }
 .member_events_info>input[type="submit"] {
     background-color: rgb(107, 170, 214);
@@ -678,7 +687,7 @@ footer .footer_text_muted {
 
 /*fint member*/
 .findmember_main_title {
-    font-size: 1.5em;
+    font-size: 1.2em;
     padding-bottom: 3%;
 }
 .find_all_member {
@@ -863,7 +872,7 @@ table#t01 tr:hover {
         height: 10px;
     }
     .member_title {
-        font-size: 1.9em;
+        font-size: 1.5em;
     }
     .dropdown-menu > li > a {
         font-size: .9em;
@@ -916,6 +925,16 @@ table#t01 tr:hover {
     .publication_member_block {
         width: 100%;
     }
+    /*font-size*/
+    .content_global>p {
+        line-height: 1.6;
+    }
+    .content_global>p, .content_home_global>p, .findmember_main_title, .events_content {
+	    font-size: 1.1em;
+    }
+    .content_title_news {
+        font-size: 1.7em;
+    }
 }
 
 @media (max-width: 660px) {
@@ -942,7 +961,7 @@ table#t01 tr:hover {
         line-height: 1;
     }
     .member_title {
-        font-size: 1.6em;
+        font-size: 1.3em;
     }
     .member_title_news  {
         font-size: 1.3em;
@@ -1109,6 +1128,16 @@ table#t01 tr:hover {
     /*Publication*/
     .publication_member_block {
         /*width: 100%;*/
+    }
+    /*font-size*/
+    .content_global>p {
+        line-height: 1.4;
+    }
+    .content_global>p, .content_home_global>p, .findmember_main_title, .events_content {
+	    font-size: 1em;
+    }
+    .content_title_news {
+        font-size: 1.5em;
     }
 }
 
