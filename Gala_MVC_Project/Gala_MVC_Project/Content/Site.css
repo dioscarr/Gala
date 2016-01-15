@@ -909,8 +909,8 @@ table#t01 tr:hover {
         width: 50%;
     }
     /*Member*/
-    .content_text {
-        margin: 0;
+    .member_content_text {
+        margin:0;
     }
     /*Publication*/
     .publication_member_block {
