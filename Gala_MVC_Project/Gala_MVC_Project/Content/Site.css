@@ -459,7 +459,8 @@ footer .footer_text_muted {
 }
 .navbar-toggle {
     border: none;
-    background: transparent !important;
+    background: rgb(243, 243, 243);
+    margin-right: 0;
 }
   .navbar-toggle:hover {
     background: transparent !important;
