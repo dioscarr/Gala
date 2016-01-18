@@ -39,9 +39,9 @@
                                 <div class="navbar-header">
                                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                                         <span class="sr-only">Toggle navigation</span>
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar top-bar"></span>
+                                        <span class="icon-bar middle-bar"></span>
+                                        <span class="icon-bar bottom-bar"></span>
                                     </button>
                                 </div>
 
@@ -55,6 +55,22 @@
                                         <li role="presentation"><a href="~/Publication/publication">publications</a></li>
                                         <li role="presentation"><a href="~/contact/contact">contact us</a></li>
                                     </ul>
+                                    <div class="social_images pull-right">
+                                        <div class="mobile_menu_social_icon">
+                                            <a href="www.facebook.com">
+                                                <img src="~/Images/social-fb.png" />
+                                            </a>
+                                            <a href="www.facebook.com">
+                                                <img src="~/Images/social-in.png" />
+                                            </a>
+                                            <a href="www.facebook.com">
+                                                <img src="~/Images/social-tv.png" />
+                                            </a>
+                                            <a href="www.facebook.com">
+                                                <img src="~/Images/social-yt.png" />
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </nav>
@@ -140,11 +156,11 @@
                             © 2016 Global Advertising Lawyers Alliance.
                         </p>
                         <ul class="footer_list_date pull-left">
-                            <li><a href="#">Term Of Use |</a></li>
-                            <li><a href="#">Privacy Policy |</a></li>
+                            <li><a href="#">Term Of Use</a> |</li>
+                            <li><a href="#">Privacy Policy</a> |</li>
                             <li><a href="#">Site by cleverdesign</a></li>
                         </ul>
-                        <div class="social_images pull-right">
+                        <div class="visible-lg visible-md visible-sm social_images pull-right">
                             <a href="www.facebook.com">
                                 <img src="~/Images/social-fb.png" />
                             </a>
@@ -162,9 +178,12 @@
                 </div>
             </footer>
         </div>
+
     
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
 </body>
 </html>
+

@@ -18,7 +18,7 @@
     <div class="container content">
         <div class="row">
             <div class="col-xs-12">
-                <ol class="breadcrumb">
+                <ol class="breadcrumb mobile_display_none">
                     <li><a href="~/Home">Home</a></li>
                     <li class="active">Members</li>
                 </ol>
@@ -26,13 +26,13 @@
             </div>
         </div>
 
-        <div class="row content_text">
-            <div class="col-xs-12 content_global">
+        <div class="row content_text member_content_text">
+            <div class="col-xs-12 content_global member_list_content_global">
                 <table id="t01" class="find_all_member table-striped " style="width:100%">
                     <tr class="find_all_member_name">
-                        <th class="find_all_member_name_first">Country</th>
-                        <th class="find_all_member_name_first">Firm</th>
-                        <th class="find_all_member_name_last">Name</th>
+                        <th class="mobile_display_none find_all_member_name_first">Country</th>
+                        <th class="mobile_display_none find_all_member_name_first">Firm</th>
+                        <th class="mobile_display_none find_all_member_name_last">Name</th>
                     </tr>
                     @{
                         var Country = "";
@@ -41,7 +41,7 @@
                     @foreach (var member in Model.MemberList)
                     {
                         Country = @member.Country;
-                        <tr class="find_all_member_name @ViewBag.stripe">
+                        <tr class="mobile_display_none find_all_member_name @ViewBag.stripe">
                             @if (Country == newcountry)
                             {
                                 <td></td>
@@ -55,6 +55,31 @@
                                 <td><a href="~/Members/member/@member.MID">@member.Name</a></td>
                                 newcountry = Country;
                             }
+                        </tr>
+                    }
+
+                    @foreach (var member in Model.MemberList)
+                    {
+                        Country = @member.Country;
+                        <tr class="mobile_display_block mobile_country_errow find_all_member_name @ViewBag.stripe">
+
+                            <td>
+                                <div class="mobile_member_country">
+                                    <div class="pull-left text_uppercase">
+                                        <img src="~/Images/flags/@member.flag">
+                                        <span>@member.Country</span>
+                                    </div>
+                                    <div class="pull-right">
+                                        <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
+                                    </div>
+
+                                </div>
+                                <div class="mobile_display_none mobile_member_info">
+                                    <a href="~/members/firm/@member.FID">@member.Firm</a><br />
+                                    <a href="~/Members/member/@member.MID"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>@member.Name</a>
+                                </div>
+                            </td>
+
                         </tr>
                     }
 
@@ -83,4 +108,18 @@
 
     </div>
 </section>
+
+@section scripts{
+    <script type="text/javascript">
+        $(".mobile_display_block").click(function () {
+            var $this = $(this);
+
+            $($this).removeClass("mobile_country_errow");
+            $(".mobile_display_block").not($this).addClass("mobile_country_errow");
+
+            $(".mobile_member_info").hide("slow");
+            $($this).children().children().next().toggle("slow");
+        });
+    </script>
+}
 

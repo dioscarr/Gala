@@ -19,7 +19,7 @@
 <section class="bg_contact">
     <div class="container content">
         <div class="row">
-            <div class="col-xs-12">
+            <div class="mobile_display_none col-xs-12">
                 <ol class="breadcrumb">
                     <li><a href="~/Home">Home</a></li>
                     <li><a href="~/Members/MemberList">Members</a></li>
@@ -29,19 +29,66 @@
             </div>
         </div>
         <div class="row content_text">
-            <div class="col-xs-9 content_global">
+            <div class="mobile_content_global col-xs-9 content_global">
                 <div class="bio_top_title">
                     <div class="pull-left">
                         <h1 class="content_title_news">@Model.Firm.FirmName</h1>
                     </div>
                     <div class="pull-right print_share">
                         <a href="#">
-                            <img src="~/Images/share.png" /></a>                                                                                                                                                                                                                   
+                            <img src="~/Images/share.png" />
+                        </a>
                         <a href="#">
-                            <img src="~/Images/print.png" /></a>
+                            <img src="~/Images/print.png" />
+                        </a>
                     </div>
                 </div>
                 <hr>
+                <div class="mobile_display_block">
+                    <h4 class="bio_left_title text_uppercase">@Model.Firm.FirmName</h4>
+                    <div class="bio_contact_info">
+                        <h4 class="bio_contact_info_title">Office</h4>
+                        <p><span>@Model.Firm.Address</span></p>
+                        <p><span>@Model.Firm.City @Model.Firm.Zip, @Model.Firm.Country</span></p>
+                        <p><span>Tel:     <a href="">@Model.Firm.Tel</a></span></p>
+                        <p><span>Fax:    <a href="">@Model.Firm.Fax</a></span></p>
+                        <p><span>Web:   <a href="">@Model.Firm.web</a></span></p>
+                    </div>
+                    <div class="about_member_block firm_member_block">
+                        <div class="about_member_person">
+                            <div class="pull-left about_member_person_img firm_member_person_img">
+                                <img src="~/Images/member-img.jpg" />
+                            </div>
+                            <div class="pull-right about_member_person_info firm_member_person_info">
+                                <h3>Soren Pietzcker</h3>
+                                <span><a class="" href="#">s.pietzcker@heuking.de</a></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about_member_block firm_member_block">
+                        <div class="about_member_person">
+                            <div class="pull-left about_member_person_img firm_member_person_img">
+                                <img src="~/Images/member-img-2.jpg" />
+                            </div>
+                            <div class="pull-right about_member_person_info firm_member_person_info">
+                                <h3>Dominik Eickemeier</h3>
+                                <span><a class="" href="#">d.eickemeier@heuking.de</a></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about_member_block firm_member_block">
+                        <div class="about_member_person">
+                            <div class="pull-left about_member_person_img firm_member_person_img">
+                                <img src="~/Images/member-img.jpg" />
+                            </div>
+                            <div class="pull-right about_member_person_info firm_member_person_info">
+                                <h3>Florian Geyer</h3>
+                                <span><a class="" href="#">f.geyer@heuking.de </a></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="bio_member_content_info">
                     <h4 class="bio_contact_info_title">Office</h4>
                     @Html.Raw(@Model.Firm.AboutContent)
@@ -106,7 +153,7 @@
                     <a href="#">Show more...</a><br />
                 </div>
             </div>
-            <div class="col-xs-3">
+            <div class="mobile_display_none col-xs-3">
                 <h4 class="bio_left_title text_uppercase">@Model.Firm.FirmName</h4>
                 <div class="bio_contact_info">
                     <h4 class="bio_contact_info_title">Office</h4>
