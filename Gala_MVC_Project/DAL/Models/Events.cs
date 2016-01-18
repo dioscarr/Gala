@@ -25,7 +25,7 @@ namespace DAL.Models
         public System.DateTime Modified { get; set; }
         public bool isDeleted { get; set; }
     
-        public virtual Team Team { get; set; }
         public virtual Firm Firm { get; set; }
+        public virtual Team Team { get; set; }
     }
 }

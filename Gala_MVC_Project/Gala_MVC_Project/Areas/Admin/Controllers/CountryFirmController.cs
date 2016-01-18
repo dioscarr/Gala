@@ -21,6 +21,7 @@ namespace Gala_MVC_Project.Areas.Admin.Controllers
             return View(new FirmModel());
         }
         [HttpPost]
+      
         public ActionResult Index(FirmModel model)
         {
             model.Insert(model);
@@ -46,7 +47,7 @@ namespace Gala_MVC_Project.Areas.Admin.Controllers
 
         public ActionResult Firms()
         {
-            ViewBag.Members = ManageTeam.GetAllTeam().Select(c => new SelectListItem { Text = c.FName + " " + c.LName, Value = c.Id.ToString() }).ToList();
+            ViewBag.Members = ManageTeam.GetAllTeam().OrderBy(c=>c.FName).Select(c => new SelectListItem { Text = c.FName + " " + c.LName, Value = c.Id.ToString() }).ToList();
             return View(new FirmModel());
         }
         [HttpGet]

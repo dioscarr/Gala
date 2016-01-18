@@ -49,11 +49,12 @@ namespace Gala_MVC_Project.Areas.Admin.Models
                MID = c.Team.Id,
                id= c.Id
            }).ToList();
-            db.Dispose();
+         
         
         }
 
-        public void loadMember(int id) {
+        public void loadMember(int id) 
+        {
             Member = ManageTeam.GetById(id);
         }
 

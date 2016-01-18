@@ -17,7 +17,7 @@
                     <br/>
 
 
-                    @using (Html.BeginForm())
+                    @using (Html.BeginForm("AddNewMember", "AdminMember", FormMethod.Post, new { enctype = "multipart/form-data" }))
                     {
                         @Html.AntiForgeryToken()
                         
@@ -35,43 +35,23 @@
         @Html.CheckBoxFor(c => c.isNewPicture, new { id = "checkIfNew" })
         <label>Check to select new Image</label>
         <div id="newPicture" style="display:none;">
-            @Html.LabelFor(m => m.ImageUpload)
-            @Html.TextBoxFor(m => m.ImageUpload, new { @type = "file" })
+            @Html.LabelFor(model => model.ImageUpload)
+            @Html.TextBoxFor(model => model.ImageUpload, new { @type = "file" })
 
         </div>
         <br />
         <br />
     </div>
 
-
-
-    <div class="form-group">
-        @Html.Label("Countries", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(model => model.CID, (IEnumerable<SelectListItem>)ViewBag.Countries, new { @class = "form-control ", id = "Countryid" })
-            @Html.ValidationMessageFor(model => model.Member.Type, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.Label("Firm", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(model => model.FID, (IEnumerable<SelectListItem>)ViewBag.Firms, new { @class = "form-control ", id = "Countryid" })
-            @Html.ValidationMessageFor(model => model.Member.Type, "", new { @class = "text-danger" })
-        </div>
-    </div>
 
 
     <div class="form-group">
         @Html.LabelFor(model => model.Member.Type, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.DropDownListFor(model => model.Member.Type, (IEnumerable<SelectListItem>)ViewBag.type, new { @class = "form-control ",id="Countryid" })
-           @* @Html.ValidationMessageFor(model => model.Member.Type, "", new { @class = "text-danger" })*@
+            @Html.DropDownListFor(model => model.Member.Type, (IEnumerable<SelectListItem>)ViewBag.type, new { @class = "form-control ", id = "Countryid" })
+            @* @Html.ValidationMessageFor(model => model.Member.Type, "", new { @class = "text-danger" })*@
         </div>
     </div>
-
-
-
 
 
 

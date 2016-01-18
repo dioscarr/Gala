@@ -31,6 +31,7 @@ namespace DAL.Models
         public string Tel { get; set; }
         public string Fax { get; set; }
         public string web { get; set; }
+        
         public string AboutContent { get; set; }
         public string Country { get; set; }
         public Nullable<int> NewsID { get; set; }

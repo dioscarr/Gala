@@ -9,8 +9,11 @@ namespace Gala_MVC_Project.Models
 {
     public class AboutUsModel
     {
+
+        GalaDBEntities db = new GalaDBEntities();
+
         public  Aboutus aboutus { get; set; }
-        public List<Team> Executives { get; set; }
+        public List<Executives> executives { get; set; }
 
 
 
@@ -18,7 +21,7 @@ namespace Gala_MVC_Project.Models
         public AboutUsModel()
         {
             aboutus = ManageAboutus.GetAllAboutus().FirstOrDefault();
-            Executives = ManageTeam.GetAllTeam().Where(c => c.Type == "Executive").ToList();
+          executives = db.Team.Where(c => c.Type == "Executive").Select(c=> new Executives { Name = c.FName + " " + c.LName, picture = c.Picture, title = c.Title, country = c.CMFRelation.FirstOrDefault().Country.CountryName }).ToList();
         }
         public bool update(AboutUsModel model)
         {
@@ -32,6 +35,13 @@ namespace Gala_MVC_Project.Models
         public bool Delete(int id)
         {
             return ManageAboutus.DeleteAboutus(ManageAboutus.GetById(id));
+        }
+
+        public class Executives{
+            public string Name  { get; set; }
+            public string  picture  { get; set; }
+            public string  title { get; set; }
+            public string country { get; set; }
         }
 
     }
