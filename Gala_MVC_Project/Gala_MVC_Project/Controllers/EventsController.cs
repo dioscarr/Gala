@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using Gala_MVC_Project.Models;
 namespace Gala_MVC_Project.Controllers
 {
     public class EventsController : Controller
@@ -11,7 +11,9 @@ namespace Gala_MVC_Project.Controllers
         // GET: Events
         public ActionResult EventList()
         {
-            return View();
+            EventsModel EM = new EventsModel();
+            EM.LoadEventPage();
+            return View(EM);
         }
         public ActionResult EventArchive()
         {

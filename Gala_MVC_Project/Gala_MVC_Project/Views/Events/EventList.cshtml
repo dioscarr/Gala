@@ -1,4 +1,4 @@
-﻿
+﻿@model Gala_MVC_Project.Models.EventsModel
 @{
     ViewBag.Title = "EventList";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -38,11 +38,12 @@
                 <hr>
                 <div class="events_table">
 
-                    @for (var i = 0; i < 5; i++)
+                    @foreach(var item in @Model.Eventss.Where(c=>c.Type=="Gala Events").ToList().Take(10))
                     {
+                        var content = @Html.Raw(@item.Content);
                         <p class="events_text_content">
-                            <span class="event_data pull-left">July 30, 2015</span><span class="events_content pull-right">The Marketing Site covers GALA news on restrictions on food advertising to children in Chile</span>
-                        </p>
+                            <a href=""><span class="event_data pull-left"> @String.Format("{0:MMM d, yyyy}", @item.Published)</span><span class="events_content pull-right">@Model.Truncate(content.ToString(), 100, "...", true)</span></a>
+</p>
                     }
 
                     <a href="#">Show more...</a>
@@ -58,21 +59,13 @@
                 </div>
                 <hr>
                 <div class="events_table">
-                    <p class="events_text_content">
-                        <span class="event_data pull-left">July 30, 2015</span><span class="events_content pull-right"><b>New Regulations In Chile Restrict Food Advertising To Children</b><br>GALA to host webinar on July 30, 2015 to discuss developments in worldwide food advertising rules Press Release</span>
-                    </p>
-                    <p class="events_text_content">
-                        <span class="event_data pull-left">July 30, 2015</span><span class="events_content pull-right">Global Advertising Lawyers Alliance Releases Video Series On Advertising Law Compliance</span>
-                    </p>
-                    <p class="events_text_content">
-                        <span class="event_data pull-left">July 30, 2015</span><span class="events_content pull-right">Global Advertising Lawyers Alliance To Hold International Advertising Law Seminar In Santiago</span>
-                    </p>
-                    <p class="events_text_content">
-                        <span class="event_data pull-left">July 30, 2015</span><span class="events_content pull-right">Global Advertising Lawyers Alliance Adds New Member In Paraguay</span>
-                    </p>
-                    <p class="events_text_content">
-                        <span class="event_data pull-left">July 30, 2015</span><span class="events_content pull-right">China Enacts Its First Major Changes to Its Advertising Laws In Twenty Years</span>
-                    </p>
+                    @foreach (var item in @Model.Eventss.Where(c => c.Type == "Other Events").ToList().Take(10))
+                    {
+                        var content = @Html.Raw(@item.Content);
+                        <p class="events_text_content">
+                            <a href=""><span class="event_data pull-left"> @String.Format("{0:MMM d, yyyy}", @item.Published)</span><span class="events_content pull-right">@Model.Truncate(content.ToString(), 100, "...", true)</span></a>
+                        </p>
+                    }  
                     <a href="#">Show more...</a>
                 </div>
 

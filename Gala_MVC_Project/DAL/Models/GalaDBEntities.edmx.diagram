@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b3e378bc9ea84f848cefbb76d4a892af" Name="Diagram1">
+        <EntityTypeShape EntityType="DB_97691_galadbModel.Aboutus" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_97691_galadbModel.CMFRelation" Width="1.5" PointX="5.25" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_97691_galadbModel.Country" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_97691_galadbModel.Events" Width="1.5" PointX="8.25" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_97691_galadbModel.Firm" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_97691_galadbModel.Home" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_97691_galadbModel.Slider" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_97691_galadbModel.Team" Width="1.5" PointX="3" PointY="13.125" IsExpanded="true" />
+        <AssociationConnector Association="DB_97691_galadbModel.FK_CMFRelation_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_97691_galadbModel.FK_CMFRelation_Firm" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_97691_galadbModel.FK_CMFRelation_Member" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_97691_galadbModel.FK_Events_Firm1" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_97691_galadbModel.FK_Events_Member" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_97691_galadbModel.FK_Member_Firm" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

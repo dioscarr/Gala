@@ -35,7 +35,7 @@ namespace Gala_MVC_Project.Areas.Admin.Controllers
             return View(new MemberModel());
         }
         [HttpPost]
-        public ActionResult AddNewMember(MemberModel model)
+        public ActionResult AddNewMember(MemberModel model, HttpPostedFileBase ImageUpload)
         {
             try
             {
@@ -44,10 +44,9 @@ namespace Gala_MVC_Project.Areas.Admin.Controllers
                     model.Member.Picture = ImageUloadFirm(model, "~/Images/Members");
                 }
 
-                model.Member.FirmID = model.FID;
-                //insert member 
+               
                 model.Insert(model);
-                model.InsertRelations(model.Member.Id, model.FID, model.CID);// insert relationship country id, member id, firm id 
+              
                 return RedirectToAction("MemberList");
             }
             catch (Exception)

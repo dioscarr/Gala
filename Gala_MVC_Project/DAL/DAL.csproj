@@ -78,43 +78,43 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Aboutus.cs">
-      <DependentUpon>GalaDB.tt</DependentUpon>
+      <DependentUpon>GalaDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CMFRelation.cs">
-      <DependentUpon>GalaDB.tt</DependentUpon>
+      <DependentUpon>GalaDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Country.cs">
-      <DependentUpon>GalaDB.tt</DependentUpon>
+      <DependentUpon>GalaDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Events.cs">
-      <DependentUpon>GalaDB.tt</DependentUpon>
+      <DependentUpon>GalaDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Firm.cs">
-      <DependentUpon>GalaDB.tt</DependentUpon>
+      <DependentUpon>GalaDBEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\GalaDB.Context.cs">
+    <Compile Include="Models\GalaDBEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>GalaDB.Context.tt</DependentUpon>
+      <DependentUpon>GalaDBEntities.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\GalaDB.cs">
+    <Compile Include="Models\GalaDBEntities.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>GalaDB.tt</DependentUpon>
+      <DependentUpon>GalaDBEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\GalaDB.Designer.cs">
+    <Compile Include="Models\GalaDBEntities.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>GalaDB.edmx</DependentUpon>
+      <DependentUpon>GalaDBEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Home.cs">
-      <DependentUpon>GalaDB.tt</DependentUpon>
+      <DependentUpon>GalaDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Slider.cs">
-      <DependentUpon>GalaDB.tt</DependentUpon>
+      <DependentUpon>GalaDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Team.cs">
-      <DependentUpon>GalaDB.tt</DependentUpon>
+      <DependentUpon>GalaDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CountryRepository.cs" />
@@ -130,10 +130,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <EntityDeploy Include="Models\GalaDB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>GalaDB.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <None Include="bin\Debug\DAL.dll.config" />
     <None Include="bin\Release\DAL.dll.config" />
     <None Include="Content\bootstrap-theme.css.map" />
@@ -144,18 +140,12 @@
     <None Include="fonts\glyphicons-halflings-regular.ttf" />
     <None Include="fonts\glyphicons-halflings-regular.woff" />
     <None Include="fonts\glyphicons-halflings-regular.woff2" />
-    <None Include="Models\GalaDB.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>GalaDB.edmx</DependentUpon>
-      <LastGenOutput>GalaDB.Context.cs</LastGenOutput>
-    </None>
-    <None Include="Models\GalaDB.edmx.diagram">
-      <DependentUpon>GalaDB.edmx</DependentUpon>
-    </None>
-    <None Include="Models\GalaDB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>GalaDB.edmx</DependentUpon>
-      <LastGenOutput>GalaDB.cs</LastGenOutput>
+    <EntityDeploy Include="Models\GalaDBEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>GalaDBEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\GalaDBEntities.edmx.diagram">
+      <DependentUpon>GalaDBEntities.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Scripts\jquery-1.9.1.min.map" />
@@ -201,6 +191,16 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Models\GalaDBEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GalaDBEntities.edmx</DependentUpon>
+      <LastGenOutput>GalaDBEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\GalaDBEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GalaDBEntities.edmx</DependentUpon>
+      <LastGenOutput>GalaDBEntities.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.9.1.intellisense.js" />

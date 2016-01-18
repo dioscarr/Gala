@@ -14,7 +14,7 @@ namespace Gala_MVC_Project.Areas.Admin.Controllers
         {          HomeModel HM = new HomeModel();
         return View(HM);
         }
-
+        [ValidateInput(false)]
         public ActionResult UpdateHomePage(HomeModel model)
         {
             model.update(model);

@@ -13,7 +13,7 @@ namespace BLL
         where R : GenericRepository<T>
     {
         private static readonly string _connectionString = "GalaDBEntities"; // Set the connection string
-        private static readonly string _pwd = "130w56"; // Set the password
+        private static readonly string _pwd = "DIJGKD%%^324234"; // Set the password
 
         #region Select methods
 
