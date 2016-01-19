@@ -58,11 +58,11 @@
                         </tr>
                     }
 
+                    
                     @foreach (var member in Model.MemberList)
                     {
                         Country = @member.Country;
                         <tr class="mobile_display_block mobile_country_errow find_all_member_name @ViewBag.stripe">
-
                             <td>
                                 <div class="mobile_member_country">
                                     <div class="pull-left text_uppercase">
@@ -75,11 +75,10 @@
 
                                 </div>
                                 <div class="mobile_display_none mobile_member_info">
-                                    <a href="~/members/firm/@member.FID">@member.Firm</a><br />
-                                    <a href="~/Members/member/@member.MID"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>@member.Name</a>
+                                      <a href="~/members/firm/@member.FID">@member.Firm</a><br />
+                                      <a href="~/Members/member/@member.MID"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>@member.Name</a>
                                 </div>
-                            </td>
-
+                             </td>
                         </tr>
                     }
 
