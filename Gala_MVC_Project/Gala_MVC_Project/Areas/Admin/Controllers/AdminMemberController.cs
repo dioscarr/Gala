@@ -35,6 +35,7 @@ namespace Gala_MVC_Project.Areas.Admin.Controllers
             return View(new MemberModel());
         }
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult AddNewMember(MemberModel model, HttpPostedFileBase ImageUpload)
         {
             try
@@ -86,6 +87,7 @@ namespace Gala_MVC_Project.Areas.Admin.Controllers
             return View(MM);
         }
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult Edit(MemberModel model)
         {
 

@@ -21,7 +21,7 @@ namespace Gala_MVC_Project.Areas.Admin.Controllers
             return View(new FirmModel());
         }
         [HttpPost]
-      
+      [ValidateInput(false)]
         public ActionResult Index(FirmModel model)
         {
             model.Insert(model);
@@ -36,6 +36,7 @@ namespace Gala_MVC_Project.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Insert(Country model)
         {
 
@@ -75,6 +76,7 @@ namespace Gala_MVC_Project.Areas.Admin.Controllers
             return View(FM);
         }
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult Edit(FirmModel model)
         {
             model.update(model);

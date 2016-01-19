@@ -42,7 +42,7 @@
                     {
                         var content = @Html.Raw(@item.Content);
                         <p class="events_text_content">
-                            <a href=""><span class="event_data pull-left"> @String.Format("{0:MMM d, yyyy}", @item.Published)</span><span class="events_content pull-right">@Model.Truncate(content.ToString(), 100, "...", true)</span></a>
+                            <a href="~/Admin/Events/Article/@item.id"><span class="event_data pull-left"> @String.Format("{0:MMM d, yyyy}", @item.Published)</span><span class="events_content pull-right">@Model.Truncate(content.ToString(), 100, "...", true)</span></a>
 </p>
                     }
 

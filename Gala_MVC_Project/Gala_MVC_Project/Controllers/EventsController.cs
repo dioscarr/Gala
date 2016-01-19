@@ -19,5 +19,12 @@ namespace Gala_MVC_Project.Controllers
         {
             return View();
         }
+
+        public ActionResult Article(int id)
+        {
+            EventsModel EM = new EventsModel();
+            EM.loadEvents(id);
+            return View(EM);
+        }
     }
 }
