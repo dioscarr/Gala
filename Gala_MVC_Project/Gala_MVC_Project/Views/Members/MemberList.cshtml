@@ -59,44 +59,57 @@
                     }
 
                     
-                    @foreach (var member in Model.MemberList)
+                   @{
+                       var Countrymobile = "";
+                       var newcountrymobile = "";
+                       var decidecountry = "";
+             
+                foreach (var member in Model.MemberList)
                     {
-                        Country = @member.Country;
-                        <tr class="mobile_display_block mobile_country_errow find_all_member_name @ViewBag.stripe">
-                           @if (Country == newcountry)
-                                    {
-                             <td>
-                                <div class="mobile_member_country">
-                                    <div class="pull-left text_uppercase">
-                                        <img src="~/Images/flags/@member.flag">
-                                        <span>@member.Country</span>
-                                    </div>
-                                    <div class="pull-right">
-                                        <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
-                                    </div>
+                    decidecountry = @member.Country;
 
-                                </div>
-                                
-                                <div class="mobile_display_none mobile_member_info">
+                        <tr class="mobile_display_block mobile_country_errow find_all_member_name @ViewBag.stripe">
+                            <td>
+                                @foreach (var member2 in Model.MemberList.Where(c => c.Country == decidecountry).ToList())
+                                {
+                                    Countrymobile = @member.Country;
+
+                                    if (Countrymobile == newcountrymobile)
+                                    {
+                                        <div class="mobile_display_none mobile_member_info">
+                                            <a href="~/Members/member/@member.MID"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>@member.Name</a>
+                                        </div>
+                                    }else
+                                    {
+                                         @newcountrymobile = @Countrymobile;
+                                        <div class="mobile_member_country">
+                                            <div class="pull-left text_uppercase">
+                                                <img src="~/Images/flags/@member.flag">
+                                                <span>@member.Country</span>
+                                            </div>
+                                            <div class="pull-right">
+                                                <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
+                                            </div>
+                                        </div>
+                                        <div class="mobile_display_none mobile_member_info">
                                             <a href="~/members/firm/@member.FID">@member.Firm</a><br />
                                             <a href="~/Members/member/@member.MID"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>@member.Name</a>
-                                </div>
-                                
-                                
-                              </td>
+                                        </div>
 
                                     }
-                           else
-                           {
-                               newcountry = Country;
-                           }
+                                }
+                                
+                            </td>
+                          
                         </tr>
-                    }
+                                }
+
+
 
                 </table>
             </div>
         </div>
-
+        Ccc
         <div class="row">
             <div class="col-xs-12 membership member_membership">
                 <div class="news_block">
@@ -118,6 +131,7 @@
 
     </div>
 </section>
+
 
 @section scripts{
     <script type="text/javascript">
