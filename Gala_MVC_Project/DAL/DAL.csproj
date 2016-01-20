@@ -89,6 +89,9 @@
     <Compile Include="Models\Events.cs">
       <DependentUpon>GalaDBEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\FCRelation.cs">
+      <DependentUpon>GalaDBEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Firm.cs">
       <DependentUpon>GalaDBEntities.tt</DependentUpon>
     </Compile>
