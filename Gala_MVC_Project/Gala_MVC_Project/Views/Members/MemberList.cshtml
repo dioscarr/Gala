@@ -60,56 +60,60 @@
 
                     
                    @{
-                       var Countrymobile = "";
-                       var newcountrymobile = "";
-                       var decidecountry = "";
-             
-                foreach (var member in Model.MemberList)
-                    {
-                    decidecountry = @member.Country;
+                      var decidecountry = "";
+                       var count = 0;
+                       }
 
-                        <tr class="mobile_display_block mobile_country_errow find_all_member_name @ViewBag.stripe">
-                            <td>
-                                @foreach (var member2 in Model.MemberList.Where(c => c.Country == decidecountry).ToList())
-                                {
-                                    Countrymobile = @member.Country;
+                        @foreach (var member in Model.MemberList)
+                        {
 
-                                    if (Countrymobile == newcountrymobile)
-                                    {
-                                        <div class="mobile_display_none mobile_member_info">
-                                            <a href="~/Members/member/@member.MID"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>@member.Name</a>
-                                        </div>
-                                    }else
-                                    {
-                                         @newcountrymobile = @Countrymobile;
-                                        <div class="mobile_member_country">
-                                            <div class="pull-left text_uppercase">
-                                                <img src="~/Images/flags/@member.flag">
-                                                <span>@member.Country</span>
-                                            </div>
-                                            <div class="pull-right">
-                                                <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
-                                            </div>
-                                        </div>
-                                        <div class="mobile_display_none mobile_member_info">
-                                            <a href="~/members/firm/@member.FID">@member.Firm</a><br />
-                                            <a href="~/Members/member/@member.MID"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>@member.Name</a>
-                                        </div>
+                            if (count != 0)
+                            {
+                                count--;
+                            }
+                            else
+                            {
 
-                                    }
-                                }
-                                
-                            </td>
-                          
-                        </tr>
-                                }
+                             <tr class="mobile_display_block mobile_country_errow find_all_member_name @ViewBag.stripe">
+                                <td>
+                                        @foreach (var item in @Model.MemberList.Where(c => c.Country == @member.Country).ToList())
+                                                    {
+                                                        count++;
+                                                        if (decidecountry == @member.Country)
+                                                        {
 
+                                                            <div class="mobile_display_none mobile_member_info">                                                    
+                                                                <a href="~/Members/member/@item.MID"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>@item.Name</a>
+                                                            </div>
+                                                        }
+                                                        else
+                                                        {
+                                                            <div class="mobile_member_country">
+                                                                <div class="pull-left text_uppercase">
+                                                                    <img src="~/Images/flags/@item.flag">
+                                                                    <span>@item.Country</span>
+                                                                </div>
+                                                                <div class="pull-right">
+                                                                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
+                                                                </div>
+                                                            </div>
 
+                                                            <div class="mobile_display_none mobile_member_info">
+                                                                <a href="~/members/firm/@member.FID">@item.Firm</a><br />
+                                                                <a href="~/Members/member/@item.MID"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>@item.Name</a>
+                                                            </div>
+                                                            decidecountry = @member.Country;
 
+                                                        }
+                                        }
+                                </td>
+                            </tr>
+                            }
+                        }
                 </table>
             </div>
         </div>
-        Ccc
+
         <div class="row">
             <div class="col-xs-12 membership member_membership">
                 <div class="news_block">

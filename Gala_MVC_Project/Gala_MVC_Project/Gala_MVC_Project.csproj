@@ -278,9 +278,6 @@
     <Content Include="Areas\Admin\Views\Shared\Lockout.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Secomdary_Layout.cshtml" />
-    <Content Include="bin\BLL.dll" />
-    <Content Include="bin\DAL.dll" />
-    <Content Include="bin\EntityFramework.dll" />
     <Content Include="Content\bootstrap-datetimepicker.min.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -582,7 +579,44 @@
     <Content Include="Images\flags\Yemen.png" />
     <Content Include="Images\flags\Zambia.png" />
     <Content Include="Images\flags\Zimbabwe.png" />
+    <Content Include="Images\Members\agustin_mayer.jpg" />
+    <Content Include="Images\Members\Aleksandar_Bijelic.jpg" />
+    <Content Include="Images\Members\allison_fitzpatrick.jpg" />
+    <Content Include="Images\Members\ANGUS_FORSYTH.jpg" />
+    <Content Include="Images\Members\ariela_agosin.jpg" />
+    <Content Include="Images\Members\Carlos_Alberto_Arroyo_del_Rio.jpg" />
+    <Content Include="Images\Members\carlos_castillo.jpg" />
+    <Content Include="Images\Members\Cecilia_Falconi.jpg" />
+    <Content Include="Images\Members\c_Bouvier.jpg" />
+    <Content Include="Images\Members\erik_ullberg.jpg" />
+    <Content Include="Images\Members\fiona_robertson.jpg" />
+    <Content Include="Images\Members\florian_geyer.jpg" />
+    <Content Include="Images\Members\Johanna_Flythstrom.jpg" />
+    <Content Include="Images\Members\joseph_lewczak.jpg" />
+    <Content Include="Images\Members\jose_romero.jpg" />
+    <Content Include="Images\Members\Kalina_Tchakarova.jpg" />
+    <Content Include="Images\Members\km.jpg" />
+    <Content Include="Images\Members\libor_stajer.jpg" />
+    <Content Include="Images\Members\michael_plogell.jpg" />
+    <Content Include="Images\Members\Michel_Bejot.jpg" />
+    <Content Include="Images\Members\Mikael_Segercrantz.jpg" />
+    <Content Include="Images\Members\nickoconnell.jpg" />
     <Content Include="Images\Members\noimg.jpg" />
+    <Content Include="Images\Members\oleksandr_padalka.jpg" />
+    <Content Include="Images\Members\oscar_melara.jpg" />
+    <Content Include="Images\Members\pavel_musil.jpg" />
+    <Content Include="Images\Members\petr_kuta.jpg" />
+    <Content Include="Images\Members\rodrigo_albagli.jpg" />
+    <Content Include="Images\Members\rolf.jpg" />
+    <Content Include="Images\Members\ronald_urbach.jpg" />
+    <Content Include="Images\Members\Roxana_Romero.jpg" />
+    <Content Include="Images\Members\sana_saleem.jpg" />
+    <Content Include="Images\Members\Sasha_Mandakovic.jpg" />
+    <Content Include="Images\Members\soren_pietzcker.jpg" />
+    <Content Include="Images\Members\stephania_bresque.jpg" />
+    <Content Include="Images\Members\uri_weinstock.jpg" />
+    <Content Include="Images\Members\Violetta_Kunze.jpg" />
+    <Content Include="Images\Members\vukmir_mladen.jpg" />
     <Content Include="Images\Thumbs.db" />
     <Content Include="fonts\2FE2A8_0_0.eot" />
     <Content Include="fonts\2FE2A8_0_0.ttf" />
@@ -1158,6 +1192,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="bin\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
