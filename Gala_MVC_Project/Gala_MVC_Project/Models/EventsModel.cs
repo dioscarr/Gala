@@ -37,7 +37,7 @@ namespace Gala_MVC_Project.Models
         }
         
         public void loadEvents(int id) {
-            Events = ManageEvents.GetById(id);
+            Events = db.Events.Where(c => c.id == id).FirstOrDefault();
         }
 
         public bool update(EventsModel model)

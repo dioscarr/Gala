@@ -54,39 +54,22 @@
                         <p><span>Fax:    <a href="">@Model.Firm.Fax</a></span></p>
                         <p><span>Web:   <a href="">@Model.Firm.web</a></span></p>
                     </div>
-                    <div class="about_member_block firm_member_block">
-                        <div class="about_member_person">
-                            <div class="pull-left about_member_person_img firm_member_person_img">
-                                <img src="~/Images/member-img.jpg" />
-                            </div>
-                            <div class="pull-right about_member_person_info firm_member_person_info">
-                                <h3>Soren Pietzcker</h3>
-                                <span><a class="" href="#">s.pietzcker@heuking.de</a></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="about_member_block firm_member_block">
-                        <div class="about_member_person">
-                            <div class="pull-left about_member_person_img firm_member_person_img">
-                                <img src="~/Images/member-img-2.jpg" />
-                            </div>
-                            <div class="pull-right about_member_person_info firm_member_person_info">
-                                <h3>Dominik Eickemeier</h3>
-                                <span><a class="" href="#">d.eickemeier@heuking.de</a></span>
+                    @foreach (var member in Model.Firm.Team)
+                    {
+                        <div class="about_member_block firm_member_block">
+                            <div class="about_member_person">
+                                <div class="pull-left about_member_person_img firm_member_person_img">
+                                    <img src="~/Images/@member.Picture" />
+                                </div>
+                                <div class="pull-right about_member_person_info firm_member_person_info">
+                                    <h3>@member.FName @member.LName</h3>
+                                    <span><a class="" href="#">@member.Email</a></span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="about_member_block firm_member_block">
-                        <div class="about_member_person">
-                            <div class="pull-left about_member_person_img firm_member_person_img">
-                                <img src="~/Images/member-img.jpg" />
-                            </div>
-                            <div class="pull-right about_member_person_info firm_member_person_info">
-                                <h3>Florian Geyer</h3>
-                                <span><a class="" href="#">f.geyer@heuking.de </a></span>
-                            </div>
-                        </div>
-                    </div>
+                    }
+                   
+                  
                 </div>
 
                 <div class="bio_member_content_info">
@@ -95,12 +78,12 @@
                     <hr>
 
                     <h4 class="bio_contact_info_title">Recent News & Press</h4>
-                    <p>International Trademark Association (Associate Member)</p>
-                    <p>International Association for the Advancement of Teaching and Research in Intellectual Property</p>
-                    <p>Society for Computers and Law</p>
-                    <p>ITechLaw Association</p>
-                    <p>Institute of Electrical and Electronics Engineers (IEEE)</p><br />
-                    <a href="#">Show more...</a>
+                    @foreach (var item in @Model.Firm.Events1.ToList())
+                    {
+                        <p>@item.Firm.Events1.FirstOrDefault().Heading</p>
+                    }
+                  
+                    <a href="~/Member/Archive">Show more...</a>
 
                     <hr>
 
@@ -163,39 +146,21 @@
                     <p><span>Fax:    <a href="">@Model.Firm.Fax</a></span></p>
                     <p><span>Web:   <a href="">@Model.Firm.web</a></span></p>
                 </div>
-                <div class="about_member_block firm_member_block">
-                    <div class="about_member_person">
-                        <div class="pull-left about_member_person_img firm_member_person_img">
-                            <img src="~/Images/member-img.jpg" />
-                        </div>
-                        <div class="pull-right about_member_person_info firm_member_person_info">
-                            <h3>Soren Pietzcker</h3>
-                            <span><a class="" href="#">s.pietzcker@heuking.de</a></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="about_member_block firm_member_block">
-                    <div class="about_member_person">
-                        <div class="pull-left about_member_person_img firm_member_person_img">
-                            <img src="~/Images/member-img-2.jpg" />
-                        </div>
-                        <div class="pull-right about_member_person_info firm_member_person_info">
-                            <h3>Dominik Eickemeier</h3>
-                            <span><a class="" href="#">d.eickemeier@heuking.de</a></span>
+             
+                @foreach (var member in Model.Firm.Team)
+                {
+                    <div class="about_member_block firm_member_block">
+                        <div class="about_member_person">
+                            <div class="pull-left about_member_person_img firm_member_person_img">
+                                <img src="~/Images/@member.Picture" />
+                            </div>
+                            <div class="pull-right about_member_person_info firm_member_person_info">
+                                <h3>@member.FName @member.LName</h3>
+                                <span><a class="" href="#">@member.Email</a></span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="about_member_block firm_member_block">
-                    <div class="about_member_person">
-                        <div class="pull-left about_member_person_img firm_member_person_img">
-                            <img src="~/Images/member-img.jpg" />
-                        </div>
-                        <div class="pull-right about_member_person_info firm_member_person_info">
-                            <h3>Florian Geyer</h3>
-                            <span><a class="" href="#">f.geyer@heuking.de </a></span>
-                        </div>
-                    </div>
-                </div>
+                }
             </div>
         </div>
      </div>

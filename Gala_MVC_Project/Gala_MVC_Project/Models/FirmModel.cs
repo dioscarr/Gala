@@ -9,6 +9,7 @@ namespace Gala_MVC_Project.Models
 {
     public class FirmModel
     {
+        GalaDBEntities db = new GalaDBEntities();
         public Firm Firm { get; set; }
         public List<Firm> Firms { get; set; }
 
@@ -23,7 +24,7 @@ namespace Gala_MVC_Project.Models
         public void loadFirm(int id)
         {
 
-            Firm = ManageFirm.GetById(id);
+            Firm = db.Firm.Where(c => c.Id == id).FirstOrDefault();
         }
 
 
