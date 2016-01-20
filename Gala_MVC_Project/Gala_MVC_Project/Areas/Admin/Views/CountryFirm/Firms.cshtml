@@ -29,7 +29,7 @@
                             {
                                 @Html.AntiForgeryToken()
 
-                                foreach (var item in Model.Firms)
+                                foreach (var item in Model.Firms.OrderBy(f=>f.Country))
                                 {
 
                                     <tr class="hitmeaddMember">
