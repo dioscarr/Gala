@@ -52,7 +52,7 @@ body {
     font-family: 'futura-pt', sans-serif;
 }
 body::-webkit-scrollbar {
-	width:10px
+	width:0px;
 }
 body::-webkit-scrollbar * {
 	background:transparent
