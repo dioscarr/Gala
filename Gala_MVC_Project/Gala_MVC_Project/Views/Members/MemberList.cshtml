@@ -37,15 +37,16 @@
                     @{
                         var Country = "";
                         var newcountry = "";
+                        var FirmName = "";
                     }
-                    @foreach (var member in Model.MemberList)
+                    @foreach (var member in Model.MemberList.OrderBy(c=>c.Country).ToList())
                     {
                         Country = @member.Country;
                         <tr class="mobile_display_none find_all_member_name @ViewBag.stripe">
                             @if (Country == newcountry)
                             {
                                 <td></td>
-                                <td></td>
+                                <td><a href="~/members/firm/@member.FID">@member.Firm</a></td>
                                 <td><a href="~/Members/member/@member.MID">@member.Name</a></td>
                             }
                             else
@@ -75,37 +76,34 @@
                             {
 
                              <tr class="mobile_display_block mobile_country_errow find_all_member_name @ViewBag.stripe">
-                                <td>
-                                        @foreach (var item in @Model.MemberList.Where(c => c.Country == @member.Country).ToList())
-                                                    {
-                                                        count++;
-                                                        if (decidecountry == @member.Country)
-                                                        {
-
-                                                            <div class="mobile_display_none mobile_member_info">                                                    
-                                                                <a href="~/Members/member/@item.MID"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>@item.Name</a>
-                                                            </div>
-                                                        }
-                                                        else
-                                                        {
-                                                            <div class="mobile_member_country">
-                                                                <div class="pull-left text_uppercase">
-                                                                    <img src="~/Images/flags/@item.flag">
-                                                                    <span>@item.Country</span>
-                                                                </div>
-                                                                <div class="pull-right">
-                                                                    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="mobile_display_none mobile_member_info">
-                                                                <a href="~/members/firm/@member.FID">@item.Firm</a><br />
-                                                                <a href="~/Members/member/@item.MID"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>@item.Name</a>
-                                                            </div>
-                                                            decidecountry = @member.Country;
-
-                                                        }
-                                        }
+                              <td>
+                                @foreach (var item in @Model.MemberList.Where(c => c.Country == @member.Country).ToList())
+                                {
+                                 count++;
+                                    if (decidecountry == @member.Country)
+                                    {
+                                        <div class="mobile_display_none mobile_member_info">                                                    
+                                            <a href="~/Members/member/@item.MID"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>@item.Name</a>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="mobile_member_country">
+                                            <div class="pull-left text_uppercase">
+                                                <img src="~/Images/flags/@item.flag">
+                                                <span>@item.Country</span>
+                                            </div>
+                                            <div class="pull-right">
+                                                <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
+                                            </div>
+                                        </div>
+                                        <div class="mobile_display_none mobile_member_info">
+                                            <a href="~/members/firm/@member.FID">@item.Firm</a><br />
+                                            <a href="~/Members/member/@item.MID"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>@item.Name</a>
+                                        </div>
+                                        decidecountry = @member.Country;
+                                    }
+                              }
                                 </td>
                             </tr>
                             }
