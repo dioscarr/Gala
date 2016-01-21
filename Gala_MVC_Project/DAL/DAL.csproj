@@ -120,6 +120,7 @@
       <DependentUpon>GalaDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\FCRelationRepository.cs" />
     <Compile Include="Repositories\CountryRepository.cs" />
     <Compile Include="Repositories\CMFRelationRepository.cs" />
     <Compile Include="Repositories\HomeRepository.cs" />

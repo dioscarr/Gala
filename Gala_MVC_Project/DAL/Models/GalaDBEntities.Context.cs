@@ -27,12 +27,12 @@ namespace DAL.Models
     
         public virtual DbSet<Aboutus> Aboutus { get; set; }
         public virtual DbSet<CMFRelation> CMFRelation { get; set; }
+        public virtual DbSet<Country> Country { get; set; }
         public virtual DbSet<Events> Events { get; set; }
+        public virtual DbSet<Firm> Firm { get; set; }
         public virtual DbSet<Home> Home { get; set; }
         public virtual DbSet<Slider> Slider { get; set; }
         public virtual DbSet<Team> Team { get; set; }
-        public virtual DbSet<Country> Country { get; set; }
         public virtual DbSet<FCRelation> FCRelation { get; set; }
-        public virtual DbSet<Firm> Firm { get; set; }
     }
 }

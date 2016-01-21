@@ -8,7 +8,7 @@ using Gala_MVC_Project.Areas.Admin.Models;
 
 namespace Gala_MVC_Project.Areas.Admin.Models
 {
-    public class FirmModel:Basemodel
+    public class FirmModel : Basemodel
     {
         GalaDBEntities db = new GalaDBEntities();
         public Firm Firm { get; set; }
@@ -17,6 +17,16 @@ namespace Gala_MVC_Project.Areas.Admin.Models
         public int FID { get; set; }
         public string CID { get; set; }
         public List<Team> Members { get; set; }
+        public FCRelation Fields { get; set; }
+
+
+
+
+        internal void loadFirmById(int id)
+        {
+            Firm = ManageFirm.GetById(id);
+        }
+
 
 
 
@@ -24,9 +34,9 @@ namespace Gala_MVC_Project.Areas.Admin.Models
         public FirmModel()
         {
             Firm = null;
-            Firms = db.Firm.Where(c=>c.isDeleted == false).ToList();
-           
-           
+            Firms = db.Firm.Where(c => c.isDeleted == false).ToList();
+
+
         }
         public bool update(FirmModel model)
         {
@@ -43,9 +53,10 @@ namespace Gala_MVC_Project.Areas.Admin.Models
         }
 
 
-        internal void loadFirmById(int id)
+        internal void AddFCRelation(FirmModel model)
         {
-            Firm = ManageFirm.GetById(id);
-        }
+            ManageFCRelation.AddFCRelation(model.Fields);
+          }
     }
+    
 }

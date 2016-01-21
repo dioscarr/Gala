@@ -49,7 +49,7 @@ namespace Gala_MVC_Project.Areas.Admin.Controllers
         public ActionResult Firms()
         {
             ViewBag.Members = ManageTeam.GetAllTeam().OrderBy(c=>c.FName).Select(c => new SelectListItem { Text = c.FName + " " + c.LName, Value = c.Id.ToString() }).ToList();
-           ViewBag.Countries = ManageCountry.GetAllCountry().Select(c => new SelectListItem { Text = c.CountryName, Value = c.CountryName }).ToList();
+           ViewBag.Countries = ManageCountry.GetAllCountry().Select(c => new SelectListItem { Text = c.CountryName, Value = c.Id.ToString() }).ToList();
             return View(new FirmModel());
         }
         [HttpGet]
@@ -87,7 +87,7 @@ namespace Gala_MVC_Project.Areas.Admin.Controllers
         public ActionResult Relationship(FirmModel model)
         {
             CMFRelation cmr = new CMFRelation();
-            cmr.CID = ManageCountry.GetAllCountry().Where(c => c.CountryName == model.CID).FirstOrDefault().Id;
+            cmr.CID = Convert.ToInt32(model.CID);
             cmr.FID = model.FID;
             cmr.MID = model.MID;
 
@@ -102,6 +102,12 @@ namespace Gala_MVC_Project.Areas.Admin.Controllers
             CMF = ManageCMFRelation.GetById(id);
             ManageCMFRelation.DeleteCMFRelation(CMF);
 
+            return RedirectToAction("Firms");
+        }
+        [HttpPost]
+        public ActionResult AddFCRelation(FirmModel model)
+        {
+            model.AddFCRelation(model);
             return RedirectToAction("Firms");
         }
     }

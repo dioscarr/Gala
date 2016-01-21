@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Manage.cs" />
+    <Compile Include="ManageFCRelation.cs" />
     <Compile Include="ManageCMFRelation.cs" />
     <Compile Include="ManageEvents.cs" />
     <Compile Include="ManageFirm.cs" />

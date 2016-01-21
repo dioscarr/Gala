@@ -17,6 +17,9 @@ namespace DAL.Models
         public int Id { get; set; }
         public int FirmID { get; set; }
         public int CountryID { get; set; }
+        public Nullable<System.DateTime> Created_ { get; set; }
+        public Nullable<System.DateTime> Modified { get; set; }
+        public Nullable<bool> isDeleted { get; set; }
     
         public virtual Country Country { get; set; }
         public virtual Firm Firm { get; set; }
