@@ -4,10 +4,10 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b3e378bc9ea84f848cefbb76d4a892af" Name="Diagram1">
+      <Diagram DiagramId="b3e378bc9ea84f848cefbb76d4a892af" Name="Diagram1" ZoomLevel="55">
         <EntityTypeShape EntityType="DB_97691_galadbModel.Aboutus" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_97691_galadbModel.CMFRelation" Width="1.5" PointX="5.25" PointY="9.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_97691_galadbModel.Country" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_97691_galadbModel.Country" Width="1.5" PointX="3.125" PointY="8.5" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_97691_galadbModel.Events" Width="1.5" PointX="8.25" PointY="9.625" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_97691_galadbModel.Firm" Width="1.5" PointX="12.375" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_97691_galadbModel.Home" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
@@ -19,6 +19,9 @@
         <AssociationConnector Association="DB_97691_galadbModel.FK_Events_Firm1" ManuallyRouted="false" />
         <AssociationConnector Association="DB_97691_galadbModel.FK_Events_Member" ManuallyRouted="false" />
         <AssociationConnector Association="DB_97691_galadbModel.FK_Member_Firm" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DB_97691_galadbModel.FCRelation" Width="1.5" PointX="1" PointY="6.25" />
+        <AssociationConnector Association="DB_97691_galadbModel.Country_FCRelation" />
+        <AssociationConnector Association="DB_97691_galadbModel.Firm_FCRelation" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

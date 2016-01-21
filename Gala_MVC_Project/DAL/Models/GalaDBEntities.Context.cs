@@ -33,5 +33,6 @@ namespace DAL.Models
         public virtual DbSet<Home> Home { get; set; }
         public virtual DbSet<Slider> Slider { get; set; }
         public virtual DbSet<Team> Team { get; set; }
+        public virtual DbSet<FCRelation> FCRelation { get; set; }
     }
 }
