@@ -19,6 +19,7 @@ namespace DAL.Models
         {
             this.CMFRelation = new HashSet<CMFRelation>();
             this.Events1 = new HashSet<Events>();
+            this.FCRelation = new HashSet<FCRelation>();
             this.Team = new HashSet<Team>();
             this.FCRelation = new HashSet<FCRelation>();
         }
@@ -46,6 +47,8 @@ namespace DAL.Models
         public virtual ICollection<CMFRelation> CMFRelation { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Events> Events1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<FCRelation> FCRelation { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Team> Team { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
