@@ -1,4 +1,4 @@
-﻿
+﻿@model Gala_MVC_Project.Models.EventsModel
 @{
     ViewBag.Title = "NewList";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -33,18 +33,22 @@
                         <h1 class="content_title_news">GALA News Developments</h1>
                     </div>
                     <div class="pull-right print_share">
-                        <h4 class="events_archive text_uppercase"><a href="~/News/NewArchive">View Archive ></a></h4>
+                        <h4 class="events_archive text_uppercase"><a href="~/News/NewArchive/News">View Archive ></a></h4>
                     </div>
                 </div>
                 <hr>
                 <div class="events_table">
-                    @for (var i = 0; i < 5; i++)
+
+                    @foreach (var news in Model.news)
                     {
+                        var Contentnews = Html.Raw(@news.Content);
                         <p class="events_text_content">
-                            <span class="event_data pull-left">July 30, 2015</span><span class="events_content pull-right">The Marketing Site covers GALA news on restrictions on food advertising to children in Chile</span>
+                            <a href="~/News/NewsArticle/@news.id" class="eventlink"><span class="event_data pull-left">@String.Format("{0:MMM d, yyyy}", @news.Published)</span><span class="events_content pull-right">@Html.Raw(@Model.Truncate(Contentnews.ToString(), 80, "...", true))</span></a>
                         </p>
                     }
-                    <a href="#">Show more...</a>
+
+                   
+                    <a href="~/News/NewArchive/News">Show more...</a>
                 </div>
 
                 <div class="bio_top_title">
@@ -52,27 +56,21 @@
                         <h1 class="content_title_news">GALA Press Releases</h1>
                     </div>
                     <div class="pull-right print_share">
-                        <h4 class="events_archive text_uppercase"><a href="~/News/NewArchive">View Archive ></a></h4>
+                        <h4 class="events_archive text_uppercase"><a href="~/News/NewArchive/Press">View Archive ></a></h4>
                     </div>
                 </div>
                 <hr>
                 <div class="events_table">
-                    <p class="events_text_content">
-                        <span class="event_data pull-left">July 13, 2015</span><span class="events_content pull-right"><b>New Regulations In Chile Restrict Food Advertising To Children</b><br>GALA to host webinar on July 30, 2015 to discuss developments in worldwide food advertising rules Press Release</span>
-                    </p>
-                    <p class="events_text_content">
-                        <span class="event_data pull-left">July 6, 2015</span><span class="events_content pull-right">Global Advertising Lawyers Alliance Releases Video Series On Advertising Law Compliance</span>
-                    </p>
-                    <p class="events_text_content">
-                        <span class="event_data pull-left">July 9, 2015</span><span class="events_content pull-right">Global Advertising Lawyers Alliance To Hold International Advertising Law Seminar In Santiago</span>
-                    </p>
-                    <p class="events_text_content">
-                        <span class="event_data pull-left">July 4, 2015</span><span class="events_content pull-right">Global Advertising Lawyers Alliance Adds New Member In Paraguay</span>
-                    </p>
-                    <p class="events_text_content">
-                        <span class="event_data pull-left">July 19, 2015</span><span class="events_content pull-right">China Enacts Its First Major Changes to Its Advertising Laws In Twenty Years</span>
-                    </p>
-                    <a href="#">Show more...</a>
+                    @foreach (var Press in @Model.Press)
+                    {
+                        var content = @Html.Raw(@Press.Content);
+
+                        <p class="events_text_content">
+                            <a href="~/News/PressArticle/@Press.id" class="eventlink"><span class="event_data pull-left">@String.Format("{0:MMM d, yyyy}", @Press.Published)</span><span class="events_content pull-right">@Model.Truncate(content.ToString(), 80, "...", true)</span></a>
+                        </p>
+                    }
+                   
+                    <a href="~/News/NewArchive/Press">Show more...</a>
                 </div>
 
             </div>

@@ -1291,8 +1291,12 @@ display:none;
 
 }
 
-/*.addMember > td {
-display:none;
+.addMember > td {
+background:black;
 
 
-}*/
+}
+.eventlink {
+color:black;
+font-weight:normal;
+}
