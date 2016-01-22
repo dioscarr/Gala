@@ -44,7 +44,7 @@ body,html {
     position: relative;
     margin-bottom: -40px;
 }
-/*scroll*/ 
+/*scroll*/  
 body {
      /*min-height: 100%;
     position: relative;*/
@@ -52,7 +52,7 @@ body {
     font-family: 'futura-pt', sans-serif;
 }
 body::-webkit-scrollbar {
-	width:0px;
+	width:10px;
 }
 body::-webkit-scrollbar * {
 	background:transparent
@@ -1038,6 +1038,9 @@ table#t01 tr:hover {
     }
 }
 @media (max-width: 480px) {
+    body::-webkit-scrollbar {
+	    width:0px;
+    }
     .mobile_display_none {
         display: none;
     }
