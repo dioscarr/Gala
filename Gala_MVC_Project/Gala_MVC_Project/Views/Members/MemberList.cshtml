@@ -143,8 +143,11 @@
             $($this).removeClass("mobile_country_errow");
             $(".mobile_display_block").not($this).addClass("mobile_country_errow");
 
-            $(".mobile_member_info").hide("slow");
-            $($this).children().children().next().toggle("slow");
+            //$(".mobile_member_info").hide("slow");
+
+            $this.children().children().next().slideToggle("slow");
+            $this.siblings().children().children().next().slideUp("slow");
+
         });
     </script>
 }
