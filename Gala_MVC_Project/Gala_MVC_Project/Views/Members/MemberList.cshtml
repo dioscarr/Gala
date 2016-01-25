@@ -63,6 +63,7 @@
                    @{
                       var decidecountry = "";
                        var count = 0;
+                       var OldFirmName = "";
                        }
 
                         @foreach (var member in Model.MemberList)
@@ -79,15 +80,26 @@
                               <td>
                                 @foreach (var item in @Model.MemberList.Where(c => c.Country == @member.Country).ToList())
                                 {
-                                 count++;
+                                   
+                                   count++;
                                     if (decidecountry == @member.Country)
                                     {
-                                        <div class="mobile_display_none mobile_member_info">                                                    
+
+                                        <div class="mobile_display_none mobile_member_info"> 
+                                            @if (OldFirmName != @item.Firm)
+                                            {
+                                                <br/>
+                                                <a href="~/members/firm/@member.FID">@item.Firm</a><br />
+                                                OldFirmName = item.Firm;
+                                            }
+                                           
+                                                                                               
                                             <a href="~/Members/member/@item.MID"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>@item.Name</a>
                                         </div>
                                     }
                                     else
                                     {
+
                                         <div class="mobile_member_country">
                                             <div class="pull-left text_uppercase">
                                                 <img src="~/Images/flags/@item.flag">
@@ -98,12 +110,15 @@
                                             </div>
                                         </div>
                                         <div class="mobile_display_none mobile_member_info">
+                                           
                                             <a href="~/members/firm/@member.FID">@item.Firm</a><br />
+                                           
                                             <a href="~/Members/member/@item.MID"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>@item.Name</a>
                                         </div>
+                                        OldFirmName = item.Firm;
                                         decidecountry = @member.Country;
                                     }
-                              }
+                                }
                                 </td>
                             </tr>
                             }
