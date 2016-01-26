@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Gala_MVC_Project.Models;
 
 namespace Gala_MVC_Project.Controllers
 {
@@ -11,15 +12,19 @@ namespace Gala_MVC_Project.Controllers
         // GET: Publication
         public ActionResult Publication()
         {
-            return View();
+            PublicationModel PM = new PublicationModel();
+            return View(PM);
         }
         public ActionResult GazetteArchive()
         {
             return View();
         }
-        public ActionResult GazetteArticle()
+        public ActionResult GazetteArticle(int id)
         {
-            return View();
+            PublicationModel PM = new PublicationModel();
+            PM.GazetteArticle = PM.GazetteArticles.Where(c => c.Id == id).FirstOrDefault();
+            return View(PM);
+           
         }
     }
 }
