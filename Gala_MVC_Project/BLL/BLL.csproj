@@ -42,6 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Manage.cs" />
+    <Compile Include="ManageGMLink.cs" />
+    <Compile Include="ManageGazette.cs" />
+    <Compile Include="ManagepublicationBooks.cs" />
+    <Compile Include="ManagePublication.cs" />
     <Compile Include="ManageFCRelation.cs" />
     <Compile Include="ManageCMFRelation.cs" />
     <Compile Include="ManageEvents.cs" />

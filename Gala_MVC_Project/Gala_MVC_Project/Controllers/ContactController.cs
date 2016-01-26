@@ -13,5 +13,6 @@ namespace Gala_MVC_Project.Controllers
         {
             return View();
         }
+      
     }
 }

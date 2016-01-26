@@ -19,6 +19,8 @@ namespace DAL.Models
         {
             this.CMFRelation = new HashSet<CMFRelation>();
             this.Events = new HashSet<Events>();
+            this.Gazette = new HashSet<Gazette>();
+            this.GMLink = new HashSet<GMLink>();
         }
     
         public int Id { get; set; }
@@ -42,5 +44,9 @@ namespace DAL.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Events> Events { get; set; }
         public virtual Firm Firm { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Gazette> Gazette { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<GMLink> GMLink { get; set; }
     }
 }
