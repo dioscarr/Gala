@@ -1,16 +1,4 @@
-﻿/*@font-face {
-	font-family:'';
-	src:url('../fonts/.eot');
-	src:url('../fonts/.eot?#iefix') format("embedded-opentype"),url('../fonts/.woff2') format("woff2"),url('../fonts/.woff') format("woff"),url('fonts/.ttf') format("truetype"),url('fonts/.svg#robotolight') format("svg");
-	font-weight:400;
-	font-style:normal;
-}
-*/
-/*@import url("//hello.myfonts.net/count/2fe2a8");*/
-
-
-
-@font-face {
+﻿@font-face {
     font-family:  'futura-pt';
      src: url('~/fonts/2FE2A8_0_0.eot');
      src: url('~/fonts/2FE2A8_0_0.eot?#iefix') format("embedded-opentype"), url('../fonts/2FE2A8_0_0.woff2') format("woff2"), url('../fonts/2FE2A8_0_0.woff') format("woff"), url('fonts/2FE2A8_0_0.ttf') format("truetype");
@@ -25,7 +13,6 @@
      font-style: normal;
 }
 
-
 .outline {
 outline:1px solid red;
 }
@@ -37,7 +24,6 @@ body,html {
     padding:0;
     overflow-x: hidden; 
     height: 100%;
-    /*position: relative;*/
 }
 #wrapper {
     min-height: 100%;
@@ -46,8 +32,6 @@ body,html {
 }
 /*scroll*/  
 body {
-     /*min-height: 100%;
-    position: relative;*/
     background-color: #f3f3f3;
     font-family: 'futura-pt', sans-serif;
 }
@@ -137,7 +121,6 @@ img {
 .user_data {
     background-color: #004379;
     padding: 0.2%;
-    /*width: 15%;*/
 }
 .user_icon, .user_login {
     padding: 0 6% 0;
@@ -170,14 +153,6 @@ img {
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
     padding: 0; 
 }
-/*.nav_bar_menu>li:first-child>a {
-    padding-left:0;
-    text-align: left;
-}
-.nav_bar_menu>li:last-child>a {
-    padding-right:0;
-    text-align: right;
-}*/ 
 .nav_bar_menu>li>a { 
     text-transform: uppercase;
     color: #666666;
@@ -333,12 +308,6 @@ img {
 }
 .content_text{
     margin-bottom: 40px; 
-    /*height:100%;*/
-}
-.bg_contact {
-    /*background-color:;*/ 
-    /*margin-bottom: 40px;*/
-    
 }
 .content_title_news {
     padding: 1% 0;
@@ -356,7 +325,6 @@ img {
     font-size: 1.2em;
 }
 .content_global {
-    /*padding: 3% 3%;*/
     padding-bottom: 3%;
     /*-webkit-box-shadow: 1px 0 30px -4px #E3E0E0;*/
     /*box-shadow: 1px 0 30px -4px #E3E0E0;*/
@@ -412,7 +380,6 @@ footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  /* Set the fixed height of the footer here */
   height: 40px;
   background-color: #004379;
   color: white;
@@ -420,7 +387,6 @@ footer {
 footer>.container {
     position: relative;
     height: 40px;
-    /*padding: 0;*/
 }
 footer>.container>.footer_main_cont {
     position: absolute;
@@ -428,7 +394,7 @@ footer>.container>.footer_main_cont {
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-        width: 97%;
+    width: 97%;
 }
 footer .footer_text_muted {
     color: white;
@@ -662,7 +628,6 @@ footer .footer_text_muted {
     font-weight: bold;
 }
 .events_table { 
-    /*font-weight: bold;*/
     padding-bottom: 5%;
 }
 .event_data {
@@ -722,7 +687,6 @@ table#t01 tr:hover {
     padding: 1%;
 }
 .find_all_member tr>td {
-    /*padding: .5%;*/
     padding: 5px;
     text-align: left;
 }
@@ -821,16 +785,9 @@ table#t01 tr:hover {
 }
 /*publication end*/
 
-/* ==========================================================================
-   EXAMPLE Media Queries for Responsive Design.
-   These examples override the primary ('mobile first') styles.
-   Modify as content requires.
-   ========================================================================== */
-
-    .news_block {
-        margin-bottom: 7%;
-    }
-
+.news_block {
+    margin-bottom: 7%;
+}
 
 
 @media (max-width: 991px) {
@@ -878,9 +835,6 @@ table#t01 tr:hover {
     .logo>a>img {
         width: 60%;
         margin: 5% 0;
-    }
-    .navbar-toggle {
-        /*background-color: rgb(101, 171, 202);*/
     }
     .navbar-default .navbar-toggle .icon-bar {
         background-color: rgb(101, 171, 202);
@@ -980,12 +934,6 @@ table#t01 tr:hover {
 }
 
 @media (max-width: 660px) {
-    footer {
-        /*height: 80px;*/
-    }
-    footer>.container {
-        /*height: 80px;*/
-    }
     .social_images {
         width: 100%;
     }
@@ -1190,10 +1138,6 @@ table#t01 tr:hover {
 }
 
 
-@media only screen and (min-width: 35em) {
-    /* Style adjustments for viewports that meet the condition */
-}
-
 @media print,
        (-webkit-min-device-pixel-ratio: 1.25),
        (min-resolution: 1.25dppx),
@@ -1230,11 +1174,6 @@ table#t01 tr:hover {
     abbr[title]:after {
         content: " (" attr(title) ")";
     }
-
-    /*
-     * Don't show links that are fragment identifiers,
-     * or use the `javascript:` pseudo protocol
-     */
 
     a[href^="#"]:after,
     a[href^="javascript:"]:after {
