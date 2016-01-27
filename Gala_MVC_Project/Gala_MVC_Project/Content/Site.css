@@ -1007,8 +1007,6 @@ table#t01 tr:hover {
     }
 }
 
-
-
 @media (max-width: 570px) {
     .logo>a>img {
         width: 75%;
@@ -1027,11 +1025,13 @@ table#t01 tr:hover {
         font-size: 1.1em;
     }
 }
+
 @media (min-width: 480px) {
     .mobile_display_block {
         display: none;
     }
 }
+
 @media (max-width: 480px) {
     body::-webkit-scrollbar {
 	    width:0px;
