@@ -145,7 +145,7 @@ img {
     border-right: 0;
 }
 .logo{
-    z-index:5;
+    z-index:1000;
 }
 .logo_and_search {
     padding: 0 0 3%;
@@ -796,14 +796,22 @@ table#t01 tr:hover {
     .text_slider>.item>p {
         font-size: 2em;
     }
+    .member_title_news {
+        font-size: 2em;
+    }
+    .firm_member_person_info {
+        width: 90%;
+    }
 }
 
 @media (max-width: 1024px) {
    .member_title {
         font-size: 2.7em;
     }
+   .member_title_news {
+       font-size: 1.9em;
+   }
 }
-
 
 @media (max-width: 991px) {
     .nav_bar_menu>li>a {
@@ -820,6 +828,9 @@ table#t01 tr:hover {
     .title_slider {
         padding: 3% 0 1%;
     }
+    .member_title_news {
+       font-size: 1.7em;
+   }    
 }
 
 @media (max-width: 768px) {
@@ -953,6 +964,16 @@ table#t01 tr:hover {
     .content_title_news {
         font-size: 1.7em;
     }
+}
+
+@media (max-width: 767px) and (min-width: 480px){
+    .home_news_image.pull-left {
+        display: none;
+    }
+    .home_news_content {
+        width: 100%;
+    }
+    
 }
 
 @media (max-width: 660px) {
@@ -1118,6 +1139,9 @@ table#t01 tr:hover {
     }
     .findmember_main_title {
         margin-top:3%;
+    }
+    .firm_member_person_info {
+        width: 60%;
     }
     /*Firm*/
     .firm_content_global {
