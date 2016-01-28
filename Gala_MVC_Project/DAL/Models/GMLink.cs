@@ -21,7 +21,7 @@ namespace DAL.Models
         public Nullable<System.DateTime> Modified { get; set; }
         public Nullable<bool> isDeleted { get; set; }
     
-        public virtual Gazette Gazette { get; set; }
         public virtual Team Team { get; set; }
+        public virtual Gazette Gazette { get; set; }
     }
 }

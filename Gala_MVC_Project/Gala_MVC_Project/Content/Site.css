@@ -1300,3 +1300,10 @@ background:black;
 color:black;
 font-weight:normal;
 }
+
+.limitchr {
+    height:78px;    
+    overflow:hidden;
+    text-overflow:ellipsis; 
+    white-space:normal; 
+}
