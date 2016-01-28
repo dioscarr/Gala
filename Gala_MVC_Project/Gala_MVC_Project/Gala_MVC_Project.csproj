@@ -1203,10 +1203,6 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BLL\BLL.csproj">
-      <Project>{94a666ab-1c73-4da8-9c9a-2b03061934e7}</Project>
-      <Name>BLL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{e9be5255-6691-48b7-90f0-52d15a938593}</Project>
       <Name>DAL</Name>
