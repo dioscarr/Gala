@@ -5,6 +5,25 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="DB_97691_galadbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PageTitle " Type="nvarchar(max)" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="CompanyName" Type="nvarchar(max)" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="City" Type="nchar" MaxLength="10" />
+          <Property Name="Zipcode" Type="nvarchar(max)" />
+          <Property Name="Tel" Type="nvarchar(max)" />
+          <Property Name="fax" Type="nvarchar(max)" />
+          <Property Name="Web" Type="nvarchar(max)" />
+          <Property Name="Created" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Modified" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="isDeleted" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="Aboutus">
           <Key>
             <PropertyRef Name="id" />
@@ -96,8 +115,20 @@
           <Property Name="header" Type="nvarchar(max)" />
           <Property Name="Content" Type="nvarchar(max)" />
           <Property Name="MemberID" Type="int" />
+          <Property Name="GazetteVolumeID" Type="int" />
           <Property Name="FirmID" Type="int" />
           <Property Name="Created" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Modified" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="isDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GazetteVolumes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GazetteVolume" Type="nvarchar(max)" />
+          <Property Name="PublishedDate" Type="datetime2" Precision="7" />
+          <Property Name="Created " Type="datetime2" Precision="7" />
           <Property Name="Modified" Type="datetime2" Precision="7" Nullable="false" />
           <Property Name="isDeleted" Type="bit" Nullable="false" />
         </EntityType>
@@ -263,7 +294,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Gazette_ToFirm">
+        <Association Name="FK_Gazette_Firm">
           <End Role="Firm" Type="Self.Firm" Multiplicity="0..1" />
           <End Role="Gazette" Type="Self.Gazette" Multiplicity="*" />
           <ReferentialConstraint>
@@ -275,7 +306,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Gazette_ToMember">
+        <Association Name="FK_Gazette_GazetteVolumes">
+          <End Role="GazetteVolumes" Type="Self.GazetteVolumes" Multiplicity="0..1" />
+          <End Role="Gazette" Type="Self.Gazette" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GazetteVolumes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Gazette">
+              <PropertyRef Name="GazetteVolumeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Gazette_Team">
           <End Role="Team" Type="Self.Team" Multiplicity="0..1" />
           <End Role="Gazette" Type="Self.Gazette" Multiplicity="*" />
           <ReferentialConstraint>
@@ -324,6 +367,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="DB_97691_galadbModelStoreContainer">
+          <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Aboutus" EntityType="Self.Aboutus" Schema="dioscar" store:Type="Tables" />
           <EntitySet Name="CMFRelation" EntityType="Self.CMFRelation" Schema="dioscar" store:Type="Tables" />
           <EntitySet Name="Country" EntityType="Self.Country" Schema="dioscar" store:Type="Tables" />
@@ -331,6 +375,7 @@
           <EntitySet Name="FCRelation" EntityType="Self.FCRelation" Schema="dioscar" store:Type="Tables" />
           <EntitySet Name="Firm" EntityType="Self.Firm" Schema="dioscar" store:Type="Tables" />
           <EntitySet Name="Gazette" EntityType="Self.Gazette" Schema="dioscar" store:Type="Tables" />
+          <EntitySet Name="GazetteVolumes" EntityType="Self.GazetteVolumes" Schema="dioscar" store:Type="Tables" />
           <EntitySet Name="GMLink" EntityType="Self.GMLink" Schema="dioscar" store:Type="Tables" />
           <EntitySet Name="Home" EntityType="Self.Home" Schema="dioscar" store:Type="Tables" />
           <EntitySet Name="Publication" EntityType="Self.Publication" Schema="dioscar" store:Type="Tables" />
@@ -365,11 +410,15 @@
             <End Role="Team" EntitySet="Team" />
             <End Role="Events" EntitySet="Events" />
           </AssociationSet>
-          <AssociationSet Name="FK_Gazette_ToFirm" Association="Self.FK_Gazette_ToFirm">
+          <AssociationSet Name="FK_Gazette_Firm" Association="Self.FK_Gazette_Firm">
             <End Role="Firm" EntitySet="Firm" />
             <End Role="Gazette" EntitySet="Gazette" />
           </AssociationSet>
-          <AssociationSet Name="FK_Gazette_ToMember" Association="Self.FK_Gazette_ToMember">
+          <AssociationSet Name="FK_Gazette_GazetteVolumes" Association="Self.FK_Gazette_GazetteVolumes">
+            <End Role="GazetteVolumes" EntitySet="GazetteVolumes" />
+            <End Role="Gazette" EntitySet="Gazette" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Gazette_Team" Association="Self.FK_Gazette_Team">
             <End Role="Team" EntitySet="Team" />
             <End Role="Gazette" EntitySet="Gazette" />
           </AssociationSet>
@@ -413,8 +462,8 @@
           <Property Name="Modified" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="isDeleted" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Country" Relationship="Self.FK_CMFRelation_Country" FromRole="CMFRelation" ToRole="Country" />
-          <NavigationProperty Name="Firm" Relationship="Self.FK_CMFRelation_Firm" FromRole="CMFRelation" ToRole="Firm" />
-          <NavigationProperty Name="Team" Relationship="Self.FK_CMFRelation_Member" FromRole="CMFRelation" ToRole="Team" />
+          <NavigationProperty Name="Firm" Relationship="DB_97691_galadbModel.FK_CMFRelation_Firm" FromRole="CMFRelation" ToRole="Firm" />
+          <NavigationProperty Name="Team" Relationship="DB_97691_galadbModel.FK_CMFRelation_Member" FromRole="CMFRelation" ToRole="Team" />
         </EntityType>
         <EntityType Name="Country">
           <Key>
@@ -443,36 +492,8 @@
           <Property Name="Created" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="Modified" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="isDeleted" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Firm" Relationship="Self.FK_Events_Firm1" FromRole="Events" ToRole="Firm" />
-          <NavigationProperty Name="Team" Relationship="Self.FK_Events_Member" FromRole="Events" ToRole="Team" />
-        </EntityType>
-        <EntityType Name="Firm">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FirmName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="City" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="State" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Zip" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Tel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Fax" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="web" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="AboutContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Country" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="NewsID" Type="Int32" />
-          <Property Name="PressID" Type="Int32" />
-          <Property Name="Publication" Type="Int32" />
-          <Property Name="Events" Type="Int32" />
-          <Property Name="Created" Type="DateTime" Nullable="false" Precision="7" />
-          <Property Name="Modified" Type="DateTime" Nullable="false" Precision="7" />
-          <Property Name="isDeleted" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="CMFRelation" Relationship="Self.FK_CMFRelation_Firm" FromRole="Firm" ToRole="CMFRelation" />
-          <NavigationProperty Name="Events1" Relationship="Self.FK_Events_Firm1" FromRole="Firm" ToRole="Events" />
-          <NavigationProperty Name="Team" Relationship="Self.FK_Member_Firm" FromRole="Firm" ToRole="Team" />
-          <NavigationProperty Name="FCRelation" Relationship="DB_97691_galadbModel.Firm_FCRelation" FromRole="Firm" ToRole="FCRelation" />
-          <NavigationProperty Name="Gazette" Relationship="DB_97691_galadbModel.FK_Gazette_ToFirm" FromRole="Firm" ToRole="Gazette" />
+          <NavigationProperty Name="Firm" Relationship="DB_97691_galadbModel.FK_Events_Firm1" FromRole="Events" ToRole="Firm" />
+          <NavigationProperty Name="Team" Relationship="DB_97691_galadbModel.FK_Events_Member" FromRole="Events" ToRole="Team" />
         </EntityType>
         <EntityType Name="Home">
           <Key>
@@ -497,31 +518,6 @@
           <Property Name="Modified" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="isDeleted" Type="Boolean" Nullable="false" />
         </EntityType>
-        <EntityType Name="Team">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="FName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="LName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="MInitial" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
-          <Property Name="Picture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="BIO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Tel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Fax" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="FirmID" Type="Int32" Nullable="false" />
-          <Property Name="Created" Type="DateTime" Nullable="false" Precision="7" />
-          <Property Name="Modified" Type="DateTime" Nullable="false" Precision="7" />
-          <Property Name="isDeleted" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="CMFRelation" Relationship="Self.FK_CMFRelation_Member" FromRole="Team" ToRole="CMFRelation" />
-          <NavigationProperty Name="Events" Relationship="Self.FK_Events_Member" FromRole="Team" ToRole="Events" />
-          <NavigationProperty Name="Firm" Relationship="Self.FK_Member_Firm" FromRole="Team" ToRole="Firm" />
-          <NavigationProperty Name="Gazette" Relationship="DB_97691_galadbModel.FK_Gazette_ToMember" FromRole="Team" ToRole="Gazette" />
-          <NavigationProperty Name="GMLink" Relationship="DB_97691_galadbModel.Member_GMLink" FromRole="Team" ToRole="GMLink" />
-        </EntityType>
         <Association Name="FK_CMFRelation_Country">
           <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
           <End Role="CMFRelation" Type="Self.CMFRelation" Multiplicity="*" />
@@ -534,126 +530,72 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_CMFRelation_Firm">
-          <End Role="Firm" Type="Self.Firm" Multiplicity="0..1" />
-          <End Role="CMFRelation" Type="Self.CMFRelation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Firm">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="CMFRelation">
-              <PropertyRef Name="FID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CMFRelation_Member">
-          <End Role="Team" Type="Self.Team" Multiplicity="0..1" />
-          <End Role="CMFRelation" Type="Self.CMFRelation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Team">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="CMFRelation">
-              <PropertyRef Name="MID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Events_Firm1">
-          <End Role="Firm" Type="Self.Firm" Multiplicity="0..1" />
-          <End Role="Events" Type="Self.Events" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Firm">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Events">
-              <PropertyRef Name="FirmID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Events_Member">
-          <End Role="Team" Type="Self.Team" Multiplicity="0..1" />
-          <End Role="Events" Type="Self.Events" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Team">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Events">
-              <PropertyRef Name="MemberID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Member_Firm">
-          <End Role="Firm" Type="Self.Firm" Multiplicity="1" />
-          <End Role="Team" Type="Self.Team" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Firm">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Team">
-              <PropertyRef Name="FirmID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="GalaDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Aboutus" EntityType="Self.Aboutus" />
           <EntitySet Name="CMFRelation" EntityType="Self.CMFRelation" />
           <EntitySet Name="Country" EntityType="Self.Country" />
           <EntitySet Name="Events" EntityType="Self.Events" />
-          <EntitySet Name="Firm" EntityType="Self.Firm" />
           <EntitySet Name="Home" EntityType="Self.Home" />
           <EntitySet Name="Slider" EntityType="Self.Slider" />
-          <EntitySet Name="Team" EntityType="Self.Team" />
           <AssociationSet Name="FK_CMFRelation_Country" Association="Self.FK_CMFRelation_Country">
             <End Role="Country" EntitySet="Country" />
             <End Role="CMFRelation" EntitySet="CMFRelation" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CMFRelation_Firm" Association="Self.FK_CMFRelation_Firm">
-            <End Role="Firm" EntitySet="Firm" />
-            <End Role="CMFRelation" EntitySet="CMFRelation" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CMFRelation_Member" Association="Self.FK_CMFRelation_Member">
-            <End Role="Team" EntitySet="Team" />
-            <End Role="CMFRelation" EntitySet="CMFRelation" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Events_Firm1" Association="Self.FK_Events_Firm1">
-            <End Role="Firm" EntitySet="Firm" />
-            <End Role="Events" EntitySet="Events" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Events_Member" Association="Self.FK_Events_Member">
-            <End Role="Team" EntitySet="Team" />
-            <End Role="Events" EntitySet="Events" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Member_Firm" Association="Self.FK_Member_Firm">
-            <End Role="Firm" EntitySet="Firm" />
-            <End Role="Team" EntitySet="Team" />
           </AssociationSet>
           <EntitySet Name="FCRelation" EntityType="DB_97691_galadbModel.FCRelation" />
           <AssociationSet Name="Country_FCRelation" Association="DB_97691_galadbModel.Country_FCRelation">
             <End Role="Country" EntitySet="Country" />
             <End Role="FCRelation" EntitySet="FCRelation" />
           </AssociationSet>
+          <EntitySet Name="publicationBooks" EntityType="DB_97691_galadbModel.publicationBooks" />
+          <EntitySet Name="Publication" EntityType="DB_97691_galadbModel.Publication" />
+          <EntitySet Name="GMLink" EntityType="DB_97691_galadbModel.GMLink" />
+          <EntitySet Name="Contact" EntityType="DB_97691_galadbModel.Contact" />
+          <EntitySet Name="Firm" EntityType="DB_97691_galadbModel.Firm" />
+          <EntitySet Name="Team" EntityType="DB_97691_galadbModel.Team" />
+          <AssociationSet Name="FK_CMFRelation_Firm" Association="DB_97691_galadbModel.FK_CMFRelation_Firm">
+            <End Role="Firm" EntitySet="Firm" />
+            <End Role="CMFRelation" EntitySet="CMFRelation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CMFRelation_Member" Association="DB_97691_galadbModel.FK_CMFRelation_Member">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="CMFRelation" EntitySet="CMFRelation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Events_Firm1" Association="DB_97691_galadbModel.FK_Events_Firm1">
+            <End Role="Firm" EntitySet="Firm" />
+            <End Role="Events" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Events_Member" Association="DB_97691_galadbModel.FK_Events_Member">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="Events" EntitySet="Events" />
+          </AssociationSet>
           <AssociationSet Name="Firm_FCRelation" Association="DB_97691_galadbModel.Firm_FCRelation">
             <End Role="Firm" EntitySet="Firm" />
             <End Role="FCRelation" EntitySet="FCRelation" />
           </AssociationSet>
-          <EntitySet Name="publicationBooks" EntityType="DB_97691_galadbModel.publicationBooks" />
-          <EntitySet Name="Publication" EntityType="DB_97691_galadbModel.Publication" />
-          <EntitySet Name="Gazette" EntityType="DB_97691_galadbModel.Gazette" />
-          <AssociationSet Name="FK_Gazette_ToFirm" Association="DB_97691_galadbModel.FK_Gazette_ToFirm">
+          <AssociationSet Name="FK_Member_Firm" Association="DB_97691_galadbModel.FK_Member_Firm">
             <End Role="Firm" EntitySet="Firm" />
-            <End Role="Gazette" EntitySet="Gazette" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Gazette_ToMember" Association="DB_97691_galadbModel.FK_Gazette_ToMember">
             <End Role="Team" EntitySet="Team" />
-            <End Role="Gazette" EntitySet="Gazette" />
-          </AssociationSet>
-          <EntitySet Name="GMLink" EntityType="DB_97691_galadbModel.GMLink" />
-          <AssociationSet Name="Gazette_GMLink" Association="DB_97691_galadbModel.Gazette_GMLink">
-            <End Role="Gazette" EntitySet="Gazette" />
-            <End Role="GMLink" EntitySet="GMLink" />
           </AssociationSet>
           <AssociationSet Name="Member_GMLink" Association="DB_97691_galadbModel.Member_GMLink">
             <End Role="Team" EntitySet="Team" />
+            <End Role="GMLink" EntitySet="GMLink" />
+          </AssociationSet>
+          <EntitySet Name="Gazette" EntityType="DB_97691_galadbModel.Gazette" />
+          <EntitySet Name="GazetteVolumes" EntityType="DB_97691_galadbModel.GazetteVolumes" />
+          <AssociationSet Name="FK_Gazette_Firm" Association="DB_97691_galadbModel.FK_Gazette_Firm">
+            <End Role="Firm" EntitySet="Firm" />
+            <End Role="Gazette" EntitySet="Gazette" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Gazette_GazetteVolumes" Association="DB_97691_galadbModel.FK_Gazette_GazetteVolumes">
+            <End Role="GazetteVolumes" EntitySet="GazetteVolumes" />
+            <End Role="Gazette" EntitySet="Gazette" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Gazette_Team" Association="DB_97691_galadbModel.FK_Gazette_Team">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="Gazette" EntitySet="Gazette" />
+          </AssociationSet>
+          <AssociationSet Name="Gazette_GMLink" Association="DB_97691_galadbModel.Gazette_GMLink">
+            <End Role="Gazette" EntitySet="Gazette" />
             <End Role="GMLink" EntitySet="GMLink" />
           </AssociationSet>
         </EntityContainer>
@@ -682,18 +624,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="Firm_FCRelation">
-          <End Type="DB_97691_galadbModel.Firm" Role="Firm" Multiplicity="1" />
-          <End Type="DB_97691_galadbModel.FCRelation" Role="FCRelation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Firm">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="FCRelation">
-              <PropertyRef Name="FirmID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="publicationBooks">
           <Key>
             <PropertyRef Name="Id" />
@@ -718,46 +648,6 @@
           <Property Name="Modified" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="isDeleted" Type="Boolean" Nullable="false" />
         </EntityType>
-        <EntityType Name="Gazette">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="header" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="MemberID" Type="Int32" />
-          <Property Name="FirmID" Type="Int32" />
-          <Property Name="Created" Type="DateTime" Nullable="false" Precision="7" />
-          <Property Name="Modified" Type="DateTime" Nullable="false" Precision="7" />
-          <Property Name="isDeleted" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Firm" Relationship="DB_97691_galadbModel.FK_Gazette_ToFirm" FromRole="Gazette" ToRole="Firm" />
-          <NavigationProperty Name="Team" Relationship="DB_97691_galadbModel.FK_Gazette_ToMember" FromRole="Gazette" ToRole="Team" />
-          <NavigationProperty Name="GMLink" Relationship="DB_97691_galadbModel.Gazette_GMLink" FromRole="Gazette" ToRole="GMLink" />
-        </EntityType>
-        <Association Name="FK_Gazette_ToFirm">
-          <End Type="DB_97691_galadbModel.Firm" Role="Firm" Multiplicity="0..1" />
-          <End Type="DB_97691_galadbModel.Gazette" Role="Gazette" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Firm">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Gazette">
-              <PropertyRef Name="FirmID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Gazette_ToMember">
-          <End Type="DB_97691_galadbModel.Team" Role="Team" Multiplicity="0..1" />
-          <End Type="DB_97691_galadbModel.Gazette" Role="Gazette" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Team">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Gazette">
-              <PropertyRef Name="MemberID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="GMLink">
           <Key>
             <PropertyRef Name="Id" />
@@ -768,18 +658,150 @@
           <Property Name="Created_" Type="DateTime" Precision="7" />
           <Property Name="Modified" Type="DateTime" Precision="7" />
           <Property Name="isDeleted" Type="Boolean" />
-          <NavigationProperty Name="Gazette" Relationship="DB_97691_galadbModel.Gazette_GMLink" FromRole="GMLink" ToRole="Gazette" />
           <NavigationProperty Name="Team" Relationship="DB_97691_galadbModel.Member_GMLink" FromRole="GMLink" ToRole="Team" />
+          <NavigationProperty Name="Gazette" Relationship="DB_97691_galadbModel.Gazette_GMLink" FromRole="GMLink" ToRole="Gazette" />
         </EntityType>
-        <Association Name="Gazette_GMLink">
-          <End Type="DB_97691_galadbModel.Gazette" Role="Gazette" Multiplicity="1" />
-          <End Type="DB_97691_galadbModel.GMLink" Role="GMLink" Multiplicity="*" />
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PageTitle_" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Zipcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Tel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fax" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Web" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Modified" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="isDeleted" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Firm">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirmName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Zip" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Tel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Fax" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="web" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AboutContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NewsID" Type="Int32" />
+          <Property Name="PressID" Type="Int32" />
+          <Property Name="Publication" Type="Int32" />
+          <Property Name="Events" Type="Int32" />
+          <Property Name="Created" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Modified" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="isDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CMFRelation" Relationship="DB_97691_galadbModel.FK_CMFRelation_Firm" FromRole="Firm" ToRole="CMFRelation" />
+          <NavigationProperty Name="Events1" Relationship="DB_97691_galadbModel.FK_Events_Firm1" FromRole="Firm" ToRole="Events" />
+          <NavigationProperty Name="FCRelation" Relationship="DB_97691_galadbModel.Firm_FCRelation" FromRole="Firm" ToRole="FCRelation" />
+          <NavigationProperty Name="Team" Relationship="DB_97691_galadbModel.FK_Member_Firm" FromRole="Firm" ToRole="Team" />
+          <NavigationProperty Name="Gazette" Relationship="DB_97691_galadbModel.FK_Gazette_Firm" FromRole="Firm" ToRole="Gazette" />
+        </EntityType>
+        <EntityType Name="Team">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MInitial" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="Picture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BIO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Tel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Fax" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FirmID" Type="Int32" Nullable="false" />
+          <Property Name="Created" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Modified" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="isDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CMFRelation" Relationship="DB_97691_galadbModel.FK_CMFRelation_Member" FromRole="Team" ToRole="CMFRelation" />
+          <NavigationProperty Name="Events" Relationship="DB_97691_galadbModel.FK_Events_Member" FromRole="Team" ToRole="Events" />
+          <NavigationProperty Name="Firm" Relationship="DB_97691_galadbModel.FK_Member_Firm" FromRole="Team" ToRole="Firm" />
+          <NavigationProperty Name="GMLink" Relationship="DB_97691_galadbModel.Member_GMLink" FromRole="Team" ToRole="GMLink" />
+          <NavigationProperty Name="Gazette" Relationship="DB_97691_galadbModel.FK_Gazette_Team" FromRole="Team" ToRole="Gazette" />
+        </EntityType>
+        <Association Name="FK_CMFRelation_Firm">
+          <End Type="DB_97691_galadbModel.Firm" Role="Firm" Multiplicity="0..1" />
+          <End Type="DB_97691_galadbModel.CMFRelation" Role="CMFRelation" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Gazette">
+            <Principal Role="Firm">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="GMLink">
-              <PropertyRef Name="GazetteId" />
+            <Dependent Role="CMFRelation">
+              <PropertyRef Name="FID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CMFRelation_Member">
+          <End Type="DB_97691_galadbModel.Team" Role="Team" Multiplicity="0..1" />
+          <End Type="DB_97691_galadbModel.CMFRelation" Role="CMFRelation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CMFRelation">
+              <PropertyRef Name="MID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Events_Firm1">
+          <End Type="DB_97691_galadbModel.Firm" Role="Firm" Multiplicity="0..1" />
+          <End Type="DB_97691_galadbModel.Events" Role="Events" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Firm">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Events">
+              <PropertyRef Name="FirmID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Events_Member">
+          <End Type="DB_97691_galadbModel.Team" Role="Team" Multiplicity="0..1" />
+          <End Type="DB_97691_galadbModel.Events" Role="Events" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Events">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Firm_FCRelation">
+          <End Type="DB_97691_galadbModel.Firm" Role="Firm" Multiplicity="1" />
+          <End Type="DB_97691_galadbModel.FCRelation" Role="FCRelation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Firm">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FCRelation">
+              <PropertyRef Name="FirmID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Member_Firm">
+          <End Type="DB_97691_galadbModel.Firm" Role="Firm" Multiplicity="1" />
+          <End Type="DB_97691_galadbModel.Team" Role="Team" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Firm">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Team">
+              <PropertyRef Name="FirmID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -792,6 +814,84 @@
             </Principal>
             <Dependent Role="GMLink">
               <PropertyRef Name="MemberId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Gazette">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="header" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MemberID" Type="Int32" />
+          <Property Name="GazetteVolumeID" Type="Int32" />
+          <Property Name="FirmID" Type="Int32" />
+          <Property Name="Created" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Modified" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="isDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Firm" Relationship="DB_97691_galadbModel.FK_Gazette_Firm" FromRole="Gazette" ToRole="Firm" />
+          <NavigationProperty Name="GazetteVolumes" Relationship="DB_97691_galadbModel.FK_Gazette_GazetteVolumes" FromRole="Gazette" ToRole="GazetteVolumes" />
+          <NavigationProperty Name="Team" Relationship="DB_97691_galadbModel.FK_Gazette_Team" FromRole="Gazette" ToRole="Team" />
+          <NavigationProperty Name="GMLink" Relationship="DB_97691_galadbModel.Gazette_GMLink" FromRole="Gazette" ToRole="GMLink" />
+        </EntityType>
+        <EntityType Name="GazetteVolumes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GazetteVolume" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PublishedDate" Type="DateTime" Precision="7" />
+          <Property Name="Created_" Type="DateTime" Precision="7" />
+          <Property Name="Modified" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="isDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Gazette" Relationship="DB_97691_galadbModel.FK_Gazette_GazetteVolumes" FromRole="GazetteVolumes" ToRole="Gazette" />
+        </EntityType>
+        <Association Name="FK_Gazette_Firm">
+          <End Type="DB_97691_galadbModel.Firm" Role="Firm" Multiplicity="0..1" />
+          <End Type="DB_97691_galadbModel.Gazette" Role="Gazette" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Firm">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Gazette">
+              <PropertyRef Name="FirmID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Gazette_GazetteVolumes">
+          <End Type="DB_97691_galadbModel.GazetteVolumes" Role="GazetteVolumes" Multiplicity="0..1" />
+          <End Type="DB_97691_galadbModel.Gazette" Role="Gazette" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GazetteVolumes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Gazette">
+              <PropertyRef Name="GazetteVolumeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Gazette_Team">
+          <End Type="DB_97691_galadbModel.Team" Role="Team" Multiplicity="0..1" />
+          <End Type="DB_97691_galadbModel.Gazette" Role="Gazette" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Gazette">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Gazette_GMLink">
+          <End Type="DB_97691_galadbModel.Gazette" Role="Gazette" Multiplicity="1" />
+          <End Type="DB_97691_galadbModel.GMLink" Role="GMLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gazette">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GMLink">
+              <PropertyRef Name="GazetteId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -854,30 +954,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Firm">
-            <EntityTypeMapping TypeName="DB_97691_galadbModel.Firm">
-              <MappingFragment StoreEntitySet="Firm">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="FirmName" ColumnName="FirmName" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="City" ColumnName="City" />
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Zip" ColumnName="Zip" />
-                <ScalarProperty Name="Tel" ColumnName="Tel" />
-                <ScalarProperty Name="Fax" ColumnName="Fax" />
-                <ScalarProperty Name="web" ColumnName="web" />
-                <ScalarProperty Name="AboutContent" ColumnName="AboutContent" />
-                <ScalarProperty Name="Country" ColumnName="Country" />
-                <ScalarProperty Name="NewsID" ColumnName="NewsID" />
-                <ScalarProperty Name="PressID" ColumnName="PressID" />
-                <ScalarProperty Name="Publication" ColumnName="Publication" />
-                <ScalarProperty Name="Events" ColumnName="Events" />
-                <ScalarProperty Name="Created" ColumnName="Created" />
-                <ScalarProperty Name="Modified" ColumnName="Modified" />
-                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Home">
             <EntityTypeMapping TypeName="DB_97691_galadbModel.Home">
               <MappingFragment StoreEntitySet="Home">
@@ -897,27 +973,6 @@
                 <ScalarProperty Name="Header" ColumnName="Header" />
                 <ScalarProperty Name="Content" ColumnName="Content" />
                 <ScalarProperty Name="Picture" ColumnName="Picture" />
-                <ScalarProperty Name="Created" ColumnName="Created" />
-                <ScalarProperty Name="Modified" ColumnName="Modified" />
-                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Team">
-            <EntityTypeMapping TypeName="DB_97691_galadbModel.Team">
-              <MappingFragment StoreEntitySet="Team">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="FName" ColumnName="FName" />
-                <ScalarProperty Name="LName" ColumnName="LName" />
-                <ScalarProperty Name="MInitial" ColumnName="MInitial" />
-                <ScalarProperty Name="Picture" ColumnName="Picture" />
-                <ScalarProperty Name="BIO" ColumnName="BIO" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Tel" ColumnName="Tel" />
-                <ScalarProperty Name="Fax" ColumnName="Fax" />
-                <ScalarProperty Name="FirmID" ColumnName="FirmID" />
                 <ScalarProperty Name="Created" ColumnName="Created" />
                 <ScalarProperty Name="Modified" ColumnName="Modified" />
                 <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
@@ -962,20 +1017,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Gazette">
-            <EntityTypeMapping TypeName="DB_97691_galadbModel.Gazette">
-              <MappingFragment StoreEntitySet="Gazette">
-                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
-                <ScalarProperty Name="Modified" ColumnName="Modified" />
-                <ScalarProperty Name="Created" ColumnName="Created" />
-                <ScalarProperty Name="FirmID" ColumnName="FirmID" />
-                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
-                <ScalarProperty Name="Content" ColumnName="Content" />
-                <ScalarProperty Name="header" ColumnName="header" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="GMLink">
             <EntityTypeMapping TypeName="DB_97691_galadbModel.GMLink">
               <MappingFragment StoreEntitySet="GMLink">
@@ -984,6 +1025,98 @@
                 <ScalarProperty Name="Created_" ColumnName="Created " />
                 <ScalarProperty Name="MemberId" ColumnName="MemberId" />
                 <ScalarProperty Name="GazetteId" ColumnName="GazetteId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contact">
+            <EntityTypeMapping TypeName="DB_97691_galadbModel.Contact">
+              <MappingFragment StoreEntitySet="Contact">
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="Web" ColumnName="Web" />
+                <ScalarProperty Name="fax" ColumnName="fax" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Zipcode" ColumnName="Zipcode" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PageTitle_" ColumnName="PageTitle " />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Firm">
+            <EntityTypeMapping TypeName="DB_97691_galadbModel.Firm">
+              <MappingFragment StoreEntitySet="Firm">
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="Events" ColumnName="Events" />
+                <ScalarProperty Name="Publication" ColumnName="Publication" />
+                <ScalarProperty Name="PressID" ColumnName="PressID" />
+                <ScalarProperty Name="NewsID" ColumnName="NewsID" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="AboutContent" ColumnName="AboutContent" />
+                <ScalarProperty Name="web" ColumnName="web" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="FirmName" ColumnName="FirmName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Team">
+            <EntityTypeMapping TypeName="DB_97691_galadbModel.Team">
+              <MappingFragment StoreEntitySet="Team">
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="FirmID" ColumnName="FirmID" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="BIO" ColumnName="BIO" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="MInitial" ColumnName="MInitial" />
+                <ScalarProperty Name="LName" ColumnName="LName" />
+                <ScalarProperty Name="FName" ColumnName="FName" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gazette">
+            <EntityTypeMapping TypeName="DB_97691_galadbModel.Gazette">
+              <MappingFragment StoreEntitySet="Gazette">
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="FirmID" ColumnName="FirmID" />
+                <ScalarProperty Name="GazetteVolumeID" ColumnName="GazetteVolumeID" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="header" ColumnName="header" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GazetteVolumes">
+            <EntityTypeMapping TypeName="DB_97691_galadbModel.GazetteVolumes">
+              <MappingFragment StoreEntitySet="GazetteVolumes">
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="Created_" ColumnName="Created " />
+                <ScalarProperty Name="PublishedDate" ColumnName="PublishedDate" />
+                <ScalarProperty Name="GazetteVolume" ColumnName="GazetteVolume" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

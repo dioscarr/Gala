@@ -15,15 +15,35 @@ namespace Gala_MVC_Project.Models
         public publicationBooks SinglepublicationBooks { get; set; }
         public Gazette GazetteArticle { get; set; }
         public List<Gazette> GazetteArticles { get; set; }
-
-
-
+        public GazetteVolumes LastGazetteVolume { get; set; }
+        public List<Gazette> Volumes { get; set; }
+        public List<gazettelist> mylistofGazette { get; set; }
+        public List<VolumesModel> mymodel { get; set; }
         public PublicationModel()
         {
-            publication = ManagePublication.GetAllPublication().FirstOrDefault();
+            publication = db.Publication.FirstOrDefault();
             publicationbooks = ManagepublicationBooks.GetAllpublicationBooks().ToList();
             GazetteArticle = null;
             GazetteArticles = db.Gazette.ToList();
+            LastGazetteVolume = ManageGazetteVolumes.GetAllGazetteVolumes().OrderByDescending(c => c.PublishedDate).FirstOrDefault();
+            //=====================================================================================
+            mymodel = db.GazetteVolumes.Select(c => new VolumesModel
+            {
+                id = c.Id,
+                name = c.GazetteVolume,
+                 countries = c.Gazette.Where(x=>x.GazetteVolumeID == c.Id).Select(x=> new Countries{
+                                                                                                    cname = x.Firm.Country,
+                                                                                                    Content = x.Content,
+                                                                                                     Header = x.header,
+                                                                                                    id = x.Id
+                 }).ToList()
+            }).ToList();
+
+            //=====================================================================================
+        }
+        internal void loadGazettebyVolume(int id)
+        {
+            Volumes = db.Gazette.Where(c => c.GazetteVolumeID == id).ToList();
         }
         public void loadPublication(int id)
         {
@@ -41,6 +61,15 @@ namespace Gala_MVC_Project.Models
         {
             return ManagepublicationBooks.DeletepublicationBooks(ManagepublicationBooks.GetById(id));
         }
+    }
+
+    public class gazettelist
+    {
+        public string cname { get; set; }
+        public int id { get; set; }
+        public string Content { get; set; }
 
     }
+
+
 }
