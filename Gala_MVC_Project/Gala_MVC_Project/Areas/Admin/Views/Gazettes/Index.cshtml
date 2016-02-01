@@ -1,0 +1,71 @@
+﻿@model IEnumerable<DAL.Models.Gazette>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/Admin_Layout.cshtml";
+   
+}
+
+@using Gala_MVC_Project.Areas.Admin.Models;
+
+
+
+<div class="container" style="background:white;">
+
+    <div class="row" style="padding:50px 50px;">
+
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <table class="table table-hover table-striped">
+            <tr>
+                <th>
+                   Gazette Volume
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.header)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Content)
+                </th>
+                
+               
+               
+                <th>....Options....</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr >
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GazetteVolumes.GazetteVolume)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.header)
+                    </td>
+                    <td style="width:50%; height:20px;text-overflow:unset;" >
+                       @{ 
+                          
+                           Basemodel BM = new Basemodel();
+                         
+
+
+                       }
+                        @BM.Truncate(item.Content,80)
+                       
+                    </td>
+                   
+                  
+                  
+                    <td>
+                       
+                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+
+        </table>
+        </div>
+</div>
