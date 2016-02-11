@@ -5,7 +5,7 @@ using System.Web;
 using DAL.Models;
 using BLL;
 using Gala_MVC_Project.Areas.Admin.Models;
-
+ 
 
 namespace Gala_MVC_Project.Areas.Admin.Models
 {

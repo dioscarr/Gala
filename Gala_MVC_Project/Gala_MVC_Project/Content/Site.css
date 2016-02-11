@@ -789,6 +789,15 @@ table#t01 tr:hover {
     /*margin-bottom: 7%;*/
 }
 
+
+/*Term of Use and Pr. Policy*/
+
+    .term_and_privacy {
+         text-align: center;
+    }
+
+/**/
+
 @media (max-width: 1280px) {
     .member_title {
         font-size: 2.9em;
@@ -803,7 +812,7 @@ table#t01 tr:hover {
         width: 90%;
     }
 }
-
+  
 @media (max-width: 1024px) {
    .member_title {
         font-size: 2.7em;
