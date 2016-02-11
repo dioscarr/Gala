@@ -10,6 +10,7 @@ using System.IO;
 
 namespace Gala_MVC_Project.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdminMemberController : Controller
     {
         // GET: Admin/Member

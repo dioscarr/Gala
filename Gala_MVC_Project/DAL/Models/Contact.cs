@@ -15,7 +15,7 @@ namespace DAL.Models
     public partial class Contact
     {
         public int Id { get; set; }
-        public string PageTitle_ { get; set; }
+        public string PageTitle { get; set; }
         public string Name { get; set; }
         public string Title { get; set; }
         public string CompanyName { get; set; }

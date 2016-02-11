@@ -5,9 +5,13 @@ using System.Web;
 using System.Web.Mvc;
 using Gala_MVC_Project.Areas.Admin.Models;
 using BLL;
+using System.IO;
+using System.Web.UI.WebControls;
+using System.Web.UI;
 
 namespace Gala_MVC_Project.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class EventsController : Controller
     {
         // GET: Admin/Events
@@ -43,7 +47,7 @@ namespace Gala_MVC_Project.Areas.Admin.Controllers
         }
         [HttpPost]
        [ValidateInput(false)]
-        public ActionResult Update(EventsModel model)
+        public ActionResult Update(EventsModel model, HttpPostedFileBase ImageUpload, bool isNewPicture)
         {
             model.update(model);
             return RedirectToAction("index");
@@ -57,16 +61,22 @@ namespace Gala_MVC_Project.Areas.Admin.Controllers
             type.Add(new SelectListItem { Text = "Other Events", Value = "Other Events" });
            
             CountryModel CM = new CountryModel();
-            ViewBag.Members = ManageTeam.GetAllTeam().Select(c => new SelectListItem { Text = c.FName + " " + c.LName, Value = c.Id.ToString() }).ToList();
+            ViewBag.Members = ManageTeam.GetAllTeam().Select(c => new SelectListItem { Text = c.FName + " " + c.LName, Value = c.Id.ToString() }).OrderBy(x=>x.Text).ToList();
             ViewBag.type = type;//list of type 
-            ViewBag.Firms = ManageFirm.GetAllFirm().GroupBy(x => x.FirmName).Select(c => new SelectListItem { Text = c.FirstOrDefault().FirmName, Value = c.FirstOrDefault().Id.ToString() }).ToList();// get list of firms
+            ViewBag.Firms = ManageFirm.GetAllFirm().GroupBy(x => x.FirmName).Select(c => new SelectListItem { Text = c.FirstOrDefault().FirmName, Value = c.FirstOrDefault().Id.ToString() }).OrderBy(x => x.Text).ToList();// get list of firms
             return View();
 
         }
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Insert(EventsModel model)
+        public ActionResult Insert(EventsModel model, HttpPostedFileBase ImageUpload, bool isNewPicture)
         {
+
+            if (isNewPicture)
+            {
+                model.Events.Content = "<a href='/Images/Media/"+ UploadPDF(model, "~/Images/Media") + "' class='eventlink'>" + model.Events.Heading +"</a>"; ;
+
+            }
             model.Insert(model);
             return RedirectToAction("index");
         }
@@ -76,6 +86,42 @@ namespace Gala_MVC_Project.Areas.Admin.Controllers
             EM.loadEvents(id);
 
             return View(EM);
+        }
+
+        //upload image
+        public string UploadPDF(EventsModel model, string url)
+        {
+            var validImageTypes = new string[]
+            {
+                "image/gif",
+                "image/jpeg",
+                "image/jpg",
+                "image/pjpeg",
+                "image/png",
+                "application/pdf"
+            };
+
+            if (model.ImageUpload == null || model.ImageUpload.ContentLength == 0)
+            {
+                ModelState.AddModelError("ImageUpload", "This field is required");
+            }
+            else if (!validImageTypes.Contains(model.ImageUpload.ContentType))
+            {
+                ModelState.AddModelError("ImageUpload", "Please choose either a GIF, JPG or PNG image.");
+            }
+
+            if (ModelState.IsValid)
+            {
+                if (model.ImageUpload != null && model.ImageUpload.ContentLength > 0)
+                {
+                    var uploadDir = url;
+                    var imagePath = Path.Combine(Server.MapPath(uploadDir), model.ImageUpload.FileName);
+                    var imageUrl = Path.Combine(uploadDir, model.ImageUpload.FileName);
+                    model.ImageUpload.SaveAs(imagePath);
+                    return model.ImageUpload.FileName;
+                }
+            }
+            return "noimg.jpg";
         }
 
     }

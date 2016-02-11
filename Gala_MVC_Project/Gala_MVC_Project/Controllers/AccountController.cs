@@ -9,14 +9,14 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using Gala_MVC_Project.Areas.Admin.Models;
+using Gala_MVC_Project.Models;
 using Microsoft.Owin.Host.SystemWeb;
 
 
 
 
 
-namespace Gala_MVC_Project.Areas.Admin.Controllers
+namespace Gala_MVC_Project.Controllers
 {
     [Authorize]
     public class AccountController : Controller
@@ -24,8 +24,10 @@ namespace Gala_MVC_Project.Areas.Admin.Controllers
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
+        ApplicationDbContext context;
         public AccountController()
         {
+            context = new ApplicationDbContext();
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
@@ -82,9 +84,17 @@ namespace Gala_MVC_Project.Areas.Admin.Controllers
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            var user = await UserManager.FindAsync(model.Email, model.Password);
             switch (result)
             {
                 case SignInStatus.Success:
+                    //custom
+                    
+                    if (UserManager.IsInRole(user.Id, "Admin") )
+                    {
+
+                        return RedirectToAction("index","Admin");
+                    }
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
@@ -145,6 +155,7 @@ namespace Gala_MVC_Project.Areas.Admin.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            ViewBag.Name = new SelectList(context.Roles.ToList(), "Name", "Name");
             return View(new RegisterViewModel());
         }
 
@@ -153,7 +164,7 @@ namespace Gala_MVC_Project.Areas.Admin.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> Register(RegisterViewModel model, bool newPassword)
         {
             if (ModelState.IsValid)
             {
@@ -161,6 +172,10 @@ namespace Gala_MVC_Project.Areas.Admin.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    //Assign Role to user Here 
+                    await this.UserManager.AddToRoleAsync(user.Id, model.Email);
+                    //Ends Here
+
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771

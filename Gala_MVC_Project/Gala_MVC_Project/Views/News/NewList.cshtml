@@ -41,13 +41,32 @@
 
                     @foreach (var news in Model.news)
                     {
-                        var Contentnews = Html.Raw(@news.Content);
-                        <p class="events_text_content">
-                            <a href="~/News/NewsArticle/@news.id" class="eventlink"><span class="event_data pull-left">@String.Format("{0:MMM d, yyyy}", @news.Published)</span><span class="events_content pull-right">@Html.Raw(@Model.Truncate(Contentnews.ToString(), 80, "...", true))</span></a>
-                        </p>
+                        if (@news.Content != null)
+                        {
+                            var Contentnews = Html.Raw(@news.Content);
+                            if (Contentnews.ToHtmlString().EndsWith("</a>"))
+                            {
+                            <p class="events_text_content">
+                                <span class="event_data pull-left">@String.Format("{0:MMM d, yyyy}", @news.Published)</span><span class="events_content pull-right">@Contentnews</span>
+                            </p>
+                            }
+                            else
+                            {
+                            <p class="events_text_content">
+                                <a href="~/Events/Article/@news.id"><span class="event_data pull-left"> @String.Format("{0:MMM d, yyyy}", @news.Published)</span><span class="events_content pull-right">@Html.Raw(@news.Heading)</span></a>
+                            </p>
+                            }
+                        }
+                        else {
+                            <p class="events_text_content">
+                                <a href="~/Events/Article/@news.id"><span class="event_data pull-left"> @String.Format("{0:MMM d, yyyy}", @news.Published)</span><span class="events_content pull-right">@Html.Raw(@news.Heading)</span></a>
+                            </p>
+
+                        }
+
                     }
 
-                   
+
                     <a href="~/News/NewArchive/News">Show more...</a>
                 </div>
 
@@ -61,17 +80,34 @@
                 </div>
                 <hr>
                 <div class="events_table">
-                    @foreach (var Press in @Model.Press)
-                    {
-                        var content = @Html.Raw(@Press.Content);
+                    
+                        @foreach (var Press in @Model.Press)
+                        {
+                            if (@Press.Content != null)
+                            {
+                                var content = Html.Raw(Press.Content);
+                                if (content.ToHtmlString().EndsWith("</a>"))
+                                {
+                                <p class="events_text_content">
+                                    <span class="event_data pull-left">@String.Format("{0:MMM d, yyyy}", @Press.Published)</span><span class="events_content pull-right">@content</span>
+                                </p>
 
-                        <p class="events_text_content">
-                            <a href="~/News/PressArticle/@Press.id" class="eventlink"><span class="event_data pull-left">@String.Format("{0:MMM d, yyyy}", @Press.Published)</span><span class="events_content pull-right">@Model.Truncate(content.ToString(), 80, "...", true)</span></a>
-                        </p>
-                    }
-                   
+                                }
+                                else {
+                                <p class="events_text_content">
+                                    <a href="~/Events/Article/@Press.id"><span class="event_data pull-left"> @String.Format("{0:MMM d, yyyy}", @Press.Published)</span><span class="events_content pull-right">@Html.Raw(@Press.Heading)</span></a>
+                                </p>
+
+                                }
+                            }
+                            else {
+                                <p class="events_text_content">
+                                   <span class="event_data pull-left"> @String.Format("{0:MMM d, yyyy}", @Press.Published)</span><span class="events_content pull-right">@Html.Raw(@Press.Heading)</span>
+                                </p>
+                            }
+                        }
                     <a href="~/News/NewArchive/Press">Show more...</a>
-                </div>
+                 </div>
 
             </div>
             <div class='col-xs-4 membership mobile_content_global'>

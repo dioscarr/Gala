@@ -6,9 +6,9 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using Gala_MVC_Project.Areas.Admin.Models;
+using Gala_MVC_Project.Models;
 
-namespace Gala_MVC_Project.Areas.Admin.Controllers
+namespace Gala_MVC_Project.Controllers
 {
     [Authorize]
     public class ManageController : Controller

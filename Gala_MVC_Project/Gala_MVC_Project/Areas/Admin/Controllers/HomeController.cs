@@ -7,6 +7,7 @@ using Gala_MVC_Project.Areas.Admin.Models;
 
 namespace Gala_MVC_Project.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class HomeController : Controller
     {
         // GET: Admin/Home

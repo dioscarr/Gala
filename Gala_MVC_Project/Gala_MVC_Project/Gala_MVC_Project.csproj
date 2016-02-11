@@ -204,20 +204,32 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Areas\Admin\Controllers\AccountController.cs">
+    <Compile Include="Areas\Admin\Controllers\UserManagementController.cs" />
+    <Compile Include="Areas\Admin\Models\RegisterUsers.cs" />
+    <Compile Include="Areas\Admin\Models\Usermanagement.cs" />
+    <Compile Include="Areas\Admin\Workers\Calendarworkers.cs" />
+    <Compile Include="Areas\Admin\Workers\DeliveryWorker.cs" />
+    <Compile Include="Areas\Admin\Workers\FindRoute.cs" />
+    <Compile Include="Areas\Admin\Models\Gmail.cs" />
+    <Compile Include="Areas\Admin\Models\PasswordGenerator.cs" />
+    <Compile Include="Areas\Admin\Workers\pdfWorker.cs" />
+    <Compile Include="Areas\Admin\Workers\RegisterUsers.cs" />
+    <Compile Include="Areas\Admin\Workers\TenantWorker.cs" />
+    <Compile Include="Controllers\AccountController.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Areas\Admin\Controllers\AdminAboutUSController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminPublicationController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminContactsController.cs" />
     <Compile Include="Areas\Admin\Controllers\CountryFirmController.cs" />
     <Compile Include="Areas\Admin\Controllers\EventsController.cs" />
     <Compile Include="Areas\Admin\Controllers\GazettesController.cs" />
-    <Compile Include="Areas\Admin\Controllers\ManageController.cs">
+    <Compile Include="Controllers\ManageController.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Areas\Admin\Controllers\AdminMemberController.cs" />
     <Compile Include="Areas\Admin\Models\AboutusModel.cs" />
-    <Compile Include="Areas\Admin\Models\AccountViewModels.cs">
+    <Compile Include="Models\AccountViewModels.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Areas\Admin\Models\BaseModel.cs">
@@ -227,10 +239,10 @@
     <Compile Include="Areas\Admin\Models\FirmModel.cs" />
     <Compile Include="Areas\Admin\Models\Gazette.cs" />
     <Compile Include="Areas\Admin\Models\HomeModel.cs" />
-    <Compile Include="Areas\Admin\Models\IdentityModels.cs">
+    <Compile Include="Models\IdentityModels.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Areas\Admin\Models\ManageViewModels.cs">
+    <Compile Include="Models\ManageViewModels.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
@@ -262,34 +274,13 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Admin\Views\Manage\AddPhoneNumber.cshtml" />
-    <Content Include="Areas\Admin\Views\Manage\ChangePassword.cshtml" />
-    <Content Include="Areas\Admin\Views\Manage\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Manage\ManageLogins.cshtml" />
-    <Content Include="Areas\Admin\Views\Manage\SetPassword.cshtml" />
-    <Content Include="Areas\Admin\Views\Manage\VerifyPhoneNumber.cshtml" />
-    <Content Include="Areas\Admin\Views\Account\ConfirmEmail.cshtml" />
-    <Content Include="Areas\Admin\Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Areas\Admin\Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Areas\Admin\Views\Account\ForgotPassword.cshtml" />
-    <Content Include="Areas\Admin\Views\Account\ForgotPasswordConfirmation.cshtml" />
-    <Content Include="Areas\Admin\Views\Account\Login.cshtml" />
-    <Content Include="Areas\Admin\Views\Account\Register.cshtml" />
-    <Content Include="Areas\Admin\Views\Account\ResetPassword.cshtml" />
-    <Content Include="Areas\Admin\Views\Account\ResetPasswordConfirmation.cshtml" />
-    <Content Include="Areas\Admin\Views\Account\SendCode.cshtml" />
-    <Content Include="Areas\Admin\Views\Account\VerifyCode.cshtml" />
-    <Content Include="Areas\Admin\Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\Admin_Layout.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\Error.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\Lockout.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\_Secomdary_Layout.cshtml" />
     <Content Include="Content\bootstrap-datetimepicker.min.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\jquery-ui.min.css" />
     <Content Include="Content\jquery.datetimepicker.css" />
@@ -328,21 +319,14 @@
     <Content Include="Content\themes\base\theme.css" />
     <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Areas\Admin\Views\web.config" />
-    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Areas\Admin\Views\CountryFirm\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\CountryFirm\Insert.cshtml" />
-    <Content Include="Areas\Admin\Views\CountryFirm\Firms.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminMember\MemberList.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminMember\AddNewMember.cshtml" />
     <Content Include="fonts\2FE2A8_0_0.eot" />
     <Content Include="fonts\2FE2A8_0_0.ttf" />
     <Content Include="fonts\2FE2A8_0_0.woff" />
@@ -351,13 +335,6 @@
     <Content Include="fonts\2FE2A8_1_0.ttf" />
     <Content Include="fonts\2FE2A8_1_0.woff" />
     <Content Include="fonts\2FE2A8_1_0.woff2" />
-    <Content Include="Areas\Admin\Views\AdminAboutUS\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\CountryFirm\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\CountryFirm\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminMember\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminMember\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Events\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Events\Insert.cshtml" />
     <Content Include="Content\fonts\2FFA86_0_0.eot" />
     <Content Include="Content\fonts\2FFA86_0_0.ttf" />
     <Content Include="Content\fonts\2FFA86_0_0.woff" />
@@ -380,23 +357,69 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Content\_bootstrap-datetimepicker.less" />
     <Content Include="Content\bootstrap-datetimepicker-build.less" />
-    <Content Include="Areas\Admin\Views\Events\Update.cshtml" />
-    <Content Include="Areas\Admin\Views\Events\Details.cshtml" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Images\publications\publication1.jpg" />
     <Content Include="Images\Thumbs.db" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminAboutUS\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminMember\AddNewMember.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminMember\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminMember\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminMember\MemberList.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminPublication\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\AdminPublication\Index.cshtml" />
     <Content Include="Areas\Admin\Views\AdminPublication\insert.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminPublication\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\CountryFirm\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\CountryFirm\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\CountryFirm\Firms.cshtml" />
+    <Content Include="Areas\Admin\Views\CountryFirm\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\CountryFirm\Insert.cshtml" />
+    <Content Include="Areas\Admin\Views\Events\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Events\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Events\Insert.cshtml" />
+    <Content Include="Areas\Admin\Views\Events\Update.cshtml" />
+    <Content Include="Areas\Admin\Views\Gazettes\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Gazettes\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Gazettes\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Gazettes\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Gazettes\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Gazettes\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Gazettes\insertGazetteVolume.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\Admin_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\Error.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\Lockout.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Secomdary_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="Areas\Admin\Views\AdminContacts\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\UserManagement\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\UserManagement\Create.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Images\about-arrow.png" />
     <Content Include="Images\bg-all.jpg" />
@@ -1178,7 +1201,9 @@
     <Content Include="Scripts\tinymce\themes\modern\theme.min.js" />
     <Content Include="Scripts\tinymce\tinymce.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -1197,7 +1222,7 @@
     <Content Include="Views\Events\EventArchive.cshtml" />
     <Content Include="Views\Events\EventList.cshtml" />
     <Content Include="Views\News\NewsArchive.cshtml" />
-    <Content Include="Views\News\NewList.cshtml" />
+    <Content Include="Views\News\NewList1.cshtml" />
     <Content Include="Views\Publication\GazetteArchive.cshtml" />
     <Content Include="Views\Publication\GazetteArticle.cshtml" />
     <Content Include="Views\Publication\Publication.cshtml" />
@@ -1206,11 +1231,12 @@
     <Content Include="Views\Members\MemberList.cshtml" />
     <Content Include="Views\News\NewsArticle.cshtml" />
     <Content Include="Views\Events\Article.cshtml" />
+    <Content Include="Views\News\NewList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Views\Gazette\" />
     <Folder Include="bin\" />
+    <Folder Include="Images\Media\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

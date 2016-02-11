@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Gala_MVC_Project.Areas.Admin.Models
+namespace Gala_MVC_Project.Models
 
 {
     public class ExternalLoginConfirmationViewModel

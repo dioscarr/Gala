@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 
-namespace Gala_MVC_Project.Areas.Admin.Models
+namespace Gala_MVC_Project.Models
 {
     public class IndexViewModel
     {
