@@ -12,7 +12,7 @@
         <EntityTypeShape EntityType="DB_97691_galadbModel.FCRelation" Width="1.5" PointX="3" PointY="10.625" />
         <EntityTypeShape EntityType="DB_97691_galadbModel.Firm" Width="1.5" PointX="0.75" PointY="9.25" />
         <EntityTypeShape EntityType="DB_97691_galadbModel.Gazette" Width="1.5" PointX="8.25" PointY="15.625" />
-        <EntityTypeShape EntityType="DB_97691_galadbModel.GazetteVolumes" Width="1.5" PointX="6" PointY="12.25" />
+        <EntityTypeShape EntityType="DB_97691_galadbModel.GazetteVolumes" Width="1.5" PointX="6" PointY="12" />
         <EntityTypeShape EntityType="DB_97691_galadbModel.GMLink" Width="1.5" PointX="10.5" PointY="19.375" />
         <EntityTypeShape EntityType="DB_97691_galadbModel.Home" Width="1.5" PointX="4.75" PointY="6.75" />
         <EntityTypeShape EntityType="DB_97691_galadbModel.Publication" Width="1.5" PointX="6.75" PointY="6.75" />
