@@ -9,6 +9,7 @@ namespace Gala_MVC_Project.Controllers
 {
     public class HomeController : Controller
     {
+        
         public ActionResult Index()
         {
             

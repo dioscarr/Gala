@@ -23,20 +23,29 @@
                     <li><a href="#">Home /</a></li>
                     <li><a href="#">Contact Us</a></li>
                 </ul>
-                <h1 class="content_title_news text_uppercase">@Model.contact.PageTitle_
+                <h1 class="content_title_news text_uppercase">@if (@Model.contact !=null) {@Model.contact.PageTitle}
                 </h1>
             </div>
         </div>
         <div class="row content_text ">
             <div class="col-xs-8 content_global mobile_content_global">
-                <p class="contact_us_info">@Model.contact.Name</p>
-                <p><span>@Model.contact.Title</span></p><br>
-                <p class="contact_us_info">@Model.contact.CompanyName</p>
-                <p><span>@Model.contact.Address</span></p>
-                <p><span>@Model.contact.City, @Model.contact.Zipcode</span></p>
-                <p><span>Tel:     <a href="">@Model.contact.Tel</a></span></p>
-                <p><span>Fax:    <a href="">@Model.contact.fax</a></span></p>
-                <p><span>Web:   <a href="">@Model.contact.Web</a></span></p>
+                <p class="contact_us_info">@if (@Model.contact != null)
+                {@Model.contact.Name}</p>
+                <p><span>@if (@Model.contact != null)
+                {@Model.contact.Title}</span></p><br>
+                <p class="contact_us_info">@if (@Model.contact != null)
+                {@Model.contact.CompanyName}</p>
+                <p><span>@if (@Model.contact != null)
+                {@Model.contact.Address}</span></p>
+                <p><span>@if (@Model.contact != null)
+                {@Model.contact.City},@if (@Model.contact != null)
+                { @Model.contact.Zipcode}</span></p>
+                <p><span>Tel:     <a href="">@if (@Model.contact != null)
+                {@Model.contact.Tel}</a></span></p>
+                <p><span>Fax:    <a href="">@if (@Model.contact != null)
+                {@Model.contact.fax}</a></span></p>
+                <p><span>Web:   <a href="">@if (@Model.contact != null)
+                {@Model.contact.Web}</a></span></p>
 
             </div>
             <div class='col-xs-4 membership mobile_content_global'>

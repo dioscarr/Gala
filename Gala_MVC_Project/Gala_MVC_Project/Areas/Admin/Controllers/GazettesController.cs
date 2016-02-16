@@ -11,6 +11,7 @@ using Gala_MVC_Project.Areas.Admin.Models;
 
 namespace Gala_MVC_Project.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class GazettesController : Controller
     {
         private GalaDBEntities db = new GalaDBEntities();
@@ -130,6 +131,7 @@ namespace Gala_MVC_Project.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Edit([Bind(Include = "Id,header,Content,MemberID,GazetteVolumeID,FirmID,Created,Modified,isDeleted")] Gazette gazette)
         {
             if (ModelState.IsValid)

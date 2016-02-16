@@ -20,11 +20,9 @@
             <div class="row">
                 <div class="col-xs-2 col-xs-offset-10 user_data">
                     <div class="user_icon pull-left">
-                        <a href="~/view/home/index"><img src="~/Images/user_icon.png" /></a>
+                        <a href="~/view/home/index"><img src="~/Images/user_icon.png" /></a>@Html.Partial("_LoginPartial")
                     </div>
-                    <div class="user_login pull-left">
-                        <h2>member login</h2>
-                    </div>
+                   
                 </div>
             </div>
             <div class="row logo_and_search">
@@ -64,7 +62,8 @@
                     <li role="presentation"><a href="~/admin/Events/Index">events / News & Press</a></li>                    
                     <li role="presentation"><a href="~/admin/AdminPublication/Index">publication</a></li>
                     <li role="presentation"><a href="~/admin/Gazettes/Index">Gazette</a></li>
-                    <li role="presentation"><a href="contact.html">contact us</a></li>
+                    <li role="presentation"><a href="~/Admin/AdminContacts/Edit/2">contact us</a></li>
+                    <li role="presentation" >@Html.ActionLink("Role", "Index", "UserManagement")</li>
                 </ul>
             </div>
         </div>
@@ -131,8 +130,9 @@
         </div>
     </footer>
 
+    <script src="~/Scripts/jquery-2.1.4.min.js"></script>
 
-    @Scripts.Render("~/bundles/jquery")
+ 
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>

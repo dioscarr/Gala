@@ -10,12 +10,12 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="PageTitle " Type="nvarchar(max)" />
+          <Property Name="PageTitle" Type="nvarchar(max)" />
           <Property Name="Name" Type="nvarchar(max)" />
           <Property Name="Title" Type="nvarchar(max)" />
           <Property Name="CompanyName" Type="nvarchar(max)" />
           <Property Name="Address" Type="nvarchar(max)" />
-          <Property Name="City" Type="nchar" MaxLength="10" />
+          <Property Name="City" Type="nvarchar(max)" />
           <Property Name="Zipcode" Type="nvarchar(max)" />
           <Property Name="Tel" Type="nvarchar(max)" />
           <Property Name="fax" Type="nvarchar(max)" />
@@ -440,7 +440,6 @@
     <edmx:ConceptualModels>
       <Schema Namespace="DB_97691_galadbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="GalaDBEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Contact" EntityType="DB_97691_galadbModel.Contact" />
           <EntitySet Name="Aboutus" EntityType="DB_97691_galadbModel.Aboutus" />
           <EntitySet Name="CMFRelation" EntityType="DB_97691_galadbModel.CMFRelation" />
           <EntitySet Name="Country" EntityType="DB_97691_galadbModel.Country" />
@@ -507,26 +506,8 @@
             <End Role="Team" EntitySet="Team" />
             <End Role="GMLink" EntitySet="GMLink" />
           </AssociationSet>
+          <EntitySet Name="Contact" EntityType="DB_97691_galadbModel.Contact" />
         </EntityContainer>
-        <EntityType Name="Contact">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PageTitle_" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="CompanyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="City" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Zipcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Tel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="fax" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Web" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Created" Type="DateTime" Nullable="false" Precision="7" />
-          <Property Name="Modified" Type="DateTime" Nullable="false" Precision="7" />
-          <Property Name="isDeleted" Type="Boolean" Nullable="false" />
-        </EntityType>
         <EntityType Name="Aboutus">
           <Key>
             <PropertyRef Name="id" />
@@ -895,32 +876,31 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PageTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Zipcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Tel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fax" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Web" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Modified" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="isDeleted" Type="Boolean" Nullable="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="DB_97691_galadbModelStoreContainer" CdmEntityContainer="GalaDBEntities">
-          <EntitySetMapping Name="Contact">
-            <EntityTypeMapping TypeName="DB_97691_galadbModel.Contact">
-              <MappingFragment StoreEntitySet="Contact">
-                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
-                <ScalarProperty Name="Modified" ColumnName="Modified" />
-                <ScalarProperty Name="Created" ColumnName="Created" />
-                <ScalarProperty Name="Web" ColumnName="Web" />
-                <ScalarProperty Name="fax" ColumnName="fax" />
-                <ScalarProperty Name="Tel" ColumnName="Tel" />
-                <ScalarProperty Name="Zipcode" ColumnName="Zipcode" />
-                <ScalarProperty Name="City" ColumnName="City" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="PageTitle_" ColumnName="PageTitle " />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Aboutus">
             <EntityTypeMapping TypeName="DB_97691_galadbModel.Aboutus">
               <MappingFragment StoreEntitySet="Aboutus">
@@ -1117,6 +1097,26 @@
                 <ScalarProperty Name="LName" ColumnName="LName" />
                 <ScalarProperty Name="FName" ColumnName="FName" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contact">
+            <EntityTypeMapping TypeName="DB_97691_galadbModel.Contact">
+              <MappingFragment StoreEntitySet="Contact">
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="Web" ColumnName="Web" />
+                <ScalarProperty Name="fax" ColumnName="fax" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Zipcode" ColumnName="Zipcode" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PageTitle" ColumnName="PageTitle" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

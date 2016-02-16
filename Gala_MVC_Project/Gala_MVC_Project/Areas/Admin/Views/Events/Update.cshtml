@@ -40,8 +40,15 @@
                                 </div>
 
 
+                                Check this box to upload PDF: @Html.CheckBox("isNewPicture", new { id = "showuploadID" })
 
-                                <div class="form-group">
+                                <div class="form-group" id="showuploadoption" style="display:none;">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        @Html.TextBox("ImageUpload", null, new { @type = "file" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group" id="contentID">
                                     @Html.LabelFor(model => model.Events.Content, htmlAttributes: new { @class = "control-label col-md-2" })
                                     <div class="col-md-10">
                                         @Html.TextAreaFor(model => model.Events.Content, 80, 10, new { @class = "form-control ckeditor investment-detail-content", @name = "editor1" })
@@ -54,7 +61,7 @@
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.Events.Published, htmlAttributes: new { @class = "control-label col-md-2" })
                                     <div class="col-md-10">
-                                        @Html.EditorFor(model => model.Events.Published, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.EditorFor(model => model.Events.Published, new { htmlAttributes = new { @class = "form-control", id= "datetimeidS" } })
                                         @Html.ValidationMessageFor(model => model.Events.Published, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -95,11 +102,30 @@
     <script src="~/Scripts/ckeditor/ckeditor.js"></script>
     <script src="~/Scripts/bootstrap-datetimepicker.fr.js"></script>
 
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 
-    <script type="text/javascript">
+
+<script type="text/javascript">
         $(document).ready(function () {
 
 
+
+            $('#datetimeid').datepicker();
+            $('#contentID').slideDown();
+            $('#showuploadID').change(function () {
+                if ($(this).is(':checked')) {
+                    $('#contentID').slideUp();
+                    $('#showuploadoption').slideDown();
+
+
+
+                } else {
+                    $('#showuploadoption').slideUp();
+                    $('#contentID').slideDown();
+                };
+            });
 
 
 
@@ -110,5 +136,5 @@
 
 
 
-    </script>
+</script>
 }

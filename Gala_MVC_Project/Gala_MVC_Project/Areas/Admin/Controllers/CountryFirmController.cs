@@ -9,6 +9,7 @@ using BLL;
 
 namespace Gala_MVC_Project.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CountryFirmController : Controller
     {
         // GET: Admin/CountryFirm

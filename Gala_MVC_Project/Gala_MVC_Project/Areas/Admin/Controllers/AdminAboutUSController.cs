@@ -6,9 +6,10 @@ using System.Web.Mvc;
 using Gala_MVC_Project.Areas.Admin.Models;
 namespace Gala_MVC_Project.Areas.Admin.Controllers
 {
+    [Authorize(Roles ="Admin")]
     public class AdminAboutUSController : Controller
     {
-        // GET: Admin/AdminAboutUS
+        
         public ActionResult Index()
         {
             return View(new AboutusModel());

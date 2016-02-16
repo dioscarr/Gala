@@ -41,13 +41,18 @@
                                         @Html.DisplayFor(modelItem => item.Type)
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.Heading)
+                                     @if (@item.Heading != null)
+                                     {
+                                        @Html.Raw(@item.Heading)
+                                     }
                                     </td>
                                     <td>
+                                        @if (@item.Content!=null) {
                                         @Html.Raw(@Model.Truncate(@item.Content, 100))
+                                        }
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.Published)
+                                        @Html.DisplayFor(modelItem  => item.Published)
                                     </td>
 
                                     <td>
@@ -67,10 +72,16 @@
                                         @Html.DisplayFor(modelItem => item.Type)
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.Heading)
+                                      @if (@item.Heading != null)
+                                      {
+                                        @Html.Raw(@item.Heading)
+                                      }
                                     </td>
                                     <td>
-                                        @Html.Raw(@Model.Truncate(@item.Content, 100))
+                                        @if (@item.Content != null)
+                                        {
+                                            @Html.Raw(@Model.Truncate(@item.Content, 100))
+                                        }
                                     </td>
                                     <td>
                                         @Html.DisplayFor(modelItem => item.Published)
@@ -93,10 +104,17 @@
                                         @Html.DisplayFor(modelItem => item.Type)
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.Heading)
+                                      @if (@item.Heading != null)
+                                      {
+                                        @Html.Raw(@item.Heading)
+                                      }
                                     </td>
                                     <td>
-                                        @Html.Raw(@Model.Truncate(@item.Content, 100))
+                                        @if (@item.Content != null)
+                                        {
+                                            @Html.Raw(@Model.Truncate(@item.Content, 100))
+                                        }
+                                       
                                     </td>
                                     <td>
                                         @Html.DisplayFor(modelItem => item.Published)
@@ -119,10 +137,16 @@
                                         @Html.DisplayFor(modelItem => item.Type)
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.Heading)
+                                        @if (@item.Heading != null)
+                                        {
+                                            @Html.Raw(@item.Heading)
+                                        }
+                                      
                                     </td>
                                     <td>
+                                         @if (@item.Content!=null) {
                                         @Html.Raw(@Model.Truncate(@item.Content, 100))
+                                        }
                                     </td>
                                     <td>
                                         @Html.DisplayFor(modelItem => item.Published)

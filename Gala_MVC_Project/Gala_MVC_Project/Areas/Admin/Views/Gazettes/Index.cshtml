@@ -10,62 +10,83 @@
 
 
 
-<div class="container" style="background:white;">
+<div class="container" style="background:none   ;">
 
-    <div class="row" style="padding:50px 50px;">
-
-        <p>
-            @Html.ActionLink("Create New", "Create")
-        </p>
-        <table class="table table-hover table-striped">
-            <tr>
-                <th>
-                   Gazette Volume
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.header)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Content)
-                </th>
-                
-               
-               
-                <th>....Options....</th>
-            </tr>
-
-            @foreach (var item in Model)
-            {
-                <tr >
-                    <td>
-                        @Html.DisplayFor(modelItem => item.GazetteVolumes.GazetteVolume)
-                    </td>
-
-                    <td>
-                        @Html.DisplayFor(modelItem => item.header)
-                    </td>
-                    <td style="width:50%; height:20px;text-overflow:unset;" >
-                       @{ 
-                          
-                           Basemodel BM = new Basemodel();
-                         
+    <div class="row outer-Box" style=" margin-top:20px; padding-bottom:0!important;">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    Please complete the form
+                </div>
+                <div class="panel-body" style="background:#f3f3f3;">
+                    <div class="form-group " style="padding-bottom:0!important;">
 
 
-                       }
-                        @BM.Truncate(item.Content,80)
-                       
-                    </td>
-                   
-                  
-                  
-                    <td>
-                       
-                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                    </td>
-                </tr>
-            }
+                        <div class="row" style="padding:20px 50px;">
 
-        </table>
+                            <p>
+                                @Html.ActionLink("Create New", "Create", null, new { @class="btn btn-default"})
+                               
+                                <br />
+                                <br />
+                            </p>
+                            <table class="table table-hover table-striped">
+                                <tr>
+                                    <th class="col-md-2">
+                                        Gazette Volume
+                                    </th>
+                                    <th class="col-md-3">
+                                        @Html.DisplayNameFor(model => model.header)
+                                    </th>
+                                    <th class="col-md-4">
+                                        @Html.DisplayNameFor(model => model.Content)
+                                    </th>
+
+
+
+                                    <th class="col-md-3">....Options....</th>
+                                </tr>
+
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.GazetteVolumes.GazetteVolume)
+                                        </td>
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.header)
+                                        </td>
+                                        <td style="width:50%; height:20px;text-overflow:unset;">
+                                            @{
+
+                                    Basemodel BM = new Basemodel();
+
+
+
+                                            }
+                                            @BM.Truncate(item.Content, 80)
+
+                                        </td>
+
+
+
+                                        <td class="fa fa-trash-o">
+
+                                            @Html.ActionLink("Details", "Details", new { id = item.Id, @class = "fa fa-trash-o" }) 
+                                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                                            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                                        </td>
+                                    </tr>
+                                }
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-</div>
+
+
+    </div>
+</div>  

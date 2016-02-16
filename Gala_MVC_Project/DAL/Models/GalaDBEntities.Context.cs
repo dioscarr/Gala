@@ -25,7 +25,6 @@ namespace DAL.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Contact> Contact { get; set; }
         public virtual DbSet<Aboutus> Aboutus { get; set; }
         public virtual DbSet<CMFRelation> CMFRelation { get; set; }
         public virtual DbSet<Country> Country { get; set; }
@@ -40,5 +39,6 @@ namespace DAL.Models
         public virtual DbSet<publicationBooks> publicationBooks { get; set; }
         public virtual DbSet<Slider> Slider { get; set; }
         public virtual DbSet<Team> Team { get; set; }
+        public virtual DbSet<Contact> Contact { get; set; }
     }
 }

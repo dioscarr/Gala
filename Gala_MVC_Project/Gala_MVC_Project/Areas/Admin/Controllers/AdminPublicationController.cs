@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +8,7 @@ using System.IO;
 
 namespace Gala_MVC_Project.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdminPublicationController : Controller
     {
         // GET: Admin/AdminPublication

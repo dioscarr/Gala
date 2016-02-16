@@ -15,7 +15,7 @@
                 <div class="panel-body" style="background:#f3f3f3;">
                     <div class="form-group " style="padding-bottom:0!important;">
 
-                        @using (Html.BeginForm())
+                        @using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
                         {
                             @Html.AntiForgeryToken()
 
@@ -53,14 +53,20 @@
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.Events.Heading, htmlAttributes: new { @class = "control-label col-md-2" })
                                     <div class="col-md-10">
-                                        @Html.EditorFor(model => model.Events.Heading, new { htmlAttributes = new { @class = "form-control" } })
-                                        @Html.ValidationMessageFor(model => model.Events.Heading, "", new { @class = "text-danger" })
+                                        @Html.TextAreaFor(model => model.Events.Heading, 80, 10, new { @class = "form-control ckeditor investment-detail-content", @name = "editor1" })
+                                          @Html.ValidationMessageFor(model => model.Events.Heading, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
 
+                               Check this box to upload PDF: @Html.CheckBox("isNewPicture",new {id="showuploadID" })
 
+                                <div class="form-group" id="showuploadoption" style="display:none;">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        @Html.TextBox("ImageUpload", null, new { @type = "file" })
+                                        </div>
+                                    </div>
 
-                                <div class="form-group">
+                                <div class="form-group" id="contentID">
                                     @Html.LabelFor(model => model.Events.Content, htmlAttributes: new { @class = "control-label col-md-2" })
                                     <div class="col-md-10">
                                         @Html.TextAreaFor(model => model.Events.Content, 80, 10, new { @class = "form-control ckeditor investment-detail-content", @name = "editor1" })
@@ -73,7 +79,7 @@
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.Events.Published, htmlAttributes: new { @class = "control-label col-md-2" })
                                     <div class="col-md-10">
-                                        @Html.EditorFor(model => model.Events.Published, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.EditorFor(model => model.Events.Published, new { htmlAttributes = new { @class = "form-control", @id= "datetimeid" } })
                                         @Html.ValidationMessageFor(model => model.Events.Published, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -114,12 +120,30 @@
     <script src="~/Scripts/bootstrap-datetimepicker.js"></script>
     <script src="~/Scripts/ckeditor/ckeditor.js"></script>
     <script src="~/Scripts/bootstrap-datetimepicker.fr.js"></script>
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 
 
     <script type="text/javascript">
         $(document).ready(function () {
 
+        JSON.s
 
+            $('#datetimeid').datepicker();
+            $('#contentID').slideDown();
+            $('#showuploadID').change(function () {
+                if ($(this).is(':checked')) {
+                    $('#contentID').slideUp();
+                    $('#showuploadoption').slideDown();
+
+
+
+                } else {
+                    $('#showuploadoption').slideUp();
+                    $('#contentID').slideDown();
+                };
+            });
 
 
 
