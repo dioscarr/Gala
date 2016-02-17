@@ -23,7 +23,7 @@
                         </div>
 
                         <table class="table table-bordered table-striped table-hover">
-                          
+
                             @foreach (var item in @Model.Roles)
                             {
                                 <tr>
@@ -31,7 +31,7 @@
                                         @item.Name
                                     </td>
                                     <td>
-                                       @Html.ActionLink("Delete", "DeleteRole", new {RoleName = @item.Name, area="Admin" } )
+                                        @Html.ActionLink("Delete", "DeleteRole", new { RoleName = @item.Name, area = "Admin" })
                                     </td>
                                 </tr>
 
@@ -42,46 +42,59 @@
                         </table>
 
 
-                        @using (Html.BeginForm(null,null,FormMethod.Post,null)) {
-                        <div class="col-md-12" style="background:white; border:1px ">
-                            <div>
-                                <div class="col-md-8" style="padding:0px!important; margin:0px!important;">
-                                    <br />
-                                    Select Member
-                                    @Html.DropDownListFor(model => @Model.EmailAddress, @Model.Members.Select(c => new SelectListItem
-                                   {
-                                       Text = c.FName + " " + c.LName + " ---Email: " + c.Email,
-                                       Value = c.Email
-                                   }).AsEnumerable(), "Select a member to change type", new { @class = "form-control col-md-8" })
-                               
+                        @using (Html.BeginForm(null, null, FormMethod.Post, null))
+                        {
+                            <div class="col-md-12" style="background:white; border:1px ">
+                                <div>
+                                    <div class="col-md-6" style="padding:0px!important; margin:0px!important;">
+                                        <br />
+                                        Select Member
+                                        @Html.DropDownListFor(model => @Model.EmailAddress, @Model.Members.Select(c => new SelectListItem
+                               {
+                                   Text = c.FName + " " + c.LName + " ---Email:" + c.Email+": Pass:"+c.Password,
+                                   Value = c.Email
+                               }).AsEnumerable(), "Select a member to change type", new { @class = "form-control col-md-8" })
 
-                                    <br />
-                                    Select Role
-                                    @Html.DropDownListFor(model => @Model.RoleName, @Model.Roles.Select(c => new SelectListItem { Text = c.Name, Value = c.Name }).AsEnumerable(), new { @class = "form-control" })
 
-                                    <br />
-                                    <br />
-                                    <button type="submit" class="btn btn-default col-md-12">Assign Role</button>
+                                        <br />
+                                        Select Role
+                                        @Html.DropDownListFor(model => @Model.RoleName, @Model.Roles.Select(c => new SelectListItem { Text = c.Name, Value = c.Name }).AsEnumerable(), new { @class = "form-control" })
 
-                                 </div>
-                               
-                            
-                                <div data-bind="foreach:Roles" class="col-md-4">
+                                        <br />
+                                        @Html.TextBoxFor(model=>model.newPassword, new { @class="form-control"} )
+                                        <br />
+
+                                        <button type="submit" class="btn btn-default col-md-12">Assign Role</button>
+
+                                    </div>
                                     <br />
                                     <br />
 
-                                    <span>Roles: </span><span style="color:darkseagreen;" data-bind="text:$data">
-                                    No Roles to this selection!
-                                    </span>
+                                    <div class="col-md-6" >
+                                       <span class="col-md-4">Selected Member:</span>
+                                        <span class="col-md-4">Member UserName:</span>
+                                        <span class="col-md-4">Member Password:</span>
+                                        <div class="col-md-12"><hr/></div>
+                                        <span data-bind="text:SelectedMember" class="col-md-4"></span>
+                                        <span data-bind="text:MemberUserName" class="col-md-4"></span>
+                                        <span data-bind="text:Pass" class="col-md-4"></span>
+                                        <div class="col-md-12"><hr /></div>
+                                        <div data-bind="foreach:Roles" class="col-md-12">
+                                            <span>Roles: </span>
+                                            <span style="color:darkseagreen;" data-bind="text:$data"></span><a href="" data-bind="click:function(){removeRole($data)}, text:' Remove', style: { color:'red' }"></a>
+                                             <br />
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
-
+                              
+                            </div>
+                        }
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 
 @section scripts
@@ -96,12 +109,50 @@
                 var self = this;
 
                 self.Roles = ko.observableArray();
-
-
+                self.SelectedMember = ko.observable();
+                self.MemberUserName = ko.observable();
+                self.Pass = ko.observable();
+               
 
             $('#EmailAddress').change(function () {
                 var isEmailinRole = $('#EmailAddress option:selected').val(); // value to check if user has a role and it does then return the role.
-                if (isEmailinRole != "" || isEmailinRole!=null)
+                var selected = $('#EmailAddress option:selected').text()
+               
+                var selectedArray = selected.split("---");
+                var selectedArray2 = selected.split(":");
+                var userName = selectedArray[0];
+                var Email = selectedArray2[1];
+                debugger;
+                var Pass = selectedArray2[3];
+                self.Pass(Pass);
+                self.MemberUserName(Email);
+
+
+                self.removeRole = function (RoleName) {
+                    var isEmailinRole = $('#EmailAddress option:selected').val();
+                 
+                
+
+                   removeRoleAjax(RoleName, isEmailinRole);
+
+                };
+                self.removeRoleAjax = function (RoleName, Email)
+                {
+                   // alert(RoleName + " " + Email);
+
+                    $.ajax({
+                        type: "GET",
+                        url: '@Url.Action("RemoveRoles")',
+                        data: { "RoleName": RoleName, "Email": Email },
+                        dataType: "json",
+                        success: function (data) {
+                            self.Roles(data.Data);
+                        }
+                    });
+                }
+                
+                self.SelectedMember(userName);
+                if (isEmailinRole != "" || isEmailinRole != null)
                 {
                     $.ajax({
                         type: "GET",
@@ -119,7 +170,8 @@
 
 
             };
-
+           
+           
             ko.applyBindings(vm);
 
         });
