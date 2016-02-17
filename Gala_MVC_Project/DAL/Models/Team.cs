@@ -21,6 +21,7 @@ namespace DAL.Models
             this.Events = new HashSet<Events>();
             this.Gazette = new HashSet<Gazette>();
             this.GMLink = new HashSet<GMLink>();
+            this.PassRelation = new HashSet<PassRelation>();
         }
     
         public int Id { get; set; }
@@ -38,6 +39,7 @@ namespace DAL.Models
         public System.DateTime Created { get; set; }
         public System.DateTime Modified { get; set; }
         public bool isDeleted { get; set; }
+        public string Password { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CMFRelation> CMFRelation { get; set; }
@@ -48,5 +50,7 @@ namespace DAL.Models
         public virtual ICollection<Gazette> Gazette { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GMLink> GMLink { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PassRelation> PassRelation { get; set; }
     }
 }

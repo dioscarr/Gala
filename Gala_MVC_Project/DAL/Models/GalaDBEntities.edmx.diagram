@@ -33,6 +33,11 @@
         <AssociationConnector Association="DB_97691_galadbModel.Gazette_GMLink" />
         <AssociationConnector Association="DB_97691_galadbModel.Member_GMLink" />
         <EntityTypeShape EntityType="DB_97691_galadbModel.Contact" Width="1.5" PointX="8.375" PointY="10.75" />
+        <EntityTypeShape EntityType="DB_97691_galadbModel.AspNetRoles" Width="1.5" PointX="0.75" PointY="2" />
+        <EntityTypeShape EntityType="DB_97691_galadbModel.AspNetUsers" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="DB_97691_galadbModel.PassRelation" Width="1.5" PointX="5.625" PointY="24.25" />
+        <AssociationConnector Association="DB_97691_galadbModel.FK_PassRelation_Team" />
+        <AssociationConnector Association="DB_97691_galadbModel.AspNetUserRoles" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

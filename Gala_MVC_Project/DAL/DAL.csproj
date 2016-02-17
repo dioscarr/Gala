@@ -80,6 +80,12 @@
     <Compile Include="Models\Aboutus.cs">
       <DependentUpon>GalaDBEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\AspNetRoles.cs">
+      <DependentUpon>GalaDBEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUsers.cs">
+      <DependentUpon>GalaDBEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\CMFRelation.cs">
       <DependentUpon>GalaDBEntities.tt</DependentUpon>
     </Compile>
@@ -123,6 +129,9 @@
       <DependentUpon>GalaDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Home.cs">
+      <DependentUpon>GalaDBEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PassRelation.cs">
       <DependentUpon>GalaDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Publication.cs">

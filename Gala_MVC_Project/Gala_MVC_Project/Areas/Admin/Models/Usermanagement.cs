@@ -23,6 +23,7 @@ namespace Gala_MVC_Project.Areas.Admin.Models
         public bool SendEmailNotification { get; set; }
         public List<Team> Members { get; set; }
         public string RoleName { get; set; }
+        public string  newPassword { get; set; }
 
 
         public Usermanagement() {
