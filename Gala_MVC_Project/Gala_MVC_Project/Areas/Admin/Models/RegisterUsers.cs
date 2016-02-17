@@ -236,7 +236,7 @@ namespace Gala_MVC_Project.Areas.Admin.Models
         /// <param name="UserName">Accepts a string User Name/ Email.</param>
         /// <param name="UserName">Accepts a string Phone Number.</param>
         /// <param name="UserName">Accepts a string Password.</param>
-        /// <returns></returns>
+        /// <returns></returns> 
          public static string RegisterNewsUser(string UserName, string Password)
 {
     try
