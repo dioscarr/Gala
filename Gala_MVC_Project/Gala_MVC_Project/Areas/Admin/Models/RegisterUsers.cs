@@ -230,7 +230,7 @@ namespace Gala_MVC_Project.Areas.Admin.Models
         //            else { result = "It doesn't exist"; }
         //            return result;
         //        }
-        /// <summary>
+        /// <summary> 
         /// Insert a new aspNetUset
         /// </summary>
         /// <param name="UserName">Accepts a string User Name/ Email.</param>
