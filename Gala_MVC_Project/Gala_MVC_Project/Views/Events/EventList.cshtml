@@ -37,81 +37,68 @@
                 </div>
                 <hr>
                 <div class="events_table">
-
                     @foreach (var item in @Model.Eventss.Where(c => c.Type == "Gala Events").ToList().Take(10))
                     {
-                        @if (@item.Content != null)
+                        if (@item.Content != null)
                         {
-
-
-
                             var content = Html.Raw(item.Content);
                             if (content.ToHtmlString().EndsWith("</a>"))
                             {
-                            <p class="events_text_content">
-                                <span class="event_data pull-left">@String.Format("{0:MMM d, yyyy}", @item.Published)</span><span class="events_content pull-right">@content</span>
-                            </p>
-
+                                <p class="events_text_content">
+                                    <span class="event_data pull-left">@String.Format("{0:MMM d, yyyy}", @item.Published)</span><span class="events_content pull-right">@content</span>
+                                </p>
                             }
-                            else {
-
+                            else 
+                            {
+                                <p class="events_text_content">
+                                    <a href="~/Events/Article/@item.id"><span class="event_data pull-left"> @String.Format("{0:MMM d, yyyy}", @item.Published)</span><span class="events_content pull-right">@Html.Raw(@item.Heading)</span></a>
+                                </p>
+                            }
+                        }
+                        else 
+                        {
                             <p class="events_text_content">
                                 <a href="~/Events/Article/@item.id"><span class="event_data pull-left"> @String.Format("{0:MMM d, yyyy}", @item.Published)</span><span class="events_content pull-right">@Html.Raw(@item.Heading)</span></a>
                             </p>
-                            }
-
                         }
-                        else {
-
-                        
-                        <p class="events_text_content">
-                            <a href="~/Events/Article/@item.id"><span class="event_data pull-left"> @String.Format("{0:MMM d, yyyy}", @item.Published)</span><span class="events_content pull-right">@Html.Raw(@item.Heading)</span></a>
-                        </p>
-
-
-                    }
                     }
                     <a href="#">Show more...</a>
                 </div>
-
                 <div class="bio_top_title">
                     <div class="pull-left">
                         <h1 class="content_title_news">Other Events</h1>
-                    </div>SSSSSS
+                    </div>
                     <div class="pull-right print_share">
                         <h4 class="events_archive text_uppercase"><a href="~/Events/Eventarchive">View Archive ></a></h4>
                     </div>
                 </div>
                 <hr>
                 <div class="events_table">
-                    @foreach (var item in @Model.Eventss.Where(c => c.Type == "Other Events").ToList().Take(10))
+                    @foreach (var item in Model.Eventss.Where(c => c.Type == "Other Events").ToList().Take(10))
                     {
-                        if (item.Content !=null) { 
-                        var content = Html.Raw(@item.Content);
-                        if (content.ToHtmlString().EndsWith("</a>"))
+                        if (@item.Content !=null) 
+                        { 
+                            var content = Html.Raw(@item.Content);
+                            if (content.ToHtmlString().EndsWith("</a>"))
+                            {
+                                <p class="events_text_content">
+                                    <span class="event_data pull-left">@String.Format("{0:MMM d, yyyy}", @item.Published)</span><span class="events_content pull-right">@content</span>
+                                </p>
+                            }
+                            else 
+                            {
+                                <p class="events_text_content">
+                                    <a href="~/Events/Article/@item.id"><span class="event_data pull-left"> @String.Format("{0:MMM d, yyyy}", @item.Published)</span><span class="events_content pull-right">@Html.Raw(@item.Heading)</span></a>
+                                </p>
+                            }
+                        }
+                        else 
                         {
                             <p class="events_text_content">
-                                <span class="event_data pull-left">@String.Format("{0:MMM d, yyyy}", @item.Published)</span><span class="events_content pull-right">@content</span>
+                              <a href="~/Events/Article/@item.id"> <span class="event_data pull-left"> @String.Format("{0:MMM d, yyyy}", @item.Published)</span><span class="events_content pull-right">@Html.Raw(@item.Heading)</span></a>
                             </p>
-
                         }
-                        else {
-
-                            <p class="events_text_content">
-                                <a href="~/Events/Article/@item.id"><span class="event_data pull-left"> @String.Format("{0:MMM d, yyyy}", @item.Published)</span><span class="events_content pull-right">@Html.Raw(@item.Heading)</span></a>
-                            </p>
-                            }
-
-
-
-
-                        }
-                        else {
-                            <p class="events_text_content">
-                            <a href="~/Events/Article/@item.id">< span class="event_data pull-left"> @String.Format("{0:MMM d, yyyy}", @item.Published)</span>a<span class="events_content pull-right">@Html.Raw(@item.Heading)</span></a>
-                        </p>
-
-                        }
+                    }
                     <a href="#">Show more...</a>
                 </div>
 

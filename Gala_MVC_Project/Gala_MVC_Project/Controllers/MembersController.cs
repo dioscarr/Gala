@@ -10,8 +10,9 @@ namespace Gala_MVC_Project.Controllers
     public class MembersController : Controller
     {
         // GET: Members
-        public ActionResult Firm(int id)
+        public ActionResult Firm(int id, string Country)
         {
+            ViewBag.country = Country;
             FirmModel FM = new FirmModel();
 
             FM.loadFirm(id);
