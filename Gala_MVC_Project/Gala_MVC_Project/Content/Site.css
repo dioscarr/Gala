@@ -202,6 +202,12 @@ img {
     padding: 0 0 2%;
     line-height: 1.5;
 }
+.dropdown-menu {
+    width: 100%;
+}
+.dropdown-menu > li > a {
+    overflow: hidden;
+}
 /*Slider for text*/
 .carousel-inner .item {
     text-align: left !important;

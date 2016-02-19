@@ -33,8 +33,12 @@
                         <h1 class="content_title_news">@Model.Events.Heading</h1>
                     </div>
                     <div class="pull-right print_share">
-                        <a href="#"><img src="~/Images/print.png"></a>
-                        <a href="#"><img src="~/Images/share.png"></a>
+                        <a href="javascript:window.print();"><img src="~/Images/print.png" alt="Print"></a>
+                        <a href="http://www.addthis.com/bookmark.php"
+                           class="addthis_button"
+                           style="text-decoration:none;">
+                            <img src="~/Images/share.png" alt="Share" />
+                        </a> 
                     </div>
                 </div>
                 <hr>
@@ -70,4 +74,14 @@
         </div>
     </div>
 </section>
+
+@section scripts{
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56c77f564b126cf8"></script>
+
+
+}
+
+
 
