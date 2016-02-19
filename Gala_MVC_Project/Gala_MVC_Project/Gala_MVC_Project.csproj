@@ -229,6 +229,7 @@
     </Compile>
     <Compile Include="Areas\Admin\Controllers\AdminMemberController.cs" />
     <Compile Include="Areas\Admin\Models\AboutusModel.cs" />
+    <Compile Include="Controllers\TermAndPrivacyController.cs" />
     <Compile Include="Models\AccountViewModels.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -1280,6 +1281,8 @@
     <Content Include="Views\News\NewsArticle.cshtml" />
     <Content Include="Views\Events\Article.cshtml" />
     <Content Include="Views\News\NewList.cshtml" />
+    <Content Include="Views\TermAndPrivacy\PrivacyPolicy.cshtml" />
+    <Content Include="Views\TermAndPrivacy\TermOfUse.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
