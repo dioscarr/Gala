@@ -72,6 +72,52 @@ namespace Gala_MVC_Project.Models
 
         }
 
+        public void LoadMemberList(int? CID, int? FID, int? MID )
+        {
+            if (CID != null)
+            {
+                MemberList = db.CMFRelation.Where(c => c.isDeleted == false && c.CID == (int)CID).Select(c => new MemberList
+                {
+                    Country = c.Country.CountryName,
+                    Firm = c.Firm.FirmName,
+                    Name = c.Team.FName + " " + c.Team.MInitial + " " + c.Team.LName,
+                    FID = c.Firm.Id,
+                    MID = c.Team.Id,
+                    flag = c.Country.Flag,
+                    id = c.Id
+                }).ToList();
+            }
+            else if (FID != null)
+            {
+                MemberList = db.CMFRelation.Where(c => c.isDeleted == false && c.FID == (int)FID).Select(c => new MemberList
+                {
+                    Country = c.Country.CountryName,
+                    Firm = c.Firm.FirmName,
+                    Name = c.Team.FName + " " + c.Team.MInitial + " " + c.Team.LName,
+                    FID = c.Firm.Id,
+                    MID = c.Team.Id,
+                    flag = c.Country.Flag,
+                    id = c.Id
+                }).ToList();
+            }
+            else if(MID!=null) {
+                MemberList = db.CMFRelation.Where(c => c.isDeleted == false && c.MID == (int)MID).Select(c => new MemberList
+                {
+                    Country = c.Country.CountryName,
+                    Firm = c.Firm.FirmName,
+                    Name = c.Team.FName + " " + c.Team.MInitial + " " + c.Team.LName,
+                    FID = c.Firm.Id,
+                    MID = c.Team.Id,
+                    flag = c.Country.Flag,
+                    id = c.Id
+                }).ToList();
+            }
+            ;
+
+
+        }
+       
+
 
         public void loadMember(int id)
         {

@@ -8,13 +8,16 @@ using BLL;
 
 namespace Gala_MVC_Project.Models
 {
-    public class HomeModel
+    public class HomeModel:Basemodel
     {
+        GalaDBEntities db = new GalaDBEntities();
         public Home Home { get; set; }
         public List<Home> Homes { get; set; }
         public List<Slider> Sliders { get; set; }
-
-
+        public List<Events> News { get; set; }
+        public List<Country> countries { get; set; }
+        public List<Firm> Firms { get; set; }
+        public List<Team> Teams { get; set; }
 
 
         public HomeModel()
@@ -22,6 +25,10 @@ namespace Gala_MVC_Project.Models
             Home = ManageHome.GetById(1);
             Homes = null;
             Sliders = ManageSlider.GetAllSlider().ToList();
+            News = db.Events.Where(c=>c.Type=="News").OrderBy(c => c.Published).Take(2).ToList();
+            countries = db.CMFRelation.GroupBy(c=>c.Country.Id).Select(x=>x.FirstOrDefault().Country ).ToList();
+            Firms = db.CMFRelation.GroupBy(c => c.Country.Id).Select(x => x.FirstOrDefault().Firm).ToList();
+            Teams = db.CMFRelation.GroupBy(c => c.Country.Id).Select(x => x.FirstOrDefault().Team).ToList();
         }
         public bool update(HomeModel model)
         {
