@@ -21,7 +21,7 @@ namespace Gala_MVC_Project.Models
         public AboutUsModel()
         {
             aboutus = ManageAboutus.GetAllAboutus().FirstOrDefault();
-          executives = db.Team.Where(c => c.Type == "Executive").Select(c=> new Executives { Name = c.FName + " " + c.LName, picture = c.Picture, title = c.Title, country = c.CMFRelation.FirstOrDefault().Country.CountryName }).ToList();
+          executives = db.Team.Where(c => c.Type == "Executive").Select(c=> new Executives { id = c.Id, Name = c.FName + " " + c.LName, picture = c.Picture, title = c.Title, country = c.CMFRelation.FirstOrDefault().Country.CountryName }).ToList();
         }
         public bool update(AboutUsModel model)
         {
@@ -38,6 +38,7 @@ namespace Gala_MVC_Project.Models
         }
 
         public class Executives{
+            public int id { get; set; }
             public string Name  { get; set; }
             public string  picture  { get; set; }
             public string  title { get; set; }

@@ -10,18 +10,22 @@ namespace Gala_MVC_Project.Controllers
     public class MembersController : Controller
     {
         // GET: Members
-        public ActionResult Firm(int id)
+        public ActionResult Firm(int id, string Country)
         {
-            FirmModel FM = new FirmModel();
-
+            ViewBag.country = Country;
+            FirmModel FM = new FirmModel(id);
+           
             FM.loadFirm(id);
             return View(FM);
         }
-        public ActionResult MemberList()
+        public ActionResult MemberList(int? CountryID, int? FirmID, int? memberID)
         {
-
-            MemberModel MM = new MemberModel();
-            MM.LoadMemberList();
+            MemberModel MM = new MemberModel();            
+          
+            if (CountryID != null ||FirmID !=null || memberID!=null)
+            { MM.LoadMemberList(CountryID,FirmID,memberID);}            
+            else {MM.LoadMemberList();}
+           
 
             return View(MM);
         }

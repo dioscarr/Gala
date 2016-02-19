@@ -49,13 +49,14 @@
                             @if (Country == newcountry)
                             {
                                 <td></td>
-                                <td><a href="~/members/firm/@member.FID">@member.Firm</a></td>
+                                <td><a href="~/members/firm?id=@member.FID&Country=@member.Country">@member.Firm</a></td>
                                 <td><a href="~/Members/member/@member.MID">@member.Name</a></td>
+                               
                             }
                             else
                             {
-                                <td><a href="~/members/firm/@member.FID"><img src="~/Images/flags/@member.flag"> @member.Country</a></td>
-                                <td><a href="~/members/firm/@member.FID">@member.Firm</a></td>
+                                <td><a href="~/members/firm?id=@member.FID&Country=@member.Country"><img src="~/Images/flags/@member.flag"> @member.Country</a></td>
+                                <td><a href="~/members/firm?id=@member.FID&Country=@member.Country">@member.Firm</a></td>
                                 <td><a href="~/Members/member/@member.MID">@member.Name</a></td>
                                 newcountry = Country;
                             }
@@ -93,6 +94,7 @@
                                             {
                                                 <br/>
                                                 <a href="~/members/firm/@member.FID">@item.Firm</a><br />
+                                                
                                                 OldFirmName = item.Firm;
                                             }
                                            
@@ -102,7 +104,7 @@
                                     }
                                     else
                                     {
-
+                                      ;
                                         <div class="mobile_member_country">
                                             <div class="pull-left text_uppercase">
                                                 <img src="~/Images/flags/@item.flag">

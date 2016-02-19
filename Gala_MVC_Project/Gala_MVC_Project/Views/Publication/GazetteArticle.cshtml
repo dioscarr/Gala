@@ -20,8 +20,7 @@
             <div class="col-xs-12">
                 <ol class="breadcrumb mobile_display_none">
                     <li><a href="~/Home">Home</a></li>
-                    <li><a href="~/Publication/Publication">Publication</a></li>
-                    <li><a href="~/Publication/GazetteArchive">Gala Gazette</a></li>
+                    <li><a href="~/Publication/Publication">Publication</a></li>                   
                     <li class="active">Volume 10, Issue 2</li>
                 </ol>
             </div>
@@ -43,12 +42,10 @@
 
                  @Html.Raw(@Model.GazetteArticle.Content)
                    
-                    
-
                 </div>
             </div>
             <div class="col-xs-3 mobile_content_global">
-                <h4 class="bio_left_title text_uppercase"><img src="~/Images/company-logo-1.png"></h4>
+               
                 <div class="bio_contact_info">
                     <h4 class="bio_contact_info_title">@Model.GazetteArticle.Firm.FirmName</h4>
                     <p>@Model.GazetteArticle.Firm.Address</p>

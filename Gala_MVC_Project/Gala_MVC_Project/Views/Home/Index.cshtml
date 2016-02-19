@@ -52,27 +52,30 @@
                     <form class="form_action" action="index_submit" method="get" accept-charset="utf-8">
                         <h1 class="member_title text_uppercase">find a lawyer</h1> 
                         <div class="home_find_member dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">country<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">one</a></li>
-                                <li><a href="#">two</a></li>
-                                <li><a href="#">three</a></li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ><span data-bind="text:selectedCountry">country</span><span class="caret"></span></a>
+                            <ul class="dropdown-menu pre-scrollable">
+                                @foreach (var country in @Model.countries.OrderBy(c=>c.CountryName).ToList() )
+                                {
+                                    <li><a href="#" data-bind="click:function(){assignSelectedVal(@country.Id,'@country.CountryName');}">@country.CountryName</a></li>
+                                }
                             </ul>
                         </div>
                         <div class="home_find_member dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">law firm<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">one</a></li>
-                                <li><a href="#">two</a></li>
-                                <li><a href="#">three</a></li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span data-bind="text:FirmName">law firm</span><span class="caret"></span></a>
+                            <ul class="dropdown-menu pre-scrollable">
+                                @foreach (var Firms in @Model.Firms.Where(c=>c!=null).GroupBy(c=>c.Id).Select(c=>c.FirstOrDefault()).OrderBy(c=>c.FirmName).ToList())
+                                {
+                                    <li><a href="#" data-bind="click:function(){assignSelectedFirmVal(@Firms.Id,'@Firms.FirmName');}">@Firms.FirmName</a></li>
+                                }
                             </ul>
                         </div>
                         <div class="home_find_member dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">last name, first name<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">one</a></li>
-                                <li><a href="#">two</a></li>
-                                <li><a href="#">three</a></li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span data-bind="text:Name">last name, first name </span><span class="caret"></span></a>
+                            <ul class="dropdown-menu pre-scrollable">
+                                @foreach (var Team in @Model.Teams.Where(c => c != null).GroupBy(c => c.Id).Select(c => c.FirstOrDefault()).OrderBy(c => c.FName).ToList())
+                                {
+                                    <li><a href="#" data-bind="click:function(){assignSelectedTeamVal(@Team.Id,'@Team.FName @Team.FName');}">@Team.FName @Team.LName</a></li>
+                                }
                             </ul>
                         </div>
                         <!-- <input type="text" name="" value="" placeholder="country"><br>
@@ -96,7 +99,91 @@
                 <div class="stuffing_news">
                     <div class="home_member">
                         <h1 class="member_title member_title_news text_uppercase">gala in the news</h1>
-                        <div class="news_img_discr">
+                        @foreach (var news in @Model.News)
+                        {
+
+                            if (@news.Content != null)
+                            {
+                                var Contentnews = Html.Raw(@news.Content);
+                                if (Contentnews.ToHtmlString().EndsWith("</a>"))
+                                {
+                                    var stringcontent = @Html.Raw(@news.Content).ToString();
+                                    <div class="news_img_discr">
+                                        @if (news.Team != null)
+                                        {
+                                        <div class="home_news_image pull-left">
+                                            <img src="images/Members/@news.Team.Picture" alt="">
+                                        </div>
+                                            }
+                                        <div class="home_news_content pull-right">
+                                            <p class="home_news_content_p">@Contentnews</p>
+                                            <span><a class="text_uppercase" href="#">read more ></a></span>
+                                        </div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="news_img_discr">
+                                        @if (news.Team != null)
+                                        {
+                                            <div class="home_news_image pull-left">
+                                                <img src="images/Members/@news.Team.Picture" alt="">
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="home_news_image pull-left">
+                                                <img src="images/Members/noimg.jpg" alt="">
+                                            </div>
+                                        }
+
+                                        <div class="home_news_content pull-right">
+                                            <p class="home_news_content_p">@Html.Raw(@news.Heading)</p>
+                                            <span><a class="text_uppercase" href="#"></a></span>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                            else
+                            {
+
+                                <div class="news_img_discr">
+                                   @if (news.Team != null)
+                                   {
+                                    <div class="home_news_image pull-left">
+                                        <img src="images/Members/@news.Team.Picture" alt="">
+                                    </div>
+                                   }
+                                   else
+                                   {
+                                    <div class="home_news_image pull-left">
+                                        <img src="images/Members/noimg.jpg" alt="">
+                                    </div>
+                                   }
+                                   
+                                    <div class="home_news_content pull-right">
+                                        <p class="home_news_content_p">@Html.Raw(@news.Heading)</p>
+                                        <span><a class="text_uppercase" href="#"></a></span>
+                                    </div>
+                                </div>
+                                   
+
+                                }
+
+                            
+
+
+
+
+
+
+
+
+
+                           
+                        }
+                        
+                        @*<div class="news_img_discr">
                             <div class="home_news_image pull-left">
                                 <img src="images/news-1.jpg" alt="">
                             </div>
@@ -104,16 +191,7 @@
                                 <p class="home_news_content_p">Felix Hofer's (Italy) participation in AIPPI seminar on Ambush Marketing covered in Italia Oggi.</p>
                                 <span><a class="text_uppercase" href="#">read more ></a></span>
                             </div>
-                        </div>
-                        <div class="news_img_discr">
-                            <div class="home_news_image pull-left">
-                                <img src="images/news-1.jpg" alt="">
-                            </div>
-                            <div class="home_news_content pull-right">
-                                <p class="home_news_content_p">Felix Hofer's (Italy) participation in AIPPI seminar on Ambush Marketing covered in Italia Oggi.</p>
-                                <span><a class="text_uppercase" href="#">read more ></a></span>
-                            </div>
-                        </div>
+                        </div>*@
                     </div>
                 </div>
             </div>
@@ -121,14 +199,55 @@
     </div>
 </section>
 @section scripts{
+<script src="~/Scripts/knockout-3.4.0.js"></script>
     <script type="text/javascript">
-        $(document).ready(function () {
-            $('.content_text').css("height", ($(window).height() - $('#wrapper2').height()) + $('.content_text').height());
-        });
+    $(document).ready(function () {
+        $('.content_text').css("height", ($(window).height() - $('#wrapper2').height()) + $('.content_text').height());
+    });
 
-        $(window).resize(function () {
-            $('.content_text').css("height", ($(window).height() - $('#wrapper2').height()) + $('.content_text').height());
-        });
+    $(window).resize(function () {
+        $('.content_text').css("height", ($(window).height() - $('#wrapper2').height()) + $('.content_text').height());
+    });
+
+
+
+    var viewModel = function(){
+        var self = this;
+
+        self.SelectedValue = ko.observable();
+        self.selectedCountry = ko.observable("Country");
+        self.FirmName = ko.observable("Firm Name");
+        self.Name = ko.observable("last name, first name ");
+
+        self.assignSelectedVal = function (id, CountryName) {
+
+            var link = '@Url.Action("MemberList", "Members", new { CountryID = "-1" })';
+                link = link.replace("-1", id);
+                self.selectedCountry(CountryName);
+                window.location.href = link
+            }
+
+
+            self.assignSelectedFirmVal = function (id, FirmName) {
+              
+                var link = '@Url.Action("MemberList", "Members", new { FirmID = "-1" })';
+                link = link.replace("-1", id);
+                self.FirmName(FirmName);
+                window.location.href = link
+            }
+
+        self.assignSelectedTeamVal = function (id, FirmName) {
+            debugger;
+            var link = '@Url.Action("MemberList", "Members", new { memberID = "-1" })';
+            link = link.replace("-1", id);
+            self.Name(FirmName);
+            window.location.href = link
+        }
+
+        }
+
+        ko.applyBindings(viewModel());
+
 
     </script>
 }
