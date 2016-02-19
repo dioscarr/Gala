@@ -7,24 +7,30 @@ using BLL;
 
 namespace Gala_MVC_Project.Models
 {
-    public class FirmModel
+    public class FirmModel:Basemodel
     {
         GalaDBEntities db = new GalaDBEntities();
         public Firm Firm { get; set; }
         public List<Firm> Firms { get; set; }
+        public List<Events> Media { get; set; }
+        public List<Gazette> Gazettes { get; set; }
 
 
 
-
-        public FirmModel()
+        public FirmModel(int? id)
         {
             Firm = null;
             Firms = ManageFirm.GetAllFirm().ToList();
+            Gazettes = db.Gazette.Where(c => c.FirmID == id).ToList();
         }
+
+      
+
+
         public void loadFirm(int id)
         {
-
             Firm = db.Firm.Where(c => c.Id == id).FirstOrDefault();
+            Media = db.Events.Where(c => c.FirmID == id).ToList();
         }
 
 

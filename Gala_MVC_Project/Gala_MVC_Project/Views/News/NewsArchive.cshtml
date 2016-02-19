@@ -1,4 +1,4 @@
-﻿@model Gala_MVC_Project.Models.EventsModel;
+﻿@model Gala_MVC_Project.Models.EventsModel
 @{
     ViewBag.Title = "NewArchive";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -34,20 +34,43 @@
                         <h1 class="content_title_news">GALA Press Releases</h1>
                     </div>
                     <div class="pull-right print_share">
-                        <h4 class="events_archive text_uppercase"><a href="#">< 2014 ></a></h4>
+                        <h4 class="events_archive text_uppercase"><a href="~/News/NewsArchive?PrevYear=@ViewBag.PrevYear"><span><</span> </a> @ViewBag.year <a href="~/News/NewsArchive?nextyear=@ViewBag.NextYear"><span>></span> </a></h4>
                     </div>
                 </div>
                 <hr>
                 <div class="events_table">
-                    @for (var i = 0; i < 20; i++)
+                    @foreach (var news in @Model.news.OrderByDescending(c => c.Published).ToList())
                     {
-                        <p class="events_text_content">
-                            <span class="event_data pull-left">July 13, 2015</span><span class="events_content pull-right">The Marketing Site covers GALA news on restrictions on food advertising to children in Chile</span>
-                        </p>
+                        if (@news.Content != null)
+                        {
+                            var Contentnews = Html.Raw(@news.Content);
+                            if (Contentnews.ToHtmlString().EndsWith("</a>"))
+                            {
+                                <p class="events_text_content">
+                                    <span class="event_data pull-left">@String.Format("{0:MMM d, yyyy}", @news.Published)</span>
+                                    <span class="events_content pull-right">@Contentnews</span>
+                                </p>
+                            }
+                            else
+                            {
+                                <p class="events_text_content">
+                                    <a href="~/Events/Article/@news.id">
+                                    <span class="event_data pull-left"> @String.Format("{0:MMM d, yyyy}", @news.Published)</span>
+                                    <span class="events_content pull-right">@Html.Raw(@news.Heading)</span>
+                                    </a>
+                                </p>
+                            }
+                        }
+                        else {
+                            <p class="events_text_content">
+                                <a href="~/Events/Article/@news.id">
+                                <span class="event_data pull-left"> @String.Format("{0:MMM d, yyyy}", @news.Published)</span>
+                                <span class="events_content pull-right">@Html.Raw(@news.Heading)</span>
+                                </a>
+                            </p>
+                        }
                     }
-
                 </div>
-
             </div>
             <div class='col-xs-4 membership mobile_content_global'>
                 <div class="news_block events_block">

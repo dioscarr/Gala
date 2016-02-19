@@ -33,13 +33,13 @@
                         <h1 class="content_title_news">GALA News Developments</h1>
                     </div>
                     <div class="pull-right print_share">
-                        <h4 class="events_archive text_uppercase"><a href="~/News/NewArchive/News">View Archive ></a></h4>
+                        <h4 class="events_archive text_uppercase"><a href="~/News/NewsArchive/">View Archive ></a></h4>
                     </div>
                 </div>
                 <hr>
                 <div class="events_table">
 
-                    @foreach (var news in Model.news)
+                    @foreach (var news in Model.news.OrderByDescending(c=>c.Published).Take(5).ToList())
                     {
                         if (@news.Content != null)
                         {
@@ -81,7 +81,7 @@
                 <hr>
                 <div class="events_table">
                     
-                        @foreach (var Press in @Model.Press)
+                        @foreach (var Press in @Model.Press.OrderByDescending(c => c.Published).Take(5).ToList())
                         {
                             if (@Press.Content != null)
                             {

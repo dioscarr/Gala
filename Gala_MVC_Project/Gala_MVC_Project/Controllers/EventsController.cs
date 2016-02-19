@@ -17,6 +17,7 @@ namespace Gala_MVC_Project.Controllers
         }
         public ActionResult EventArchive()
         {
+            
             return View();
         }
 

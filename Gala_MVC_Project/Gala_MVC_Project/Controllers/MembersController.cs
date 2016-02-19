@@ -13,18 +13,19 @@ namespace Gala_MVC_Project.Controllers
         public ActionResult Firm(int id, string Country)
         {
             ViewBag.country = Country;
-            FirmModel FM = new FirmModel();
-
+            FirmModel FM = new FirmModel(id);
+           
             FM.loadFirm(id);
             return View(FM);
         }
         public ActionResult MemberList(int? CountryID, int? FirmID, int? memberID)
         {
-            MemberModel MM = new MemberModel();           
+            MemberModel MM = new MemberModel();            
           
             if (CountryID != null ||FirmID !=null || memberID!=null)
             { MM.LoadMemberList(CountryID,FirmID,memberID);}            
             else {MM.LoadMemberList();}
+           
 
             return View(MM);
         }

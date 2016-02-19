@@ -17,9 +17,42 @@ namespace Gala_MVC_Project.Controllers
             EM.LoadPress();
             return View(EM);
         }
-        public ActionResult NewsArchive()
+        public ActionResult NewsArchive(int? prevyear, int? nextyear)
         {
-            return View();
+            EventsModel EM = new EventsModel();
+            if (prevyear != null)
+            {
+                ViewBag.year = Convert.ToInt32(prevyear) - 1;
+                ViewBag.PrevYear = Convert.ToInt32(prevyear) - 1;
+                ViewBag.NextYear = prevyear - 1;
+
+                EM.LoadnewsByYear(Convert.ToInt32(prevyear) - 1);
+                return View(EM);;
+            }
+            else if(nextyear!=null)
+            {
+                ViewBag.year = Convert.ToInt32(nextyear) + 1;
+                ViewBag.PrevYear = nextyear + 1;
+                ViewBag.NextYear = Convert.ToInt32(nextyear) + 1;
+
+                EM.LoadnewsByYear(Convert.ToInt32(nextyear) + 1);
+                return View(EM);
+            }
+            else {
+                ViewBag.PrevYear = DateTime.Today.Year;
+                ViewBag.NextYear = DateTime.Today.Year;
+                ViewBag.year = DateTime.Today.Year;
+                EM.LoadNewsCurrentYear(DateTime.Today.Year);
+                return View(EM);
+            }
+            return View(EM);
+        }
+
+        public ActionResult PressArchive()
+        {
+            EventsModel EM = new EventsModel();
+            EM.LoadPress();
+            return View(EM);
         }
 
         public ActionResult NewsArticle(int id)

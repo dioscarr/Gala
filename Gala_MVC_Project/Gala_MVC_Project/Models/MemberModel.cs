@@ -18,6 +18,18 @@ namespace Gala_MVC_Project.Models
         public int CID { get; set; }
         public List<MemberList> MemberList { get; set; }
         public List<CMFRelation> CMF { get; set; }
+      
+
+
+        public MemberModel()
+        {
+            Member = null;
+            Members = ManageTeam.GetAllTeam().ToList();
+            FID = 0;
+            CID = 0;
+           
+        }
+
 
 
 
@@ -39,21 +51,9 @@ namespace Gala_MVC_Project.Models
           }).ToList();
 
 
-        }
-           
+        }     
 
-
-                
-
-
-        public MemberModel()
-        {
-            Member = null;
-            Members = ManageTeam.GetAllTeam().ToList();
-            FID = 0;
-            CID = 0;
-        }
-
+      
         public void LoadMemberList()
         {
             

@@ -130,10 +130,16 @@
                                                 <img src="images/Members/@news.Team.Picture" alt="">
                                             </div>
                                         }
+                                        else
+                                        {
+                                            <div class="home_news_image pull-left">
+                                                <img src="images/Members/noimg.jpg" alt="">
+                                            </div>
+                                        }
 
                                         <div class="home_news_content pull-right">
                                             <p class="home_news_content_p">@Html.Raw(@news.Heading)</p>
-                                            <span><a class="text_uppercase" href="#">read more ></a></span>
+                                            <span><a class="text_uppercase" href="#"></a></span>
                                         </div>
                                     </div>
                                 }
@@ -147,11 +153,17 @@
                                     <div class="home_news_image pull-left">
                                         <img src="images/Members/@news.Team.Picture" alt="">
                                     </div>
-                                   } 
+                                   }
+                                   else
+                                   {
+                                    <div class="home_news_image pull-left">
+                                        <img src="images/Members/noimg.jpg" alt="">
+                                    </div>
+                                   }
                                    
                                     <div class="home_news_content pull-right">
                                         <p class="home_news_content_p">@Html.Raw(@news.Heading)</p>
-                                        <span><a class="text_uppercase" href="#">read more ></a></span>
+                                        <span><a class="text_uppercase" href="#"></a></span>
                                     </div>
                                 </div>
                                    

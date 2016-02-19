@@ -63,7 +63,7 @@
             <div class="col-xs-3 mobile_member_right_info">
                 @*<h4 class="bio_left_title text_uppercase">Heuking</h4>*@
                 <div class="bio_contact_info">
-                    <h4 class="bio_contact_info_title">Office</h4>
+                  
                     <p><span>@Model.Member.CMFRelation.Where(c => c.MID == @Model.Member.Id).FirstOrDefault().Firm.FirmName</span></p>
                     <p><span>@Model.Member.CMFRelation.Where(c => c.MID == @Model.Member.Id).FirstOrDefault().Firm.Address</span></p>
                     <p><span>@Model.Member.CMFRelation.Where(c => c.MID == @Model.Member.Id).FirstOrDefault().Firm.City @Model.Member.CMFRelation.Where(c => c.MID == @Model.Member.Id).FirstOrDefault().Firm.Zip</span></p>
