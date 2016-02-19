@@ -22,18 +22,17 @@ namespace Gala_MVC_Project.Models
         public Events newsSingle { get; set; }
         public List<Events> Press { get; set; }
         public Events PressSingle { get; set; }
-
-        internal void LoadnewsByYear(int year)
-        {
-            news = ManageEvents.GetAllEvents().Where(c => c.Type == "News" && c.Published.Value.Year == year).OrderByDescending(c => c.Published).ToList();
-        }
-
         public List<Events> TheEvents { get; set; }
         public List<Events> OtherEvents { get; set; }
 
-        internal void LoadNewsCurrentYear(int year)
+        internal void LoadnewsByYear(int year, string type)
         {
-            news = ManageEvents.GetAllEvents().Where(c => c.Type == "News" && c.Published.Value.Year == year).OrderByDescending(c => c.Published).ToList();
+            news = ManageEvents.GetAllEvents().Where(c => c.Type == type && c.Published.Value.Year == year).OrderByDescending(c => c.Published).ToList();
+        }
+       
+        internal void LoadNewsCurrentYear(int year, string type)
+        {
+            news = ManageEvents.GetAllEvents().Where(c => c.Type == type && c.Published.Value.Year == year).OrderByDescending(c => c.Published).ToList();
         }
 
         public EventsModel()

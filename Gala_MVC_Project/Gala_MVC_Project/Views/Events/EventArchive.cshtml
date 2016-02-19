@@ -1,14 +1,15 @@
-﻿
+﻿@model Gala_MVC_Project.Models.EventsModel
 @{
-    ViewBag.Title = "Eventarchive";
+    ViewBag.Title = "NewArchive";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 
 <section class="about_content_slider">
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                <h2 class="about_title text_uppercase">Events</h2>
+                <h2 class="about_title text_uppercase">News & Press</h2>
             </div>
         </div>
     </div>
@@ -20,8 +21,8 @@
             <div class="col-xs-12">
                 <ol class="breadcrumb mobile_display_none">
                     <li><a href="~/Home">Home</a></li>
-                    <li><a href="~/Events/EventList">Events</a></li>
-                    <li class="active">Upcoming GALA Events</li>
+                    <li><a href="~/Home">News & Press</a></li>
+                    <li class="active">GALA Press Releases</li>
                 </ol>
             </div>
         </div>
@@ -30,84 +31,46 @@
 
                 <div class="bio_top_title">
                     <div class="pull-left">
-                        <h1 class="content_title_news">Upcoming GALA Events</h1>
+                        <h1 class="content_title_news">GALA Press Releases</h1>
                     </div>
                     <div class="pull-right print_share">
-                        <h4 class="events_archive text_uppercase"><a href="#">< 2014 ></a></h4>
+                        <h4 class="events_archive text_uppercase"><a href="~/News/NewsArchive?PrevYear=@ViewBag.PrevYear&type=@ViewBag.type"><span><</span> </a> @ViewBag.year <a href="~/News/NewsArchive?nextyear=@ViewBag.NextYear&type=@ViewBag.type"><span>></span> </a></h4>
                     </div>
                 </div>
                 <hr>
                 <div class="events_table">
-                    @for (var i = 0; i < 15; i++)
+                    @foreach (var news in @Model.news.OrderByDescending(c => c.Published).ToList())
                     {
-                        <p class="events_text_content">
-                            <span class="event_data pull-left">July 13, 2015</span><span class="events_content pull-right">The Marketing Site covers GALA news on restrictions on food advertising to children in Chile</span>
-                        </p>
+                        if (@news.Content != null)
+                        {
+                            var Contentnews = Html.Raw(@news.Content);
+                            if (Contentnews.ToHtmlString().EndsWith("</a>"))
+                            {
+                                <p class="events_text_content">
+                                    <span class="event_data pull-left">@String.Format("{0:MMM d, yyyy}", @news.Published)</span>
+                                    <span class="events_content pull-right">@Contentnews</span>
+                                </p>
+                            }
+                            else
+                            {
+                                <p class="events_text_content">
+                                    <a href="~/Events/Article/@news.id">
+                                        <span class="event_data pull-left"> @String.Format("{0:MMM d, yyyy}", @news.Published)</span>
+                                        <span class="events_content pull-right">@Html.Raw(@news.Heading)</span>
+                                    </a>
+                                </p>
+                            }
+                        }
+                        else {
+                            <p class="events_text_content">
+                                <a href="~/Events/Article/@news.id">
+                                    <span class="event_data pull-left"> @String.Format("{0:MMM d, yyyy}", @news.Published)</span>
+                                    <span class="events_content pull-right">@Html.Raw(@news.Heading)</span>
+                                </a>
+                            </p>
+                        }
                     }
-
-                    <p class="events_text_content">
-                        <span class="event_data pull-left">July 13, 2015</span><span class="events_content pull-right">The Marketing Site covers GALA news on restrictions on food advertising to children in Chile</span>
-                    </p>
-                    <p class="events_text_content">
-                        <span class="event_data pull-left">July 6, 2015</span><span class="events_content pull-right">Italian newspaper Italia Oggi covers recent news by GALA on changes to Chinese advertising law.</span>
-                    </p>
-                    <p class="events_text_content">
-                        <span class="event_data pull-left">July 9, 2015</span><span class="events_content pull-right">KatyontheHill discusses GALA’s recent news on Chile’s restriction of food advertising to kids</span>
-                    </p>
-                    <p class="events_text_content">
-                        <span class="event_data pull-left">July 4, 2015</span><span class="events_content pull-right">Bizcommunity.com covers GALA’s new video series on YouTube</span>
-                    </p>
-                    <p class="events_text_content">
-                        <span class="event_data pull-left">July 19, 2015</span><span class="events_content pull-right">New GALA video series covered by Marketing Site</span>
-                    </p>
-                    <p class="events_text_content">
-                        <span class="event_data pull-left">July 13, 2015</span><span class="events_content pull-right">The Marketing Site covers GALA news on restrictions on food advertising to children in Chile</span>
-                    </p>
-                    <p class="events_text_content">
-                        <span class="event_data pull-left">July 6, 2015</span><span class="events_content pull-right">Italian newspaper Italia Oggi covers recent news by GALA on changes to Chinese advertising law.</span>
-                    </p>
-                    <p class="events_text_content">
-                        <span class="event_data pull-left">July 9, 2015</span><span class="events_content pull-right">KatyontheHill discusses GALA’s recent news on Chile’s restriction of food advertising to kids</span>
-                    </p>
-                    <p class="events_text_content">
-                        <span class="event_data pull-left">July 4, 2015</span><span class="events_content pull-right">Bizcommunity.com covers GALA’s new video series on YouTube</span>
-                    </p>
-                    <p class="events_text_content">
-                        <span class="event_data pull-left">July 19, 2015</span><span class="events_content pull-right">New GALA video series covered by Marketing Site</span>
-                    </p>
-                    <p class="events_text_content">
-                        <span class="event_data pull-left">July 13, 2015</span><span class="events_content pull-right">The Marketing Site covers GALA news on restrictions on food advertising to children in Chile</span>
-                    </p>
-                    <p class="events_text_content">
-                        <span class="event_data pull-left">July 6, 2015</span><span class="events_content pull-right">Italian newspaper Italia Oggi covers recent news by GALA on changes to Chinese advertising law.</span>
-                    </p>
-                    <p class="events_text_content">
-                        <span class="event_data pull-left">July 9, 2015</span><span class="events_content pull-right">KatyontheHill discusses GALA’s recent news on Chile’s restriction of food advertising to kids</span>
-                    </p>
-                    <p class="events_text_content">
-                        <span class="event_data pull-left">July 4, 2015</span><span class="events_content pull-right">Bizcommunity.com covers GALA’s new video series on YouTube</span>
-                    </p>
-                    <p class="events_text_content">
-                        <span class="event_data pull-left">July 19, 2015</span><span class="events_content pull-right">New GALA video series covered by Marketing Site</span>
-                    </p>
-                    <p class="events_text_content">
-                        <span class="event_data pull-left">July 13, 2015</span><span class="events_content pull-right">The Marketing Site covers GALA news on restrictions on food advertising to children in Chile</span>
-                    </p>
-                    <p class="events_text_content">
-                        <span class="event_data pull-left">July 6, 2015</span><span class="events_content pull-right">Italian newspaper Italia Oggi covers recent news by GALA on changes to Chinese advertising law.</span>
-                    </p>
-                    <p class="events_text_content">
-                        <span class="event_data pull-left">July 9, 2015</span><span class="events_content pull-right">KatyontheHill discusses GALA’s recent news on Chile’s restriction of food advertising to kids</span>
-                    </p>
-                    <p class="events_text_content">
-                        <span class="event_data pull-left">July 4, 2015</span><span class="events_content pull-right">Bizcommunity.com covers GALA’s new video series on YouTube</span>
-                    </p>
-                    <p class="events_text_content">
-                        <span class="event_data pull-left">July 19, 2015</span><span class="events_content pull-right">New GALA video series covered by Marketing Site</span>
-                    </p>
-
                 </div>
-
             </div>
             <div class='col-xs-4 membership mobile_content_global'>
                 <div class="news_block events_block">
@@ -125,4 +88,6 @@
         </div>
     </div>
 </section>
+
+
 
