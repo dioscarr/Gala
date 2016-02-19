@@ -44,7 +44,7 @@
                
                 <div data-bind="foreach: currentItem().countries">
                     <h4 class="gazette_country"><a data-bind="text:cname"></a></h4>
-                    <p><a href="" data-bind="attr: {href:'@Url.Action("GazetteArticle", "Publication")'+id}"><span class="text_uppercase" data-bind="text:Header"></span></a></p>
+                    <p><a href="" data-bind="attr: {href:'@Url.Action("GazetteArticle", "Publication")/'+id}"><span class="text_uppercase" data-bind="text:Header"></span></a></p>
                     <p data-bind="html:Content" class="limitchr"></p>
                     <br>
                 </div>
