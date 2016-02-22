@@ -103,20 +103,29 @@
 
             vm = function () {
                 var self = this;
-                self.mainArray = ko.observableArray([{ id: 1, name: '', countries: [{id:0, Header:"", cname: "", Content: "" }]}]);
+                self.mainArray = ko.observableArray([{ id: 1, name: '', countries: [{ id: 0, Header: "", cname: "", Content: "" }] }]);
 
-                var link = '@Url.Action("GazetteVolumes", "Publication")';
-                
+
+                if ('@ViewBag.Firm' != null)
+                {                    
+                    var link = '@Url.Action("GazetteVolumes", "Publication")?firmID=@ViewBag.firm';
+                }
+                else
+                {
+                    var link = '@Url.Action("GazetteVolumes", "Publication")';
+                }
+               
+
 
                 $.ajax({
-                        type: "GET",
-                        url: link,
-                        success: function (data) {
-                            //alert(JSON.stringify(data.Data));
+                    type: "GET",
+                    url: link,
+                    success: function (data) {
+                        //alert(JSON.stringify(data.Data));
 
-                            self.mainArray(data.Data);
-                        }
-                    });
+                        self.mainArray(data.Data);
+                    }
+                });
                 var _currentItemIndex = ko.observable(0);
 
                 function navigate(nrOfSpots) {

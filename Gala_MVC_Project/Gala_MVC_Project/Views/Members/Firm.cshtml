@@ -146,7 +146,7 @@
                     }
 
         <br />
-                    <a href="~/Members/FirmArchive?FirmID=@Model.Firm.Id&type=News&Firm=@Model.Firm.FirmName">Show more...</a>
+                    <a href="~/publication/GazetteArchive?firmID=@Model.Firm.Id">Show more Gazettes...</a>
                     <br />
 
                     <hr>
@@ -179,7 +179,9 @@
                     }
 
                     <br />
-                    <a href="#">Show more...</a>
+                    <a href="~/Members/FirmArchive?FirmID=@Model.Firm.Id&type=Gala Events&Firm=@Model.Firm.FirmName">Show more Gala Events...</a>|
+                     <a href="~/Members/FirmArchive?FirmID=@Model.Firm.Id&type=Other Events&Firm=@Model.Firm.FirmName">Show more Other Events...</a>
+
                     <br />
                 </div>
             </div>

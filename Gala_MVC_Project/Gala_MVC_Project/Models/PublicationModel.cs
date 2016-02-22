@@ -27,23 +27,53 @@ namespace Gala_MVC_Project.Models
             GazetteArticles = db.Gazette.ToList();
             LastGazetteVolume = ManageGazetteVolumes.GetAllGazetteVolumes().OrderByDescending(c => c.PublishedDate).FirstOrDefault();
             //=====================================================================================
-            mymodel = db.GazetteVolumes.Select(c => new VolumesModel
-            {
-                id = c.Id,
-                name = c.GazetteVolume,
-                 countries = c.Gazette.Where(x=>x.GazetteVolumeID == c.Id).Select(x=> new Countries{
-                                                                                                    cname = x.Firm.Country,
-                                                                                                    Content = x.Content,
-                                                                                                     Header = x.header,
-                                                                                                    id = x.Id
-                 }).ToList()
-            }).ToList();
+            mymodel = db.GazetteVolumes
+                .Select(c => new VolumesModel
+                                            {
+                                            id = c.Id,
+                                            name = c.GazetteVolume,
+                                                countries = c.Gazette
+                                                                    .Where(x=>x.GazetteVolumeID == c.Id)
+                                                                    .Select(x=> new Countries{
+                                                                                            cname = x.Firm.Country,
+                                                                                            Content = x.Content,
+                                                                                                Header = x.header,
+                                                                                            id = x.Id })
+                                                                    .ToList() })
+                 .ToList();
 
             //=====================================================================================
         }
-        internal void loadGazettebyVolume(int id)
+
+        public void publicationFirm(int? FirmID) {
+            mymodel = db.GazetteVolumes
+                .Select(c => new VolumesModel
+                {
+                    id = c.Id,
+                    name = c.GazetteVolume,
+                    countries = c.Gazette
+                .Where(x => x.FirmID == (int)FirmID)
+                .Select(x => new Countries
+                {
+                    cname = x.Firm.Country,
+                    Content = x.Content,
+                    Header = x.header,
+                    id = x.Id
+                })
+                .ToList()
+                })
+                 .ToList();
+        }
+        internal void loadGazettebyVolume(int? id, int?FirmID)
         {
-            Volumes = db.Gazette.Where(c => c.GazetteVolumeID == id).ToList();
+            if (FirmID != null)
+            {
+                Volumes = db.Gazette.Where(c=>c.FirmID==(int)FirmID).ToList();
+            }
+            else {
+                Volumes = db.Gazette.Where(c => c.GazetteVolumeID == (int)id).ToList();
+            }
+           
         }
         public void loadPublication(int id)
         {

@@ -3,6 +3,7 @@
     ViewBag.Title = "Home Page";
 }
 
+
 <section class="content_slider">
     <div class="container">
         <div class="row">
@@ -198,6 +199,11 @@
         </div>
     </div>
 </section>
+
+
+
+
+
 @section scripts{
 <script src="~/Scripts/knockout-3.4.0.js"></script>
     <script type="text/javascript">
@@ -213,6 +219,12 @@
 
     var viewModel = function(){
         var self = this;
+
+
+
+
+
+     
 
         self.SelectedValue = ko.observable();
         self.selectedCountry = ko.observable("Country");

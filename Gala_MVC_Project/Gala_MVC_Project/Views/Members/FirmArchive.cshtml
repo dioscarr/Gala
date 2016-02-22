@@ -9,7 +9,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                <h2 class="about_title text_uppercase">News & Press</h2>
+                <h2 class="about_title text_uppercase">@ViewBag.type</h2>
             </div>
         </div>
     </div>
@@ -22,7 +22,7 @@
                 <ol class="breadcrumb mobile_display_none">
                     <li><a href="~/Home">Home</a></li>
                     <li><a href="~/Members/Firm/@ViewBag.FirmID">@ViewBag.FirmName</a></li>
-                    <li class="active">News Releases</li>
+                    <li class="active">@ViewBag.type Releases</li>
                 </ol>
             </div>
         </div>
@@ -31,7 +31,7 @@
 
                 <div class="bio_top_title">
                     <div class="pull-left">
-                        <h1 class="content_title_news">@ViewBag.FirmName News Release</h1>
+                        <h1 class="content_title_news">@ViewBag.FirmName @ViewBag.type Release</h1>
                     </div>
                     <div class="pull-right print_share">
                         <h4 class="events_archive text_uppercase"><a href="~/Members/FirmArchive?PrevYear=@ViewBag.PrevYear&type=@ViewBag.type&FirmID=@ViewBag.FirmID&Firm=@ViewBag.FirmName"><span><</span> </a> @ViewBag.year <a href="~/Members/FirmArchive?nextyear=@ViewBag.NextYear&type=@ViewBag.type&FirmID=@ViewBag.FirmID&Firm=@ViewBag.FirmName"><span>></span> </a></h4>

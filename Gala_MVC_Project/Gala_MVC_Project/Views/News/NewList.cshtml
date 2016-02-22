@@ -39,30 +39,30 @@
                 <hr>
                 <div class="events_table">
 
-                    @foreach (var news in Model.news.OrderByDescending(c=>c.Published).Take(5).ToList())
+                    @foreach (var news in Model.news.OrderByDescending(c => c.Published).Take(5).ToList())
                     {
                         if (@news.Content != null)
                         {
                             var Contentnews = Html.Raw(@news.Content);
                             if (Contentnews.ToHtmlString().EndsWith("</a>"))
                             {
-                            <p class="events_text_content">                                
-                                <span class="event_data pull-left">@String.Format("{0:MMM d, yyyy}", @news.Published)</span>
+                                <p class="events_text_content">
+                                    <span class="event_data pull-left">@String.Format("{0:MMM d, yyyy}", @news.Published)</span>
+                                    <br />
+                                    <span class="events_content pull-left">@Contentnews</span>
+                                </p>
                                 <br />
-                                <span class="events_content pull-left">@Contentnews</span>
-                            </p>
-                            <br />
                             }
                             else
                             {
-                            <p class="events_text_content">
-                                <a href="~/Events/Article/@news.id">
-                                    <span class="event_data pull-left"> @String.Format("{0:MMM d, yyyy}", @news.Published)</span>
-                                    <br />
-                                    <span class="events_content pull-left">@Html.Raw(@news.Heading)</span>
-                                </a>
-                            </p>
-                            <br />
+                                <p class="events_text_content">
+                                    <a href="~/Events/Article/@news.id">
+                                        <span class="event_data pull-left"> @String.Format("{0:MMM d, yyyy}", @news.Published)</span>
+                                        <br />
+                                        <span class="events_content pull-left">@Html.Raw(@news.Heading)</span>
+                                    </a>
+                                </p>
+                                <br />
                             }
                         }
                         else {
@@ -93,14 +93,14 @@
                 </div>
                 <hr>
                 <div class="events_table">
-                    
-                        @foreach (var Press in @Model.Press.OrderByDescending(c => c.Published).Take(5).ToList())
+
+                    @foreach (var Press in @Model.Press.OrderByDescending(c => c.Published).Take(5).ToList())
+                    {
+                        if (@Press.Content != null)
                         {
-                            if (@Press.Content != null)
+                            var content = Html.Raw(Press.Content);
+                            if (content.ToHtmlString().EndsWith("</a>"))
                             {
-                                var content = Html.Raw(Press.Content);
-                                if (content.ToHtmlString().EndsWith("</a>"))
-                                {
                                 <p class="events_text_content">
                                     <span class="event_data pull-left">@String.Format("{0:MMM d, yyyy}", @Press.Published)</span>
                                     <br />
@@ -108,8 +108,8 @@
                                 </p>
                                 <br />
 
-                                }
-                                else {
+                            }
+                            else {
                                 <p class="events_text_content">
                                     <a href="~/Events/Article/@Press.id">
                                         <span class="event_data pull-left"> @String.Format("{0:MMM d, yyyy}", @Press.Published)</span>
@@ -119,19 +119,19 @@
                                 </p>
                                 <br />
 
-                                }
-                            }
-                            else {
-                                <p class="events_text_content">
-                                   <span class="event_data pull-left"> @String.Format("{0:MMM d, yyyy}", @Press.Published)</span>
-                                    <br />
-                                    <span class="events_content pull-left">@Html.Raw(@Press.Heading)</span>
-                                </p>
-                                <br />
                             }
                         }
+                        else {
+                            <p class="events_text_content">
+                                <span class="event_data pull-left"> @String.Format("{0:MMM d, yyyy}", @Press.Published)</span>
+                                <br />
+                                <span class="events_content pull-left">@Html.Raw(@Press.Heading)</span>
+                            </p>
+                                <br />
+                        }
+                    }
                     <a href="~/News/NewArchive/Press">Show more...</a>
-                 </div>
+                </div>
 
             </div>
             <div class='col-xs-4 membership mobile_content_global'>
