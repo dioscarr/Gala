@@ -608,7 +608,7 @@ footer .footer_text_muted {
 }
 .bio_member_content_info>p {
     font-size: 1.2em;
-    margin-bottom: 2%;
+    /*margin-bottom: 2%;*/
 }
 .member_bio_contact_info {
     padding-top: 7%;
