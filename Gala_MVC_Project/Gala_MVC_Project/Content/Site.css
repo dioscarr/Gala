@@ -628,7 +628,7 @@ footer .footer_text_muted {
 }
 /*contact end*/
 
-
+ 
 /*events*/
 .events_archive {
     font-weight: bold;
@@ -645,7 +645,7 @@ footer .footer_text_muted {
     font-size: 1.2em;
 }
 .events_text_content {
-    padding-bottom: 20px;
+    /*padding-bottom: 20px;*/
     overflow: hidden;
 }
 .membership>.events_block {
