@@ -55,8 +55,8 @@
                     <p>@Model.Events.Firm.FirmName</p>
                     <p>@Model.Events.Firm.Address</p>
                     <p>@Model.Events.Firm.City, @Model.Events.Firm.State @Model.Events.Firm.Country</p>
-                    <p>Tel:     <a href="">@Model.Events.Firm.Tel</a></p>
-                    <p>Web:   <a href="">@Model.Events.Firm.web</a></p>
+                    <p>Tel:     @Model.Events.Firm.Tel</p>
+                    <p>Web:   <a href="mailto:@Model.Events.Firm.web">@Model.Events.Firm.web</a></p>
                 </div>
                 <div class="about_member_block">
                     <div class="about_member_person">
@@ -65,11 +65,10 @@
                         </div>
                         <div class="pull-right about_member_person_info">
                             <h3>@Model.Events.Team.FName @Model.Events.Team.LName</h3>
-                            <span><a class="" href="#">@Model.Events.Team.Email</a></span>
+                            <span><a class="mailto:@Model.Events.Team.Email" href="#">@Model.Events.Team.Email</a></span>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

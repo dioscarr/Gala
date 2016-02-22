@@ -41,12 +41,12 @@
                         <h1 class="content_title_news">@Model.Firm.FirmName</h1>
                     </div>
                     <div class="pull-right print_share">
-                        <a href="#">
-                            <img src="~/Images/share.png" />
-                        </a>
-                        <a href="#">
-                            <img src="~/Images/print.png" />
-                        </a>
+                        <a href="javascript:window.print();"><img src="~/Images/print.png" alt="Print"></a>
+                        <a href="http://www.addthis.com/bookmark.php"
+                           class="addthis_button"
+                           style="text-decoration:none;">
+                            <img src="~/Images/share.png" alt="Share" />
+                        </a> 
                     </div>
                 </div>
                 <hr>
@@ -61,13 +61,13 @@
                             <span>@Model.Firm.City @Model.Firm.Zip, @Model.Firm.Country</span>
                         </p>
                         <p>
-                            <span>Tel:     <a href="">@Model.Firm.Tel</a></span>
+                            <span>Tel:     @Model.Firm.Tel</span>
                         </p>
                         <p>
-                            <span>Fax:    <a href="">@Model.Firm.Fax</a></span>
+                            <span>Fax:    @Model.Firm.Fax</span>
                         </p>
                         <p>
-                            <span>Web:   <a href="">@Model.Firm.web</a></span>
+                            <span>Web:   <a href="http://@Model.Firm.web" target="_blank">@Model.Firm.web</a></span>
                         </p>
                     </div>
                     @foreach (var member in Model.Firm.Team)
@@ -79,7 +79,7 @@
                                 </div>
                                 <div class="pull-right about_member_person_info firm_member_person_info">
                                     <h3>@member.FName @member.LName</h3>
-                                    <span><a class="" href="#">@member.Email</a></span>
+                                    <span><a class="" href="mailto:@member.Email">@member.Email</a></span>
                                 </div>
                             </div>
                         </div>
@@ -194,13 +194,13 @@
                         <span>@Model.Firm.City @Model.Firm.Zip @Model.Firm.Country</span>
                     </p>
                     <p>
-                        <span>Tel:   <a href="">@Model.Firm.Tel</a></span>
+                        <span>Tel:   @Model.Firm.Tel</span>
                     </p>
                     <p>
-                        <span>Fax:   <a href="">@Model.Firm.Fax</a></span>
+                        <span>Fax:   @Model.Firm.Fax</span>
                     </p>
                     <p>
-                        <span>Web:   <a href="">@Model.Firm.web</a></span>
+                        <span>Web:   <a href="http://@Model.Firm.web" target="_blank">@Model.Firm.web</a></span>
                     </p>
                 </div>
 
@@ -215,7 +215,7 @@
                                     <h3>
                                         <a href="~/Members/member/@member.Id"> @member.FName @member.LName</a>
                                     </h3>
-                                    <span><a class="" href="#">@member.Email</a></span>
+                                    <span><a class="" href="mailto:@member.Email">@member.Email</a></span>
                                 </div>
                             </div>
                         </div>
@@ -224,3 +224,14 @@
         </div>
     </div>
 </section>
+
+
+
+
+@section scripts{
+
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56c77f564b126cf8"></script>
+
+
+}
