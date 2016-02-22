@@ -1294,6 +1294,7 @@
     <Content Include="Views\News\NewList.cshtml" />
     <Content Include="Views\TermAndPrivacy\PrivacyPolicy.cshtml" />
     <Content Include="Views\TermAndPrivacy\TermOfUse.cshtml" />
+    <Content Include="Views\Members\FirmArchive.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
