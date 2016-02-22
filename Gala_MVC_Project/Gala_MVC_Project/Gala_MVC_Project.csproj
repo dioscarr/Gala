@@ -362,6 +362,17 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Images\favicons\apple-icon-114x114.png" />
+    <Content Include="Images\favicons\apple-icon-120x120.png" />
+    <Content Include="Images\favicons\apple-icon-144x144.png" />
+    <Content Include="Images\favicons\apple-icon-152x152.png" />
+    <Content Include="Images\favicons\apple-icon-180x180.png" />
+    <Content Include="Images\favicons\apple-icon-72x72.png" />
+    <Content Include="Images\favicons\apple-icon-76x76.png" />
+    <Content Include="Images\favicons\apple-icon-precomposed.png" />
+    <Content Include="Images\favicons\favicon-32x32.png" />
+    <Content Include="Images\favicons\favicon.ico" />
+    <Content Include="Images\favicons\ms-icon-144x144.png" />
     <Content Include="Images\Members\agustin_mayer.jpg" />
     <Content Include="Images\Members\Aleksandar_Bijelic.jpg" />
     <Content Include="Images\Members\allison_fitzpatrick.jpg" />
