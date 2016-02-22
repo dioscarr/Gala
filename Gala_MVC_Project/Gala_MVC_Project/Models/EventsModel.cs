@@ -44,6 +44,15 @@ namespace Gala_MVC_Project.Models
             Eventss = ManageEvents.GetAllEvents().OrderBy(c=>c.Type).ToList();         
         }
 
+        internal void LoadFirmnewsByYear(int year, string type, int FirmID)
+        {
+            news = ManageEvents.GetAllEvents().Where(c => c.Type == type && c.Published.Value.Year == year && c.FirmID == FirmID).OrderByDescending(c => c.Published).ToList();
+        }
+        internal void LoadFirmNewsCurrentYear(int year, string type, int FirmID)
+        {
+            news = ManageEvents.GetAllEvents().Where(c => c.Type == type && c.Published.Value.Year == year && c.FirmID == FirmID).OrderByDescending(c => c.Published).ToList();
+        }
+
         public void LoadEventPage()
         {
             Eventss = ManageEvents.GetAllEvents().Where(c=>c.Type=="Gala Events"|| c.Type=="Other Events").OrderBy(c => c.Type).ToList(); 

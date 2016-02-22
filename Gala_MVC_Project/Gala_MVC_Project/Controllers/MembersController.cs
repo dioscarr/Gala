@@ -36,5 +36,39 @@ namespace Gala_MVC_Project.Controllers
             MM.loadMember(id);
             return View(MM);
         }
+
+        public ActionResult FirmArchive(int? prevyear, int? nextyear, string type, int FirmID, string Firm)
+        {
+            ViewBag.type = type;
+            ViewBag.FirmID = FirmID;
+            ViewBag.FirmName = Firm;
+            EventsModel EM = new EventsModel();
+            if (prevyear != null)
+            {
+                ViewBag.year = Convert.ToInt32(prevyear) - 1;
+                ViewBag.PrevYear = Convert.ToInt32(prevyear) - 1;
+                ViewBag.NextYear = prevyear - 1;
+
+                EM.LoadFirmnewsByYear(Convert.ToInt32(prevyear) - 1, type,FirmID);
+                return View(EM); ;
+            }
+            else if (nextyear != null)
+            {
+                ViewBag.year = Convert.ToInt32(nextyear) + 1;
+                ViewBag.PrevYear = nextyear + 1;
+                ViewBag.NextYear = Convert.ToInt32(nextyear) + 1;
+
+                EM.LoadFirmnewsByYear(Convert.ToInt32(nextyear) + 1, type, FirmID);
+                return View(EM);
+            }
+            else {
+                ViewBag.PrevYear = DateTime.Today.Year;
+                ViewBag.NextYear = DateTime.Today.Year;
+                ViewBag.year = DateTime.Today.Year;
+                EM.LoadFirmNewsCurrentYear(DateTime.Today.Year, type, FirmID);
+                return View(EM);
+            }
+            return View(EM);
+        }
     }
 }
