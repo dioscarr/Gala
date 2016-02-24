@@ -975,12 +975,15 @@ table#t01 tr:hover {
     .about_member_col {
         width: 50%;
     }
+    .news_block {
+        margin: 5% 0 7%;
+    }
     /*Member*/
     .member_content_text {
         margin:0;
     }
     .member_membership>.news_block {
-        margin: 5% 0 10%;
+        margin: 5% 0 7%;
     }
     /*Publication*/
     .publication_member_block {
@@ -1105,10 +1108,7 @@ table#t01 tr:hover {
     }
     .small_home_bg {
         height: 185px;
-    }
-    .news_block {
-        margin-bottom: 10%;
-    }
+    }    
     footer {
         height: auto;
     }
@@ -1190,10 +1190,16 @@ table#t01 tr:hover {
         padding: 0;
     }
     .about_member_person_img>img {
-        width: 65%;
+        /*width: 65%;*/
     }
     .content_global {
         box-shadow: none;
+    }
+    .about_member_person_img {
+        width: 23%;
+    }
+    .about_member_person_info {
+        width: 72%;
     }
     /*Member*/
     .bio_top_title {
