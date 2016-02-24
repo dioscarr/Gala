@@ -153,6 +153,9 @@ img {
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
     padding: 0; 
 }
+.main_menu_container {
+    padding: 0;
+}
 .nav_bar_menu>li>a { 
     text-transform: uppercase;
     color: #666666;
@@ -174,7 +177,12 @@ img {
     width: 100%; height: 100%;
     text-align:center;
 }
-
+.menu li:first-child a {
+    text-align: left;
+}
+.menu li:last-child a {
+    text-align: right;
+}
 .header_menu  {
     margin: 0;
 }
@@ -599,7 +607,7 @@ footer .footer_text_muted {
     font-weight: bold;
     text-align: center;
 }
-.bio_contact_info {
+.bio_contact_info { 
     padding: 3%;
 } 
 .bio_contact_info_title {
