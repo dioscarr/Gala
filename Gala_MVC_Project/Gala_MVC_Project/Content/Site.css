@@ -540,7 +540,7 @@ footer .footer_text_muted {
 .about_member_person_info>h3 {
     font-size: .9em;
     font-weight: bold;
-    margin: 4% 0 0;
+    margin: 10% 0 0;
 }
 .about_member_person_info> h4 {
     font-size: .9em;
@@ -585,6 +585,11 @@ footer .footer_text_muted {
 .about_member_col {
     padding: 1%;
 }
+.Executive_Committee {
+    color: rgb(51, 122, 183);
+    font-weight: bold;
+}
+
 /*about end*/
 
   
