@@ -331,9 +331,10 @@ img {
 }
 .content {
     background-color: #ffffff;
+    padding: 0 30px;
 }
 .content_home_global {
-    padding: 3% 15px;
+    padding: 3% 30px;
 }
 .content_home_global>p {
     font-size: 1.2em;
@@ -516,7 +517,7 @@ footer .footer_text_muted {
     padding: 3% 1%;
 }
 .membership {
-    padding: 0 3%;
+    padding: 0 15px;
 }
 .membership .stuffing_news {
     margin: 3%;
