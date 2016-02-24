@@ -8,45 +8,49 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-8 small_home_bg">
-                <h2 class="title_slider text_uppercase">DID YOU KNOW?</h2>
-                <div id="carousel-example-generic" class="carousel slide carousel-fade" data-ride="carousel" data-interval="10000">
-                    <!-- Wrapper for slides -->
-                    <ol class="carousel-indicators">
-                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                        <li data-target="#carousel-example-generic" data-slide-to="3"></li>
-                    </ol>
-                    <div class="carousel-inner text_slider">
-                        <div class="item active">
-                            <p class="lead">
-                             @Model.Sliders[0].Content
-                               
-                            </p>
-                        </div>
-                        <div class="item">
-                            <p class="lead">
-                                @Model.Sliders[1].Content
-                               
+                <div class="small_home_bg_text">
 
-                            </p>
-                        </div>
-                        <div class="item">
-                            <p class="lead">
-                               @Model.Sliders[2].Content
-                              
+                    <h2 class="title_slider text_uppercase">DID YOU KNOW?</h2>
+                    <div id="carousel-example-generic" class="carousel slide carousel-fade" data-ride="carousel" data-interval="10000">
+                        <!-- Wrapper for slides -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                        </ol>
+                        <div class="carousel-inner text_slider">
+                            <div class="item active">
+                                <p class="lead">
+                                    @Model.Sliders[0].Content
 
-                            </p>
-                        </div>
-                        <div class="item">
-                            <p class="lead">
-                               @Model.Sliders[3].Content
-                              
+                                </p>
+                            </div>
+                            <div class="item">
+                                <p class="lead">
+                                    @Model.Sliders[1].Content
 
-                            </p>
+
+                                </p>
+                            </div>
+                            <div class="item">
+                                <p class="lead">
+                                    @Model.Sliders[2].Content
+
+
+                                </p>
+                            </div>
+                            <div class="item">
+                                <p class="lead">
+                                    @Model.Sliders[3].Content
+
+
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div> 
+
+                </div>
             </div>
             <div class='col-xs-4 padding_form'>
                 <div class="left_form"> 

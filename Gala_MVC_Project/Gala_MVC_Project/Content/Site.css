@@ -912,6 +912,7 @@ table#t01 tr:hover {
         width: 70%;
     }
     .nav_bar_menu>li>a {
+        text-align: center !important;
         font-size: 1.3em;
         color: white;
         margin: 2% 0;
@@ -1054,6 +1055,14 @@ table#t01 tr:hover {
     }
     .member_title_news {
         font-size: 1.1em;
+    }
+    .small_home_bg {
+        position: relative;
+    }
+    .small_home_bg_text{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
     }
 }
 
