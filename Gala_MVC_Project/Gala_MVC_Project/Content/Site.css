@@ -153,6 +153,9 @@ img {
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
     padding: 0; 
 }
+.main_menu_container {
+    padding: 0;
+}
 .nav_bar_menu>li>a { 
     text-transform: uppercase;
     color: #666666;
@@ -174,7 +177,12 @@ img {
     width: 100%; height: 100%;
     text-align:center;
 }
-
+.menu li:first-child a {
+    text-align: left;
+}
+.menu li:last-child a {
+    text-align: right;
+}
 .header_menu  {
     margin: 0;
 }
@@ -313,7 +321,7 @@ img {
     border:none; 
 }
 .content_text{
-    margin-bottom: 40px; 
+    margin-bottom: 50px; 
 }
 .content_title_news {
     padding: 1% 0;
@@ -323,15 +331,19 @@ img {
 }
 .content {
     background-color: #ffffff;
+    padding: 0 30px;
+}
+.spesial_padding_forhomepage {
+    padding: 0 15px;
 }
 .content_home_global {
-    padding: 3% 15px;
+    padding: 3% 30px;
 }
 .content_home_global>p {
     font-size: 1.2em;
 }
 .content_global {
-    padding-bottom: 3%;
+    padding-bottom: 0%;
     /*-webkit-box-shadow: 1px 0 30px -4px #E3E0E0;*/
     /*box-shadow: 1px 0 30px -4px #E3E0E0;*/
     /*-webkit-box-shadow: 24px 0 25px -13px rgb(245, 245, 245), 10px 0 15px -15px rgb(245, 245, 245);
@@ -345,7 +357,7 @@ img {
     font-weight: bold;
 }
 .content_global>p {
-    line-height: 1.8;
+    /*line-height: 1.8;*/
     font-size: 1.2em;
 }
 .print_share>a>img {
@@ -508,7 +520,7 @@ footer .footer_text_muted {
     padding: 3% 1%;
 }
 .membership {
-    padding: 0 3%;
+    padding: 0 15px;
 }
 .membership .stuffing_news {
     margin: 3%;
@@ -532,7 +544,7 @@ footer .footer_text_muted {
 .about_member_person_info>h3 {
     font-size: .9em;
     font-weight: bold;
-    margin: 4% 0 0;
+    margin: 10% 0 0;
 }
 .about_member_person_info> h4 {
     font-size: .9em;
@@ -577,6 +589,11 @@ footer .footer_text_muted {
 .about_member_col {
     padding: 1%;
 }
+.Executive_Committee {
+    color: rgb(51, 122, 183);
+    font-weight: bold;
+}
+
 /*about end*/
 
   
@@ -599,7 +616,7 @@ footer .footer_text_muted {
     font-weight: bold;
     text-align: center;
 }
-.bio_contact_info {
+.bio_contact_info { 
     padding: 3%;
 } 
 .bio_contact_info_title {
@@ -706,12 +723,12 @@ table#t01 tr:hover {
     width: 25%;
 }
 .member_membership {
-    padding: 1% 15px;
+    padding: 0% 15px;
 }
 .member_membership>.news_block {
     padding-top: .5%;
     padding-bottom: .5%;
-    margin: 3% 0;
+    margin: 0% 0 70px;
 }
 .bottom_home_member {
     overflow: hidden;
@@ -899,6 +916,7 @@ table#t01 tr:hover {
         width: 70%;
     }
     .nav_bar_menu>li>a {
+        text-align: center !important;
         font-size: 1.3em;
         color: white;
         margin: 2% 0;
@@ -961,9 +979,18 @@ table#t01 tr:hover {
     .about_member_col {
         width: 50%;
     }
+    .news_block {
+        margin: 5% 0 7%;
+    }
+    .news_block_home_page {
+        padding: 0 0 7%;
+    }
     /*Member*/
     .member_content_text {
         margin:0;
+    }
+    .member_membership>.news_block {
+        margin: 5% 0 7%;
     }
     /*Publication*/
     .publication_member_block {
@@ -1039,6 +1066,14 @@ table#t01 tr:hover {
     .member_title_news {
         font-size: 1.1em;
     }
+    .small_home_bg {
+        position: relative;
+    }
+    .small_home_bg_text{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
 }
 
 @media (min-width: 480px) {
@@ -1080,10 +1115,7 @@ table#t01 tr:hover {
     }
     .small_home_bg {
         height: 185px;
-    }
-    .news_block {
-        margin-bottom: 10%;
-    }
+    }    
     footer {
         height: auto;
     }
@@ -1165,10 +1197,16 @@ table#t01 tr:hover {
         padding: 0;
     }
     .about_member_person_img>img {
-        width: 65%;
+        /*width: 65%;*/
     }
     .content_global {
         box-shadow: none;
+    }
+    .about_member_person_img {
+        width: 23%;
+    }
+    .about_member_person_info {
+        width: 72%;
     }
     /*Member*/
     .bio_top_title {
@@ -1217,6 +1255,7 @@ table#t01 tr:hover {
    ========================================================================== */
 
 @media print {
+    
     *,
     *:before,
     *:after {
@@ -1232,18 +1271,18 @@ table#t01 tr:hover {
         text-decoration: underline;
     }
 
-    a[href]:after {
+    /*a[href]:after {
         content: " (" attr(href) ")";
-    }
+    }*/
 
-    abbr[title]:after {
+    /*abbr[title]:after {
         content: " (" attr(title) ")";
     }
 
     a[href^="#"]:after,
     a[href^="javascript:"]:after {
         content: "";
-    }
+    }*/
 
     pre,
     blockquote {
@@ -1279,6 +1318,12 @@ table#t01 tr:hover {
     h2,
     h3 {
         page-break-after: avoid;
+    }
+    .user_data, .search_block, .breadcrumb, .content_slider, footer {
+        display: none;
+    }
+    a[href]:after {
+        content: none !important;
     }
 }
 
