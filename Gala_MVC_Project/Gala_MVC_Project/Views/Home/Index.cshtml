@@ -232,7 +232,7 @@
         self.Name = ko.observable("last name, first name ");
 
         self.assignSelectedVal = function (id, CountryName) {
-
+            debugger;
             var link = '@Url.Action("MemberList", "Members", new { CountryID = "-1" })';
                 link = link.replace("-1", id);
                 self.selectedCountry(CountryName);

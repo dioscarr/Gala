@@ -271,7 +271,7 @@ namespace Gala_MVC_Project.Areas.Admin.Models
         };
 
         context.Users.Add(AppUser);
-        context.SaveChangesAsync();
+        context.SaveChanges();
 
 
         return AppUser.Id;

@@ -11,7 +11,15 @@ namespace Gala_MVC_Project
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
+
+
+
+
+
+
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+
+      
 
             routes.MapRoute(
                 name: "Default",
@@ -19,12 +27,15 @@ namespace Gala_MVC_Project
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }, namespaces: new string[] { "Gala_MVC_Project.Controllers" }
             );
 
-
             routes.MapRoute(
-               name: "MembersDef",
-               url: "{controller}/{action}/{id}",
-               defaults: new { controller = "Members", action = "Members", id = UrlParameter.Optional }, namespaces: new string[] { "Gala_MVC_Project.Controllers" }
-           );
+    name: "MembersDef",
+    url: "{controller}/{action}/{id}/{FID}/{Country}",
+    defaults: new { controller = "Members", action = "member", id = UrlParameter.Optional, FID = UrlParameter.Optional, Country= UrlParameter.Optional }, namespaces: new string[] { "Gala_MVC_Project.Controllers" }
+);
+
+
+
+
         }
     }
 }

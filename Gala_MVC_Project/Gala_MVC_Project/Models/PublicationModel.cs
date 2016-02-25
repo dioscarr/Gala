@@ -32,6 +32,7 @@ namespace Gala_MVC_Project.Models
                                             {
                                             id = c.Id,
                                             name = c.GazetteVolume,
+                                            PublishedDate = c.PublishedDate.ToString(),
                                                 countries = c.Gazette
                                                                     .Where(x=>x.GazetteVolumeID == c.Id)
                                                                     .Select(x=> new Countries{

@@ -6,32 +6,6 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Favicon -->
-    <link rel="SHORTCUT icon" href="~/images/favicons/favicon.ico">
-    <!-- For iPhone 6 Plus with 3Ã— display: -->
-    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="~/images/favicons/apple-icon-180x180.png">
-    <!-- For iPad with 2Ã— display running iOS â‰¥ 7: -->
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="~/images/favicons/apple-icon-152x152.png">
-    <!-- For iPad with 2Ã— display running iOS â‰¤ 6: -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="~/images/favicons/apple-icon-144x144.png">
-    <!-- For iPhone with 2Ã— display running iOS â‰¥ 7: -->
-    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="~/images/favicons/apple-icon-120x120.png">
-    <!-- For iPhone with 2Ã— display running iOS â‰¤ 6: -->
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="~/images/favicons/apple-icon-114x114.png">
-    <!-- For the iPad mini and the first- and second-generation iPad (1Ã— display) on iOS â‰¥ 7: -->
-    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="~/images/favicons/apple-touch-icon-76x76.png">
-    <!-- For the iPad mini and the first- and second-generation iPad (1Ã— display) on iOS â‰¤ 6: -->
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="~/images/favicons/apple-icon-72x72.png">
-    <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
-    <link rel="apple-touch-icon-precomposed" href="~/images/favicons/apple-icon-precomposed.png"><!-- 57Ã—57px -->
-    <!-- For IE 10 Metro tile icon: -->
-    <meta name="msapplication-TileColor" content="#FFFFFF">
-    <meta name="msapplication-TileImage" content="~/images/favicons/ms-icon-144x144.png">
-    <link rel="icon" href="~/images/favicons/favicon-32x32.png" sizes="32x32">
-
-
-
     <title>@ViewBag.Title - Gala</title>
     <meta name="description" content="">
     <meta name="author" content="">
@@ -39,8 +13,19 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
-</head> 
-<body>  
+</head>
+<body>
+    <div>
+
+
+
+
+
+
+
+
+    </div>
+
     <div id="wrapper">
         <div id="wrapper2">
             <section class="header">
@@ -52,7 +37,7 @@
                             </div>
                             <div class="user_login pull-left">
                                 <h2> @Html.Partial("_LoginPartial")</h2>
-                               
+
                             </div>
                         </div>
                     </div>
@@ -106,15 +91,18 @@
                             </div>
                         </nav>
                         <div class="col-sm-4 col-sm-offset-4 col-xs-12 search_block">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search the entire site...">
-                                <span class="input-group-btn">
-                                    <button type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-                                </span>
-                            </div>
+                            @using (Html.BeginForm("Result", "Home", FormMethod.Get))
+                            {
+                                <div class="input-group">
+                                    <input type="text" class="form-control mysearchbox" name="search" placeholder="Search the entire site...">
+                                    <span class="input-group-btn">
+                                        <button type="submit" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                                    </span>
+                                </div>
+                            }
                         </div>
                     </div>
-                    </div>
+                </div>
             </section>
 
             <nav class="visible-lg visible-md visible-sm header_menu navbar navbar-default menu">
@@ -127,7 +115,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                       
+
                     </div>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -144,50 +132,50 @@
                             <li role="presentation"><a href="~/Publication/publication">publications</a></li>
                             <li role="presentation"><a href="~/contact/contact">contact us</a></li>
 
-@*@if (Request.IsAuthenticated)
-{
+                            @if (Request.IsAuthenticated)
+                            {
 
-    <li role="presentation"><a href="~/contact/contact">Management</a></li>
-}*@
+                                <li role="presentation"><a href="~/contact/contact">Management</a></li>
+                            }
                         </ul>
-                       
-                      
+
+
                     </div>
-                   
+
                 </div>
-               
+
             </nav>
 
 
             @*<div class="navbar navbar-inverse navbar-fixed-top">
-                <div class="container">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                        </div>
+                        <div class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav">
+                                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                                <li>@Html.ActionLink("About", "About", "Home")</li>
+                                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                            </ul>
+                            @Html.Partial("_LoginPartial")
+                        </div>
                     </div>
-                    <div class="navbar-collapse collapse">
-                        <ul class="nav navbar-nav">
-                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                            <li>@Html.ActionLink("About", "About", "Home")</li>
-                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                        </ul>
-                        @Html.Partial("_LoginPartial")
-                    </div>
-                </div>
-            </div>*@
+                </div>*@
 
 
 
             @RenderBody()
-            </div>
+        </div>
 
 
 
-            @*<div class="container body-content">
+        @*<div class="container body-content">
                 @RenderBody()
                 <hr />
                 <footer>
@@ -195,42 +183,93 @@
                 </footer>
             </div>*@
 
-            <footer>
-                <div class="container">
-                    <div class="footer_main_cont">
-                        <p class="text-muted footer_text_muted pull-left">
-                            © 2016 Global Advertising Lawyers Alliance.
-                        </p>
-                        <ul class="footer_list_date pull-left">
-                            <li><a href="~/TermAndPrivacy/PrivacyPolicy">Term Of Use</a> |</li>
-                            <li><a href="~/TermAndPrivacy/TermOfUse">Privacy Policy</a> |</li>
-                            <li><a href="http://cleverdesign.com" target="_blank">Site by cleverdesign</a></li>
-                        </ul>
-                        <div class="visible-lg visible-md visible-sm social_images pull-right">
-                            <a href="https://www.facebook.com/Global-Advertising-Lawyers-Alliance-GALA-178926712146446/ " target="_blank">
-                                <img src="~/Images/social-fb.png" />
-                            </a>
-                            <a href="https://www.linkedin.com/company/global-advertising-lawyers-alliance" target="_blank">
-                                <img src="~/Images/social-in.png" />
-                            </a>
-                            <a href="https://twitter.com/galalaw" target="_blank">
-                                <img src="~/Images/social-tv.png" />
-                            </a>
-                            <a href="https://www.youtube.com/channel/UCq7jD7Zgh9waDiLsHxwgWCg" target="_blank">
-                                <img src="~/Images/social-yt.png" />
-                            </a>
-                        </div>
+        <footer>
+            <div class="container">
+                <div class="footer_main_cont">
+                    <p class="text-muted footer_text_muted pull-left">
+                        © 2016 Global Advertising Lawyers Alliance.
+                    </p>
+                    <ul class="footer_list_date pull-left">
+                        <li><a href="#">Term Of Use</a> |</li>
+                        <li><a href="#">Privacy Policy</a> |</li>
+                        <li><a href="#">Site by cleverdesign</a></li>
+                    </ul>
+                    <div class="visible-lg visible-md visible-sm social_images pull-right">
+                        <a href="www.facebook.com">
+                            <img src="~/Images/social-fb.png" />
+                        </a>
+                        <a href="www.facebook.com">
+                            <img src="~/Images/social-in.png" />
+                        </a>
+                        <a href="www.facebook.com">
+                            <img src="~/Images/social-tv.png" />
+                        </a>
+                        <a href="www.facebook.com">
+                            <img src="~/Images/social-yt.png" />
+                        </a>
                     </div>
                 </div>
-            </footer>
-        </div>
+            </div>
+        </footer>
+    </div>
     <script src="~/Scripts/jquery-2.1.4.min.js"></script>
-    @*<script src="~/Scripts/bootstrap.min.js"></script>*@
-    
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 
+
+
+
+
+    <script src="http://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+    google.load('search', '1');
+    function OnLoad() {
+        var s = window.location.search;
+        if (s.indexOf('search=') >= 0) {
+            s = s.substring(s.indexOf('search=') + 7);
+            if (s.indexOf('&') >= 0) {
+                s = s.substring(0, s.indexOf('&'));
+            }
+            s = decodeURIComponent(s.replace('+', ' '));
+        }
+        else {
+            s = "";
+        }
+        var customSearchControl = new google.search.CustomSearchControl('006385158802842692372:awo1dvdojuc');
+        customSearchControl.draw('search-result');
+        customSearchControl.execute(s);
+    }
+    google.setOnLoadCallback(OnLoad);
+$(function(){
+  getUrlParameter("search");
+
+
+
+ function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+
+         $('#myModal').modal('toggle')
+        }
+    }
+
+
+};
+
+   });
+    </script>
+
+
 </body>
 </html>
-
