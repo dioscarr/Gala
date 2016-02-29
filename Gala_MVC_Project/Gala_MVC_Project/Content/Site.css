@@ -359,6 +359,7 @@ img {
 .content_global>p {
     /*line-height: 1.8;*/
     font-size: 1.2em;
+    padding: 0 0 2%;
 }
 .print_share>a>img {
     padding-left: 1%;
