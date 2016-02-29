@@ -271,10 +271,70 @@
     <Compile Include="Models\MemberModel.cs" />
     <Compile Include="Models\PublicationModel.cs" />
     <Compile Include="Models\Volumes.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="obj\Release\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Release\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Release\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Antlr3.Runtime.dll" />
+    <Content Include="bin\BLL.dll" />
+    <Content Include="bin\BLL.pdb" />
+    <Content Include="bin\DAL.dll" />
+    <Content Include="bin\DAL.pdb" />
+    <Content Include="bin\EntityFramework.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\Gala_MVC_Project.dll" />
+    <Content Include="bin\Gala_MVC_Project.pdb" />
+    <Content Include="bin\Microsoft.AspNet.Identity.Core.dll" />
+    <Content Include="bin\Microsoft.AspNet.Identity.EntityFramework.dll" />
+    <Content Include="bin\Microsoft.AspNet.Identity.Owin.dll" />
+    <Content Include="bin\Microsoft.CSharp.dll" />
+    <Content Include="bin\Microsoft.Owin.dll" />
+    <Content Include="bin\Microsoft.Owin.Host.SystemWeb.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Cookies.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Facebook.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Google.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.MicrosoftAccount.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.OAuth.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Twitter.dll" />
+    <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="bin\Newtonsoft.Json.dll" />
+    <Content Include="bin\Owin.dll" />
+    <Content Include="bin\System.ComponentModel.DataAnnotations.dll" />
+    <Content Include="bin\System.Configuration.dll" />
+    <Content Include="bin\System.Core.dll" />
+    <Content Include="bin\System.Data.DataSetExtensions.dll" />
+    <Content Include="bin\System.Data.dll" />
+    <Content Include="bin\System.dll" />
+    <Content Include="bin\System.Drawing.dll" />
+    <Content Include="bin\System.EnterpriseServices.dll" />
+    <Content Include="bin\System.EnterpriseServices.Wrapper.dll" />
+    <Content Include="bin\System.Net.Http.dll" />
+    <Content Include="bin\System.Net.Http.WebRequest.dll" />
+    <Content Include="bin\System.Web.Abstractions.dll" />
+    <Content Include="bin\System.Web.ApplicationServices.dll" />
+    <Content Include="bin\System.Web.dll" />
+    <Content Include="bin\System.Web.DynamicData.dll" />
+    <Content Include="bin\System.Web.Entity.dll" />
+    <Content Include="bin\System.Web.Extensions.dll" />
+    <Content Include="bin\System.Web.Helpers.dll" />
+    <Content Include="bin\System.Web.Mvc.dll" />
+    <Content Include="bin\System.Web.Optimization.dll" />
+    <Content Include="bin\System.Web.Razor.dll" />
+    <Content Include="bin\System.Web.Routing.dll" />
+    <Content Include="bin\System.Web.Services.dll" />
+    <Content Include="bin\System.Web.WebPages.Deployment.dll" />
+    <Content Include="bin\System.Web.WebPages.dll" />
+    <Content Include="bin\System.Web.WebPages.Razor.dll" />
+    <Content Include="bin\System.Xml.dll" />
+    <Content Include="bin\System.Xml.Linq.dll" />
+    <Content Include="bin\WebGrease.dll" />
     <Content Include="Content\bootstrap-datetimepicker.min.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -461,6 +521,10 @@
     <Content Include="Images\Members\vukmir_mladen.jpg" />
     <Content Include="Images\publications\publication1.jpg" />
     <Content Include="Images\Thumbs.db" />
+    <Content Include="Scripts\moment-with-locales.js" />
+    <Content Include="Scripts\moment-with-locales.min.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\moment.min.js" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
     <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
@@ -518,6 +582,7 @@
     <Content Include="Areas\Admin\Views\AdminContacts\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\UserManagement\Index.cshtml" />
     <Content Include="Areas\Admin\Views\UserManagement\Create.cshtml" />
+    <Content Include="bin\Gala_MVC_Project.dll.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Images\about-arrow.png" />
     <Content Include="Images\bg-all.jpg" />
@@ -532,7 +597,7 @@
     <Content Include="Images\flags\Angola.png" />
     <Content Include="Images\flags\Anguilla.png" />
     <Content Include="Images\flags\Antarctica.png" />
-    <Content Include="Images\flags\Antigua &amp; Barbuda.png" />
+    <Content Include="Images\flags\Antigua and Barbuda.png" />
     <Content Include="Images\flags\Arab League.png" />
     <Content Include="Images\flags\Argentina.png" />
     <Content Include="Images\flags\Armenia.png" />
@@ -1295,10 +1360,10 @@
     <Content Include="Views\TermAndPrivacy\PrivacyPolicy.cshtml" />
     <Content Include="Views\TermAndPrivacy\TermOfUse.cshtml" />
     <Content Include="Views\Members\FirmArchive.cshtml" />
+    <Content Include="Views\Home\Result.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="bin\" />
     <Folder Include="Images\Media\" />
   </ItemGroup>
   <ItemGroup>

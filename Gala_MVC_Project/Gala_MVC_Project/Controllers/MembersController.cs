@@ -4,18 +4,19 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Gala_MVC_Project.Models;
+using DAL.Models;
 
 namespace Gala_MVC_Project.Controllers
 {
     public class MembersController : Controller
     {
         // GET: Members
-        public ActionResult Firm(int id, string Country)
+        public ActionResult Firm(int? id, string Country)
         {
             ViewBag.country = Country;
             FirmModel FM = new FirmModel(id);
            
-            FM.loadFirm(id);
+            FM.loadFirm((int)id);
             return View(FM);
         }
         public ActionResult MemberList(int? CountryID, int? FirmID, int? memberID)
@@ -29,15 +30,20 @@ namespace Gala_MVC_Project.Controllers
 
             return View(MM);
         }
-
-        public ActionResult Member(int id)
+        
+        public ActionResult Member(int? id, int? FID, string Country)
         {
-            MemberModel MM = new MemberModel();
-            MM.loadMember(id);
+            using (GalaDBEntities db = new GalaDBEntities()) {
+                ViewBag.FID = FID;
+                ViewBag.CountryName = Country;
+
+            }
+                MemberModel MM = new MemberModel();
+            MM.loadMember((int)id);
             return View(MM);
         }
 
-        public ActionResult FirmArchive(int? prevyear, int? nextyear, string type, int FirmID, string Firm)
+        public ActionResult FirmArchive(int? prevyear, int? nextyear, string type, int FirmID, string Firm) 
         {
             ViewBag.type = type;
             ViewBag.FirmID = FirmID;

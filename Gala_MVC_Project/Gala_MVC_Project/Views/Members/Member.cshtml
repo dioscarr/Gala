@@ -9,7 +9,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                <h2 class="about_title text_uppercase">@Model.Member.CMFRelation.Where(c=>c.MID==@Model.Member.Id).FirstOrDefault().Country.CountryName</h2>
+                <h2 class="about_title text_uppercase"> @ViewBag.CountryName</h2>
             </div>
         </div>
     </div>
@@ -22,8 +22,9 @@
                 <ol class="mobile_display_none breadcrumb">
                     <li><a href="~/Home">Home</a></li>
                     <li><a href="~/Members/MemberList">Members</a></li>
-                    <li><a href="~/Members/Firm/@Model.Member.CMFRelation.Where(c => c.MID == @Model.Member.Id).FirstOrDefault().Firm.Id">@Model.Member.CMFRelation.Where(c => c.MID == @Model.Member.Id).FirstOrDefault().Firm.Country</a></li>
-                    <li><a href="~/Members/Firm/@Model.Member.CMFRelation.Where(c => c.MID == @Model.Member.Id).FirstOrDefault().Firm.Id">@Model.Member.CMFRelation.Where(c => c.MID == @Model.Member.Id).FirstOrDefault().Firm.FirmName</a></li>
+
+                    <li><a href="~/Members/Firm?id=@ViewBag.FID&Country=@ViewBag.CountryName">@ViewBag.CountryName</a></li>
+                    <li><a href="~/Members/Firm?id=@ViewBag.FID&Country=@ViewBag.CountryName">@Model.Member.CMFRelation.Where(c => c.MID == @Model.Member.Id).FirstOrDefault().Firm.FirmName</a></li>
                     <li class="active">@Model.Member.FName @Model.Member.MInitial @Model.Member.LName </li>
                 </ol>
 

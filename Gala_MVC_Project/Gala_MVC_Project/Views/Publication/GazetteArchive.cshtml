@@ -35,12 +35,15 @@
                         <h1 class="content_title_news">GALA Gazette</h1>
                     </div>
                     <div class="pull-right print_share">
-                        <h4 class="events_archive text_uppercase"><button data-bind="click: next" class="btn btn-link " style="color:black; font-size:18px; font-weight:bolder;"><</button> <span  data-bind="text: currentItem().name"></span> <button  class="btn btn-link"  data-bind="click: prev" style="color:black; font-size:18px; font-weight:bolder;" >></button></h4>
+                        <h4 class="events_archive text_uppercase"><button data-bind="click: next" class="btn btn-link " style="color:black; font-size:18px; font-weight:bolder;"><</button>
+                         <span  data-bind="text: currentItem().name"></span> 
+                        <button  class="btn btn-link"  data-bind="click: prev" style="color:black; font-size:18px; font-weight:bolder;" >></button>
+                        </h4>
                     </div>
                 </div>
                 <hr>
                 <!--Knockout JS-->
-                <h2 class="gazette_data text_uppercase">04.21.2014</h2>
+                <h2 class="gazette_data text_uppercase"  data-bind="text:  moment(currentItem().PublishedDate).format('MM.DD.YYYY')" ></h2>
                
                 <div data-bind="foreach: currentItem().countries">
                     <h4 class="gazette_country"><a data-bind="text:cname"></a></h4>
@@ -57,7 +60,7 @@
                             <h1 class="member_title text_uppercase member_events_title">Sign up for gala gazette</h1>
                             <div class="member_info member_events_info">
                                 <p>Would you like to receive the GALA Gazette? Click the link below to subscribe.</p>
-                                <input class="text_uppercase" type="submit" value="SUBSCRIBE">
+                                <input class="text_uppercase" type="submit" value="SUBSCRIBE">`
                             </div>
                         </div>
                     </div>
@@ -71,7 +74,7 @@
 
  <script src="~/Scripts/knockout-3.4.0.js"></script>   
 <script src="~/Scripts/knockout.mapping-latest.js"></script>
-
+<script src="~/Scripts/moment.min.js"></script>
     <script type="text/javascript">
         $(function () {
 
@@ -103,8 +106,13 @@
 
             vm = function () {
                 var self = this;
-                self.mainArray = ko.observableArray([{ id: 1, name: '', countries: [{ id: 0, Header: "", cname: "", Content: "" }] }]);
+                self.mainArray = ko.observableArray([{ id: 1, name: '', PublishedDate:'', countries: [{ id: 0, Header: "", cname: "", Content: "" }] }]);
+                self.GazetteDate = ko.observable();
+                self.updateDate = function (date)
+                {
+                    self.GazetteDate(date);
 
+                }
 
                 if ('@ViewBag.Firm' != null)
                 {                    

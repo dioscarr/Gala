@@ -225,18 +225,18 @@
                     var FID1 = $(this).attr("data-fid");
                     $.ajax({
                         type: "POST",
-                        url:"/CountryFirm/Relationship/",
+                        url:'@Url.Action("Relationship", "CountryFirm")',
                         data: { CID: window.CID, FID: FID1, MID: MemberID },
                         datatype: "json",
                         success: function (data) {
-                           
-                            alert("successfully Added!");
-                           
-                        }
 
-                    }).done(function(){
-                        window.location.reload();
-                    });
+        alert("successfully Added!");
+
+    }
+
+}).done(function(){
+                            window.location.reload();
+                        });
                 }
                 else
                 {

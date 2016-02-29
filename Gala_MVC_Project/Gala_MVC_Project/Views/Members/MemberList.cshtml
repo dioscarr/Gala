@@ -50,14 +50,14 @@
                             {
                                 <td></td>
                                 <td><a href="~/members/firm?id=@member.FID&Country=@member.Country">@member.Firm</a></td>
-                                <td><a href="~/Members/member/@member.MID">@member.Name</a></td>
+                                <td><a href="~/Members/member/@member.MID/@member.FID/@member.Country">@member.Name</a></td>
                                
                             }
                             else
                             {
                                 <td><a href="~/members/firm?id=@member.FID&Country=@member.Country"><img src="~/Images/flags/@member.flag"> @member.Country</a></td>
                                 <td><a href="~/members/firm?id=@member.FID&Country=@member.Country">@member.Firm</a></td>
-                                <td><a href="~/Members/member/@member.MID">@member.Name</a></td>
+                                <td><a href="~/Members/member/@member.MID/@member.FID/@member.Country">@member.Name</a></td>
                                 newcountry = Country;
                             }
                         </tr>
@@ -93,18 +93,18 @@
                                             @if (OldFirmName != @item.Firm)
                                             {
                                                 <br/>
-                                                <a href="~/members/firm/@member.FID">@item.Firm</a><br />
+                                                <a href="~/members/firm?id=@member.FID&Country=@member.Country">@item.Firm</a><br />
                                                 
                                                 OldFirmName = item.Firm;
                                             }
                                            
                                                                                                
-                                            <a href="~/Members/member/@item.MID"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>@item.Name</a>
+                                            <a href="~/Members/member/@member.MID/@member.FID/@member.Country"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>@item.Name</a>
                                         </div>
                                     }
                                     else
                                     {
-                                      ;
+                                      
                                         <div class="mobile_member_country">
                                             <div class="pull-left text_uppercase">
                                                 <img src="~/Images/flags/@item.flag">
@@ -116,9 +116,9 @@
                                         </div>
                                         <div class="mobile_display_none mobile_member_info">
                                            
-                                            <a href="~/members/firm/@member.FID">@item.Firm</a><br />
+                                            <a href="~/members/firm?id=@member.FID&Country=@member.Country">@item.Firm</a><br />
                                            
-                                            <a href="~/Members/member/@item.MID"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>@item.Name</a>
+                                            <a href="~/Members/member/@member.MID/@member.FID/@member.Country"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>@item.Name</a>
                                         </div>
                                         OldFirmName = item.Firm;
                                         decidecountry = @member.Country;

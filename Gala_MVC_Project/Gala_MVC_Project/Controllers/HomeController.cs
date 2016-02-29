@@ -15,6 +15,12 @@ namespace Gala_MVC_Project.Controllers
             
             return View(new HomeModel());
         }
-
+        public ActionResult Result()
+        {
+            return View();
+        }
     }
+
 }
+
+    

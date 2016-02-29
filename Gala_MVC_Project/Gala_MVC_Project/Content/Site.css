@@ -1357,3 +1357,13 @@ font-weight:normal;
     text-overflow:ellipsis; 
     white-space:normal; 
 }
+
+.gsc-webResult {
+    padding:0px;
+    margin:0px;
+min-height:100px;
+}
+
+.gsc-branding, .gcsc-branding {
+display:none!important;
+}

@@ -14,17 +14,17 @@ namespace Gala_MVC_Project.Areas.Admin.Controllers
     [Authorize(Roles = "Admin")]
     public class AdminContactsController : Controller
     {
-        private GalaDBEntities db = new GalaDBEntities();
+         GalaDBEntities db = new GalaDBEntities();
         
 
         // GET: Admin/Contacts/Edit/5
-        public async Task<ActionResult> Edit(int? id=1)
+        public ActionResult Edit(int? id=1)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Contact contact = await db.Contact.FindAsync(id);
+            Contact contact =  db.Contact.Find(id);
             if (contact == null)
             {
                 return HttpNotFound();
@@ -37,13 +37,13 @@ namespace Gala_MVC_Project.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,PageTitle_,Name,Title,CompanyName,Address,City,Zipcode,Tel,fax,Web,Created,Modified,isDeleted")] Contact contact)
+        public ActionResult Edit([Bind(Include = "Id,PageTitle_,Name,Title,CompanyName,Address,City,Zipcode,Tel,fax,Web,Created,Modified,isDeleted")] Contact contact)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(contact).State = EntityState.Modified;
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                 db.SaveChanges();
+                return RedirectToAction("Edit");
             }
             return View(contact);
         }

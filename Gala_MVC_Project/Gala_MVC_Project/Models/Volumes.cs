@@ -10,6 +10,7 @@ namespace Gala_MVC_Project.Models
         public int id { get; set; }
         public string name { get; set; }
         public List<Countries> countries { get; set; }
+        public string PublishedDate { get; set; }
         //public List<VolumesModel> VolumesList { get; set; }
     }
 
