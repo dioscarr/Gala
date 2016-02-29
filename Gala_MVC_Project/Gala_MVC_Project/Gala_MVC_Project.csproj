@@ -281,7 +281,9 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bin\Antlr3.Runtime.dll" />
+    <Content Include="bin\Antlr3.Runtime.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="bin\BLL.dll" />
     <Content Include="bin\BLL.pdb" />
     <Content Include="bin\DAL.dll" />
@@ -310,7 +312,9 @@
     <Content Include="bin\System.Configuration.dll" />
     <Content Include="bin\System.Core.dll" />
     <Content Include="bin\System.Data.DataSetExtensions.dll" />
-    <Content Include="bin\System.Data.dll" />
+    <Content Include="bin\System.Data.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="bin\System.dll" />
     <Content Include="bin\System.Drawing.dll" />
     <Content Include="bin\System.EnterpriseServices.dll" />
@@ -582,7 +586,6 @@
     <Content Include="Areas\Admin\Views\AdminContacts\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\UserManagement\Index.cshtml" />
     <Content Include="Areas\Admin\Views\UserManagement\Create.cshtml" />
-    <Content Include="bin\Gala_MVC_Project.dll.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Images\about-arrow.png" />
     <Content Include="Images\bg-all.jpg" />
