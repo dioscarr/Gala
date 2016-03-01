@@ -131,11 +131,17 @@
                             <li role="presentation"><a href="~/news/NewList">news & press</a></li>
                             <li role="presentation"><a href="~/Publication/publication">publications</a></li>
                             <li role="presentation"><a href="~/contact/contact">contact us</a></li>
-
+                              
                             @if (Request.IsAuthenticated)
                             {
-
-                                <li role="presentation"><a href="~/contact/contact">Management</a></li>
+                                if (ViewContext.HttpContext.User.IsInRole("Member"))
+                                {
+                                    <li role="presentation"><a href="~/contact/contact">Member Area</a></li>
+                                }
+                                else if (ViewContext.HttpContext.User.IsInRole("Associate"))
+                                {
+                                    <li role="presentation"><a href="~/contact/contact">Associate Area</a></li>
+                                }
                             }
                         </ul>
 
@@ -190,21 +196,21 @@
                         © 2016 Global Advertising Lawyers Alliance.
                     </p>
                     <ul class="footer_list_date pull-left">
-                        <li><a href="#">Term Of Use</a> |</li>
-                        <li><a href="#">Privacy Policy</a> |</li>
-                        <li><a href="#">Site by cleverdesign</a></li>
+                        <li><a href="~/TermAndPrivacy/PrivacyPolicy">Term Of Use</a> |</li>
+                        <li><a href="~/TermAndPrivacy/TermOfUse">Privacy Policy</a> |</li>
+                        <li><a href="http://cleverdesign.com" target="_blank">Site by cleverdesign</a></li>
                     </ul>
                     <div class="visible-lg visible-md visible-sm social_images pull-right">
-                        <a href="www.facebook.com">
+                        <a href="https://www.facebook.com/Global-Advertising-Lawyers-Alliance-GALA-178926712146446/ " target="_blank">
                             <img src="~/Images/social-fb.png" />
                         </a>
-                        <a href="www.facebook.com">
+                        <a href="https://www.linkedin.com/company/global-advertising-lawyers-alliance" target="_blank">
                             <img src="~/Images/social-in.png" />
                         </a>
-                        <a href="www.facebook.com">
+                        <a href="https://twitter.com/galalaw" target="_blank">
                             <img src="~/Images/social-tv.png" />
                         </a>
-                        <a href="www.facebook.com">
+                        <a href="https://www.youtube.com/channel/UCq7jD7Zgh9waDiLsHxwgWCg" target="_blank">
                             <img src="~/Images/social-yt.png" />
                         </a>
                     </div>
@@ -213,7 +219,7 @@
         </footer>
     </div>
     <script src="~/Scripts/jquery-2.1.4.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
+    @*<script src="~/Scripts/bootstrap.min.js"></script>*@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

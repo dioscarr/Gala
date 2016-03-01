@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace GalaLaw.Controllers
 {
+   
     public class MembershipAssociateController : Controller
     {
         // GET: MembershipAssociate
@@ -13,6 +14,7 @@ namespace GalaLaw.Controllers
         {
             return View();
         }
+        [Authorize(Roles = "Associate")]
         public ActionResult WelcomeMembershipAssociate()
         {
             return View();

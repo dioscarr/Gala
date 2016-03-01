@@ -89,11 +89,18 @@ namespace GalaLaw.Controllers
             {
                 case SignInStatus.Success:
                     //custom
-                    
-                    if (UserManager.IsInRole(user.Id, "Admin") )
+
+                    if (UserManager.IsInRole(user.Id, "Admin"))
                     {
 
-                        return RedirectToAction("index","Admin");
+                        return RedirectToAction("index", "Admin");
+                    }
+                    else if(UserManager.IsInRole(user.Id, "Member")) {
+                        return RedirectToAction("WelcomeMembership", "Membership");
+                    }
+                    else if (UserManager.IsInRole(user.Id, "Associate"))
+                    {
+                        return RedirectToAction("WelcomeMembershipAssociate", "MembershipAssociate");
                     }
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
