@@ -1083,10 +1083,10 @@
     <Content Include="Views\Publication\Publication.cshtml" />
     <Content Include="Views\TermAndPrivacy\PrivacyPolicy.cshtml" />
     <Content Include="Views\TermAndPrivacy\TermOfUse.cshtml" />
-    <Content Include="Views\Membership\Membership.cshtml" />
     <Content Include="Views\Membership\WelcomeMembership.cshtml" />
     <Content Include="Views\MembershipAssociate\MembershipAssociate.cshtml" />
     <Content Include="Views\MembershipAssociate\WelcomeMembershipAssociate.cshtml" />
+    <Content Include="Views\Membership\Membership.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
