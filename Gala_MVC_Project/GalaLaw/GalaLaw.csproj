@@ -1030,6 +1030,7 @@
     <Content Include="Scripts\tinymce\themes\modern\theme.min.js" />
     <Content Include="Scripts\tinymce\tinymce.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Membership\WelcomeMembership.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -1083,10 +1084,8 @@
     <Content Include="Views\Publication\Publication.cshtml" />
     <Content Include="Views\TermAndPrivacy\PrivacyPolicy.cshtml" />
     <Content Include="Views\TermAndPrivacy\TermOfUse.cshtml" />
-    <Content Include="Views\Membership\WelcomeMembership.cshtml" />
     <Content Include="Views\MembershipAssociate\MembershipAssociate.cshtml" />
     <Content Include="Views\MembershipAssociate\WelcomeMembershipAssociate.cshtml" />
-    <Content Include="Views\Membership\Membership.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
